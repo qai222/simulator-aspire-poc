@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from typing import Any
 from loguru import logger
 from pydantic import BaseModel
 
@@ -16,12 +17,11 @@ class Quality(BaseModel):
     """
 
     name: str
-    value: str | int | float | bool | None
     related_to: tuple[str, str] | None = None  # (<relative identifier>, <relation type>)
-    unit: str = None
+    value: bool | int | float | str | dict[str, Any] | None = None
 
     def __hash__(self):
-        return hash((self.name, self.value, self.related_to, self.unit))
+        return hash((self.name, self.related_to))
 
     @property
     def is_relational(self) -> bool:
@@ -48,20 +48,6 @@ class Artifact(BaseModel):
     @property
     def quality_dict(self):
         return {(q.name, q.related_to): q for q in self.state}
-
-    def modify_quality(self, name: str, new_value=None, related_to: tuple[str, str] = None, unit: str = None,
-                       remove=False):
-        # TODO this by default includes state history
-        q = Quality(name=name, value=new_value, related_to=related_to, unit=unit)
-        qk = (name, related_to)
-        if qk not in self.quality_dict:
-            if remove:
-                logger.warning(f"removing non existing quality: {qk}")
-                return
-        else:
-            old_q = self.quality_dict[qk]
-            self.state.remove(old_q)
-        self.state.add(q)
 
     @property
     def internal_qualities(self):
@@ -99,6 +85,20 @@ class Artifact(BaseModel):
     def __str__(self):
         qualities = '\n\t'.join([s.json() for s in self.state])
         return f"{self.type} -- {self.identifier}\n\t{qualities}"
+
+    def modify_state(self, name: str, new_value=None, related_to: tuple[str, str] = None, unit: str = None,
+                     remove=False):
+        # TODO this by default includes state history
+        q = Quality(name=name, value=new_value, related_to=related_to)
+        qk = (name, related_to)
+        if qk not in self.quality_dict:
+            if remove:
+                logger.warning(f"removing non existing quality: {qk}")
+                return
+        else:
+            old_q = self.quality_dict[qk]
+            self.state.remove(old_q)
+        self.state.add(q)
 
 
 class System(BaseModel):

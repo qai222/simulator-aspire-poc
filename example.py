@@ -5,12 +5,12 @@ from deepdiff import DeepDiff
 from schema import *
 
 
-def create_vial(identifier: str, capacity: float = 50, unit: str = 'mL'):
+def create_vial(identifier: str, capacity: float = 50):
     vial = Artifact(
         identifier=identifier,
         type="vial",
         state={
-            Quality(name='capacity', value=capacity, related_to=None, unit=unit, ),
+            Quality(name='capacity', value=capacity, related_to=None, ),
         },
     )
     return vial
@@ -22,7 +22,7 @@ def create_heater(identifier: str):
         type="heater",
         state={
             Quality(name='switch', value='off'),
-            Quality(name='temperature_set_to', value=25, unit='C'),
+            Quality(name='temperature_set_to', value=25),
         },
     )
     return heater
@@ -53,7 +53,7 @@ state0 = deepcopy(system.state)
 print(state0)
 
 # fill vial_0
-vial_0.modify_quality(
+vial_0.modify_state(
     name='chemical DMSO', new_value=10, related_to=('flask A', 'filled_from'), unit='mL'
 )
 state1 = deepcopy(system.state)
@@ -61,10 +61,10 @@ print("FILL VIAL_0")
 print(state_delta(state0, state1).pretty())
 
 # fill vial_1 from vial_0
-vial_0.modify_quality(
+vial_0.modify_state(
     name='chemical DMSO', new_value=0, related_to=('vial_1', 'filled_to'), unit='mL'
 )
-vial_1.modify_quality(
+vial_1.modify_state(
     name='chemical DMSO', new_value=10, related_to=('vial_0', 'filled_from'), unit='mL'
 )
 state2 = deepcopy(system.state)
@@ -72,7 +72,7 @@ print("FILL VIAL_1 from VIAL_0")
 print(state_delta(state1, state2).pretty())
 
 # place vial_1 in rack_0
-vial_1.modify_quality(
+vial_1.modify_state(
     name='position', new_value='8A', related_to=('rack_0', 'inside')
 )
 state3 = deepcopy(system.state)
