@@ -46,7 +46,7 @@ class Artifact(BaseModel):
     state: set[Quality]
 
     @property
-    def quality_dict(self):
+    def quality_dict(self) -> dict[tuple[str, str | None], Quality]:
         return {(q.name, q.related_to): q for q in self.state}
 
     @property
@@ -101,7 +101,7 @@ class Artifact(BaseModel):
         self.state.add(q)
 
 
-class System(BaseModel):
+class Lab(BaseModel):
     artifacts: set[Artifact]
 
     @property

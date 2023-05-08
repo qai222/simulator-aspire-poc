@@ -48,7 +48,7 @@ vial_1 = create_vial('vial_1')
 heater_0 = create_heater('heater_0')
 rack_0 = create_rack('rack_0')
 
-system = System(artifacts={vial_0, vial_1, heater_0, rack_0})
+system = Lab(artifacts={vial_0, vial_1, heater_0, rack_0})
 state0 = deepcopy(system.state)
 print(state0)
 
