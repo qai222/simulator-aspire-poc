@@ -1,4 +1,4 @@
-from schema.action.base import Action, ABC, abstractmethod
+from schema.action.action_base import Action, ABC, abstractmethod
 from schema.artifact import OrderedDict
 from schema.lab import Artifact
 from schema.quality import Quality, QualityIdentifier

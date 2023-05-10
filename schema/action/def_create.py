@@ -1,4 +1,4 @@
-from schema.action.base import Action
+from schema.action.action_base import Action
 from schema.lab import Lab, Artifact
 from schema.quality import Quality, QualityIdentifier
 
