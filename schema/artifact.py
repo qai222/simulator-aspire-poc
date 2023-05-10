@@ -27,14 +27,14 @@ class Artifact(BaseModel):
     unique string identifier for the instance 
     """
 
-    type: ArtifactTypes
+    type: ArtifactTypes = "VIAL"
     """
     type of the artifact, e.g. `VIAL`
     """
 
-    state: dict[QualityIdentifier, Quality]
+    state: dict[QualityIdentifier, Quality] = dict()
 
-    state_history: dict[str, dict[QualityIdentifier, Quality]]  # keys should be action identifiers
+    state_history: dict[str, dict[QualityIdentifier, Quality]] = dict()  # keys should be action identifiers
 
     def __getitem__(self, key: QualityIdentifier | str):
         if isinstance(key, str):

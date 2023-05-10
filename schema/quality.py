@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class QualityIdentifier(BaseModel):
-    name: str
+    name: str = "default_quality"
     relative: str | None = None  # relative identifier
     relation: str | None = None  # e.g. `belongs to`
 
@@ -24,8 +24,8 @@ class Quality(BaseModel):
     [quality](http://purl.obolibrary.org/obo/BFO_0000019)
     """
 
-    identifier: QualityIdentifier
-    value: bool | int | float | str
+    identifier: QualityIdentifier = QualityIdentifier()
+    value: bool | int | float | str = "default_value"
     unit: str | None = None
 
     def __hash__(self):
