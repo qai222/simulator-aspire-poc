@@ -2,7 +2,7 @@ from schema.artifact import Artifact, BaseModel
 
 
 class Lab(BaseModel):
-    artifacts: set[Artifact]
+    artifacts: set[Artifact] = set()
 
     @property
     def state(self):

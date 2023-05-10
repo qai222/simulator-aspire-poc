@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections import OrderedDict
+from copy import deepcopy
 from typing import Literal
 
 from pydantic import BaseModel, Field
@@ -14,7 +16,7 @@ e.g. [portion of material](http://purl.obolibrary.org/obo/CHMO_0000993)
 """
 
 # TODO import this from a config file
-ArtifactTypes = Literal["VIAL", "HEATER", "RACK", "ARM"]
+ArtifactTypes = Literal["VIAL", "HEATER", "RACK", "TRANSFEROR"]
 
 
 class Artifact(BaseModel):
@@ -32,14 +34,19 @@ class Artifact(BaseModel):
     type of the artifact, e.g. `VIAL`
     """
 
-    state: dict[QualityIdentifier, Quality] = dict()
+    state: OrderedDict[QualityIdentifier, Quality] = dict()
 
-    state_history: dict[str, dict[QualityIdentifier, Quality]] = dict()  # keys should be action identifiers
+    state_history: OrderedDict[str, dict[QualityIdentifier, Quality]] = dict()  # keys should be action identifiers
 
     def __getitem__(self, key: QualityIdentifier | str):
         if isinstance(key, str):
             key = QualityIdentifier(name=key)
         return self.state[key]
+
+    def __setitem__(self, key: QualityIdentifier | str, value: Quality):
+        if isinstance(key, str):
+            key = QualityIdentifier(name=key)
+        self.state[key] = value
 
     @property
     def internal_qualities(self):
@@ -80,16 +87,7 @@ class Artifact(BaseModel):
         qualities = '\n\t'.join([s.json() for s in self.state.values()])
         return f"{self.type} -- {self.identifier}\n\t{qualities}"
 
-    # def modify_state(self, quality_identifier: QualityIdentifier, new_quality: Quality | None):
-    #
-    #     assert quality_identifier in self.quality_dict
-    #     assert new_quality.identifier == quality_identifier
-    #
-    #     old_q = self.quality_dict[quality_identifier]
-    #     self.state.remove(old_q)
-    #     if new_quality is None:
-    #         # remove the quality
-    #         logger.warning(f"removing quality: {old_q}")
-    #         return
-    #     else:
-    #         self.state.add(new_quality)
+    def transition(self, new_state: OrderedDict[QualityIdentifier, Quality], transition_action_identifier: str):
+        old_state = deepcopy(self.state)
+        self.state = new_state
+        self.state_history[transition_action_identifier] = old_state
