@@ -1,8 +1,11 @@
 from __future__ import annotations
 
-from pydantic import BaseModel
+from typing import Literal
+
+from pydantic import BaseModel, Field
 
 from schema.quality import Quality, QualityIdentifier
+from schema.utils import str_uuid
 
 """
 in addition to using `artifact` for devices, other classes are available for other components of the system
@@ -10,25 +13,28 @@ in addition to using `artifact` for devices, other classes are available for oth
 e.g. [portion of material](http://purl.obolibrary.org/obo/CHMO_0000993)
 """
 
+# TODO import this from a config file
+ArtifactTypes = Literal["VIAL", "HEATER", "RACK", "ARM"]
+
 
 class Artifact(BaseModel):
     """
     [artifact](http://purl.allotrope.org/ontologies/equipment#AFE_0002099)
     """
 
-    identifier: str
+    identifier: str = Field(default_factory=str_uuid)
     """ 
     unique string identifier for the instance 
     """
 
-    type: str
+    type: ArtifactTypes
     """
-    type of the artifact, e.g. `vial`
+    type of the artifact, e.g. `VIAL`
     """
 
     state: dict[QualityIdentifier, Quality]
 
-    state_history: dict[float, dict[QualityIdentifier, Quality]]
+    state_history: dict[str, dict[QualityIdentifier, Quality]]  # keys should be action identifiers
 
     def __getitem__(self, key: QualityIdentifier | str):
         if isinstance(key, str):
