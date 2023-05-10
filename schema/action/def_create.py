@@ -1,5 +1,5 @@
-from ..abstraction import Lab, Artifact, Quality, QualityIdentifier
 from .action_base import Action
+from ..abstraction import Lab, Artifact, Quality, QualityIdentifier
 
 
 class ActionCreateArtifact(Action):
@@ -10,7 +10,7 @@ class ActionCreateArtifact(Action):
     def execute(self):
         qi = QualityIdentifier(name="CreatedBy")
         self.creation[qi] = Quality(identifier=qi, value=self.identifier)
-        self.lab.artifacts.add(self.creation)
+        self.lab.artifacts[self.creation.identifier] = self.creation
 
 
 class ActionAnnihilateArtifact(Action):
@@ -21,4 +21,4 @@ class ActionAnnihilateArtifact(Action):
     def execute(self):
         qi = QualityIdentifier(name="DestroyedBy")
         self.creation[qi] = Quality(identifier=qi, value=self.identifier)
-        self.lab.artifacts.remove(self.creation)
+        self.lab.artifacts.pop(self.creation.identifier)

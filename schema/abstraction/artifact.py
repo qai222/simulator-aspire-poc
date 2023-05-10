@@ -6,8 +6,8 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from ..utils import str_uuid
 from .quality import Quality, QualityIdentifier
+from ..utils import str_uuid
 
 """
 in addition to using `artifact` for devices, other classes are available for other components of the system
@@ -16,7 +16,7 @@ e.g. [portion of material](http://purl.obolibrary.org/obo/CHMO_0000993)
 """
 
 # TODO import this from a config file
-ArtifactTypes = Literal["VIAL", "HEATER", "RACK", "TRANSFEROR"]
+ArtifactTypes = Literal["VIAL", "CONTAINER", "HEATER", "RACK", "TRANSFEROR", "MATTER", "REACTOR"]
 
 
 class Artifact(BaseModel):

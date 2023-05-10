@@ -25,7 +25,7 @@ class Quality(BaseModel):
     """
 
     identifier: QualityIdentifier = QualityIdentifier()
-    value: bool | int | float | str = "default_value"
+    value: bool | int | float | str | list | tuple | dict = "default_value"
     unit: str | None = None
 
     def __hash__(self):

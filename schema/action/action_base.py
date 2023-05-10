@@ -7,18 +7,27 @@ from typing import Literal
 from loguru import logger
 from pydantic import Field, BaseModel
 
-from ..abstraction import Quality, Artifact
+from ..abstraction import Artifact, QualityIdentifier
 from ..utils import str_uuid
 
 
 class ArtifactCondition(BaseModel):
     artifact: Artifact
 
-    desired_quality: Quality
+    target_qi: QualityIdentifier
+
+    condition: Literal["GT", "LT", "EQ"] = "EQ"  # TODO this is so ugly...
+
+    condition_parameter: str | float
 
     @property
     def satisfy(self) -> bool:
-        return self.artifact[self.desired_quality.identifier] == self.desired_quality
+        if self.condition == "GT":
+            return self.artifact[self.target_qi].value > self.condition_parameter
+        if self.condition == "LT":
+            return self.artifact[self.target_qi].value < self.condition_parameter
+        if self.condition == "EQ":
+            return self.artifact[self.target_qi].value == self.condition_parameter
 
 
 class ActionCondition(BaseModel):
@@ -55,7 +64,7 @@ class Action(BaseModel, ABC):
     action_conditions_pre: list[ActionCondition] = []
 
     # post actors
-    duration: float | None = 0.0  # None means its dynamically terminated
+    duration: float | None = None  # None means its dynamically terminated
 
     artifact_conditions_post: list[ArtifactCondition] = []
 
@@ -95,6 +104,7 @@ class Action(BaseModel, ABC):
             raise RuntimeError(msg)
 
         # check post conditions
+        # TODO shouldn't this be computed at runtime?
         for c in self.action_conditions_post + self.artifact_conditions_post:
             if not c.satisfy:
                 msg = f"post condition for this action is not satisfied: {c}"
