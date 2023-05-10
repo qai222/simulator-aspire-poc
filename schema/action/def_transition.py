@@ -1,7 +1,7 @@
-from schema.action.action_base import Action, ABC, abstractmethod
-from schema.artifact import OrderedDict
-from schema.lab import Artifact
-from schema.quality import Quality, QualityIdentifier
+from collections import OrderedDict
+
+from ..abstraction import Artifact, Quality, QualityIdentifier
+from .action_base import Action, ABC, abstractmethod
 
 
 class ActionTransitArtifact(Action, ABC):

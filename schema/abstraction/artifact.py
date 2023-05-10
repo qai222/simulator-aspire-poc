@@ -6,8 +6,8 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from schema.quality import Quality, QualityIdentifier
-from schema.utils import str_uuid
+from ..utils import str_uuid
+from .quality import Quality, QualityIdentifier
 
 """
 in addition to using `artifact` for devices, other classes are available for other components of the system

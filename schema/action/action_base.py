@@ -5,10 +5,10 @@ from datetime import datetime
 from typing import Literal
 
 from loguru import logger
-from pydantic import Field
+from pydantic import Field, BaseModel
 
-from schema.artifact import BaseModel, Quality, Artifact
-from schema.utils import str_uuid
+from ..abstraction import Quality, Artifact
+from ..utils import str_uuid
 
 
 class ArtifactCondition(BaseModel):

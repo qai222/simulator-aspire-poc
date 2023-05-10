@@ -1,6 +1,5 @@
-from schema.action.action_base import Action
-from schema.lab import Lab, Artifact
-from schema.quality import Quality, QualityIdentifier
+from ..abstraction import Lab, Artifact, Quality, QualityIdentifier
+from .action_base import Action
 
 
 class ActionCreateArtifact(Action):

@@ -1,4 +1,4 @@
-from schema.artifact import Artifact, BaseModel
+from .artifact import Artifact, BaseModel
 
 
 class Lab(BaseModel):
