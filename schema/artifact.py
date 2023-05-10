@@ -1,31 +1,14 @@
 from __future__ import annotations
 
-from typing import Any
-from loguru import logger
 from pydantic import BaseModel
+
+from schema.quality import Quality, QualityIdentifier
 
 """
 in addition to using `artifact` for devices, other classes are available for other components of the system
 [material](http://purl.allotrope.org/ontologies/material#AFM_0000275)
 e.g. [portion of material](http://purl.obolibrary.org/obo/CHMO_0000993)
 """
-
-
-class Quality(BaseModel):
-    """
-    [quality](http://purl.obolibrary.org/obo/BFO_0000019)
-    """
-
-    name: str
-    related_to: tuple[str, str] | None = None  # (<relative identifier>, <relation type>)
-    value: bool | int | float | str | dict[str, Any] | None = None
-
-    def __hash__(self):
-        return hash((self.name, self.related_to))
-
-    @property
-    def is_relational(self) -> bool:
-        return self.related_to is not None
 
 
 class Artifact(BaseModel):
@@ -43,15 +26,20 @@ class Artifact(BaseModel):
     type of the artifact, e.g. `vial`
     """
 
-    state: set[Quality]
+    state: dict[QualityIdentifier, Quality]
 
-    @property
-    def quality_dict(self) -> dict[tuple[str, str | None], Quality]:
-        return {(q.name, q.related_to): q for q in self.state}
+    state_history: dict[float, dict[QualityIdentifier, Quality]]
+
+    def __getitem__(self, key: QualityIdentifier | str):
+        if isinstance(key, str):
+            key = QualityIdentifier(name=key)
+        return self.state[key]
 
     @property
     def internal_qualities(self):
         """
+        # TODO should `existence` be an internal quality?
+
         a set of qualities describing the internal state of the instance
         [system configuration](http://purl.allotrope.org/ontologies/quality#AFQ_0000036)
 
@@ -59,7 +47,7 @@ class Artifact(BaseModel):
             but since for now there is no update from the real system, the objects of our "actions"
             can only be configurations.
         """
-        return {q for q in self.state if not q.is_relational}
+        return {q for q in self.state.values() if not q.is_relational}
 
     @property
     def relational_qualities(self):
@@ -73,45 +61,29 @@ class Artifact(BaseModel):
         the owner of this state to **one** external source. If this assumption is not true then validations are needed to
         check the consistency of these definitions.
         """
-        return {q for q in self.state if q.is_relational}
+        return {q for q in self.state.values() if q.is_relational}
 
     @property
     def relatives(self) -> set[str]:
-        return {q.related_to[0] for q in self.state}
+        return {q.identifier.relative for q in self.state.values()}
 
     def __hash__(self):
         return hash(self.identifier)
 
     def __str__(self):
-        qualities = '\n\t'.join([s.json() for s in self.state])
+        qualities = '\n\t'.join([s.json() for s in self.state.values()])
         return f"{self.type} -- {self.identifier}\n\t{qualities}"
 
-    def modify_state(self, name: str, new_value=None, related_to: tuple[str, str] = None, unit: str = None,
-                     remove=False):
-        # TODO this by default includes state history
-        q = Quality(name=name, value=new_value, related_to=related_to)
-        qk = (name, related_to)
-        if qk not in self.quality_dict:
-            if remove:
-                logger.warning(f"removing non existing quality: {qk}")
-                return
-        else:
-            old_q = self.quality_dict[qk]
-            self.state.remove(old_q)
-        self.state.add(q)
-
-
-class Lab(BaseModel):
-    artifacts: set[Artifact]
-
-    @property
-    def state(self):
-        s = dict()
-        for art in self.artifacts:
-            s[art.identifier] = art.state
-        return s
-
-    def __str__(self):
-        return "=== SYSTEM ===\n" + \
-            "\n".join([a.__str__() for a in self.artifacts]) + \
-            "\n=== SYSTEM END ==="
+    # def modify_state(self, quality_identifier: QualityIdentifier, new_quality: Quality | None):
+    #
+    #     assert quality_identifier in self.quality_dict
+    #     assert new_quality.identifier == quality_identifier
+    #
+    #     old_q = self.quality_dict[quality_identifier]
+    #     self.state.remove(old_q)
+    #     if new_quality is None:
+    #         # remove the quality
+    #         logger.warning(f"removing quality: {old_q}")
+    #         return
+    #     else:
+    #         self.state.add(new_quality)
