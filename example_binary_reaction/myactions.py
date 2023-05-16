@@ -25,9 +25,8 @@ for act in INIT_ACTIONS.values():
 
 # print(LAB)
 for i, art in LAB.artifacts.items():
-    if art.type == "MATTER":
-        print(art)
-
+    print(art)
+# print()
 
 
 # # liquid transfer action

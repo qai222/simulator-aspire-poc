@@ -47,6 +47,9 @@ class ActionCondition(BaseModel):
             satisfy = False
         return satisfy
 
+    class Config:
+       undefined_types_warning=False
+
     # TODO max delay?
 
 
