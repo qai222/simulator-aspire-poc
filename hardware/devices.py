@@ -13,6 +13,7 @@ class Balance(Device):
 
 
 class HeaterSetPoint(Instruction):
+
     set_to: float
 
     action_method_name: str = "action_set_point"
@@ -36,12 +37,12 @@ class Heater(Device):
         self.change_state(self, new_state_self)
 
 
-# heater = Heater()
-# action = HeaterSetPoint(set_to=200)
-# print(heater)
-# getattr(heater, action.action_method_name)(action)
-# print(heater)
-# """
-# identifier='41ab503e-6324-4e78-aaa8-af1d81fd2a91' is_occupied=False max_capacity=400 set_point=25 reading=25 heating_rate=10 cooling_rate=2
-# identifier='41ab503e-6324-4e78-aaa8-af1d81fd2a91' is_occupied=False max_capacity=400 set_point=200.0 reading=25 heating_rate=10 cooling_rate=2
-# """
+heater = Heater()
+action = HeaterSetPoint(set_to=200)
+print(heater)
+getattr(heater, action.action_method_name)(action)
+print(heater)
+"""
+identifier='41ab503e-6324-4e78-aaa8-af1d81fd2a91' is_occupied=False max_capacity=400 set_point=25 reading=25 heating_rate=10 cooling_rate=2
+identifier='41ab503e-6324-4e78-aaa8-af1d81fd2a91' is_occupied=False max_capacity=400 set_point=200.0 reading=25 heating_rate=10 cooling_rate=2
+"""

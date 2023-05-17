@@ -45,10 +45,20 @@ class Device(LabObject, ABC):
         # assert other.validate_state(state)
         other.__dict__.update(state)
 
-    # @abstractmethod
-    def wait(self, time: float):
-        """ simpy action """
-        pass
+    def act(self, action_name: str, action_parameters: dict[str, Any]):
+        getattr(self, action_name)(**action_parameters)
+
+    def action_occupy(self):
+        self.change_state(self, {"is_occupied": True})
+
+    def action_free_occupied(self):
+        self.change_state(self, {"is_occupied": False})
+
+
+    # # @abstractmethod
+    # def wait(self, time: float):
+    #     """ simpy action """
+    #     pass
 
 
 class Instruction(BaseModel, ABC):
@@ -61,7 +71,7 @@ class Instruction(BaseModel, ABC):
 
     dep_action: list[Instruction] = []
 
-    dep_state: dict[Device, dict[str, Any]] = dict()
+    # dep_state: dict[Device, dict[str, Any]] = dict()  # not sure if an instruction should check states
 
     # subject: Device
 
