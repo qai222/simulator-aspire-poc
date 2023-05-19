@@ -1,80 +1,76 @@
-from copy import deepcopy
+from hardware_pydantic import *
 
-from deepdiff import DeepDiff
+"""
+an example lab
+                      -- heater 1 --
+rack 1 -- transferor 1              transferor 2 -- rack 2
+                      -- heater 2 --
+"""
+instructions = set()
 
-from schema import *
+rack1 = Rack(identifier='rack1')
+rack2 = Rack(identifier='rack2')
+transferor1 = VialTransferor(identifier='crane1')
+transferor2 = VialTransferor(identifier='crane2')
+heater1 = Heater(identifier='heater1')
+heater2 = Heater(identifier='heater2')
+lab = Lab()
+for d in [rack1, rack2, transferor1, transferor2, heater1, heater2]:
+    lab.add_object(d)
 
+# spawn vial in rack1
+for ilabel, label in enumerate(rack1.content):
+    v = Vial(identifier=f"vial{ilabel + 1}", position=label, position_relative=rack1.identifier)
+    rack1.content[label] = v.identifier
+    lab.add_object(v)
 
-def create_vial(identifier: str, capacity: float = 50):
-    vial = Artifact(
-        identifier=identifier,
-        type="vial",
-        state={
-            Quality(name='capacity', value=capacity, related_to=None, ),
-        },
-    )
-    return vial
-
-
-def create_heater(identifier: str):
-    heater = Artifact(
-        identifier=identifier,
-        type="heater",
-        state={
-            Quality(name='switch', value='off'),
-            Quality(name='temperature_set_to', value=25),
-        },
-    )
-    return heater
-
-
-def create_rack(identifier: str):
-    rack = Artifact(
-        identifier=identifier,
-        type="rack",
-        state={
-            Quality(name='capacity', value=16),
-        },
-    )
-    return rack
-
-
-def state_delta(state1: set[Quality], state2: set[Quality]):
-    return DeepDiff(state1, state2, view='tree')
-
-
-vial_0 = create_vial('vial_0')
-vial_1 = create_vial('vial_1')
-heater_0 = create_heater('heater_0')
-rack_0 = create_rack('rack_0')
-
-system = Lab(artifacts={vial_0, vial_1, heater_0, rack_0})
-state0 = deepcopy(system.state)
-print(state0)
-
-# fill vial_0
-vial_0.modify_state(
-    name='chemical DMSO', new_value=10, related_to=('flask A', 'filled_from'), unit='mL'
+# move vial1 from rack1 to heater1
+ins_move_rack1_to_heater1 = Instruction(
+    actor_device=transferor1,
+    device_action_method_name="action__transfer",
+    device_action_method_parameters={
+        "from_obj": rack1,
+        "to_obj": heater1,
+        "transferee": lab.dict_object['vial1'],
+        "to_position": None,
+    },
 )
-state1 = deepcopy(system.state)
-print("FILL VIAL_0")
-print(state_delta(state0, state1).pretty())
 
-# fill vial_1 from vial_0
-vial_0.modify_state(
-    name='chemical DMSO', new_value=0, related_to=('vial_1', 'filled_to'), unit='mL'
+# move vial1 from heater1 to rack2
+ins_move_heater1_to_rack2 = Instruction(
+    actor_device=transferor1,
+    device_action_method_name="action__transfer",
+    device_action_method_parameters={
+        "from_obj": heater1,
+        "to_obj": rack2,
+        "transferee": lab.dict_object['vial1'],
+        "to_position": 'A2',
+    },
+    dependent_instructions=[ins_move_rack1_to_heater1.identifier, ]
 )
-vial_1.modify_state(
-    name='chemical DMSO', new_value=10, related_to=('vial_0', 'filled_from'), unit='mL'
-)
-state2 = deepcopy(system.state)
-print("FILL VIAL_1 from VIAL_0")
-print(state_delta(state1, state2).pretty())
 
-# place vial_1 in rack_0
-vial_1.modify_state(
-    name='position', new_value='8A', related_to=('rack_0', 'inside')
+ins_set_heater1_to_200 = Instruction(
+    actor_device=heater1,
+    device_action_method_name="action__set_point",
+    device_action_method_parameters={
+        "set_point": 200,
+    },
+    dependent_instructions=[ins_move_rack1_to_heater1.identifier, ]
 )
-state3 = deepcopy(system.state)
-print("MOVE VIAL_1 TO RACK_0")
-print(state_delta(state2, state3).pretty())
+
+ins_heater1_heating_to_set_point = Instruction(
+    actor_device=heater1,
+    device_action_method_name="action__heat_process",
+    device_action_method_parameters={},
+    dependent_instructions=[ins_set_heater1_to_200.identifier, ]
+)
+
+instructions.add(ins_move_heater1_to_rack2)
+instructions.add(ins_move_rack1_to_heater1)
+instructions.add(ins_set_heater1_to_200)
+instructions.add(ins_heater1_heating_to_set_point)
+
+lab.act_by_instruction(ins_move_rack1_to_heater1)
+lab.act_by_instruction(ins_move_heater1_to_rack2)
+lab.act_by_instruction(ins_set_heater1_to_200)
+lab.act_by_instruction(ins_heater1_heating_to_set_point)
