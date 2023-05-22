@@ -1,23 +1,29 @@
+import pprint
+
 from casymda.blocks.block_components.block import Block
+from hardware_pydantic import Lab
 from simpy import Environment
 
 from .instruction_job import InstructionJob
 
 
 class Sink(Block):
-    def __init__(self, env: Environment):
+    def __init__(self, env: Environment, lab: Lab):
         """
         conceptual block used for sending jobs to actual devices
         """
         super().__init__(env, name="SINK", block_capacity=float('inf'))
         self.do_on_enter_list.append(self.do_on_enter)
         self.time_of_last_entry = -1
+        self.lab = lab
 
     def do_on_enter(self, job: InstructionJob, previous, current):
         # TODO use dedicate logger
         job.notify_job_completion()
         self.time_of_last_entry = self.env.now
-        print("job finished: " + job.name + f"at: {self.time_of_last_entry}")
+        print("FINISHED STEP\n" + job.name + f" at: {self.time_of_last_entry}")
+        print(f"CURRENT LAB:\n{self.lab}")
+        print("="*12)
 
     def process_entity(self, entity):
         yield self.env.timeout(0)

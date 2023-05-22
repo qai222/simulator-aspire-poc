@@ -24,6 +24,7 @@ for ilabel, label in enumerate(rack1.content):
 
 # move vial1 from rack1 to heater1
 ins_move_rack1_to_heater1 = Instruction(
+    identifier="ins_move_rack1_to_heater1",
     actor_device=transferor1,
     action_method="action__transfer",
     action_parameters={
@@ -36,7 +37,8 @@ ins_move_rack1_to_heater1 = Instruction(
 
 # move vial1 from heater1 to rack2
 ins_move_heater1_to_rack2 = Instruction(
-    actor_device=transferor1,
+    identifier="ins_move_heater1_to_rack2",
+    actor_device=transferor2,
     action_method="action__transfer",
     action_parameters={
         "from_obj": heater1,
@@ -48,6 +50,7 @@ ins_move_heater1_to_rack2 = Instruction(
 )
 
 ins_set_heater1_to_200 = Instruction(
+    identifier="ins_set_heater1_to_200",
     actor_device=heater1,
     action_method="action__set_point",
     action_parameters={
@@ -57,21 +60,21 @@ ins_set_heater1_to_200 = Instruction(
 )
 
 ins_heater1_heating_to_set_point = Instruction(
+    identifier="ins_heater1_heating_to_set_point",
     actor_device=heater1,
     action_method="action__heat_process",
     action_parameters={},
     preceding_instructions=[ins_set_heater1_to_200.identifier, ]
 )
 
+# lab.add_instruction(ins_heater1_heating_to_set_point)
+lab.add_instruction(ins_set_heater1_to_200)
 lab.add_instruction(ins_move_rack1_to_heater1)
 lab.add_instruction(ins_move_heater1_to_rack2)
-lab.add_instruction(ins_heater1_heating_to_set_point)
-lab.add_instruction(ins_set_heater1_to_200)
-
 
 if __name__ == '__main__':
     lab.act_by_instruction(ins_move_rack1_to_heater1)
-    lab.act_by_instruction(ins_move_heater1_to_rack2)
+    # lab.act_by_instruction(ins_move_heater1_to_rack2)
     lab.act_by_instruction(ins_set_heater1_to_200)
     lab.act_by_instruction(ins_heater1_heating_to_set_point)
     """

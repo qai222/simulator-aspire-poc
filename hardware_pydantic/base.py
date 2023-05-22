@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from copy import deepcopy
 from typing import Any, Literal
 from uuid import uuid4
 
@@ -57,7 +56,7 @@ class LabObject(Individual):
 
     @property
     def state(self) -> dict:
-        return deepcopy(self.__dict__)
+        return self.__dict__
 
     def validate_state(self, state: dict) -> bool:
         pass
@@ -170,6 +169,12 @@ class Lab(BaseModel):
     @property
     def state(self) -> dict[str, dict[str, Any]]:
         return {d.identifier: d.state for d in self.dict_object.values()}
+
+    def __repr__(self):
+        return "\n".join([f"{obj.identifier}: {obj.state}" for obj in self.dict_object.values()])
+
+    def __str__(self):
+        return self.__repr__()
 
     @property
     def instruction_graph(self):
