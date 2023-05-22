@@ -1,0 +1,60 @@
+ins_move_rack1_to_heater1  ready at: 0
+FINISHED STEP
+InstructionJob: ins_move_rack1_to_heater1 at: 5
+CURRENT LAB:
+rack1: {'identifier': 'rack1', 'content': {'A1': None, 'A2': 'vial2', 'B1': 'vial3', 'B2': 'vial4'}}
+rack2: {'identifier': 'rack2', 'content': {'A1': None, 'A2': None, 'B1': None, 'B2': None}}
+crane1: {'identifier': 'crane1'}
+crane2: {'identifier': 'crane2'}
+heater1: {'identifier': 'heater1', 'set_point': 25, 'reading': 25, 'content': 'vial1'}
+heater2: {'identifier': 'heater2', 'set_point': 25, 'reading': 25, 'content': None}
+vial1: {'identifier': 'vial1', 'position': None, 'position_relative': 'heater1', 'content': {}}
+vial2: {'identifier': 'vial2', 'position': 'A2', 'position_relative': 'rack1', 'content': {}}
+vial3: {'identifier': 'vial3', 'position': 'B1', 'position_relative': 'rack1', 'content': {}}
+vial4: {'identifier': 'vial4', 'position': 'B2', 'position_relative': 'rack1', 'content': {}}
+============
+ins_set_heater1_to_200  ready at: 5
+ins_move_heater1_to_rack2  ready at: 5
+FINISHED STEP
+InstructionJob: ins_set_heater1_to_200 at: 5.00001
+CURRENT LAB:
+rack1: {'identifier': 'rack1', 'content': {'A1': None, 'A2': 'vial2', 'B1': 'vial3', 'B2': 'vial4'}}
+rack2: {'identifier': 'rack2', 'content': {'A1': None, 'A2': None, 'B1': None, 'B2': None}}
+crane1: {'identifier': 'crane1'}
+crane2: {'identifier': 'crane2'}
+heater1: {'identifier': 'heater1', 'set_point': 200, 'reading': 25, 'content': 'vial1'}
+heater2: {'identifier': 'heater2', 'set_point': 25, 'reading': 25, 'content': None}
+vial1: {'identifier': 'vial1', 'position': None, 'position_relative': 'heater1', 'content': {}}
+vial2: {'identifier': 'vial2', 'position': 'A2', 'position_relative': 'rack1', 'content': {}}
+vial3: {'identifier': 'vial3', 'position': 'B1', 'position_relative': 'rack1', 'content': {}}
+vial4: {'identifier': 'vial4', 'position': 'B2', 'position_relative': 'rack1', 'content': {}}
+============
+ins_heater1_heating_to_set_point  ready at: 5.00001
+FINISHED STEP
+InstructionJob: ins_move_heater1_to_rack2 at: 10
+CURRENT LAB:
+rack1: {'identifier': 'rack1', 'content': {'A1': None, 'A2': 'vial2', 'B1': 'vial3', 'B2': 'vial4'}}
+rack2: {'identifier': 'rack2', 'content': {'A1': None, 'A2': 'vial1', 'B1': None, 'B2': None}}
+crane1: {'identifier': 'crane1'}
+crane2: {'identifier': 'crane2'}
+heater1: {'identifier': 'heater1', 'set_point': 200, 'reading': 25, 'content': None}
+heater2: {'identifier': 'heater2', 'set_point': 25, 'reading': 25, 'content': None}
+vial1: {'identifier': 'vial1', 'position': 'A2', 'position_relative': 'rack2', 'content': {}}
+vial2: {'identifier': 'vial2', 'position': 'A2', 'position_relative': 'rack1', 'content': {}}
+vial3: {'identifier': 'vial3', 'position': 'B1', 'position_relative': 'rack1', 'content': {}}
+vial4: {'identifier': 'vial4', 'position': 'B2', 'position_relative': 'rack1', 'content': {}}
+============
+FINISHED STEP
+InstructionJob: ins_heater1_heating_to_set_point at: 22.50001
+CURRENT LAB:
+rack1: {'identifier': 'rack1', 'content': {'A1': None, 'A2': 'vial2', 'B1': 'vial3', 'B2': 'vial4'}}
+rack2: {'identifier': 'rack2', 'content': {'A1': None, 'A2': 'vial1', 'B1': None, 'B2': None}}
+crane1: {'identifier': 'crane1'}
+crane2: {'identifier': 'crane2'}
+heater1: {'identifier': 'heater1', 'set_point': 200, 'reading': 200, 'content': None}
+heater2: {'identifier': 'heater2', 'set_point': 25, 'reading': 25, 'content': None}
+vial1: {'identifier': 'vial1', 'position': 'A2', 'position_relative': 'rack2', 'content': {}}
+vial2: {'identifier': 'vial2', 'position': 'A2', 'position_relative': 'rack1', 'content': {}}
+vial3: {'identifier': 'vial3', 'position': 'B1', 'position_relative': 'rack1', 'content': {}}
+vial4: {'identifier': 'vial4', 'position': 'B2', 'position_relative': 'rack1', 'content': {}}
+============
