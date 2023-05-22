@@ -11,10 +11,15 @@ class Heater(Device):
     @action_method_logging
     def action__set_point(self, set_point: float = 25):
         self.set_point = set_point
+
+    def projection__set_point(self, set_point: float = 25):
         return 1e-5
 
     @action_method_logging
     def action__heat_process(self):
+        self.reading = self.set_point
+
+    def projection__heat_process(self):
         # TODO heating and cooling rate should be different and it should not be a constant
         heat_rate = 10
         return abs(self.set_point - self.reading) / heat_rate
@@ -25,17 +30,35 @@ class LiquidTransferor(Device):
     @action_method_logging
     def action__transfer_between_vials(self, from_obj: Vial, to_obj: Vial, amount: float):
         # TODO sample from a dist
-        transfer_speed = 5
         removed = from_obj.remove_content(amount)
         to_obj.add_content(removed)
+
+    def projection__transfer_between_vials(self, from_obj: Vial, to_obj: Vial, amount: float):
+        # TODO sample from a dist
+        transfer_speed = 5
         return amount / transfer_speed
 
 
 class VialTransferor(Device):
 
+    def projection__transfer(
+            self,
+            from_obj: Rack | Heater,
+            to_obj: Rack | Heater,
+            transferee: Vial,
+            to_position: str | None
+    ) -> float:
+        # TODO dynamic duration
+        return 5
+
     @action_method_logging
-    def action__transfer(self, from_obj: Rack | Heater, to_obj: Rack | Heater, transferee: Vial,
-                         to_position: str | None):
+    def action__transfer(
+            self,
+            from_obj: Rack | Heater,
+            to_obj: Rack | Heater,
+            transferee: Vial,
+            to_position: str | None
+    ) -> None:
         # TODO make more general
         # take it out
         assert transferee.position_relative == from_obj.identifier
@@ -56,5 +79,3 @@ class VialTransferor(Device):
             to_obj.content = transferee.identifier
         transferee.position = to_position
         transferee.position_relative = to_obj.identifier
-        # TODO dynamic duration
-        return 5
