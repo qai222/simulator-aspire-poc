@@ -1,12 +1,8 @@
-from simpy.core import Environment
-
-from casymda_hardware.instruction_job import InstructionJob
 from casymda.blocks.block_components.block import Block
-from simpy import Interrupt
 from simpy.core import Environment
-from casymda_hardware.device_block import DeviceBlock
 
-from casymda_hardware.instruction_job import InstructionJob
+from .device_block import DeviceBlock
+from .instruction_job import InstructionJob
 
 
 class Spreader(Block):

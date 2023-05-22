@@ -1,8 +1,8 @@
 from casymda.blocks.block_components.block import Block
 
-from casymda_hardware.buffer import Buffer
-from casymda_hardware.instruction_job import InstructionJob
-from casymda_hardware.sink import Sink
+from .buffer import Buffer
+from .instruction_job import InstructionJob
+from .sink import Sink
 
 
 class Check(Block):

@@ -2,7 +2,7 @@ from casymda.blocks.block_components.block import Block
 from simpy import Interrupt
 from simpy.core import Environment
 
-from casymda_hardware.instruction_job import InstructionJob
+from .instruction_job import InstructionJob
 
 
 class Buffer(Block):
