@@ -8,7 +8,6 @@ class Sink(Block):
     def __init__(self, env: Environment):
         """
         conceptual block used for sending jobs to actual devices
-        # TODO combine with `Spreader`
         """
         super().__init__(env, name="SINK", block_capacity=float('inf'))
         self.do_on_enter_list.append(self.do_on_enter)
