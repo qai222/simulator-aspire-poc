@@ -6,8 +6,6 @@ an example lab
 rack 1 -- transferor 1              transferor 2 -- rack 2
                       -- heater 2 --
 """
-instructions = set()
-
 rack1 = Rack(identifier='rack1')
 rack2 = Rack(identifier='rack2')
 transferor1 = VialTransferor(identifier='crane1')
@@ -65,10 +63,11 @@ ins_heater1_heating_to_set_point = Instruction(
     preceding_instructions=[ins_set_heater1_to_200.identifier, ]
 )
 
-instructions.add(ins_move_heater1_to_rack2)
-instructions.add(ins_move_rack1_to_heater1)
-instructions.add(ins_set_heater1_to_200)
-instructions.add(ins_heater1_heating_to_set_point)
+lab.add_instruction(ins_move_rack1_to_heater1)
+lab.add_instruction(ins_move_heater1_to_rack2)
+lab.add_instruction(ins_heater1_heating_to_set_point)
+lab.add_instruction(ins_set_heater1_to_200)
+
 
 if __name__ == '__main__':
     lab.act_by_instruction(ins_move_rack1_to_heater1)

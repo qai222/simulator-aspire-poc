@@ -143,14 +143,28 @@ class Lab(BaseModel):
         assert isinstance(actor, Device)
         return actor.act_by_instruction(i)
 
+    def add_instruction(self, i: Instruction):
+        assert i.identifier not in self.dict_instruction
+        self.dict_instruction[i.identifier] = i
+
+    def remove_instruction(self, i: Instruction | str):
+        if isinstance(i, str):
+            assert i in self.dict_instruction
+            self.dict_instruction.pop(i)
+        else:
+            assert i.identifier in self.dict_instruction
+            self.dict_instruction.pop(i.identifier)
+
     def add_object(self, d: LabObject):
         assert d.identifier not in self.dict_object
         self.dict_object[d.identifier] = d
 
     def remove_object(self, d: LabObject | str):
         if isinstance(d, str):
+            assert d in self.dict_object
             self.dict_object.pop(d)
         else:
+            assert d.identifier in self.dict_object
             self.dict_object.pop(d.identifier)
 
     @property
