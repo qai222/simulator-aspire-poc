@@ -22,13 +22,11 @@ def action_method_logging(func):
 
     def function_caller(self: Device, *args, **kwargs):
         _func = resolve_function(func)
-        logger.warning(f">> RUNNING *{func.__name__}* of *{self.__class__.__name__}*: {self.identifier}")
+        logger.warning(f">> ACTION COMMITTED *{func.__name__}* of *{self.__class__.__name__}*: {self.identifier}")
         for k, v in kwargs.items():
             logger.info(f"action parameter name: {k}")
             logger.info(f"action parameter value: {v}")
-        duration = _func(self, *args, **kwargs)
-        logger.warning(f">> FINISHED with duration: {duration}")
-        return duration
+        _func(self, *args, **kwargs)
 
     return function_caller
 
@@ -73,34 +71,63 @@ class Device(LabObject):
     2. can change its state and other lab objects' states using its action methods,
         it cannot change another device's state!
 
-    an action method must start with "action__"
+    an action method's name follows "action__{action_name}"
+
+    a problem in simulation:
+    an action should change the states of involved objects after the required time has passed
+    this means
+        - the time cost for finishing this action should be first computed at runtime
+        - then, after the time has passed, change the states of objects through the action method
+    we call the former a `projection`, an action method should always be accompanied by a projection method
+    # TODO a decorator to check this pairing
     """
 
     @property
-    def action_method_names(self):
+    def action_names(self):
         """ a sorted list of the names of all defined action methods """
-        return sorted({k for k in dir(self) if k.startswith("action__")})
+        return sorted({k[8:] for k in dir(self) if k.startswith("action__")})
 
-    def act(self, action_method_name: str = "action__dummy", action_parameters: dict[str, Any] = None) -> float:
+    @staticmethod
+    def get_projection_method_name(action_name: str):
+        return f"projection__{action_name}"
+
+    @staticmethod
+    def get_action_method_name(action_name: str):
+        return f"action__{action_name}"
+
+    def project(self, action_name: str = "dummy", action_parameters: dict[str, Any] = None) -> float:
+        """ projection method uses the same `action_parameters` """
+        if action_parameters is None:
+            action_parameters = dict()
+        assert action_name in self.action_names
+        projection_method_name = Device.get_projection_method_name(action_name)
+        return getattr(self, projection_method_name)(**action_parameters)
+
+    def act(self, action_name: str = "dummy", action_parameters: dict[str, Any] = None) -> None:
         """
         perform the action defined by `action_method_name`,
         note an action method will always return the time cost
         """
         if action_parameters is None:
             action_parameters = dict()
-        assert action_method_name in self.action_method_names
-        return getattr(self, action_method_name)(**action_parameters)
+        assert action_name in self.action_names
+        action_method_name = Device.get_action_method_name(action_name)
+        getattr(self, action_method_name)(**action_parameters)
 
-    def act_by_instruction(self, i: Instruction) -> float:
+    def act_by_instruction(self, i: Instruction) -> None:
         """ perform action with an instruction """
         assert i.actor_device == self
-        return self.act(
-            action_method_name=i.action_method,
-            action_parameters=i.action_parameters,
-        )
+        self.act(action_name=i.action_name, action_parameters=i.action_parameters, )
+
+    def project_by_instruction(self, i: Instruction) -> float:
+        assert i.actor_device == self
+        return self.project(action_name=i.action_name, action_parameters=i.action_parameters, )
 
     @action_method_logging
-    def action__dummy(self, **kwargs) -> float:
+    def action__dummy(self, **kwargs):
+        pass
+
+    def project__dummy(self, **kwargs) -> float:
         return 1e-5
 
 
@@ -126,7 +153,7 @@ class Instruction(Individual):
     """
     actor_device: Device
     action_parameters: dict = dict()
-    action_method: str = "action__dummy"
+    action_name: str = "dummy"
     description: str = ""
 
     preceding_type: Literal["ALL", "ANY"] = "ALL"
@@ -180,4 +207,3 @@ class Lab(BaseModel):
     def instruction_graph(self):
         # TODO implement
         return
-

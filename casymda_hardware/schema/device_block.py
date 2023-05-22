@@ -18,7 +18,7 @@ class DeviceBlock(Block):
 
     def actual_processing(self, job: InstructionJob):
         assert job.get_next_machine() == self.device.identifier
-        processing_time = self.device.act_by_instruction(job.instruction)
-        # processing_time = entity.get_next_processing_time()
+        processing_time = self.device.project_by_instruction(job.instruction)
         yield self.env.timeout(processing_time)
+        self.device.act_by_instruction(job.instruction)
         job.notify_processing_step_completion()

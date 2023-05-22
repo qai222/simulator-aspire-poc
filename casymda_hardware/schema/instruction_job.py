@@ -54,6 +54,7 @@ class InstructionJob(Entity):
 
     def on_is_ready(self, event: Event):
         self.is_ready = True
+        # TODO dedicate logger
         print(self.instruction.identifier, f" ready at: {self.env.now}")
 
     def has_next_machine(self) -> bool:
