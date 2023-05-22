@@ -96,8 +96,8 @@ class Device(LabObject):
         """ perform action with an instruction """
         assert i.actor_device == self
         return self.act(
-            action_method_name=i.device_action_method_name,
-            action_parameters=i.device_action_method_parameters,
+            action_method_name=i.action_method,
+            action_parameters=i.action_parameters,
         )
 
     @action_method_logging
@@ -126,12 +126,12 @@ class Instruction(Individual):
             - the duration, returned by the action method of the actor, has passed
     """
     actor_device: Device
-    device_action_method_parameters: dict = dict()
-    device_action_method_name: str = "action__dummy"
+    action_parameters: dict = dict()
+    action_method: str = "action__dummy"
     description: str = ""
 
-    dependency_type: Literal["ALL", "ANY"] = "ALL"
-    dependent_instructions: list[str] = []
+    preceding_type: Literal["ALL", "ANY"] = "ALL"
+    preceding_instructions: list[str] = []
 
 
 class Lab(BaseModel):

@@ -27,8 +27,8 @@ for ilabel, label in enumerate(rack1.content):
 # move vial1 from rack1 to heater1
 ins_move_rack1_to_heater1 = Instruction(
     actor_device=transferor1,
-    device_action_method_name="action__transfer",
-    device_action_method_parameters={
+    action_method="action__transfer",
+    action_parameters={
         "from_obj": rack1,
         "to_obj": heater1,
         "transferee": lab.dict_object['vial1'],
@@ -39,30 +39,30 @@ ins_move_rack1_to_heater1 = Instruction(
 # move vial1 from heater1 to rack2
 ins_move_heater1_to_rack2 = Instruction(
     actor_device=transferor1,
-    device_action_method_name="action__transfer",
-    device_action_method_parameters={
+    action_method="action__transfer",
+    action_parameters={
         "from_obj": heater1,
         "to_obj": rack2,
         "transferee": lab.dict_object['vial1'],
         "to_position": 'A2',
     },
-    dependent_instructions=[ins_move_rack1_to_heater1.identifier, ]
+    preceding_instructions=[ins_move_rack1_to_heater1.identifier, ]
 )
 
 ins_set_heater1_to_200 = Instruction(
     actor_device=heater1,
-    device_action_method_name="action__set_point",
-    device_action_method_parameters={
+    action_method="action__set_point",
+    action_parameters={
         "set_point": 200,
     },
-    dependent_instructions=[ins_move_rack1_to_heater1.identifier, ]
+    preceding_instructions=[ins_move_rack1_to_heater1.identifier, ]
 )
 
 ins_heater1_heating_to_set_point = Instruction(
     actor_device=heater1,
-    device_action_method_name="action__heat_process",
-    device_action_method_parameters={},
-    dependent_instructions=[ins_set_heater1_to_200.identifier, ]
+    action_method="action__heat_process",
+    action_parameters={},
+    preceding_instructions=[ins_set_heater1_to_200.identifier, ]
 )
 
 instructions.add(ins_move_heater1_to_rack2)
