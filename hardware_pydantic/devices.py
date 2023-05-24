@@ -32,6 +32,30 @@ class Cooler(Heater):
         return abs(self.set_point - self.reading) / cool_rate
 
 
+class Stirrer(Device):
+    """Stirrer on the fixed deck."""
+    set_point: float
+    reading: float = 0
+    content: LabObject | None = None
+
+    @action_method_logging
+    def action__set_point(self, set_point: float):
+        self.set_point = set_point
+
+    def projection__set_point(self, set_point: float):
+        # todo: redefine the time to set up the stirrer later
+        return 1e-5
+
+    @action_method_logging
+    def action__stirring_process(self):
+        self.reading = self.set_point
+
+    def projection__stirring_process(self):
+        # todo: redefine stirring rate later
+        stirring_increase_rate = 10
+        return abs(self.set_point - self.reading) / stirring_increase_rate
+
+
 class LiquidTransferor(Device):
 
     @action_method_logging
