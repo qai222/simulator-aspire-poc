@@ -25,6 +25,13 @@ class Heater(Device):
         return abs(self.set_point - self.reading) / heat_rate
 
 
+class Cooler(Heater):
+    def projection__cool_process(self):
+        # TODO heating and cooling rate should be different and it should not be a constant
+        cool_rate = 15
+        return abs(self.set_point - self.reading) / cool_rate
+
+
 class LiquidTransferor(Device):
 
     @action_method_logging
