@@ -128,6 +128,7 @@ class SolidSVTool(Device):
 
     def projection__transfer(self, from_obj: Vial, to_obj: Vial, amount: float):
         # todo: add adaptive projection to estimate the time of transferring solids
+        # transfer speed in g/s
         transfer_speed = 2
         return amount / transfer_speed
 
@@ -150,8 +151,8 @@ class Balance(Device):
 
     def projection__weigh(self, amount: float):
         # todo: add adaptive projection to estimate the time of weighing solids
-        weighing_speed = 2
-        return amount / weighing_speed
+        # assuming the weighing takes 10 seconds
+        return 10
 
 
 class Evaporator:
@@ -181,4 +182,5 @@ class Evaporator:
     def projection__set_point(self, set_point: dict[str, float]):
         # todo: add adaptive projection to estimate the time of setting up the evaporator for
         # temperature, pressure, and rpm
-        return 1e-1
+        # assuming the setting up takes 60 seconds
+        return 60
