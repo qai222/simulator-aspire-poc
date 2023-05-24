@@ -25,11 +25,14 @@ class DeviceBlock(Block):
         # TODO test object resources are working
         resource_objects = [LabObjectResource.from_lab_object(obj, self.env) for obj in involved_objects]
         reqs = [ro.resource.request() for ro in resource_objects]
+        # note the device resource is requested/released in `_process_entity` of `Block`
         for req in reqs:
             yield req
+        print(f"requested: {[ro.resource.count for ro in resource_objects]}")
         yield self.env.timeout(processing_time)
         for i, ro in enumerate(resource_objects):
             req = reqs[i]
             ro.resource.release(req)
+            print(f"released: {[ro.resource.count for ro in resource_objects]}")
         self.device.act_by_instruction(job.instruction, is_pre=False)
         job.notify_processing_step_completion()
