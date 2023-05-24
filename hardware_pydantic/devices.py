@@ -57,7 +57,9 @@ class Stirrer(Device):
 
 
 class LiquidTransferor(Device):
-
+    # todo: check differences among
+    # PositiveDisplacementTool
+    # extendable single tip (syringe pump) and multi-tip (liquid handler)
     @action_method_logging
     def action__transfer_between_vials(self, from_obj: Vial, to_obj: Vial, amount: float):
         # TODO sample from a dist
@@ -71,7 +73,6 @@ class LiquidTransferor(Device):
 
 
 class VialGripperArm(Device):
-
     def projection__transfer(
             self,
             from_obj: Rack | Heater,
@@ -110,3 +111,78 @@ class VialGripperArm(Device):
             to_obj.content = vial.identifier
         vial.position = to_position
         vial.position_relative = to_obj.identifier
+
+
+class PlateGripperArm(Device):
+    pass
+
+
+class SolidSVTool(Device):
+    """Solid sample vial tool for transferring solids."""
+    # todo: this device is often used together with a balance
+    @action_method_logging
+    def action__transfer(self, from_obj: Vial, to_obj: Vial, amount: float):
+        # TODO sample from a dist
+        removed = from_obj.remove_content(amount)
+        to_obj.add_content(removed)
+
+    def projection__transfer(self, from_obj: Vial, to_obj: Vial, amount: float):
+        # todo: add adaptive projection to estimate the time of transferring solids
+        transfer_speed = 2
+        return amount / transfer_speed
+
+
+class Balance(Device):
+    """Balance for weighing solids."""
+    reading: float = 0
+    from_obj: Vial | None = None
+    to_obj: Vial | None = None
+    content: LabObject | None = None
+
+    @action_method_logging
+    def action__tare(self):
+        self.reading = 0
+
+    def projection__tare(self):
+        return 0
+
+    @action_method_logging
+    def action__weigh(self, amount: float, identifier: str):
+        self.reading = amount
+        self.from_obj.remove_content(amount)
+        self.to_obj.add_content({identifier: amount})
+
+    def projection__weigh(self, amount: float):
+        # todo: add adaptive projection to estimate the time of weighing solids
+        weighing_speed = 2
+        return amount / weighing_speed
+
+
+class Evaporator:
+    """Evaporator for evaporating solvents."""
+    reading: dict[str, float] = {
+        # temperature in Celsius
+        "temperature": 25,
+        # pressure in atm
+        "pressure": 1,
+        # rpm
+        "rpm": 0,
+    }
+    set_point: dict[str, float] = {
+        # temperature in Celsius
+        "temperature": 25,
+        # pressure in atm
+        "pressure": 1,
+        # rpm
+        "rpm": 0,
+    }
+    content: LabObject | None = None
+
+    @action_method_logging
+    def action__set_point(self, set_point: dict[str, float]):
+        self.set_point = set_point
+
+    def projection__set_point(self, set_point: dict[str, float]):
+        # todo: add adaptive projection to estimate the time of setting up the evaporator for
+        # temperature, pressure, and rpm
+        return 1e-1
