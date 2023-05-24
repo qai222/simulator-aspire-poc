@@ -135,8 +135,6 @@ class SolidSVTool(Device):
 class Balance(Device):
     """Balance for weighing solids."""
     reading: float = 0
-    from_obj: Vial | None = None
-    to_obj: Vial | None = None
     content: LabObject | None = None
 
     @action_method_logging
@@ -147,10 +145,8 @@ class Balance(Device):
         return 0
 
     @action_method_logging
-    def action__weigh(self, amount: float, identifier: str):
+    def action__weigh(self, amount: float):
         self.reading = amount
-        self.from_obj.remove_content(amount)
-        self.to_obj.add_content({identifier: amount})
 
     def projection__weigh(self, amount: float):
         # todo: add adaptive projection to estimate the time of weighing solids
