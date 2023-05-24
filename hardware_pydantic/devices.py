@@ -70,7 +70,7 @@ class LiquidTransferor(Device):
         return amount / transfer_speed
 
 
-class VialTransferor(Device):
+class VialGripperArm(Device):
 
     def projection__transfer(
             self,
@@ -87,26 +87,26 @@ class VialTransferor(Device):
             self,
             from_obj: Rack | Heater,
             to_obj: Rack | Heater,
-            transferee: Vial,
+            vial: Vial,
             to_position: str | None
     ) -> None:
         # TODO make more general
         # take it out
-        assert transferee.position_relative == from_obj.identifier
+        assert vial.position_relative == from_obj.identifier
         if isinstance(from_obj, Rack):
-            assert transferee.position in from_obj.content
-            from_obj.content[transferee.position] = None
+            assert vial.position in from_obj.content
+            from_obj.content[vial.position] = None
         elif isinstance(from_obj, Heater):
             from_obj.content = None
         else:
             raise TypeError
-        transferee.position = None
-        transferee.position_relative = None
+        vial.position = None
+        vial.position_relative = None
         # put it to
         if isinstance(to_obj, Rack):
             assert to_position in to_obj.content
-            to_obj.content[to_position] = transferee.identifier
+            to_obj.content[to_position] = vial.identifier
         elif isinstance(to_obj, Heater):
-            to_obj.content = transferee.identifier
-        transferee.position = to_position
-        transferee.position_relative = to_obj.identifier
+            to_obj.content = vial.identifier
+        vial.position = to_position
+        vial.position_relative = to_obj.identifier
