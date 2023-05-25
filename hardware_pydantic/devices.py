@@ -149,7 +149,7 @@ class Balance(Device):
     def action__weigh(self, amount: float):
         self.reading = amount
 
-    def projection__weigh(self, amount: float):
+    def projection__weigh(self):
         # todo: add adaptive projection to estimate the time of weighing solids
         # assuming the weighing takes 10 seconds
         return 10
