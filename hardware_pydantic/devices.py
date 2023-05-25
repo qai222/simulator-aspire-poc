@@ -5,54 +5,62 @@ from hardware_pydantic.lab_objects import *
 
 class Heater(Device):
     set_point: float = 25
+    set_point_max: float = 400
     reading: float = 25
     content: LabObject | None = None
 
-    @action_method_logging
-    def action__set_point(self, set_point: float = 25):
+    def pre__set_point(self, set_point: float = 25) -> tuple[list[LabObject], float]:
+        if self.set_point > self.set_point_max:
+            raise PreActError
+        return [], 1e-5
+
+    def post__set_point(self, set_point) -> None:
         self.set_point = set_point
 
-    def projection__set_point(self, set_point: float = 25):
-        return 1e-5
-
-    @action_method_logging
-    def action__heat_process(self):
-        self.reading = self.set_point
-
-    def projection__heat_process(self):
+    def pre__heat_process(self) -> tuple[list[LabObject], float]:
         # TODO heating and cooling rate should be different and it should not be a constant
         heat_rate = 10
-        return abs(self.set_point - self.reading) / heat_rate
+        return [], abs(self.set_point - self.reading) / heat_rate
+
+    def post__heat_process(self) -> None:
+        self.reading = self.set_point
 
 
-class LiquidTransferor(Device):
+class LiquidDispenser(Device):
+    # TODO subparts
+    capacity: float = 40
+    last_held: dict[str, float] = dict()
 
-    @action_method_logging
-    def action__transfer_between_vials(self, from_obj: Vial, to_obj: Vial, amount: float):
+    def pre__transfer(self, from_vial: Vial, to_vial: Vial, amount: float) -> tuple[list[LabObject], float]:
+        if amount > self.capacity:
+            raise PreActError
+        if amount > from_vial.content_sum:
+            raise PreActError
         # TODO sample from a dist
-        removed = from_obj.remove_content(amount)
-        to_obj.add_content(removed)
+        aspirate_speed = 5
+        dispense_speed = 5
+        return [from_vial, to_vial], amount / aspirate_speed + amount / dispense_speed
 
-    def projection__transfer_between_vials(self, from_obj: Vial, to_obj: Vial, amount: float):
-        # TODO sample from a dist
-        transfer_speed = 5
-        return amount / transfer_speed
+    def post__transfer(self, from_vial: Vial, to_vial: Vial, amount: float):
+        removed = from_vial.remove_content(amount)
+        to_vial.add_content(removed)
+        self.last_held = removed
 
 
+# TODO deprecate as "Cullen 2023-05-24: vial gripper is useless on Junior, will be physically removed"
 class VialTransferor(Device):
 
-    def projection__transfer(
+    def pre__transfer(
             self,
             from_obj: Rack | Heater,
             to_obj: Rack | Heater,
             transferee: Vial,
             to_position: str | None
-    ) -> float:
+    ):
         # TODO dynamic duration
-        return 5
+        return [to_obj, transferee], 5
 
-    @action_method_logging
-    def action__transfer(
+    def post__transfer(
             self,
             from_obj: Rack | Heater,
             to_obj: Rack | Heater,
