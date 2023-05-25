@@ -56,7 +56,7 @@ class Stirrer(Device):
         return abs(self.set_point - self.reading) / stirring_increase_rate
 
 
-class LiquidTransferor(Device):
+class LiquidTransferer(Device):
     # todo: check differences among
     # PositiveDisplacementTool
     # extendable single tip (syringe pump) and multi-tip (liquid handler)
