@@ -32,7 +32,9 @@ class Vial(LabObject):
 
 
 class Rack(LabObject):
+    position: str | None = None
     content: dict[str, str | None] = {"A1": None, "A2": None, "B1": None, "B2": None}
+    """ {<string position>: <vial identifier> | None} """
 
     @property
     def capacity(self):
@@ -41,3 +43,11 @@ class Rack(LabObject):
     @property
     def vials(self) -> set[str]:
         return set([v for v in self.content.values() if v is not None])
+
+    @classmethod
+    def from_capacity(cls, capacity: int = 16, rack_id: str = None):
+        content = {str(i): None for i in range(capacity)}
+        if rack_id is None:
+            return cls(content=content)
+        else:
+            return cls(content=content, identifier=rack_id)

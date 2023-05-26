@@ -1,5 +1,3 @@
-import pprint
-
 from casymda.blocks.block_components.block import Block
 from hardware_pydantic import Lab
 from simpy import Environment
@@ -21,9 +19,12 @@ class Sink(Block):
         # TODO use dedicate logger
         job.notify_job_completion()
         self.time_of_last_entry = self.env.now
-        print("FINISHED STEP\n" + job.name + f" at: {self.time_of_last_entry}")
-        print(f"CURRENT LAB:\n{self.lab}")
-        print("="*12)
+
+        sink_log = "FINISHED STEP\n" + job.name + f" at: {self.time_of_last_entry}"
+        sink_log += "-" * 6
+        sink_log += f"CURRENT LAB:\n{self.lab}"
+        sink_log += "=" * 12
+        print(sink_log)
 
     def process_entity(self, entity):
         yield self.env.timeout(0)
