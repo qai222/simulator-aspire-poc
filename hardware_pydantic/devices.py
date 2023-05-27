@@ -5,6 +5,7 @@ from hardware_pydantic.lab_objects import *
 
 class Heater(Device):
     """Heating unit on the fixed deck."""
+    # the header denotes the hotplate in the fixed deck of the Junior Unchained robot for now
     set_point: float = 25
     reading: float = 25
     content: LabObject | None = None
@@ -181,6 +182,7 @@ class Balance(Device):
 
 class Evaporator:
     """Evaporator for evaporating solvents."""
+    # denotes v-10 evaporator for the moment
     reading: dict[str, float] = {
         # temperature in Celsius
         "temperature": 25,
