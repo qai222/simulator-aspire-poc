@@ -203,7 +203,7 @@ def junior_instructions():
             "from_vial": j_vial_rso2cl,
             "to_vial": j_vial_mrv,
             "amount": 1.0,
-        }, preceding_instructions=[ins_4c.identifier, ],
+        }, preceding_instructions=[ins_4c.identifier, ins_2b.identifier],
         description="use pdt to transfer rso2cl stock solution"
     )
 
@@ -219,6 +219,22 @@ def junior_instructions():
 
 
 jlab = junior_instructions()
+
+from N2G import drawio_diagram
+
+diagram = drawio_diagram()
+diagram.add_diagram("Page-1")
+for ins in jlab.dict_instruction.values():
+    diagram.add_node(id=f"{ins.identifier}\n{ins.description}")
+for ins in jlab.dict_instruction.values():
+    for dep in ins.preceding_instructions:
+        pre_ins = jlab.dict_instruction[dep]
+        this_ins_node = f"{ins.identifier}\n{ins.description}"
+        pre_ins_node = f"{pre_ins.identifier}\n{pre_ins.description}"
+        diagram.add_link(pre_ins_node, this_ins_node, style="endArrow=classic")
+diagram.layout(algo="kk")
+diagram.dump_file(filename="sim_junior_instruction.drawio", folder="./")
+
 import pickle
 
 with open(f"/home/qai/workplace/simulator-aspire-poc/sim_junior/lab_states/state_0.pkl", "wb") as f:
