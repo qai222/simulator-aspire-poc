@@ -4,7 +4,7 @@ from hardware_pydantic.base import *
 
 
 class Vial(LabObject):
-    position: str | float
+    position: str | float | None = None
     position_relative: str | None = None
     content: dict[str, float] = dict()
 

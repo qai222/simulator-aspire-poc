@@ -33,14 +33,18 @@ class JuniorRack(Rack):
     @staticmethod
     # @add_to_junior_lab
     def create_rack_with_empty_vials(n_vials: int, rack_capacity: int, vial_type: _JUNIOR_VIAL_TYPE,
-                                     rack_id: str = None) -> list[JuniorRack | JuniorVial]:
+                                     rack_id: str, vial_id_inherit: bool = True) -> list[JuniorRack | JuniorVial]:
         created = []
         rack = JuniorRack.from_capacity(rack_capacity, rack_id=rack_id)
         created.append(rack)
         assert n_vials <= rack.capacity
         for k in rack.content:
-            v = JuniorVial(position=k, position_relative=rack.identifier, type=vial_type)
-            rack.content[k] = v
+            if vial_id_inherit:
+                v = JuniorVial(identifier=f"vial-{k} " + rack_id, position=k, position_relative=rack.identifier,
+                               type=vial_type)
+            else:
+                v = JuniorVial(position=k, position_relative=rack.identifier, type=vial_type)
+            rack.content[k] = v.identifier
             created.append(v)
         return created
 
@@ -64,7 +68,7 @@ class JuniorVial(Vial):
 
 
 class JuniorZ2Attachment(LabObject):
-    position: str | None = None
+    position: str | None
 
     def model_post_init(self, *args) -> None:  # this should be better than `add_to_junior_lab`, you need pydantic 2.x
         JUNIOR_LAB.add_object(self)
@@ -72,14 +76,12 @@ class JuniorZ2Attachment(LabObject):
 
 class JuniorVPG(JuniorZ2Attachment):
     """ vial plate gripper """
-    holding_rack: str | None
+    holding_rack: str | None = None
 
 
 class JuniorPDT(JuniorZ2Attachment):
-    content: dict[str, float | None]
-    last_held: list[str]
+    content: dict[str, float | None] = dict()
 
 
 class JuniorSvTool(JuniorZ2Attachment):
     vial_connected_to: str | None
-    vial_last_held: str | None

@@ -144,6 +144,12 @@ class Lab(BaseModel):
     dict_instruction: dict[str, Instruction] = dict()
     dict_object: dict[str, LabObject | Device] = dict()
 
+    def __getitem__(self, identifier: str):
+        return self.dict_object[identifier]
+
+    def __setitem__(self, key, value):
+        raise NotImplementedError
+
     def act_by_instruction(self, i: Instruction, is_pre: bool = True):
         actor = self.dict_object[i.device.identifier]  # make sure we are working on the same device
         assert isinstance(actor, Device)
