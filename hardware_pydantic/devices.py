@@ -32,6 +32,7 @@ class Heater(Device):
         self.reading = self.set_point
 
 
+
 class Cooler(Heater):
     """Cooling unit on the fixed deck.
 
@@ -68,6 +69,9 @@ class Stirrer(Device):
         stirring_increase_rate = 10
         return abs(self.set_point - self.reading) / stirring_increase_rate
 
+
+    def post__heat_process(self) -> None:
+        self.reading = self.set_point
 
 class LiquidDispenser(Device):
     """Generic hardware for liquid transfer."""

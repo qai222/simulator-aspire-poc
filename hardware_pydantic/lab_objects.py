@@ -10,6 +10,8 @@ class Vial(LabObject):
 
     @property
     def content_sum(self) -> float:
+        if len(self.content) == 0:
+            return 0
         return sum(self.content.values())
 
     def add_content(self, content: dict[str, float]):

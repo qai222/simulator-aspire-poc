@@ -63,4 +63,4 @@ class InstructionJob(Entity):
 
     def get_next_machine(self) -> str:
         # return list(self._machines_times.items())[self._num_completed_machines][0]
-        return self.instruction.actor_device.identifier
+        return self.instruction.device.identifier
