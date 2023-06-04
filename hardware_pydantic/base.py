@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import Any, Literal, Type
 
 from pydantic import BaseModel, Field
 
@@ -31,7 +31,12 @@ class LabObject(Individual):
 
     @property
     def state(self) -> dict:
-        return self.__dict__
+        d = {}
+        for k, v in self.__dict__.items():
+            if k.startswith("layout_"):
+                continue
+            d[k] = v
+        return d
 
     def validate_state(self, state: dict) -> bool:
         pass
@@ -139,6 +144,12 @@ class Lab(BaseModel):
     dict_instruction: dict[str, Instruction] = dict()
     dict_object: dict[str, LabObject | Device] = dict()
 
+    def __getitem__(self, identifier: str):
+        return self.dict_object[identifier]
+
+    def __setitem__(self, key, value):
+        raise NotImplementedError
+
     def act_by_instruction(self, i: Instruction, is_pre: bool = True):
         actor = self.dict_object[i.device.identifier]  # make sure we are working on the same device
         assert isinstance(actor, Device)
@@ -156,11 +167,11 @@ class Lab(BaseModel):
             assert i.identifier in self.dict_instruction
             self.dict_instruction.pop(i.identifier)
 
-    def add_object(self, d: LabObject):
+    def add_object(self, d: LabObject | Device):
         assert d.identifier not in self.dict_object
         self.dict_object[d.identifier] = d
 
-    def remove_object(self, d: LabObject | str):
+    def remove_object(self, d: LabObject | Device | str):
         if isinstance(d, str):
             assert d in self.dict_object
             self.dict_object.pop(d)
@@ -171,6 +182,9 @@ class Lab(BaseModel):
     @property
     def state(self) -> dict[str, dict[str, Any]]:
         return {d.identifier: d.state for d in self.dict_object.values()}
+
+    def dict_object_by_class(self, object_class: Type):
+        return {k: v for k, v in self.dict_object.items() if v.__class__ == object_class}
 
     def __repr__(self):
         return "\n".join([f"{obj.identifier}: {obj.state}" for obj in self.dict_object.values()])
