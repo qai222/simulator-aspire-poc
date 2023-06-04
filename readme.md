@@ -44,10 +44,10 @@ An `action_method` is always implemented as two separate methods
 A demo of N-Sulfonylation benchmark reaction can be accessed 
 through this [temporary link](http://18.217.155.203:8000/).
 
-![](/home/qai/workplace/simulator-aspire-poc/sim_junior/sim_junior_dash.gif)
+![](./sim_junior/sim_junior_dash.gif)
 
 The demo simulates the following instructions.
-![instructions](/home/qai/workplace/simulator-aspire-poc/sim_junior/sim_junior_instruction.drawio.png)
+![instructions](./sim_junior/sim_junior_instruction.drawio.png)
 
 
 
