@@ -1,75 +1,75 @@
-<mxfile compressed="false" host="Electron" modified="2023-05-28T17:39:50.139Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.7.4 Chrome/106.0.5249.199 Electron/21.3.3 Safari/537.36" version="20.7.4" etag="tsf4LSAfGe4iXbC9IuFo" type="device">
+<mxfile compressed="false" host="Electron" modified="2023-05-30T21:29:55.359Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.7.4 Chrome/106.0.5249.199 Electron/21.3.3 Safari/537.36" etag="kp600xhCYqUypzDInZ4_" version="20.7.4" type="device">
   <diagram id="Page-1" name="Page-1">
-    <mxGraphModel dx="1434" dy="822" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
+    <mxGraphModel dx="989" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <object label="1a1 pick up sv tool" id="1a1 pick up sv tool">
+        <object label="1a1 &lt;u&gt;pick up&lt;/u&gt; &lt;font style=&quot;&quot; color=&quot;#ff0000&quot;&gt;sv tool&lt;/font&gt;" id="1a1 pick up sv tool">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="110" y="427" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="1a2 pick up RSO2Cl sv vial" id="1a2 pick up RSO2Cl sv vial">
+        <object label="1a2 &lt;u&gt;pick up&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;RSO2Cl sv vial&lt;/font&gt;" id="1a2 pick up RSO2Cl sv vial">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="110" y="590" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="1a3 dispense RSO2Cl to vial-0 RACK B" id="1a3 dispense RSO2Cl to vial-0 RACK B">
+        <object label="1a3 &lt;u&gt;dispense RSO2Cl&lt;/u&gt; to&lt;font color=&quot;#ff0000&quot;&gt; vial-0 RACK B&lt;/font&gt;" id="1a3 dispense RSO2Cl to vial-0 RACK B">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="110" y="750" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="1b1 put down RSO2Cl sv vial" id="1b1 put down RSO2Cl sv vial">
+        <object label="1b1 &lt;u&gt;put down&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;RSO2Cl sv vial&lt;/font&gt;" id="1b1 put down RSO2Cl sv vial">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="300" y="427" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="1b2 pick up solid amine sv vial" id="1b2 pick up solid amine sv vial">
+        <object label="1b2 &lt;u&gt;pick up&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;solid amine sv vial&lt;/font&gt;" id="1b2 pick up solid amine sv vial">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="300" y="590" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="1b3 dispense solid amine to vial-0 RACK C" id="1b3 dispense solid amine to vial-0 RACK C">
+        <object label="1b3 &lt;u&gt;dispense&lt;/u&gt; solid amine to &lt;font color=&quot;#ff0000&quot;&gt;vial-0 RACK C&lt;/font&gt;" id="1b3 dispense solid amine to vial-0 RACK C">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="300" y="750" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM" id="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM">
+        <object label="2a &lt;u&gt;put down&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;sv vial&lt;/font&gt; this also free this slot for ARM Z1: Z1 ARM" id="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
             <mxGeometry x="490" y="750" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="3 dispense DCM to mrv vial (has aniline)" id="3 dispense DCM to mrv vial (has aniline)">
+        <object label="3 &lt;u&gt;dispense&lt;/u&gt; DCM to&amp;nbsp;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;vial-0 RACK C&lt;/span&gt;&amp;nbsp;(has amine)" id="3 dispense DCM to mrv vial (has aniline)">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="490" y="880" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="4a put down sv tool" id="4a put down sv tool">
+        <object label="4a &lt;u&gt;put down&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;sv tool&lt;/font&gt;" id="4a put down sv tool">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="670" y="590" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="4b pick up pdt 1 for pyridine" id="4b pick up pdt 1 for pyridine">
+        <object label="4b &lt;u&gt;pick up&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;pdt 1&lt;/font&gt; for pyridine" id="4b pick up pdt 1 for pyridine">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="670" y="750" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="4c_dep move z1 to off deck so z2 has access" id="4c_dep move z1 to off deck so z2 has access">
+        <object label="4c_dep &lt;u&gt;move&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;z1&lt;/font&gt; to off deck so z2 has access" id="4c_dep move z1 to off deck so z2 has access">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
             <mxGeometry x="670" y="880" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="4c use pdt to transfer pyridine" id="4c use pdt to transfer pyridine">
+        <object label="4c use &lt;font color=&quot;#ff0000&quot;&gt;pdt&lt;/font&gt; to &lt;u&gt;transfer&lt;/u&gt; pyridine" id="4c use pdt to transfer pyridine">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="850" y="880" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="6 use pdt to transfer rso2cl stock solution" id="6 use pdt to transfer rso2cl stock solution">
+        <object label="6 use &lt;font color=&quot;#ff0000&quot;&gt;pdt&lt;/font&gt; to &lt;u&gt;transfer&lt;/u&gt; rso2cl stock solution" id="6 use pdt to transfer rso2cl stock solution">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="850" y="750" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <object label="7 wait until reaction finishes" id="7 wait until reaction finishes">
+        <object label="7 &lt;u&gt;wait&lt;/u&gt; until reaction finishes" id="7 wait until reaction finishes">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="850" y="590" width="120" height="60" as="geometry" />
           </mxCell>
@@ -174,12 +174,12 @@
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="2b dispense DCM to RSO2Cl vial to make stock solution" id="2b dispense DCM to RSO2Cl vial to make stock solution">
+        <object label="2b &lt;u&gt;dispense&lt;/u&gt; DCM to &lt;font color=&quot;#ff0000&quot;&gt;RSO2Cl vial&lt;/font&gt; to make stock solution" id="2b dispense DCM to RSO2Cl vial to make stock solution">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="490" y="590" width="120" height="60" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="pSJrl-ZbDKFLFzuxOReB-1" value="" style="endArrow=none;" edge="1" parent="1" source="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM" target="2b dispense DCM to RSO2Cl vial to make stock solution">
+        <mxCell id="pSJrl-ZbDKFLFzuxOReB-1" value="" style="endArrow=none;" parent="1" source="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM" target="2b dispense DCM to RSO2Cl vial to make stock solution" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="551.9582245430809" y="750" as="sourcePoint" />
             <mxPoint x="573.0417754569191" y="427" as="targetPoint" />

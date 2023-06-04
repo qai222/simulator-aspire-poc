@@ -28,6 +28,7 @@ class DeviceBlock(Block):
         # note the device resource is requested/released in `_process_entity` of `Block`
         for req in reqs:
             yield req
+        # TODO should I only check preactor here?
         # print(f"requested: {[ro.resource.count for ro in resource_objects]}")
         yield self.env.timeout(processing_time)
         for i, ro in enumerate(resource_objects):
