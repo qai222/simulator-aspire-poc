@@ -2,9 +2,13 @@ from __future__ import annotations
 
 from typing import Any, Literal, Type
 
+from N2G import drawio_diagram  # only used for drawing instruction DAG
 from pydantic import BaseModel, Field
 
 from .utils import str_uuid
+
+DEVICE_ACTION_METHOD_PREFIX = "action__"
+DEVICE_ACTION_METHOD_ACTOR_TYPE = Literal['pre', 'post', 'proj']
 
 
 class Individual(BaseModel):
@@ -33,7 +37,7 @@ class LabObject(Individual):
     def state(self) -> dict:
         d = {}
         for k, v in self.__dict__.items():
-            if k.startswith("layout_"):
+            if k.startswith("layout"):
                 continue
             d[k] = v
         return d
@@ -45,10 +49,12 @@ class LabObject(Individual):
         return self.validate_state(self.state)
 
 
-class PreActError(Exception): pass
+class PreActError(Exception):
+    pass
 
 
-class PostActError(Exception): pass
+class PostActError(Exception):
+    pass
 
 
 class Device(LabObject):
@@ -56,59 +62,60 @@ class Device(LabObject):
     a `LabObject` that
     1. can receive instructions
     2. can change its state and other lab objects' states using its action methods,
-    3. cannot change another device's state
-
-    # TODO a decorator to check pairing of pre__ and post__
+    3. cannot change another device's state # TODO does this actually matter?
     """
 
     @property
     def action_names(self) -> list[str]:
         """ a sorted list of the names of all defined actions """
-        prefix = "pre__"
-        names = sorted({k[len(prefix):] for k in dir(self) if k.startswith(prefix)})
+        names = sorted(
+            {k[len(DEVICE_ACTION_METHOD_PREFIX):] for k in dir(self) if k.startswith(DEVICE_ACTION_METHOD_PREFIX)}
+        )
         return names
 
-    @staticmethod
-    def get_pre_actor_name(action_name: str) -> str:
-        return f"pre__{action_name}"
-
-    @staticmethod
-    def get_post_actor_name(action_name: str) -> str:
-        return f"post__{action_name}"
+    def action__dummy(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE = 'pre',
+            **kwargs
+    ) -> tuple[list[LabObject], float] | None:
+        """
+        ACTION: dummy
+        DESCRIPTION: wait for certain amount of time
+        PARAMS:
+        """
+        assert 'actor_type' not in kwargs
+        if actor_type == 'pre':
+            # the pre actor method of an action should
+            # - check the current states of involved objects, raise PreActorError if not met
+            return
+        elif actor_type == 'post':
+            # the post actor method of an action should
+            # - make state transitions for involved objects, raise PostActorError if illegal transition
+            return
+        elif actor_type == 'proj':
+            # the projection method of an action should
+            # - return a list of all involved objects, except self
+            # - return the projected time cost
+            return [], 0
+        else:
+            raise ValueError
 
     def act(
             self,
             action_name: str = "dummy",
+            actor_type: Literal['pre', 'post', 'proj'] = 'pre',
             action_parameters: dict[str, Any] = None,
-            is_pre=True,
     ):
         assert action_name in self.action_names, f"{action_name} not in {self.action_names}"
         if action_parameters is None:
             action_parameters = dict()
-        if is_pre:
-            method_name = Device.get_pre_actor_name(action_name)
-        else:
-            method_name = Device.get_post_actor_name(action_name)
-        return getattr(self, method_name)(**action_parameters)
+        method_name = DEVICE_ACTION_METHOD_PREFIX + action_name
+        return getattr(self, method_name)(actor_type=actor_type, **action_parameters)
 
-    def pre__dummy(self, **kwargs) -> tuple[list[LabObject], float]:
-        """
-        1. return a list of all involved objects, except self
-        2. check the current states of involved objects, raise PreActorError if not met
-        3. return the projected time cost
-        """
-        return [], 0
-
-    def post__dummy(self, **kwargs) -> None:
-        """
-        1. make state transitions for involved objects, raise PostActorError if illegal transition
-        """
-        return
-
-    def act_by_instruction(self, i: Instruction, is_pre: bool):
+    def act_by_instruction(self, i: Instruction, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE):
         """ perform action with an instruction """
         assert i.device == self
-        return self.act(action_name=i.action_name, action_parameters=i.action_parameters, is_pre=is_pre)
+        return self.act(action_name=i.action_name, action_parameters=i.action_parameters, actor_type=actor_type)
 
 
 class Instruction(Individual):
@@ -137,6 +144,8 @@ class Instruction(Individual):
     description: str = ""
 
     preceding_type: Literal["ALL", "ANY"] = "ALL"
+    # TODO this has no effect as it is not passed to casymda
+
     preceding_instructions: list[str] = []
 
 
@@ -150,10 +159,10 @@ class Lab(BaseModel):
     def __setitem__(self, key, value):
         raise NotImplementedError
 
-    def act_by_instruction(self, i: Instruction, is_pre: bool = True):
+    def act_by_instruction(self, i: Instruction, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE):
         actor = self.dict_object[i.device.identifier]  # make sure we are working on the same device
         assert isinstance(actor, Device)
-        return actor.act_by_instruction(i, is_pre=is_pre)
+        return actor.act_by_instruction(i, actor_type=actor_type)
 
     def add_instruction(self, i: Instruction):
         assert i.identifier not in self.dict_instruction
@@ -193,6 +202,17 @@ class Lab(BaseModel):
         return self.__repr__()
 
     @property
-    def instruction_graph(self):
-        # TODO implement
-        return
+    def instruction_graph(self) -> drawio_diagram:
+        diagram = drawio_diagram()
+        diagram.add_diagram("Page-1")
+
+        for k, ins in self.dict_instruction.items():
+            diagram.add_node(id=f"{ins.identifier}\n{ins.description}")
+
+        for ins in self.dict_instruction.values():
+            for dep in ins.preceding_instructions:
+                pre_ins = self.dict_instruction[dep]
+                this_ins_node = f"{ins.identifier}\n{ins.description}"
+                pre_ins_node = f"{pre_ins.identifier}\n{pre_ins.description}"
+                diagram.add_link(pre_ins_node, this_ins_node, style="endArrow=classic")
+        return diagram
