@@ -1,17 +1,19 @@
-from simpy import Environment
+from __future__ import annotations
 
+from simpy import Environment
+import os
 from hardware_pydantic import *
 from .schema import Source, Buffer, Spreader, Check, Sink, DeviceBlock
 
 
 class Model:
-    def __init__(self, env: Environment, lab: Lab):
+    def __init__(self, env: Environment, lab: Lab, wdir: str | os.PathLike, model_name:str):
         self.env = env
         self.lab = lab
 
         # !resources+components
         self.source = Source(self.env, self.lab)
-        self.sink = Sink(self.env, self.lab)
+        self.sink = Sink(self.env, self.lab, wdir, model_name)
         self.buffer = Buffer(self.env)
 
         self.device_blocks = []

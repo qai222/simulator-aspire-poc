@@ -20,7 +20,7 @@ class JuniorVial(ChemicalContainer, LabContainee, LabContainer, JuniorLabObject)
 
 class JuniorPdpTip(ChemicalContainer, LabContainee, JuniorLabObject):
     """ positive displacement pipette tip """
-    pass
+    material: str = "PLASTIC"
 
 
 class JuniorRack(LabContainer, LabContainee, JuniorLabObject):
