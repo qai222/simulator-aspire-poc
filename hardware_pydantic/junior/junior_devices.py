@@ -1,384 +1,371 @@
 from __future__ import annotations
 
-from hardware_pydantic.devices import Heater
-from hardware_pydantic.junior.junior_objects import *
-
-_SLOT_SIZE_X = 80
-_SLOT_SIZE_Y = 120
-_SMALL_SLOT_SIZE_X = 40
-_SMALL_SLOT_SIZE_Y = 20
-
-
-class JuniorDevice(Device):
-
-    def model_post_init(self, *args) -> None:  # this should be better than `add_to_junior_lab`, you need pydantic 2.x
-        JUNIOR_LAB.add_object(self)
+from hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
+from hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, JuniorBaseLiquidDispenser
+from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, JuniorSvt, JuniorPdp, \
+    JuniorVpg, JuniorVial, JuniorPdpTip, JuniorTipDisposal
+from hardware_pydantic.junior.settings import *
+from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
 
 
-class JuniorSlot(JuniorDevice, Heater):
-    """ I'm using `Device` here because some slots function as `Balance` or `Heater` """
+class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
+    """
+    a vial or plate slot, does not include wash bay and tip disposal
+    subclassing `Device` here because some slots function as `Balance` or `Heater`
+    """
 
     can_weigh: bool = False
-
-    can_hold: str | None
-    """ what `JuniorObject` it can hold? used for typing checking """
+    """ is this a balance? """
 
     can_heat: bool = False
+    """ can it heat? """
 
     can_cool: bool = False
+    """ can it coll? """
 
     can_stir: bool = False
+    """ can it stir? """
 
-    content: str | None = None
-    """ the identifier of the object it currently holds """
+    layout: JuniorLayout | None = None
 
-    # layout related
-
-    layout_position: tuple[float, float] | None = None
-    """ left bot """
-
-    layout_x: float = _SLOT_SIZE_X
-
-    layout_y: float = _SLOT_SIZE_Y
-
-    def pre__wait(self, wait_time: float):
-        """ wait for certain amount of time """
-        # TODO should define a `container` superclass that can get its children recursively
-        objs = []
-        if self.content is None:
-            return [], wait_time
-        slot_content = JUNIOR_LAB[self.content]
-        if isinstance(slot_content, JuniorRack):
-            for k, v in slot_content.content.items():
-                if v is not None:
-                    objs.append(v)
-        return objs, wait_time
-
-    def post__wait(self, wait_time: float):
-        return
+    def action__wait(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE = 'pre',
+            wait_time: float = 0
+    ) -> tuple[list[LabObject], float] | None:
+        """
+        ACTION: wait
+        DESCRIPTION: hold everything in this slot for a while, ex. heat/cool/stir
+        PARAMS:
+            - wait_time: float = 0
+        """
+        if actor_type == 'pre':
+            if not self.can_heat:
+                raise PreActError
+        elif actor_type == 'post':
+            return
+        elif actor_type == 'proj':
+            containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
+            return [JUNIOR_LAB[i] for i in containees], wait_time
+        else:
+            raise ValueError
 
     @staticmethod
-    # @add_to_junior_lab
-    def create_slot(
-            identifier: str,
-            layout_relation: Literal["above", "right_to"] = None,
-            layout_relative: JuniorSlot = None,
-            layout_x: float = _SLOT_SIZE_X, layout_y: float = _SLOT_SIZE_Y,
-            can_cool=False, can_heat=False, can_stir=False, can_hold: str | None = JuniorRack.__name__, can_weigh=False,
-            content: str = None
-    ) -> JuniorSlot:
-        if layout_relative is None:
-            abs_layout_position = (0, 0)
-        else:
-            if layout_relation == "above":
-                abs_layout_position = (
-                    layout_relative.layout_position[0],
-                    layout_relative.layout_position[1] + layout_relative.layout_y + 20
-                )
-            elif layout_relation == "right_to":
-                abs_layout_position = (
-                    layout_relative.layout_position[0] + layout_relative.layout_x + 20,
-                    layout_relative.layout_position[1],
-                )
-            else:
-                raise ValueError
-        slot = JuniorSlot(
-            identifier=identifier,
-            can_hold=can_hold, can_cool=can_cool, can_heat=can_heat, can_stir=can_stir, can_weigh=can_weigh,
-            layout_position=abs_layout_position, layout_x=layout_x, layout_y=layout_y,
-            content=content,
-        )
-        return slot
+    def put_rack_in_a_slot(rack: JuniorRack, slot: JuniorSlot):
+        if rack.contained_by is not None:
+            prev_slot = JUNIOR_LAB[rack.contained_by]
+            assert isinstance(prev_slot, JuniorSlot)
+            prev_slot.slot_content["SLOT"] = None
+        assert rack.__class__.__name__ in slot.can_contain
+        rack.contained_by = slot.identifier
+        rack.contained_in_slot = "SLOT"
+        slot.slot_content["SLOT"] = rack.identifier
 
 
-class JuniorArm(JuniorDevice):
-    position_on_top_of: str
+class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
+    position_on_top_of: str | None = None
     """ the current position, can only be a slot (not vial) """
 
-    # # not useful fn
-    # moving_to: str | None = None
-    # """ where am I going? """
+    anchor_arm: str | None = None
+    """ which arm is used to define xy position? """
 
-    can_access: list[str] = []
-    """ a list of slot identifiers that this arm can access """
-
-    def pre__move_to(self, move_to_slot: JuniorSlot):
-        if move_to_slot.identifier not in self.can_access:
-            raise PreActError
-        return [move_to_slot, ], 5
-
-    def post__move_to(self, move_to_slot: JuniorSlot):
-        self.position_on_top_of = move_to_slot.identifier
-
-
-class JuniorArmZ1(JuniorArm):
-
-    # needle_content: dict[str, dict[str, float]] = {str(l + 1): dict() for l in range(7)}
-    # """ liquid composition of needles """
-    #
-    # needle_capacities: dict[str, float] = {str(l + 1): float('inf') for l in range(7)}
-
-    def pre__transfer_liquid(
+    def action__move_to(
             self,
-            use_needles: list[str],
-            from_vials: list[JuniorVial],
-            to_vials: list[JuniorVial],
-            amounts: list[float]
-    ) -> tuple[list[LabObject], float]:
-        from_rack_id = list(set([v.position_relative for v in from_vials]))[0]
-        from_rack = JUNIOR_LAB.dict_object[from_rack_id]
-        from_rack: JuniorRack
-        from_slot = JUNIOR_LAB.dict_object[from_rack.position]
-
-        if from_slot.identifier not in self.can_access:
-            raise PreActError
-        if self.position_on_top_of == from_slot.identifier:
-            move_cost_1 = 0
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            anchor_arm: JuniorArmZ1 | JuniorArmZ2,
+            move_to_slot: JuniorSlot,
+    ) -> tuple[list[LabObject], float] | None:
+        """
+        ACTION: wait
+        DESCRIPTION: hold everything in this slot for a while, ex. heat/cool/stir
+        PARAMS:
+            - wait_time: float = 0
+        """
+        if self.position_on_top_of == move_to_slot.identifier:
+            move_cost = 1e-6
         else:
-            move_cost_1 = 5
+            move_cost = 5
 
-        # TODO check empty needles
-        # TODO check amount capacities
-        # TODO check to_vials overflow
-        # TODO check concurrency
-        # TODO sample from distributions
-        aspirate_speed = 5
-        dispense_speed = 5
-        move_cost_2 = 5
-        return from_vials + to_vials, max(amounts) / aspirate_speed + max(
-            amounts) / dispense_speed + move_cost_1 + move_cost_2
-
-    def post__transfer_liquid(self, use_needles: list[str], from_vials: list[JuniorVial], to_vials: list[JuniorVial],
-                              amounts: list[float]):
-        for from_vial, to_vial, amount in zip(from_vials, to_vials, amounts):
-            removed = from_vial.remove_content(amount)
-            to_vial.add_content(removed)
-            to_rack_id = list(set([v.position_relative for v in to_vials]))[0]
-            to_rack = JUNIOR_LAB.dict_object[to_rack_id]
-            to_rack: JuniorRack
-            to_slot = JUNIOR_LAB.dict_object[to_rack.position]
-            self.position_on_top_of = to_slot.identifier  # assuming vial always held in a rack
-
-    # TODO action wash
-    # TODO split action transfer into aspirate, move, dispense
+        if actor_type == 'pre':
+            if anchor_arm.identifier not in self.get_all_containees(self, JUNIOR_LAB):
+                raise PreActError
+        elif actor_type == 'post':
+            self.position_on_top_of = move_to_slot.identifier
+            self.anchor_arm = anchor_arm.identifier
+        elif actor_type == 'proj':
+            containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
+            return [JUNIOR_LAB[i] for i in containees], move_cost
+        else:
+            raise ValueError
 
 
-class JuniorArmZ2(JuniorArm):
-    attached_head: str | None = None
-    """ various attachments, at most one at a time """
+class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
+    allowed_concurrency: list[int] = [1, 4, 6]
+
+    slot_content: dict[str, str] = dict()
 
     @property
-    def head(self) -> None | JuniorSvTool | JuniorVPG | JuniorPDT:
-        if self.attached_head is None:
+    def arm_platform(self) -> JuniorArmPlatform:
+        return JUNIOR_LAB[self.contained_by]
+
+    def action__concurrent_aspirate(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            source_containers: list[ChemicalContainer],
+            dispenser_containers: list[JuniorZ1Needle],
+            amounts: list[float],
+            aspirate_speed: float = 5,
+    ) -> tuple[list[LabObject], float] | None:
+        """
+        ACTION: concurrent_aspirate
+        DESCRIPTION: aspirate liquid from a list of ChemicalContainer to a list of dispenser_container
+        PARAMS:
+            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            - source_containers: list[ChemicalContainer],
+            - dispenser_containers: list[ChemicalContainer],
+            - amounts: list[float],
+            - aspirate_speed: float = 5,
+        """
+        if actor_type == 'pre':
+            if len(set([JUNIOR_LAB[sc.contained_by] for sc in source_containers])) != 1:
+                raise PreActError
+            if not len(source_containers) == len(dispenser_containers) == len(amounts):
+                raise PreActError
+            if len(source_containers) not in self.allowed_concurrency:
+                raise PreActError
+        objs = []
+        times = []
+        for s, d, a in zip(source_containers, dispenser_containers, amounts):
+            res = self.action__aspirate(actor_type=actor_type, source_container=s, dispenser_container=d, amount=a,
+                                        aspirate_speed=aspirate_speed)
+            if actor_type == 'proj':
+                objs += res[0]
+                times.append(res[1])
+        if actor_type == 'proj':
+            return objs, max(times)
+
+    def action__concurrent_dispense(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            destination_containers: list[ChemicalContainer],
+            dispenser_containers: list[JuniorZ1Needle],
+            amounts: list[float],
+            dispense_speed: float = 5,
+    ) -> tuple[list[LabObject], float] | None:
+        """
+        ACTION: concurrent_dispense
+        DESCRIPTION: dispense liquid from a list of dispenser_container to a list of ChemicalContainer
+        PARAMS:
+            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            - destination_containers: list[ChemicalContainer],
+            - dispenser_containers: list[JuniorZ1Needle],
+            - amounts: list[float],
+            - dispense_speed: float = 5,
+        """
+        if actor_type == 'pre':
+            if len(set([JUNIOR_LAB[dc.contained_by] for dc in destination_containers])) != 1:
+                raise PreActError
+            if not len(destination_containers) == len(dispenser_containers) == len(amounts):
+                raise PreActError
+            if len(destination_containers) not in self.allowed_concurrency:
+                raise PreActError
+        objs = []
+        times = []
+        for s, d, a in zip(destination_containers, dispenser_containers, amounts):
+            res = self.action__dispense(actor_type=actor_type, destination_container=s, dispenser_container=d, amount=a,
+                                        dispense_speed=dispense_speed)
+            if actor_type == 'proj':
+                objs += res[0]
+                times.append(res[1])
+        if actor_type == 'proj':
+            return objs, max(times)
+
+    def action__wash(self, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE, wash_bay: JuniorWashBay):
+        if actor_type == 'pre':
+            if JUNIOR_LAB[self.contained_by].position_on_top_of != wash_bay.identifier:
+                raise PreActError
+        elif actor_type == 'post':
+            for n in self.slot_content.values():
+                JUNIOR_LAB[n].chemical_content = dict()
+        elif actor_type == 'proj':
+            containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
+            return [JUNIOR_LAB[i] for i in containees], 10
+
+
+class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
+
+    @property
+    def arm_platform(self) -> JuniorArmPlatform:
+        return JUNIOR_LAB[self.contained_by]
+
+    @property
+    def attachment(self) -> None | JuniorSvt | JuniorVpg | JuniorPdp:
+        if self.slot_content['SLOT'] is None:
             return None
-        return JUNIOR_LAB[self.attached_head]
+        return JUNIOR_LAB[self.slot_content['SLOT']]
 
-    def pre__pick_up(self, obj: JuniorZ2Attachment | JuniorVial | JuniorRack):
-        """ it can pick up 1. various heads 2. sv vial 3. rack """
-        if self.attached_head is not None:
-            if isinstance(obj, JuniorVial) and isinstance(JUNIOR_LAB[self.attached_head], JuniorSvTool):
-                pass
+    def action__pick_up(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            thing: JuniorSvt | JuniorPdp | JuniorVpg | JuniorVial | JuniorPdpTip | JuniorRack,
+    ) -> tuple[list[LabObject], float] | None:
+        """
+        ACTION: pick_up
+        DESCRIPTION: pick up an attachment or a sv vial or a rack or a pdp tip
+        PARAMS:
+            - thing: JuniorSvt | JuniorPdp | JuniorVpg | JuniorVial | JuniorPdpTip | JuniorRack
+        """
+
+        if actor_type == 'pre':
+
+            thing_slot = LabContainee.get_container(thing, JUNIOR_LAB, upto=JuniorSlot)
+            # TODO merge this with "ArmPlatform.move_to"
+            if thing_slot.identifier != self.arm_platform.position_on_top_of:
+                raise PreActError(f"you are picking up from: {thing_slot.identifier} but the arm is on top of: {self.arm_platform.position_on_top_of}")
+
+            if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
+                if self.attachment is not None:
+                    raise PreActError(f"you are picking up: {thing.__class__.__name__} but the current attachment is: {self.attachment.__class__.__name__}")
             else:
-                raise PreActError
-
-        cost = 1
-
-        if isinstance(obj, JuniorVial):
-            slot_id = obj.position_relative
-        else:
-            slot_id = obj.position
-        slot = JUNIOR_LAB[slot_id]
-
-        if not isinstance(slot, JuniorSlot):
-            raise PreActError
-
-        if self.position_on_top_of != slot_id:
-            cost += 5
-
-        if slot_id not in self.can_access:
-            raise PreActError
-
-        if isinstance(obj, JuniorVial):
-            if obj.type != "SV":
-                raise PreActError
-            if not isinstance(JUNIOR_LAB[self.attached_head], JuniorSvTool):
-                raise PreActError
-            if JUNIOR_LAB[self.attached_head].vial_connected_to is not None:
-                raise PreActError
-
-        if isinstance(obj, JuniorRack):
-            if not isinstance(JUNIOR_LAB[self.attached_head], JuniorVPG):
-                raise PreActError
-
-        return [obj, slot], cost
-
-    def post__pick_up(self, obj: JuniorZ2Attachment | JuniorVial | JuniorRack):
-        if isinstance(obj, JuniorVial):
-            slot_id = obj.position_relative
-        else:
-            slot_id = obj.position
-        slot = JUNIOR_LAB[slot_id]
-        slot: JuniorSlot
-        if isinstance(obj, JuniorZ2Attachment):
-            self.attached_head = obj.identifier
-        elif isinstance(obj, JuniorVial):
-            head = JUNIOR_LAB[self.attached_head]
-            head: JuniorSvTool
-            head.vial_connected_to = obj.identifier
-        elif isinstance(obj, JuniorRack):
-            head = JUNIOR_LAB[self.attached_head]
-            head: JuniorVPG
-            head.holding_rack = obj
-        else:
-            raise TypeError
-        slot.content = None
-        if isinstance(obj, JuniorVial):
-            obj.position = None
-            obj.position_relative = self.identifier
-        else:
-            obj.position = self.identifier
-        self.position_on_top_of = slot_id
-
-    def pre__dispense_sv(self, to_vial: JuniorVial, amount: float):
-
-        sv_head_id = self.attached_head
-        sv_head = JUNIOR_LAB[sv_head_id]
-        sv_head: JuniorSvTool
-        from_vial = JUNIOR_LAB[sv_head.vial_connected_to]
-
-        move_cost = 0
-
-        rack_holding_vial = JUNIOR_LAB[to_vial.position_relative]
-        rack_holding_vial: JuniorRack
-
-        if self.position_on_top_of != rack_holding_vial.position:
-            move_cost += 5
-
-        if not isinstance(JUNIOR_LAB[self.attached_head], JuniorZ2Attachment):
-            raise PreActError
-        if from_vial.content_sum < 1e-5:
-            raise PreActError
-        if amount > from_vial.content_sum:
-            raise PreActError
-        # TODO sample from distributions
-        # TODO "powder param" fit time cost
-        dispense_speed = 5
-        return [sv_head, from_vial, to_vial], amount / dispense_speed + move_cost
-
-    def post__dispense_sv(self, to_vial: JuniorVial, amount: float):
-        sv_head_id = self.attached_head
-        sv_head = JUNIOR_LAB[sv_head_id]
-        sv_head: JuniorSvTool
-        from_vial = JUNIOR_LAB[sv_head.vial_connected_to]
-
-        rack_holding_vial = JUNIOR_LAB[to_vial.position_relative]
-        rack_holding_vial: JuniorRack
-
-        if self.position_on_top_of != rack_holding_vial.position:
-            self.position_on_top_of = rack_holding_vial.position
-
-        removed = from_vial.remove_content(amount)
-        to_vial.add_content(removed)
-
-    def pre__put_down(self, to_slot: JuniorSlot):
-        """ it can put down 1. various heads 2. sv vial 3. rack """
-        if self.attached_head is None:
-            raise PreActError
-
-        if to_slot.content is not None:
-            raise PreActError
-
-        if to_slot.identifier not in self.can_access:
-            raise PreActError
-
-        cost = 0
-        objs = [to_slot, ]
-
-        if isinstance(self.head, JuniorSvTool):
-            if self.head.vial_connected_to is not None and to_slot.can_hold == JuniorVial.__name__:
-                cost += 5
-                objs.append(JUNIOR_LAB[self.head.vial_connected_to])
-            elif self.head.vial_connected_to is None and to_slot.can_hold == JuniorSvTool.__name__:
-                cost += 5
-                objs.append(self.head)
+                if isinstance(thing, JuniorVial) and not isinstance(self.attachment, JuniorSvt):
+                    raise PreActError
+                elif isinstance(thing, JuniorPdpTip) and not isinstance(self.attachment, JuniorPdp):
+                    raise PreActError
+                elif isinstance(thing, JuniorRack) and not isinstance(self.attachment, JuniorVpg):
+                    raise PreActError
+        elif actor_type == 'post':
+            if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
+                LabContainee.move(containee=thing, dest_container=self, lab=JUNIOR_LAB, dest_slot="SLOT")
             else:
-                raise PreActError
-
-        elif isinstance(self.head, JuniorZ2Attachment):
-            cost += 5
-            objs.append(JUNIOR_LAB[self.head])
-
-        else:
-            raise PreActError
-
-        # TODO check PDT
-        # TODO check VPG
-        return objs, cost
-
-    def post__put_down(self, to_slot: JuniorSlot):
-        """ it can put down 1. various heads 2. sv vial 3. rack """
-
-        self.position_on_top_of = to_slot.identifier
-
-        if isinstance(self.head, JuniorSvTool):
-            if self.head.vial_connected_to is not None and to_slot.can_hold == JuniorVial.__name__:
-                to_slot.content = self.head.vial_connected_to
-                self.head.vial_connected_to = None
-            elif self.head.vial_connected_to is None and to_slot.can_hold == JuniorSvTool.__name__:
-                to_slot.content = self.head.identifier
-                self.attached_head = None
+                LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB, dest_slot="SLOT")
+        elif actor_type == 'proj':
+            pickup_cost = 7
+            if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
+                return [thing, ], pickup_cost
             else:
-                raise PostActError
-
-        elif isinstance(self.head, JuniorZ2Attachment):
-            to_slot.content = self.head.identifier
-            self.attached_head = None
-
+                return [thing, self.attachment, ], pickup_cost
         else:
-            raise PostActError
+            raise ValueError
 
-    def pre__transfer_liquid_pdt(self, from_vial: JuniorVial, to_vial: JuniorVial, amount: float, ):
+    def action__put_down(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            dest_slot: JuniorSlot | JuniorTipDisposal
+    ) -> tuple[list[LabObject], float] | None:
+        """
+        ACTION: put_down
+        DESCRIPTION: put down an attachment or a sv vial or a rack or a pdp tip
+        PARAMS:
+            - dest_slot: JuniorSlot | JuniorTipDisposal
+        """
 
-        from_rack_id = from_vial.position_relative
-        from_rack = JUNIOR_LAB.dict_object[from_rack_id]
-        from_rack: JuniorRack
-        from_slot = JUNIOR_LAB.dict_object[from_rack.position]
-
-        if from_slot.identifier not in self.can_access:
-            raise PreActError
-        if self.position_on_top_of == from_slot.identifier:
-            move_cost_1 = 0
+        if self.attachment.slot_content['SLOT'] is not None:
+            thing = JUNIOR_LAB[self.attachment.slot_content['SLOT']]
+            objs = [thing, self.attachment, dest_slot]
         else:
-            move_cost_1 = 5
+            thing = self.attachment
+            objs = [thing, dest_slot]
 
-        if not isinstance(self.head, JuniorPDT):
-            raise PreActError
+        if actor_type == 'pre':
+            if dest_slot.identifier != self.arm_platform.position_on_top_of:
+                raise PreActError
+            if not isinstance(dest_slot, JuniorTipDisposal):
+                if dest_slot.slot_content['SLOT'] is not None:
+                    raise PreActError
+        elif actor_type == 'post':
+            if not isinstance(dest_slot, JuniorTipDisposal):
+                LabContainee.move(containee=thing, dest_container=dest_slot, lab=JUNIOR_LAB, dest_slot="SLOT")
+                if isinstance(thing, JuniorVial):
+                    self.attachment.powder_param_known = False
+            else:
+                thing_container = JUNIOR_LAB[thing.contained_by]
+                thing_container: LabContainer
+                assert thing_container.slot_content[thing.contained_in_slot] == thing.identifier
+                thing_container.slot_content[thing.contained_in_slot] = None
+                dest_slot.disposal_content.append(thing.identifier)
+                thing.contained_by = None
+                thing.contained_in_slot = None  # disposal doesn't have slot labels
+        elif actor_type == 'proj':
+            put_down_cost = 7
+            return objs, put_down_cost
+        else:
+            raise ValueError
 
-        # TODO check this for all transfer
-        to_rack_id = to_vial.position_relative
-        to_rack = JUNIOR_LAB[to_rack_id]
-        to_rack: JuniorRack
-        to_slot = JUNIOR_LAB[to_rack.position]
-        if not isinstance(to_slot, JuniorSlot):
-            raise PreActError
+    def action__aspirate_pdp(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            source_container: ChemicalContainer,
+            amount: float,
+            aspirate_speed: float = 5,
+    ) -> tuple[list[LabObject], float] | None:
+        source_slot = LabContainee.get_container(source_container, JUNIOR_LAB, upto=JuniorSlot)
+        if actor_type == 'pre':
+            if source_slot.identifier != self.arm_platform.position_on_top_of:
+                raise PreActError
+            if not isinstance(self.attachment, JuniorPdp):
+                raise PreActError
+            if not isinstance(JUNIOR_LAB[self.attachment.slot_content['SLOT']], JuniorPdpTip):
+                raise PreActError
+        return self.action__aspirate(
+            actor_type=actor_type, source_container=source_container,
+            dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
+            amount=amount, aspirate_speed=aspirate_speed,
+        )
 
-        if JUNIOR_LAB['Z1 ARM'].position_on_top_of == to_rack.position:
-            raise PreActError
+    def action__dispense_pdp(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            destination_container: ChemicalContainer,
+            amount: float,
+            dispense_speed: float = 5,
+    ) -> tuple[list[LabObject], float] | None:
+        dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
+        if actor_type == 'pre':
+            if dest_slot.identifier != self.arm_platform.position_on_top_of:
+                raise PreActError
+            if not isinstance(self.attachment, JuniorPdp):
+                raise PreActError
+            if not isinstance(JUNIOR_LAB[self.attachment.slot_content['SLOT']], JuniorPdpTip):
+                raise PreActError
+        return self.action__dispense(
+            actor_type=actor_type, destination_container=destination_container,
+            dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
+            amount=amount, dispense_speed=dispense_speed
+        )
 
-        aspirate_speed = 5
-        dispense_speed = 5
-        move_cost_2 = 5
-        return [self.head, from_vial,
-                to_vial], amount / aspirate_speed + amount / dispense_speed + move_cost_1 + move_cost_2
+    def action__dispense_sv(
+            self,
+            actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+            destination_container: ChemicalContainer,
+            amount: float,
+            dispense_speed: float = 5,
+    ) -> tuple[list[LabObject], float] | None:
+        dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
+        if actor_type == 'pre':
+            if dest_slot.identifier != self.arm_platform.position_on_top_of:
+                raise PreActError(f"destination slot is: {dest_slot.identifier} but the arm is on top of: {self.arm_platform.position_on_top_of}")
+            if not isinstance(self.attachment, JuniorSvt):
+                raise PreActError
+            if not isinstance(JUNIOR_LAB[self.attachment.slot_content['SLOT']], JuniorVial):
+                raise PreActError
+        elif actor_type == 'proj':
+            if self.attachment.powder_param_known:
+                dispense_speed = dispense_speed * 10
+            else:
+                dispense_speed = dispense_speed
+        elif actor_type == 'post':
+            self.attachment.powder_param_known = True
+        return self.action__dispense(
+            actor_type=actor_type, destination_container=destination_container,
+            dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
+            amount=amount, dispense_speed=dispense_speed
+        )
 
-    def post__transfer_liquid_pdt(self, from_vial: JuniorVial, to_vial: JuniorVial, amount: float, ):
-        removed = from_vial.remove_content(amount)
-        to_vial.add_content(removed)
-        to_rack_id = from_vial.position_relative
-        to_rack = JUNIOR_LAB.dict_object[to_rack_id]
-        to_rack: JuniorRack
-        to_slot = JUNIOR_LAB.dict_object[to_rack.position]
-        self.position_on_top_of = to_slot.identifier  # assuming vial always held in a rack
 
-    # TODO action wash
-    # TODO split action transfer into aspirate, move, dispense
+if __name__ == '__main__':
+    slot = JuniorSlot(identifier="slot1", can_contain=[JuniorRack.__name__])
+    jr, vials = JuniorRack.create_rack_with_empty_vials()
+    JuniorSlot.put_rack_in_a_slot(jr, slot)
+    # print(LabContainer.get_all_containees(slot, JUNIOR_LAB))
+    # print(JUNIOR_LAB)
+    print(LabContainee.get_container(jr, JUNIOR_LAB, upto=JuniorSlot))
