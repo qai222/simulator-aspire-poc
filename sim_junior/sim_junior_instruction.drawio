@@ -1,191 +1,701 @@
-<mxfile compressed="false" host="Electron" modified="2023-05-30T21:29:55.359Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.7.4 Chrome/106.0.5249.199 Electron/21.3.3 Safari/537.36" etag="kp600xhCYqUypzDInZ4_" version="20.7.4" type="device">
-  <diagram id="Page-1" name="Page-1">
-    <mxGraphModel dx="989" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <object label="1a1 &lt;u&gt;pick up&lt;/u&gt; &lt;font style=&quot;&quot; color=&quot;#ff0000&quot;&gt;sv tool&lt;/font&gt;" id="1a1 pick up sv tool">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="110" y="427" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="1a2 &lt;u&gt;pick up&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;RSO2Cl sv vial&lt;/font&gt;" id="1a2 pick up RSO2Cl sv vial">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="110" y="590" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="1a3 &lt;u&gt;dispense RSO2Cl&lt;/u&gt; to&lt;font color=&quot;#ff0000&quot;&gt; vial-0 RACK B&lt;/font&gt;" id="1a3 dispense RSO2Cl to vial-0 RACK B">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="110" y="750" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="1b1 &lt;u&gt;put down&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;RSO2Cl sv vial&lt;/font&gt;" id="1b1 put down RSO2Cl sv vial">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="300" y="427" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="1b2 &lt;u&gt;pick up&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;solid amine sv vial&lt;/font&gt;" id="1b2 pick up solid amine sv vial">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="300" y="590" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="1b3 &lt;u&gt;dispense&lt;/u&gt; solid amine to &lt;font color=&quot;#ff0000&quot;&gt;vial-0 RACK C&lt;/font&gt;" id="1b3 dispense solid amine to vial-0 RACK C">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="300" y="750" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="2a &lt;u&gt;put down&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;sv vial&lt;/font&gt; this also free this slot for ARM Z1: Z1 ARM" id="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-            <mxGeometry x="490" y="750" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="3 &lt;u&gt;dispense&lt;/u&gt; DCM to&amp;nbsp;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;vial-0 RACK C&lt;/span&gt;&amp;nbsp;(has amine)" id="3 dispense DCM to mrv vial (has aniline)">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="490" y="880" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="4a &lt;u&gt;put down&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;sv tool&lt;/font&gt;" id="4a put down sv tool">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="670" y="590" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="4b &lt;u&gt;pick up&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;pdt 1&lt;/font&gt; for pyridine" id="4b pick up pdt 1 for pyridine">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="670" y="750" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="4c_dep &lt;u&gt;move&lt;/u&gt; &lt;font color=&quot;#ff0000&quot;&gt;z1&lt;/font&gt; to off deck so z2 has access" id="4c_dep move z1 to off deck so z2 has access">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-            <mxGeometry x="670" y="880" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="4c use &lt;font color=&quot;#ff0000&quot;&gt;pdt&lt;/font&gt; to &lt;u&gt;transfer&lt;/u&gt; pyridine" id="4c use pdt to transfer pyridine">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="850" y="880" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="6 use &lt;font color=&quot;#ff0000&quot;&gt;pdt&lt;/font&gt; to &lt;u&gt;transfer&lt;/u&gt; rso2cl stock solution" id="6 use pdt to transfer rso2cl stock solution">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="850" y="750" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="7 &lt;u&gt;wait&lt;/u&gt; until reaction finishes" id="7 wait until reaction finishes">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="850" y="590" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1a1&#xa;pick up sv tool" target="1a2&#xa;pick up RSO2Cl sv vial" id="26fe87c7562d9c1cfbdafe2aebd6f3b2">
-          <mxCell style="endArrow=classic" parent="1" source="1a1 pick up sv tool" target="1a2 pick up RSO2Cl sv vial" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1a2&#xa;pick up RSO2Cl sv vial" target="1a3&#xa;dispense RSO2Cl to vial-0 RACK B" id="a193ee18bb2b6d454fa22825e57fa8b5">
-          <mxCell style="endArrow=classic" parent="1" source="1a2 pick up RSO2Cl sv vial" target="1a3 dispense RSO2Cl to vial-0 RACK B" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1a3&#xa;dispense RSO2Cl to vial-0 RACK B" target="1b1&#xa;put down RSO2Cl sv vial" id="345469fc148ad3b521233a05955e6f97">
-          <mxCell style="endArrow=classic" parent="1" source="1a3 dispense RSO2Cl to vial-0 RACK B" target="1b1 put down RSO2Cl sv vial" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1a1&#xa;pick up sv tool" target="1b1&#xa;put down RSO2Cl sv vial" id="c2a973c0a3d65b0289277aaf06851cd4">
-          <mxCell style="endArrow=classic" parent="1" source="1a1 pick up sv tool" target="1b1 put down RSO2Cl sv vial" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1b1&#xa;put down RSO2Cl sv vial" target="1b2&#xa;pick up solid amine sv vial" id="3644e132f22287a66bdd117a366f3def">
-          <mxCell style="endArrow=classic" parent="1" source="1b1 put down RSO2Cl sv vial" target="1b2 pick up solid amine sv vial" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1b2&#xa;pick up solid amine sv vial" target="1b3&#xa;dispense solid amine to vial-0 RACK C" id="e66f12420bb2502926b9ac681509bd5b">
-          <mxCell style="endArrow=classic" parent="1" source="1b2 pick up solid amine sv vial" target="1b3 dispense solid amine to vial-0 RACK C" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1b3&#xa;dispense solid amine to vial-0 RACK C" target="2a&#xa;put down sv vial this also free this slot for ARM Z1: Z1 ARM" id="a59fe55140285723bec4d7844c1ca215">
-          <mxCell style="endArrow=classic" parent="1" source="1b3 dispense solid amine to vial-0 RACK C" target="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1a3&#xa;dispense RSO2Cl to vial-0 RACK B" target="2b&#xa;dispense DCM to RSO2Cl vial to make stock solution" id="ff99c5d5c3aef5388c8f65090d327cbf">
-          <mxCell style="endArrow=classic" parent="1" source="1a3 dispense RSO2Cl to vial-0 RACK B" target="2b dispense DCM to RSO2Cl vial to make stock solution" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1b3&#xa;dispense solid amine to vial-0 RACK C" target="2b&#xa;dispense DCM to RSO2Cl vial to make stock solution" id="5a24c34b853f50a08393e555ae4ea6ca">
-          <mxCell style="endArrow=classic" parent="1" source="1b3 dispense solid amine to vial-0 RACK C" target="2b dispense DCM to RSO2Cl vial to make stock solution" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="2a&#xa;put down sv vial this also free this slot for ARM Z1: Z1 ARM" target="2b&#xa;dispense DCM to RSO2Cl vial to make stock solution" id="060ec7aed716552514f86f4b1e995c99">
-          <mxCell style="endArrow=classic" parent="1" source="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM" target="2b dispense DCM to RSO2Cl vial to make stock solution" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1a3&#xa;dispense RSO2Cl to vial-0 RACK B" target="3&#xa;dispense DCM to mrv vial (has aniline)" id="2b4ce801865e26c64d1cefe4df9ddc98">
-          <mxCell style="endArrow=classic" parent="1" source="1a3 dispense RSO2Cl to vial-0 RACK B" target="3 dispense DCM to mrv vial (has aniline)" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="1b3&#xa;dispense solid amine to vial-0 RACK C" target="3&#xa;dispense DCM to mrv vial (has aniline)" id="317f8626b55b20ac527579d938b8b140">
-          <mxCell style="endArrow=classic" parent="1" source="1b3 dispense solid amine to vial-0 RACK C" target="3 dispense DCM to mrv vial (has aniline)" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="2a&#xa;put down sv vial this also free this slot for ARM Z1: Z1 ARM" target="4a&#xa;put down sv tool" id="c92e200287c2038cb5c500bb149210ad">
-          <mxCell style="endArrow=classic;startArrow=none;" parent="1" source="2b dispense DCM to RSO2Cl vial to make stock solution" target="4a put down sv tool" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="4a&#xa;put down sv tool" target="4b&#xa;pick up pdt 1 for pyridine" id="c7ca733588eec95a01fdf03d4b0015f0">
-          <mxCell style="endArrow=classic" parent="1" source="4a put down sv tool" target="4b pick up pdt 1 for pyridine" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="3&#xa;dispense DCM to mrv vial (has aniline)" target="4c_dep&#xa;move z1 to off deck so z2 has access" id="836449c87b66e16912316ba58bdc9cbe">
-          <mxCell style="endArrow=classic" parent="1" source="3 dispense DCM to mrv vial (has aniline)" target="4c_dep move z1 to off deck so z2 has access" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="4b&#xa;pick up pdt 1 for pyridine" target="4c&#xa;use pdt to transfer pyridine" id="4c67723fc7845976f76f0f1c2acff9a3">
-          <mxCell style="endArrow=classic" parent="1" source="4b pick up pdt 1 for pyridine" target="4c use pdt to transfer pyridine" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="4c_dep&#xa;move z1 to off deck so z2 has access" target="4c&#xa;use pdt to transfer pyridine" id="83241c8558850901d2750c09a3a74aba">
-          <mxCell style="endArrow=classic" parent="1" source="4c_dep move z1 to off deck so z2 has access" target="4c use pdt to transfer pyridine" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="4c&#xa;use pdt to transfer pyridine" target="6&#xa;use pdt to transfer rso2cl stock solution" id="b366693fa05e5aee9ec67e140fa293b8">
-          <mxCell style="endArrow=classic" parent="1" source="4c use pdt to transfer pyridine" target="6 use pdt to transfer rso2cl stock solution" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="2b&#xa;dispense DCM to RSO2Cl vial to make stock solution" target="6&#xa;use pdt to transfer rso2cl stock solution" id="80bf3947ff137faff21433818accb103">
-          <mxCell style="endArrow=classic" parent="1" source="2b dispense DCM to RSO2Cl vial to make stock solution" target="6 use pdt to transfer rso2cl stock solution" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="" source="6&#xa;use pdt to transfer rso2cl stock solution" target="7&#xa;wait until reaction finishes" id="5a338f599e018b780d6b37c65e34b62d">
-          <mxCell style="endArrow=classic" parent="1" source="6 use pdt to transfer rso2cl stock solution" target="7 wait until reaction finishes" edge="1">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object label="2b &lt;u&gt;dispense&lt;/u&gt; DCM to &lt;font color=&quot;#ff0000&quot;&gt;RSO2Cl vial&lt;/font&gt; to make stock solution" id="2b dispense DCM to RSO2Cl vial to make stock solution">
-          <mxCell style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="490" y="590" width="120" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <mxCell id="pSJrl-ZbDKFLFzuxOReB-1" value="" style="endArrow=none;" parent="1" source="2a put down sv vial this also free this slot for ARM Z1: Z1 ARM" target="2b dispense DCM to RSO2Cl vial to make stock solution" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="551.9582245430809" y="750" as="sourcePoint" />
-            <mxPoint x="573.0417754569191" y="427" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
+<mxfile type="device" compressed="false">
+    <diagram id="Page-1" name="Page-1">
+      <mxGraphModel dx="1360" dy="864" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="1">
+        <root>
+          <mxCell id="0" />   
+          <mxCell id="1" parent="0" />
+        <object id="c5282d2e-ca86-42b6-81fb-d647b9dc36fd move to slot: VPG SLOT" label="c5282d2e-ca86-42b6-81fb-d647b9dc36fd move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="392" y="579" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="76026023-a667-42ff-85ec-dae3dc5ce0f2 pick up: VPG" label="76026023-a667-42ff-85ec-dae3dc5ce0f2 pick up: VPG">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="392" y="569" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="c1a85caf-7924-4040-857b-a3528d9557fc move to slot: SLOT 2-3-2" label="c1a85caf-7924-4040-857b-a3528d9557fc move to slot: SLOT 2-3-2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="393" y="559" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="abf1ce2e-0a60-408d-929f-1039c7ced7ea pick up: RACK B" label="abf1ce2e-0a60-408d-929f-1039c7ced7ea pick up: RACK B">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="393" y="548" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="950f87df-1c71-4d5f-8dfc-56024955ebb9 move to slot: BALANCE SLOT" label="950f87df-1c71-4d5f-8dfc-56024955ebb9 move to slot: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="395" y="538" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="e3922c23-9866-4b83-a3d0-68dae3d87827 put down: BALANCE SLOT" label="e3922c23-9866-4b83-a3d0-68dae3d87827 put down: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="396" y="527" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="076659ea-995c-4142-acdf-19e3ae9044cc move to slot: VPG SLOT" label="076659ea-995c-4142-acdf-19e3ae9044cc move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="398" y="517" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="21bd0126-f79e-4075-aa57-e0e509f929ef put down: VPG SLOT" label="21bd0126-f79e-4075-aa57-e0e509f929ef put down: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="477" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="1fc38a41-06ef-49b1-807d-7935308af56c move to slot: SVV SLOT 2" label="1fc38a41-06ef-49b1-807d-7935308af56c move to slot: SVV SLOT 2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="403" y="497" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="0527b564-3d94-4e7c-a33b-23253239b468 pick up: SV VIAL 2" label="0527b564-3d94-4e7c-a33b-23253239b468 pick up: SV VIAL 2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="406" y="487" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="771696f2-d815-44e5-901b-11ff48a4f736 move to slot: BALANCE SLOT" label="771696f2-d815-44e5-901b-11ff48a4f736 move to slot: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="418" y="457" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="727d9933-911d-4494-8074-61e86717c1c9 move to slot: SV TOOL SLOT" label="727d9933-911d-4494-8074-61e86717c1c9 move to slot: SV TOOL SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="413" y="467" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="f15daa11-3882-493b-ac1e-2cb853ba030e pick up: SV TOOL" label="f15daa11-3882-493b-ac1e-2cb853ba030e pick up: SV TOOL">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="147" y="358" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="ab2e18ac-87c7-4b52-943f-264f0e25d798 dispense_sv to: vial-2 RACK B" label="ab2e18ac-87c7-4b52-943f-264f0e25d798 dispense_sv to: vial-2 RACK B">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="422" y="448" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="85b6a9e7-4561-4929-b029-1d77b835eea1 move to slot: SVV SLOT 2" label="85b6a9e7-4561-4929-b029-1d77b835eea1 move to slot: SVV SLOT 2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="427" y="439" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="87f05865-fedc-4133-9d55-39bc5c1d195a put down: SVV SLOT 2" label="87f05865-fedc-4133-9d55-39bc5c1d195a put down: SVV SLOT 2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="432" y="429" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="cc103b72-595a-4b59-a7ed-78b8c35c317a move to slot: SV TOOL SLOT" label="cc103b72-595a-4b59-a7ed-78b8c35c317a move to slot: SV TOOL SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="438" y="421" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="5b7ca715-d8e1-4b40-9326-9cfa4dee940a put down: SV TOOL SLOT" label="5b7ca715-d8e1-4b40-9326-9cfa4dee940a put down: SV TOOL SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="443" y="412" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="dc88ade9-8e0c-4f63-9c5b-1c71363d4757 move to slot: VPG SLOT" label="dc88ade9-8e0c-4f63-9c5b-1c71363d4757 move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="403" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="641df610-127a-45be-8f50-1fd2105856ee pick up: VPG" label="641df610-127a-45be-8f50-1fd2105856ee pick up: VPG">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="456" y="395" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="5c1884b9-eba5-40e6-bcae-3b7285b4e392 move to slot: BALANCE SLOT" label="5c1884b9-eba5-40e6-bcae-3b7285b4e392 move to slot: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="463" y="387" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="1032f195-9ee0-4f47-9874-8f2128ebd76b pick up: RACK B" label="1032f195-9ee0-4f47-9874-8f2128ebd76b pick up: RACK B">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="379" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="bc5f37c7-a998-40e6-8308-41f8ce59c278 move to slot: SLOT 2-3-2" label="bc5f37c7-a998-40e6-8308-41f8ce59c278 move to slot: SLOT 2-3-2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="477" y="372" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="357869bd-366a-40b6-ba8d-6e1fb94b15ec put down: SLOT 2-3-2" label="357869bd-366a-40b6-ba8d-6e1fb94b15ec put down: SLOT 2-3-2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="485" y="364" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="b6192c5f-1a46-4ab5-b37b-0cc68c747a60 move to slot: VPG SLOT" label="b6192c5f-1a46-4ab5-b37b-0cc68c747a60 move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="492" y="357" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="f4871034-f1da-4b55-92f3-4ae1a27d680d put down: VPG SLOT" label="f4871034-f1da-4b55-92f3-4ae1a27d680d put down: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="351" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="73246c12-e631-41bf-9c0a-20fa874bb64d move to slot: VPG SLOT" label="73246c12-e631-41bf-9c0a-20fa874bb64d move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="509" y="344" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="587bddba-7641-45a3-ae5f-49dd5920ff2b pick up: VPG" label="587bddba-7641-45a3-ae5f-49dd5920ff2b pick up: VPG">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="517" y="338" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="7df6b6d7-e052-4fdb-a14c-93efe8ba7e90 move to slot: SLOT 2-3-1" label="7df6b6d7-e052-4fdb-a14c-93efe8ba7e90 move to slot: SLOT 2-3-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="526" y="333" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="ac5b5952-24f4-4918-afb8-fb84f80c7533 pick up: RACK C" label="ac5b5952-24f4-4918-afb8-fb84f80c7533 pick up: RACK C">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="535" y="327" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="d5b1e42d-b422-4ed7-92aa-de2ee92d940f move to slot: BALANCE SLOT" label="d5b1e42d-b422-4ed7-92aa-de2ee92d940f move to slot: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="544" y="322" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="b49f9c9e-c5dd-4932-b5a4-5cb0551579a7 put down: BALANCE SLOT" label="b49f9c9e-c5dd-4932-b5a4-5cb0551579a7 put down: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="554" y="317" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="0a6cf323-8570-4b4e-b2db-eb03e5a72c97 move to slot: VPG SLOT" label="0a6cf323-8570-4b4e-b2db-eb03e5a72c97 move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="563" y="313" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="fe68eff0-345c-49e2-be3d-629ad5f257f3 put down: VPG SLOT" label="fe68eff0-345c-49e2-be3d-629ad5f257f3 put down: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="602" y="299" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="9aaf3bf6-8350-429b-953d-b5452274da42 move to slot: SVV SLOT 1" label="9aaf3bf6-8350-429b-953d-b5452274da42 move to slot: SVV SLOT 1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="582" y="305" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="2faecc9e-b3c0-4ba3-b773-22a9a88a0ed2 pick up: SV VIAL 1" label="2faecc9e-b3c0-4ba3-b773-22a9a88a0ed2 pick up: SV VIAL 1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="592" y="302" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="dbd2d920-3a44-4042-a90e-3806420917f9 move to slot: BALANCE SLOT" label="dbd2d920-3a44-4042-a90e-3806420917f9 move to slot: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="623" y="294" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="739e8321-aa55-4099-9946-f5d42e72033a move to slot: SV TOOL SLOT" label="739e8321-aa55-4099-9946-f5d42e72033a move to slot: SV TOOL SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="613" y="296" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="8d3a507c-9c44-4925-8a7d-c4b1dee26a67 pick up: SV TOOL" label="8d3a507c-9c44-4925-8a7d-c4b1dee26a67 pick up: SV TOOL">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="545" y="16" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="254d6e3c-8565-4097-b721-8344f90f0fdb dispense_sv to: vial-1 RACK C" label="254d6e3c-8565-4097-b721-8344f90f0fdb dispense_sv to: vial-1 RACK C">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="633" y="292" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="0e01989e-dc92-4f42-b654-4aab37070847 move to slot: SVV SLOT 1" label="0e01989e-dc92-4f42-b654-4aab37070847 move to slot: SVV SLOT 1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="643" y="290" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="0d24c3ba-6047-4f35-9d1f-d580d173211b put down: SVV SLOT 1" label="0d24c3ba-6047-4f35-9d1f-d580d173211b put down: SVV SLOT 1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="654" y="289" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="18bf58f4-10cf-4a59-8062-cd62a9377456 move to slot: SV TOOL SLOT" label="18bf58f4-10cf-4a59-8062-cd62a9377456 move to slot: SV TOOL SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="664" y="288" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="92322a04-bb7e-4f45-b41e-3395128d48e4 put down: SV TOOL SLOT" label="92322a04-bb7e-4f45-b41e-3395128d48e4 put down: SV TOOL SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="0" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="e79b5218-ea9d-4edf-9c93-70396db02f50 move to slot: VPG SLOT" label="e79b5218-ea9d-4edf-9c93-70396db02f50 move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="685" y="288" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="d6c72a8a-0047-42b2-bc62-a7b8fec2b588 pick up: VPG" label="d6c72a8a-0047-42b2-bc62-a7b8fec2b588 pick up: VPG">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="696" y="288" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="078217a0-de05-4e79-bdb5-427475f21a19 move to slot: BALANCE SLOT" label="078217a0-de05-4e79-bdb5-427475f21a19 move to slot: BALANCE SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="706" y="289" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="749188b9-a2da-4a14-a68b-d4a9b7a9cda2 pick up: RACK C" label="749188b9-a2da-4a14-a68b-d4a9b7a9cda2 pick up: RACK C">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="717" y="290" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="dab4517a-de80-4c5d-bdc1-49e1d07195c6 move to slot: SLOT 2-3-1" label="dab4517a-de80-4c5d-bdc1-49e1d07195c6 move to slot: SLOT 2-3-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="727" y="292" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="abdcd031-7151-49ef-862c-5c820c22b2d6 put down: SLOT 2-3-1" label="abdcd031-7151-49ef-862c-5c820c22b2d6 put down: SLOT 2-3-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="737" y="294" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="cb2eef33-2054-4542-a332-951f5b63dd56 move to slot: VPG SLOT" label="cb2eef33-2054-4542-a332-951f5b63dd56 move to slot: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="748" y="296" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="c4aed8ae-2dbf-4aab-aefa-1cb50f6a28a2 put down: VPG SLOT" label="c4aed8ae-2dbf-4aab-aefa-1cb50f6a28a2 put down: VPG SLOT">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="758" y="299" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="8ae3e717-f5b0-43f9-a341-3745a9131635 move to slot: SLOT OFF-1" label="8ae3e717-f5b0-43f9-a341-3745a9131635 move to slot: SLOT OFF-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="768" y="302" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="41ac8e13-61f0-402c-8436-cc021e6ee84a concurrent aspirate from: vial-1 RACK A" label="41ac8e13-61f0-402c-8436-cc021e6ee84a concurrent aspirate from: vial-1 RACK A">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="778" y="305" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="efdc62f3-b953-4d9d-9f6a-98599ade27c1 move to slot: SLOT 2-3-1" label="efdc62f3-b953-4d9d-9f6a-98599ade27c1 move to slot: SLOT 2-3-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="787" y="309" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="926fe652-1849-4db7-a340-68e490f028c5 concurrent dispense to: vial-1 RACK C" label="926fe652-1849-4db7-a340-68e490f028c5 concurrent dispense to: vial-1 RACK C">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="797" y="313" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="d02e188e-3fde-4583-b565-efa241059182 move to slot: WASH BAY" label="d02e188e-3fde-4583-b565-efa241059182 move to slot: WASH BAY">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="807" y="317" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="c2562988-7a07-4fe2-9ff4-2c49af73b995 wash needles" label="c2562988-7a07-4fe2-9ff4-2c49af73b995 wash needles">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="816" y="322" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="4bfbc7f1-76d1-41eb-91ea-2b916c9682f3 move to slot: SLOT OFF-1" label="4bfbc7f1-76d1-41eb-91ea-2b916c9682f3 move to slot: SLOT OFF-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="825" y="327" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="3942058f-f775-4565-ab39-713ae079c6af concurrent aspirate from: vial-1 RACK A" label="3942058f-f775-4565-ab39-713ae079c6af concurrent aspirate from: vial-1 RACK A">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="834" y="333" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="7133b259-8d02-4a77-8426-cf2efa8dbb4b move to slot: SLOT 2-3-2" label="7133b259-8d02-4a77-8426-cf2efa8dbb4b move to slot: SLOT 2-3-2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="843" y="338" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="af9f0382-5692-4d1e-bbd5-c8925e33ae68 concurrent dispense to: vial-2 RACK B" label="af9f0382-5692-4d1e-bbd5-c8925e33ae68 concurrent dispense to: vial-2 RACK B">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="851" y="344" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="bcfccac1-c5a7-4a37-8af2-273c0025a023 move to slot: WASH BAY" label="bcfccac1-c5a7-4a37-8af2-273c0025a023 move to slot: WASH BAY">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="351" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="e74adda0-90f4-44de-a035-82d5825d4460 wash needles" label="e74adda0-90f4-44de-a035-82d5825d4460 wash needles">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="868" y="357" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="6623450a-1094-435e-95e1-d2e64345ab4e move to slot: PDT SLOT 1" label="6623450a-1094-435e-95e1-d2e64345ab4e move to slot: PDT SLOT 1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="876" y="364" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="c7bcf65d-92d8-4b59-abcf-75c7fb84a8b3 pick up: PDT 1" label="c7bcf65d-92d8-4b59-abcf-75c7fb84a8b3 pick up: PDT 1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="883" y="372" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="f235eecd-702e-423b-85bd-d1bcdf5ae600 move to slot: SLOT 2-3-3" label="f235eecd-702e-423b-85bd-d1bcdf5ae600 move to slot: SLOT 2-3-3">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="890" y="379" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="2cc63b1a-1e10-4484-b346-1c6c7c8ff23c pick up: PdpTip-1 RACK D" label="2cc63b1a-1e10-4484-b346-1c6c7c8ff23c pick up: PdpTip-1 RACK D">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="897" y="387" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="a495c55e-7862-47d5-947e-011fcc674ea6 move to slot: SLOT 2-3-2" label="a495c55e-7862-47d5-947e-011fcc674ea6 move to slot: SLOT 2-3-2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="904" y="395" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="1a027e2a-3f1b-44a1-b342-bd0f18417a31 aspirate_pdp from: vial-1 RACK B" label="1a027e2a-3f1b-44a1-b342-bd0f18417a31 aspirate_pdp from: vial-1 RACK B">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="911" y="403" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="13f86eee-4e21-4552-8569-e5e6298c5c08 move to slot: SLOT 2-3-1" label="13f86eee-4e21-4552-8569-e5e6298c5c08 move to slot: SLOT 2-3-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="917" y="412" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="18cef99b-7a72-4571-b719-95794702a945 dispense_pdp to: vial-1 RACK C" label="18cef99b-7a72-4571-b719-95794702a945 dispense_pdp to: vial-1 RACK C">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="923" y="421" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="955cd25b-2641-48c0-88dd-b8273b041211 move to slot: DISPOSAL" label="955cd25b-2641-48c0-88dd-b8273b041211 move to slot: DISPOSAL">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="928" y="429" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c put down: DISPOSAL" label="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c put down: DISPOSAL">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="943" y="457" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="e10792ff-212c-42dd-abe6-c5c7be00390b wait for 5 min" label="e10792ff-212c-42dd-abe6-c5c7be00390b wait for 5 min">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="947" y="467" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="552bcaf5-6eff-4dbd-b61a-87163d2bb2b3 wait for 5 min" label="552bcaf5-6eff-4dbd-b61a-87163d2bb2b3 wait for 5 min">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="477" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="062d97cb-c047-4d36-93c3-fc330eb28da5 wait for 5 min" label="062d97cb-c047-4d36-93c3-fc330eb28da5 wait for 5 min">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="954" y="487" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="863ebcac-8eb6-4770-91c6-8702e5ddd62f move to slot: SLOT 2-3-2" label="863ebcac-8eb6-4770-91c6-8702e5ddd62f move to slot: SLOT 2-3-2">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="957" y="497" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="ee25f0e8-dc61-4ac4-911b-b98fde86addd concurrent aspirate from: vial-2 RACK B" label="ee25f0e8-dc61-4ac4-911b-b98fde86addd concurrent aspirate from: vial-2 RACK B">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="507" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="f7628dfd-7e2b-4dba-80bd-2ec2b2d6219d move to slot: SLOT 2-3-1" label="f7628dfd-7e2b-4dba-80bd-2ec2b2d6219d move to slot: SLOT 2-3-1">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="962" y="517" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="b6403321-d7ce-4259-8f69-833e9467038d concurrent dispense to: vial-1 RACK C" label="b6403321-d7ce-4259-8f69-833e9467038d concurrent dispense to: vial-1 RACK C">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="964" y="527" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="fb6dcde6-ba6b-4a2b-b6f9-c2e7e0680efb move to slot: WASH BAY" label="fb6dcde6-ba6b-4a2b-b6f9-c2e7e0680efb move to slot: WASH BAY">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="966" y="538" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="c2e87c2c-03f4-44c6-9329-27f66d0331dc wash needles" label="c2e87c2c-03f4-44c6-9329-27f66d0331dc wash needles">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1256" y="562" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="a5ac0874-8a3e-4c66-98ba-7fb01e6111de wait for 120 min" label="a5ac0874-8a3e-4c66-98ba-7fb01e6111de wait for 120 min">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1253" y="520" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="a7eb7c66-e89d-4692-bc9a-7c17a55f210b wait for 120 min" label="a7eb7c66-e89d-4692-bc9a-7c17a55f210b wait for 120 min">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1255" y="541" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="4f8a8ed7-dbe7-468d-b7c9-6e4f35cf0f92 wait for 120 min" label="4f8a8ed7-dbe7-468d-b7c9-6e4f35cf0f92 wait for 120 min">
+      <mxCell style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="968" y="569" width="120" height="60" as="geometry" />
+      </mxCell>
+    </object><object id="34c926a44c5944c719cba8dc34081370" label="" source="c5282d2e-ca86-42b6-81fb-d647b9dc36fd&#10;move to slot: VPG SLOT" target="76026023-a667-42ff-85ec-dae3dc5ce0f2&#10;pick up: VPG">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c5282d2e-ca86-42b6-81fb-d647b9dc36fd move to slot: VPG SLOT" target="76026023-a667-42ff-85ec-dae3dc5ce0f2 pick up: VPG">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="e1246566af01c621ab2e18a1f9edaf7d" label="" source="76026023-a667-42ff-85ec-dae3dc5ce0f2&#10;pick up: VPG" target="c1a85caf-7924-4040-857b-a3528d9557fc&#10;move to slot: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="76026023-a667-42ff-85ec-dae3dc5ce0f2 pick up: VPG" target="c1a85caf-7924-4040-857b-a3528d9557fc move to slot: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="ff40f77d5c56f4a39556f70b91fcafaa" label="" source="c1a85caf-7924-4040-857b-a3528d9557fc&#10;move to slot: SLOT 2-3-2" target="abf1ce2e-0a60-408d-929f-1039c7ced7ea&#10;pick up: RACK B">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c1a85caf-7924-4040-857b-a3528d9557fc move to slot: SLOT 2-3-2" target="abf1ce2e-0a60-408d-929f-1039c7ced7ea pick up: RACK B">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="ac0dad4e80df21bd5fa2018d60f1878a" label="" source="abf1ce2e-0a60-408d-929f-1039c7ced7ea&#10;pick up: RACK B" target="950f87df-1c71-4d5f-8dfc-56024955ebb9&#10;move to slot: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="abf1ce2e-0a60-408d-929f-1039c7ced7ea pick up: RACK B" target="950f87df-1c71-4d5f-8dfc-56024955ebb9 move to slot: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="7e68302b8ef4c46c698da7f2fb411b6d" label="" source="950f87df-1c71-4d5f-8dfc-56024955ebb9&#10;move to slot: BALANCE SLOT" target="e3922c23-9866-4b83-a3d0-68dae3d87827&#10;put down: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="950f87df-1c71-4d5f-8dfc-56024955ebb9 move to slot: BALANCE SLOT" target="e3922c23-9866-4b83-a3d0-68dae3d87827 put down: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="0ebdead812915f47897d826acefefcae" label="" source="e3922c23-9866-4b83-a3d0-68dae3d87827&#10;put down: BALANCE SLOT" target="076659ea-995c-4142-acdf-19e3ae9044cc&#10;move to slot: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="e3922c23-9866-4b83-a3d0-68dae3d87827 put down: BALANCE SLOT" target="076659ea-995c-4142-acdf-19e3ae9044cc move to slot: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="19345921a439cd975ac398086d0f5824" label="" source="076659ea-995c-4142-acdf-19e3ae9044cc&#10;move to slot: VPG SLOT" target="21bd0126-f79e-4075-aa57-e0e509f929ef&#10;put down: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="076659ea-995c-4142-acdf-19e3ae9044cc move to slot: VPG SLOT" target="21bd0126-f79e-4075-aa57-e0e509f929ef put down: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="20729a94b23e131a82b955e1aaa22ab0" label="" source="f15daa11-3882-493b-ac1e-2cb853ba030e&#10;pick up: SV TOOL" target="1fc38a41-06ef-49b1-807d-7935308af56c&#10;move to slot: SVV SLOT 2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="f15daa11-3882-493b-ac1e-2cb853ba030e pick up: SV TOOL" target="1fc38a41-06ef-49b1-807d-7935308af56c move to slot: SVV SLOT 2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="c28fb5a6bc32185466cc8240f915aa07" label="" source="1fc38a41-06ef-49b1-807d-7935308af56c&#10;move to slot: SVV SLOT 2" target="0527b564-3d94-4e7c-a33b-23253239b468&#10;pick up: SV VIAL 2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="1fc38a41-06ef-49b1-807d-7935308af56c move to slot: SVV SLOT 2" target="0527b564-3d94-4e7c-a33b-23253239b468 pick up: SV VIAL 2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="41d89e8e4bbe363c72ede126a5d7a335" label="" source="0527b564-3d94-4e7c-a33b-23253239b468&#10;pick up: SV VIAL 2" target="771696f2-d815-44e5-901b-11ff48a4f736&#10;move to slot: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="0527b564-3d94-4e7c-a33b-23253239b468 pick up: SV VIAL 2" target="771696f2-d815-44e5-901b-11ff48a4f736 move to slot: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="777af2b3c477db121c5185fdce6c39b5" label="" source="21bd0126-f79e-4075-aa57-e0e509f929ef&#10;put down: VPG SLOT" target="727d9933-911d-4494-8074-61e86717c1c9&#10;move to slot: SV TOOL SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="21bd0126-f79e-4075-aa57-e0e509f929ef put down: VPG SLOT" target="727d9933-911d-4494-8074-61e86717c1c9 move to slot: SV TOOL SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="dd320203ad6a770ef2bd32828d9c7dbd" label="" source="727d9933-911d-4494-8074-61e86717c1c9&#10;move to slot: SV TOOL SLOT" target="f15daa11-3882-493b-ac1e-2cb853ba030e&#10;pick up: SV TOOL">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="727d9933-911d-4494-8074-61e86717c1c9 move to slot: SV TOOL SLOT" target="f15daa11-3882-493b-ac1e-2cb853ba030e pick up: SV TOOL">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="aa7d20294e27c70917a2a9f210b383ac" label="" source="771696f2-d815-44e5-901b-11ff48a4f736&#10;move to slot: BALANCE SLOT" target="ab2e18ac-87c7-4b52-943f-264f0e25d798&#10;dispense_sv to: vial-2 RACK B">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="771696f2-d815-44e5-901b-11ff48a4f736 move to slot: BALANCE SLOT" target="ab2e18ac-87c7-4b52-943f-264f0e25d798 dispense_sv to: vial-2 RACK B">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="28d1928bea135997ee2b20f217fd8901" label="" source="ab2e18ac-87c7-4b52-943f-264f0e25d798&#10;dispense_sv to: vial-2 RACK B" target="85b6a9e7-4561-4929-b029-1d77b835eea1&#10;move to slot: SVV SLOT 2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="ab2e18ac-87c7-4b52-943f-264f0e25d798 dispense_sv to: vial-2 RACK B" target="85b6a9e7-4561-4929-b029-1d77b835eea1 move to slot: SVV SLOT 2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="9f609fde90c0adf6d76d965dad23c26d" label="" source="85b6a9e7-4561-4929-b029-1d77b835eea1&#10;move to slot: SVV SLOT 2" target="87f05865-fedc-4133-9d55-39bc5c1d195a&#10;put down: SVV SLOT 2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="85b6a9e7-4561-4929-b029-1d77b835eea1 move to slot: SVV SLOT 2" target="87f05865-fedc-4133-9d55-39bc5c1d195a put down: SVV SLOT 2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="5be023433a3cc3cf6d9bc2b459d73b11" label="" source="87f05865-fedc-4133-9d55-39bc5c1d195a&#10;put down: SVV SLOT 2" target="cc103b72-595a-4b59-a7ed-78b8c35c317a&#10;move to slot: SV TOOL SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="87f05865-fedc-4133-9d55-39bc5c1d195a put down: SVV SLOT 2" target="cc103b72-595a-4b59-a7ed-78b8c35c317a move to slot: SV TOOL SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="cccc47ac47857b535f9dfc4e5a1818e2" label="" source="cc103b72-595a-4b59-a7ed-78b8c35c317a&#10;move to slot: SV TOOL SLOT" target="5b7ca715-d8e1-4b40-9326-9cfa4dee940a&#10;put down: SV TOOL SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="cc103b72-595a-4b59-a7ed-78b8c35c317a move to slot: SV TOOL SLOT" target="5b7ca715-d8e1-4b40-9326-9cfa4dee940a put down: SV TOOL SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="a495a42a7b7973a53eb1e81a3d2893b5" label="" source="5b7ca715-d8e1-4b40-9326-9cfa4dee940a&#10;put down: SV TOOL SLOT" target="dc88ade9-8e0c-4f63-9c5b-1c71363d4757&#10;move to slot: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="5b7ca715-d8e1-4b40-9326-9cfa4dee940a put down: SV TOOL SLOT" target="dc88ade9-8e0c-4f63-9c5b-1c71363d4757 move to slot: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="7b2090965e4437e7739bd87363997390" label="" source="dc88ade9-8e0c-4f63-9c5b-1c71363d4757&#10;move to slot: VPG SLOT" target="641df610-127a-45be-8f50-1fd2105856ee&#10;pick up: VPG">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="dc88ade9-8e0c-4f63-9c5b-1c71363d4757 move to slot: VPG SLOT" target="641df610-127a-45be-8f50-1fd2105856ee pick up: VPG">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="12201aaae4710a98f3b3b22c54748d95" label="" source="641df610-127a-45be-8f50-1fd2105856ee&#10;pick up: VPG" target="5c1884b9-eba5-40e6-bcae-3b7285b4e392&#10;move to slot: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="641df610-127a-45be-8f50-1fd2105856ee pick up: VPG" target="5c1884b9-eba5-40e6-bcae-3b7285b4e392 move to slot: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="9635d71c5a045abd32f7ca7f7627733c" label="" source="5c1884b9-eba5-40e6-bcae-3b7285b4e392&#10;move to slot: BALANCE SLOT" target="1032f195-9ee0-4f47-9874-8f2128ebd76b&#10;pick up: RACK B">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="5c1884b9-eba5-40e6-bcae-3b7285b4e392 move to slot: BALANCE SLOT" target="1032f195-9ee0-4f47-9874-8f2128ebd76b pick up: RACK B">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="0d0b2bd74d7f65f052f3481df68f92ff" label="" source="1032f195-9ee0-4f47-9874-8f2128ebd76b&#10;pick up: RACK B" target="bc5f37c7-a998-40e6-8308-41f8ce59c278&#10;move to slot: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="1032f195-9ee0-4f47-9874-8f2128ebd76b pick up: RACK B" target="bc5f37c7-a998-40e6-8308-41f8ce59c278 move to slot: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="c955f7a589cbb6591b4f6c819b9b6256" label="" source="bc5f37c7-a998-40e6-8308-41f8ce59c278&#10;move to slot: SLOT 2-3-2" target="357869bd-366a-40b6-ba8d-6e1fb94b15ec&#10;put down: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="bc5f37c7-a998-40e6-8308-41f8ce59c278 move to slot: SLOT 2-3-2" target="357869bd-366a-40b6-ba8d-6e1fb94b15ec put down: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="14fc77bac9ab91d960c1bae19db52080" label="" source="357869bd-366a-40b6-ba8d-6e1fb94b15ec&#10;put down: SLOT 2-3-2" target="b6192c5f-1a46-4ab5-b37b-0cc68c747a60&#10;move to slot: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="357869bd-366a-40b6-ba8d-6e1fb94b15ec put down: SLOT 2-3-2" target="b6192c5f-1a46-4ab5-b37b-0cc68c747a60 move to slot: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="d6ede2b250fac51fff0c2588ea5fdfbf" label="" source="b6192c5f-1a46-4ab5-b37b-0cc68c747a60&#10;move to slot: VPG SLOT" target="f4871034-f1da-4b55-92f3-4ae1a27d680d&#10;put down: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="b6192c5f-1a46-4ab5-b37b-0cc68c747a60 move to slot: VPG SLOT" target="f4871034-f1da-4b55-92f3-4ae1a27d680d put down: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="f04970e1af96885da61e6697cd52eb6b" label="" source="f4871034-f1da-4b55-92f3-4ae1a27d680d&#10;put down: VPG SLOT" target="73246c12-e631-41bf-9c0a-20fa874bb64d&#10;move to slot: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="f4871034-f1da-4b55-92f3-4ae1a27d680d put down: VPG SLOT" target="73246c12-e631-41bf-9c0a-20fa874bb64d move to slot: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="661944f1d25cde9dd6490301ede28b3e" label="" source="73246c12-e631-41bf-9c0a-20fa874bb64d&#10;move to slot: VPG SLOT" target="587bddba-7641-45a3-ae5f-49dd5920ff2b&#10;pick up: VPG">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="73246c12-e631-41bf-9c0a-20fa874bb64d move to slot: VPG SLOT" target="587bddba-7641-45a3-ae5f-49dd5920ff2b pick up: VPG">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="6f2acec216593d4bb85a8ea471e5e2bf" label="" source="587bddba-7641-45a3-ae5f-49dd5920ff2b&#10;pick up: VPG" target="7df6b6d7-e052-4fdb-a14c-93efe8ba7e90&#10;move to slot: SLOT 2-3-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="587bddba-7641-45a3-ae5f-49dd5920ff2b pick up: VPG" target="7df6b6d7-e052-4fdb-a14c-93efe8ba7e90 move to slot: SLOT 2-3-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="975807c00703c57855e954380fbfefec" label="" source="7df6b6d7-e052-4fdb-a14c-93efe8ba7e90&#10;move to slot: SLOT 2-3-1" target="ac5b5952-24f4-4918-afb8-fb84f80c7533&#10;pick up: RACK C">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="7df6b6d7-e052-4fdb-a14c-93efe8ba7e90 move to slot: SLOT 2-3-1" target="ac5b5952-24f4-4918-afb8-fb84f80c7533 pick up: RACK C">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="e15a1629dc31626f2b5113a7cb3b1a56" label="" source="ac5b5952-24f4-4918-afb8-fb84f80c7533&#10;pick up: RACK C" target="d5b1e42d-b422-4ed7-92aa-de2ee92d940f&#10;move to slot: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="ac5b5952-24f4-4918-afb8-fb84f80c7533 pick up: RACK C" target="d5b1e42d-b422-4ed7-92aa-de2ee92d940f move to slot: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="80f04b8d374539525195789ef3f936ba" label="" source="d5b1e42d-b422-4ed7-92aa-de2ee92d940f&#10;move to slot: BALANCE SLOT" target="b49f9c9e-c5dd-4932-b5a4-5cb0551579a7&#10;put down: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="d5b1e42d-b422-4ed7-92aa-de2ee92d940f move to slot: BALANCE SLOT" target="b49f9c9e-c5dd-4932-b5a4-5cb0551579a7 put down: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="c3844f5c69f238ac6aee16b025c4addf" label="" source="b49f9c9e-c5dd-4932-b5a4-5cb0551579a7&#10;put down: BALANCE SLOT" target="0a6cf323-8570-4b4e-b2db-eb03e5a72c97&#10;move to slot: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="b49f9c9e-c5dd-4932-b5a4-5cb0551579a7 put down: BALANCE SLOT" target="0a6cf323-8570-4b4e-b2db-eb03e5a72c97 move to slot: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="182b83923ba34205909673e016087d6f" label="" source="0a6cf323-8570-4b4e-b2db-eb03e5a72c97&#10;move to slot: VPG SLOT" target="fe68eff0-345c-49e2-be3d-629ad5f257f3&#10;put down: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="0a6cf323-8570-4b4e-b2db-eb03e5a72c97 move to slot: VPG SLOT" target="fe68eff0-345c-49e2-be3d-629ad5f257f3 put down: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="b5780205290321f389fb95a6a503c86a" label="" source="8d3a507c-9c44-4925-8a7d-c4b1dee26a67&#10;pick up: SV TOOL" target="9aaf3bf6-8350-429b-953d-b5452274da42&#10;move to slot: SVV SLOT 1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="8d3a507c-9c44-4925-8a7d-c4b1dee26a67 pick up: SV TOOL" target="9aaf3bf6-8350-429b-953d-b5452274da42 move to slot: SVV SLOT 1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="598b4d4978aac6189043bea85ee27fd2" label="" source="9aaf3bf6-8350-429b-953d-b5452274da42&#10;move to slot: SVV SLOT 1" target="2faecc9e-b3c0-4ba3-b773-22a9a88a0ed2&#10;pick up: SV VIAL 1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="9aaf3bf6-8350-429b-953d-b5452274da42 move to slot: SVV SLOT 1" target="2faecc9e-b3c0-4ba3-b773-22a9a88a0ed2 pick up: SV VIAL 1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="b04fc32b8c573df42339eeee5a4bf23c" label="" source="2faecc9e-b3c0-4ba3-b773-22a9a88a0ed2&#10;pick up: SV VIAL 1" target="dbd2d920-3a44-4042-a90e-3806420917f9&#10;move to slot: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="2faecc9e-b3c0-4ba3-b773-22a9a88a0ed2 pick up: SV VIAL 1" target="dbd2d920-3a44-4042-a90e-3806420917f9 move to slot: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="d2170a7b782e9951bf30a8b9ddac66ed" label="" source="fe68eff0-345c-49e2-be3d-629ad5f257f3&#10;put down: VPG SLOT" target="739e8321-aa55-4099-9946-f5d42e72033a&#10;move to slot: SV TOOL SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="fe68eff0-345c-49e2-be3d-629ad5f257f3 put down: VPG SLOT" target="739e8321-aa55-4099-9946-f5d42e72033a move to slot: SV TOOL SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="e3684cf261ee96135f2c46d9b620b321" label="" source="739e8321-aa55-4099-9946-f5d42e72033a&#10;move to slot: SV TOOL SLOT" target="8d3a507c-9c44-4925-8a7d-c4b1dee26a67&#10;pick up: SV TOOL">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="739e8321-aa55-4099-9946-f5d42e72033a move to slot: SV TOOL SLOT" target="8d3a507c-9c44-4925-8a7d-c4b1dee26a67 pick up: SV TOOL">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="03be8e95cc09f55f8f55a931f29ca6b3" label="" source="dbd2d920-3a44-4042-a90e-3806420917f9&#10;move to slot: BALANCE SLOT" target="254d6e3c-8565-4097-b721-8344f90f0fdb&#10;dispense_sv to: vial-1 RACK C">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="dbd2d920-3a44-4042-a90e-3806420917f9 move to slot: BALANCE SLOT" target="254d6e3c-8565-4097-b721-8344f90f0fdb dispense_sv to: vial-1 RACK C">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="4096bc3d319d21365bb37e3001052ebe" label="" source="254d6e3c-8565-4097-b721-8344f90f0fdb&#10;dispense_sv to: vial-1 RACK C" target="0e01989e-dc92-4f42-b654-4aab37070847&#10;move to slot: SVV SLOT 1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="254d6e3c-8565-4097-b721-8344f90f0fdb dispense_sv to: vial-1 RACK C" target="0e01989e-dc92-4f42-b654-4aab37070847 move to slot: SVV SLOT 1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="f22bd471cce8a9fa7e8b6c0d5642f82b" label="" source="0e01989e-dc92-4f42-b654-4aab37070847&#10;move to slot: SVV SLOT 1" target="0d24c3ba-6047-4f35-9d1f-d580d173211b&#10;put down: SVV SLOT 1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="0e01989e-dc92-4f42-b654-4aab37070847 move to slot: SVV SLOT 1" target="0d24c3ba-6047-4f35-9d1f-d580d173211b put down: SVV SLOT 1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="9d9b5e3f6e48147812357b1b9a14d628" label="" source="0d24c3ba-6047-4f35-9d1f-d580d173211b&#10;put down: SVV SLOT 1" target="18bf58f4-10cf-4a59-8062-cd62a9377456&#10;move to slot: SV TOOL SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="0d24c3ba-6047-4f35-9d1f-d580d173211b put down: SVV SLOT 1" target="18bf58f4-10cf-4a59-8062-cd62a9377456 move to slot: SV TOOL SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="8dfc5e6a13f74a0bfd6915b3aadd9892" label="" source="18bf58f4-10cf-4a59-8062-cd62a9377456&#10;move to slot: SV TOOL SLOT" target="92322a04-bb7e-4f45-b41e-3395128d48e4&#10;put down: SV TOOL SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="18bf58f4-10cf-4a59-8062-cd62a9377456 move to slot: SV TOOL SLOT" target="92322a04-bb7e-4f45-b41e-3395128d48e4 put down: SV TOOL SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="b6e451f29d8fed0dca010a46dab965d7" label="" source="92322a04-bb7e-4f45-b41e-3395128d48e4&#10;put down: SV TOOL SLOT" target="e79b5218-ea9d-4edf-9c93-70396db02f50&#10;move to slot: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="92322a04-bb7e-4f45-b41e-3395128d48e4 put down: SV TOOL SLOT" target="e79b5218-ea9d-4edf-9c93-70396db02f50 move to slot: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="7d910b1771e6a5986268258e6e0bb502" label="" source="e79b5218-ea9d-4edf-9c93-70396db02f50&#10;move to slot: VPG SLOT" target="d6c72a8a-0047-42b2-bc62-a7b8fec2b588&#10;pick up: VPG">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="e79b5218-ea9d-4edf-9c93-70396db02f50 move to slot: VPG SLOT" target="d6c72a8a-0047-42b2-bc62-a7b8fec2b588 pick up: VPG">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="54bd4ca87ddaeb38fbfc37d465c5de99" label="" source="d6c72a8a-0047-42b2-bc62-a7b8fec2b588&#10;pick up: VPG" target="078217a0-de05-4e79-bdb5-427475f21a19&#10;move to slot: BALANCE SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="d6c72a8a-0047-42b2-bc62-a7b8fec2b588 pick up: VPG" target="078217a0-de05-4e79-bdb5-427475f21a19 move to slot: BALANCE SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="0d6c08a862c3f650fb282435981a9a11" label="" source="078217a0-de05-4e79-bdb5-427475f21a19&#10;move to slot: BALANCE SLOT" target="749188b9-a2da-4a14-a68b-d4a9b7a9cda2&#10;pick up: RACK C">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="078217a0-de05-4e79-bdb5-427475f21a19 move to slot: BALANCE SLOT" target="749188b9-a2da-4a14-a68b-d4a9b7a9cda2 pick up: RACK C">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="4845ae05f55639c7411f35209bc1e7d6" label="" source="749188b9-a2da-4a14-a68b-d4a9b7a9cda2&#10;pick up: RACK C" target="dab4517a-de80-4c5d-bdc1-49e1d07195c6&#10;move to slot: SLOT 2-3-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="749188b9-a2da-4a14-a68b-d4a9b7a9cda2 pick up: RACK C" target="dab4517a-de80-4c5d-bdc1-49e1d07195c6 move to slot: SLOT 2-3-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="1157f1ed4148486b9a3c1c88d3bb5500" label="" source="dab4517a-de80-4c5d-bdc1-49e1d07195c6&#10;move to slot: SLOT 2-3-1" target="abdcd031-7151-49ef-862c-5c820c22b2d6&#10;put down: SLOT 2-3-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="dab4517a-de80-4c5d-bdc1-49e1d07195c6 move to slot: SLOT 2-3-1" target="abdcd031-7151-49ef-862c-5c820c22b2d6 put down: SLOT 2-3-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="24e42b5e9185741c11eb4526f8a4ddd8" label="" source="abdcd031-7151-49ef-862c-5c820c22b2d6&#10;put down: SLOT 2-3-1" target="cb2eef33-2054-4542-a332-951f5b63dd56&#10;move to slot: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="abdcd031-7151-49ef-862c-5c820c22b2d6 put down: SLOT 2-3-1" target="cb2eef33-2054-4542-a332-951f5b63dd56 move to slot: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="444db1baca67a1ad1ab2f6015963e139" label="" source="cb2eef33-2054-4542-a332-951f5b63dd56&#10;move to slot: VPG SLOT" target="c4aed8ae-2dbf-4aab-aefa-1cb50f6a28a2&#10;put down: VPG SLOT">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="cb2eef33-2054-4542-a332-951f5b63dd56 move to slot: VPG SLOT" target="c4aed8ae-2dbf-4aab-aefa-1cb50f6a28a2 put down: VPG SLOT">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="27ce0347e2e66bd1d541f5ab2545a2f7" label="" source="c4aed8ae-2dbf-4aab-aefa-1cb50f6a28a2&#10;put down: VPG SLOT" target="8ae3e717-f5b0-43f9-a341-3745a9131635&#10;move to slot: SLOT OFF-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c4aed8ae-2dbf-4aab-aefa-1cb50f6a28a2 put down: VPG SLOT" target="8ae3e717-f5b0-43f9-a341-3745a9131635 move to slot: SLOT OFF-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="ee7556dfc94e90d122ced75cd2ed2a5e" label="" source="8ae3e717-f5b0-43f9-a341-3745a9131635&#10;move to slot: SLOT OFF-1" target="41ac8e13-61f0-402c-8436-cc021e6ee84a&#10;concurrent aspirate from: vial-1 RACK A">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="8ae3e717-f5b0-43f9-a341-3745a9131635 move to slot: SLOT OFF-1" target="41ac8e13-61f0-402c-8436-cc021e6ee84a concurrent aspirate from: vial-1 RACK A">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="1037bfdff82773dbc478a27e6c038ecc" label="" source="41ac8e13-61f0-402c-8436-cc021e6ee84a&#10;concurrent aspirate from: vial-1 RACK A" target="efdc62f3-b953-4d9d-9f6a-98599ade27c1&#10;move to slot: SLOT 2-3-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="41ac8e13-61f0-402c-8436-cc021e6ee84a concurrent aspirate from: vial-1 RACK A" target="efdc62f3-b953-4d9d-9f6a-98599ade27c1 move to slot: SLOT 2-3-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="77d7a4eaa98abe39dde583d4baea42cf" label="" source="efdc62f3-b953-4d9d-9f6a-98599ade27c1&#10;move to slot: SLOT 2-3-1" target="926fe652-1849-4db7-a340-68e490f028c5&#10;concurrent dispense to: vial-1 RACK C">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="efdc62f3-b953-4d9d-9f6a-98599ade27c1 move to slot: SLOT 2-3-1" target="926fe652-1849-4db7-a340-68e490f028c5 concurrent dispense to: vial-1 RACK C">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="d4f423252a43415a8a544f79ad2ba7fe" label="" source="926fe652-1849-4db7-a340-68e490f028c5&#10;concurrent dispense to: vial-1 RACK C" target="d02e188e-3fde-4583-b565-efa241059182&#10;move to slot: WASH BAY">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="926fe652-1849-4db7-a340-68e490f028c5 concurrent dispense to: vial-1 RACK C" target="d02e188e-3fde-4583-b565-efa241059182 move to slot: WASH BAY">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="9c20e03cf25e48a739038d11e8543a55" label="" source="d02e188e-3fde-4583-b565-efa241059182&#10;move to slot: WASH BAY" target="c2562988-7a07-4fe2-9ff4-2c49af73b995&#10;wash needles">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="d02e188e-3fde-4583-b565-efa241059182 move to slot: WASH BAY" target="c2562988-7a07-4fe2-9ff4-2c49af73b995 wash needles">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="5a1df84093099786f73ade28d824d6a7" label="" source="c2562988-7a07-4fe2-9ff4-2c49af73b995&#10;wash needles" target="4bfbc7f1-76d1-41eb-91ea-2b916c9682f3&#10;move to slot: SLOT OFF-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c2562988-7a07-4fe2-9ff4-2c49af73b995 wash needles" target="4bfbc7f1-76d1-41eb-91ea-2b916c9682f3 move to slot: SLOT OFF-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="a2e3a488298a2e67e2ade0d91a4e1676" label="" source="4bfbc7f1-76d1-41eb-91ea-2b916c9682f3&#10;move to slot: SLOT OFF-1" target="3942058f-f775-4565-ab39-713ae079c6af&#10;concurrent aspirate from: vial-1 RACK A">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="4bfbc7f1-76d1-41eb-91ea-2b916c9682f3 move to slot: SLOT OFF-1" target="3942058f-f775-4565-ab39-713ae079c6af concurrent aspirate from: vial-1 RACK A">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="4d00cac4233d92941dff42b6ecaa33c8" label="" source="3942058f-f775-4565-ab39-713ae079c6af&#10;concurrent aspirate from: vial-1 RACK A" target="7133b259-8d02-4a77-8426-cf2efa8dbb4b&#10;move to slot: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="3942058f-f775-4565-ab39-713ae079c6af concurrent aspirate from: vial-1 RACK A" target="7133b259-8d02-4a77-8426-cf2efa8dbb4b move to slot: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="51fb734cbff89ec4f4d8939a0fb36e08" label="" source="7133b259-8d02-4a77-8426-cf2efa8dbb4b&#10;move to slot: SLOT 2-3-2" target="af9f0382-5692-4d1e-bbd5-c8925e33ae68&#10;concurrent dispense to: vial-2 RACK B">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="7133b259-8d02-4a77-8426-cf2efa8dbb4b move to slot: SLOT 2-3-2" target="af9f0382-5692-4d1e-bbd5-c8925e33ae68 concurrent dispense to: vial-2 RACK B">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="d452ed0c427cfdf6c94ce76290550779" label="" source="af9f0382-5692-4d1e-bbd5-c8925e33ae68&#10;concurrent dispense to: vial-2 RACK B" target="bcfccac1-c5a7-4a37-8af2-273c0025a023&#10;move to slot: WASH BAY">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="af9f0382-5692-4d1e-bbd5-c8925e33ae68 concurrent dispense to: vial-2 RACK B" target="bcfccac1-c5a7-4a37-8af2-273c0025a023 move to slot: WASH BAY">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="f344e26156d7ec4658d8f67bee63d13e" label="" source="bcfccac1-c5a7-4a37-8af2-273c0025a023&#10;move to slot: WASH BAY" target="e74adda0-90f4-44de-a035-82d5825d4460&#10;wash needles">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="bcfccac1-c5a7-4a37-8af2-273c0025a023 move to slot: WASH BAY" target="e74adda0-90f4-44de-a035-82d5825d4460 wash needles">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="1da031292e5b12bcebf97b2115e6f8ba" label="" source="e74adda0-90f4-44de-a035-82d5825d4460&#10;wash needles" target="6623450a-1094-435e-95e1-d2e64345ab4e&#10;move to slot: PDT SLOT 1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="e74adda0-90f4-44de-a035-82d5825d4460 wash needles" target="6623450a-1094-435e-95e1-d2e64345ab4e move to slot: PDT SLOT 1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="cad09ac6a3571cb038a25b8be4add1a3" label="" source="6623450a-1094-435e-95e1-d2e64345ab4e&#10;move to slot: PDT SLOT 1" target="c7bcf65d-92d8-4b59-abcf-75c7fb84a8b3&#10;pick up: PDT 1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="6623450a-1094-435e-95e1-d2e64345ab4e move to slot: PDT SLOT 1" target="c7bcf65d-92d8-4b59-abcf-75c7fb84a8b3 pick up: PDT 1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="dbd8377ae05e145d1d64fc4ca005e089" label="" source="c7bcf65d-92d8-4b59-abcf-75c7fb84a8b3&#10;pick up: PDT 1" target="f235eecd-702e-423b-85bd-d1bcdf5ae600&#10;move to slot: SLOT 2-3-3">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c7bcf65d-92d8-4b59-abcf-75c7fb84a8b3 pick up: PDT 1" target="f235eecd-702e-423b-85bd-d1bcdf5ae600 move to slot: SLOT 2-3-3">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="d660374aa69d4d0753376abc5cf6b179" label="" source="f235eecd-702e-423b-85bd-d1bcdf5ae600&#10;move to slot: SLOT 2-3-3" target="2cc63b1a-1e10-4484-b346-1c6c7c8ff23c&#10;pick up: PdpTip-1 RACK D">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="f235eecd-702e-423b-85bd-d1bcdf5ae600 move to slot: SLOT 2-3-3" target="2cc63b1a-1e10-4484-b346-1c6c7c8ff23c pick up: PdpTip-1 RACK D">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="cd4234f34f7a8b329ade09e7d710ae54" label="" source="2cc63b1a-1e10-4484-b346-1c6c7c8ff23c&#10;pick up: PdpTip-1 RACK D" target="a495c55e-7862-47d5-947e-011fcc674ea6&#10;move to slot: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="2cc63b1a-1e10-4484-b346-1c6c7c8ff23c pick up: PdpTip-1 RACK D" target="a495c55e-7862-47d5-947e-011fcc674ea6 move to slot: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="72d4388a5b4a6b5d3510f55ad9f63dd8" label="" source="a495c55e-7862-47d5-947e-011fcc674ea6&#10;move to slot: SLOT 2-3-2" target="1a027e2a-3f1b-44a1-b342-bd0f18417a31&#10;aspirate_pdp from: vial-1 RACK B">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="a495c55e-7862-47d5-947e-011fcc674ea6 move to slot: SLOT 2-3-2" target="1a027e2a-3f1b-44a1-b342-bd0f18417a31 aspirate_pdp from: vial-1 RACK B">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="5ed733067be31f5d75fb2ad477794c5a" label="" source="1a027e2a-3f1b-44a1-b342-bd0f18417a31&#10;aspirate_pdp from: vial-1 RACK B" target="13f86eee-4e21-4552-8569-e5e6298c5c08&#10;move to slot: SLOT 2-3-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="1a027e2a-3f1b-44a1-b342-bd0f18417a31 aspirate_pdp from: vial-1 RACK B" target="13f86eee-4e21-4552-8569-e5e6298c5c08 move to slot: SLOT 2-3-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="ad7a398e6d8dd6efd4dd120c2f07e084" label="" source="13f86eee-4e21-4552-8569-e5e6298c5c08&#10;move to slot: SLOT 2-3-1" target="18cef99b-7a72-4571-b719-95794702a945&#10;dispense_pdp to: vial-1 RACK C">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="13f86eee-4e21-4552-8569-e5e6298c5c08 move to slot: SLOT 2-3-1" target="18cef99b-7a72-4571-b719-95794702a945 dispense_pdp to: vial-1 RACK C">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="0b98a8eb71bd1a8ca2ad6f3cfa71c737" label="" source="18cef99b-7a72-4571-b719-95794702a945&#10;dispense_pdp to: vial-1 RACK C" target="955cd25b-2641-48c0-88dd-b8273b041211&#10;move to slot: DISPOSAL">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="18cef99b-7a72-4571-b719-95794702a945 dispense_pdp to: vial-1 RACK C" target="955cd25b-2641-48c0-88dd-b8273b041211 move to slot: DISPOSAL">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="532e61cc91b0c412a7fca5a39ffb8d19" label="" source="955cd25b-2641-48c0-88dd-b8273b041211&#10;move to slot: DISPOSAL" target="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c&#10;put down: DISPOSAL">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="955cd25b-2641-48c0-88dd-b8273b041211 move to slot: DISPOSAL" target="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c put down: DISPOSAL">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="6425275ee70f58d8a32d06b7c7692811" label="" source="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c&#10;put down: DISPOSAL" target="e10792ff-212c-42dd-abe6-c5c7be00390b&#10;wait for 5 min">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c put down: DISPOSAL" target="e10792ff-212c-42dd-abe6-c5c7be00390b wait for 5 min">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="019ad32fc053499f509a40ed21cf22f9" label="" source="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c&#10;put down: DISPOSAL" target="552bcaf5-6eff-4dbd-b61a-87163d2bb2b3&#10;wait for 5 min">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c put down: DISPOSAL" target="552bcaf5-6eff-4dbd-b61a-87163d2bb2b3 wait for 5 min">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="644ab4e3f0bd8cee86546d483001d111" label="" source="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c&#10;put down: DISPOSAL" target="062d97cb-c047-4d36-93c3-fc330eb28da5&#10;wait for 5 min">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="39f210b9-dd1b-4c2a-a1ed-2bbd95d0b15c put down: DISPOSAL" target="062d97cb-c047-4d36-93c3-fc330eb28da5 wait for 5 min">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="db152ba8c1d56cd63ebbd7ddb0aafe94" label="" source="e10792ff-212c-42dd-abe6-c5c7be00390b&#10;wait for 5 min" target="863ebcac-8eb6-4770-91c6-8702e5ddd62f&#10;move to slot: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="e10792ff-212c-42dd-abe6-c5c7be00390b wait for 5 min" target="863ebcac-8eb6-4770-91c6-8702e5ddd62f move to slot: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="f72453eac1109e95412ab857dab5a7f2" label="" source="552bcaf5-6eff-4dbd-b61a-87163d2bb2b3&#10;wait for 5 min" target="863ebcac-8eb6-4770-91c6-8702e5ddd62f&#10;move to slot: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="552bcaf5-6eff-4dbd-b61a-87163d2bb2b3 wait for 5 min" target="863ebcac-8eb6-4770-91c6-8702e5ddd62f move to slot: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="fd7e7b42fad6cb88f13c884aff52dee6" label="" source="062d97cb-c047-4d36-93c3-fc330eb28da5&#10;wait for 5 min" target="863ebcac-8eb6-4770-91c6-8702e5ddd62f&#10;move to slot: SLOT 2-3-2">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="062d97cb-c047-4d36-93c3-fc330eb28da5 wait for 5 min" target="863ebcac-8eb6-4770-91c6-8702e5ddd62f move to slot: SLOT 2-3-2">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="352fe873c7617dc2121fc23486741b39" label="" source="863ebcac-8eb6-4770-91c6-8702e5ddd62f&#10;move to slot: SLOT 2-3-2" target="ee25f0e8-dc61-4ac4-911b-b98fde86addd&#10;concurrent aspirate from: vial-2 RACK B">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="863ebcac-8eb6-4770-91c6-8702e5ddd62f move to slot: SLOT 2-3-2" target="ee25f0e8-dc61-4ac4-911b-b98fde86addd concurrent aspirate from: vial-2 RACK B">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="7aa48340893fde9546a23c45acd8368f" label="" source="ee25f0e8-dc61-4ac4-911b-b98fde86addd&#10;concurrent aspirate from: vial-2 RACK B" target="f7628dfd-7e2b-4dba-80bd-2ec2b2d6219d&#10;move to slot: SLOT 2-3-1">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="ee25f0e8-dc61-4ac4-911b-b98fde86addd concurrent aspirate from: vial-2 RACK B" target="f7628dfd-7e2b-4dba-80bd-2ec2b2d6219d move to slot: SLOT 2-3-1">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="67bfa0d5272567b22bf9681ef5087eff" label="" source="f7628dfd-7e2b-4dba-80bd-2ec2b2d6219d&#10;move to slot: SLOT 2-3-1" target="b6403321-d7ce-4259-8f69-833e9467038d&#10;concurrent dispense to: vial-1 RACK C">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="f7628dfd-7e2b-4dba-80bd-2ec2b2d6219d move to slot: SLOT 2-3-1" target="b6403321-d7ce-4259-8f69-833e9467038d concurrent dispense to: vial-1 RACK C">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="63f5697a0a582f37fef3a6ea858173f0" label="" source="b6403321-d7ce-4259-8f69-833e9467038d&#10;concurrent dispense to: vial-1 RACK C" target="fb6dcde6-ba6b-4a2b-b6f9-c2e7e0680efb&#10;move to slot: WASH BAY">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="b6403321-d7ce-4259-8f69-833e9467038d concurrent dispense to: vial-1 RACK C" target="fb6dcde6-ba6b-4a2b-b6f9-c2e7e0680efb move to slot: WASH BAY">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="d68e3fb6ab8d8e753da4d77306a9a986" label="" source="fb6dcde6-ba6b-4a2b-b6f9-c2e7e0680efb&#10;move to slot: WASH BAY" target="c2e87c2c-03f4-44c6-9329-27f66d0331dc&#10;wash needles">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="fb6dcde6-ba6b-4a2b-b6f9-c2e7e0680efb move to slot: WASH BAY" target="c2e87c2c-03f4-44c6-9329-27f66d0331dc wash needles">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="75af92cc7e9a2c8ea4d45630c28e0365" label="" source="c2e87c2c-03f4-44c6-9329-27f66d0331dc&#10;wash needles" target="a5ac0874-8a3e-4c66-98ba-7fb01e6111de&#10;wait for 120 min">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c2e87c2c-03f4-44c6-9329-27f66d0331dc wash needles" target="a5ac0874-8a3e-4c66-98ba-7fb01e6111de wait for 120 min">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="9bd6249f8dbae88b575534f55e6817a6" label="" source="c2e87c2c-03f4-44c6-9329-27f66d0331dc&#10;wash needles" target="a7eb7c66-e89d-4692-bc9a-7c17a55f210b&#10;wait for 120 min">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c2e87c2c-03f4-44c6-9329-27f66d0331dc wash needles" target="a7eb7c66-e89d-4692-bc9a-7c17a55f210b wait for 120 min">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object><object id="776a94f09834ccd961cc99d826eb6f86" label="" source="c2e87c2c-03f4-44c6-9329-27f66d0331dc&#10;wash needles" target="4f8a8ed7-dbe7-468d-b7c9-6e4f35cf0f92&#10;wait for 120 min">
+      <mxCell style="endArrow=classic" edge="1" parent="1" source="c2e87c2c-03f4-44c6-9329-27f66d0331dc wash needles" target="4f8a8ed7-dbe7-468d-b7c9-6e4f35cf0f92 wait for 120 min">
+          <mxGeometry relative="1" as="geometry" />
+      </mxCell>
+    </object></root>
+      </mxGraphModel>
+    </diagram></mxfile>

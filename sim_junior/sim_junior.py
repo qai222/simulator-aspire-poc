@@ -1,251 +1,494 @@
 from hardware_pydantic.junior import *
-from hardware_pydantic.junior import JuniorInstruction as Instruction
+
+"""
+following the notes of N-Sulfonylation 
+"""
+
+create_junior_base()
+
+# CONCURRENCY = 4
+CONCURRENCY = 1
+
+# RACK A: holding HRVs with DCM, on off deck initially
+RACK_A, RACK_A_VIALS = JuniorRack.create_rack_with_empty_vials(
+    n_vials=CONCURRENCY, rack_capacity=6, vial_type="HRV", rack_id="RACK A"
+)
+RACK_A: JuniorRack
+RACK_A_VIALS: list[JuniorVial]
+for v in RACK_A_VIALS:
+    v.chemical_content = {"DCM": 1000}
+JuniorSlot.put_rack_in_a_slot(RACK_A, JUNIOR_LAB['SLOT OFF-1'])
+
+# RACK B: holding HRVs for reactions, at 2-3-2 initially, one for RSO2Cl stock solution, another for pyridine source
+RACK_B, RACK_B_VIALS = JuniorRack.create_rack_with_empty_vials(
+    n_vials=CONCURRENCY + 1, rack_capacity=8, vial_type="HRV", rack_id="RACK B"
+)
+RACK_B: JuniorRack
+RACK_B_VIALS: list[JuniorVial]
+JuniorSlot.put_rack_in_a_slot(RACK_B, JUNIOR_LAB['SLOT 2-3-2'])
+
+# RACK C: holding one MRV for reaction, at 2-3-1 initially
+RACK_C, RACK_C_VIALS = JuniorRack.create_rack_with_empty_vials(
+    n_vials=CONCURRENCY, rack_capacity=6, vial_type="MRV", rack_id="RACK C"
+)
+RACK_C: JuniorRack
+RACK_C_VIALS: list[JuniorVial]
+JuniorSlot.put_rack_in_a_slot(RACK_C, JUNIOR_LAB['SLOT 2-3-1'])
+
+# RACK D: holding PDP tips, at 2-3-3 initially
+RACK_D, RACK_D_TIPS = JuniorRack.create_rack_with_empty_tips(
+    n_tips=CONCURRENCY, rack_capacity=6, rack_id="RACK D", tip_id_inherit=True
+)
+RACK_D: JuniorRack
+RACK_D_TIPS: list[JuniorPdpTip]
+JuniorSlot.put_rack_in_a_slot(RACK_D, JUNIOR_LAB['SLOT 2-3-3'])
+
+# SV VIALS, one for solid amine (aniline), another for RSO2Cl, each sits in a SVV SLOT
+SVV_1 = JuniorVial(
+    identifier="SV VIAL 1", contained_by=JUNIOR_LAB['SVV SLOT 1'].identifier,
+    chemical_content={'solid amine': 1000},
+    vial_type='SV',
+)
+SVV_2 = JuniorVial(
+    identifier="SV VIAL 2", contained_by=JUNIOR_LAB['SVV SLOT 2'].identifier,
+    chemical_content={'sulfonyl chloride': 1000},
+    vial_type='SV',
+)
+JUNIOR_LAB['SVV SLOT 1'].slot_content['SLOT'] = SVV_1.identifier
+JUNIOR_LAB['SVV SLOT 2'].slot_content['SLOT'] = SVV_2.identifier
+
+# INSTRUCTIONS
+Z1_ARM = JUNIOR_LAB['Z1 ARM']
+Z2_ARM = JUNIOR_LAB['Z2 ARM']
+ARM_PLATFORM = JUNIOR_LAB['ARM PLATFORM']
+
+Z1NEEDLES = [JUNIOR_LAB[f"Z1 Needle {i + 1}"] for i in range(CONCURRENCY)]
+
+VPG = JUNIOR_LAB['VPG']
+VPG_SLOT = JUNIOR_LAB['VPG SLOT']
+SV_TOOL = JUNIOR_LAB['SV TOOL']
+SV_TOOL_SLOT = JUNIOR_LAB['SV TOOL SLOT']
+BALANCE_SLOT = JUNIOR_LAB['BALANCE SLOT']
+
+PDP_1 = JUNIOR_LAB['PDT 1']
+
+DCM_VIALS = RACK_A_VIALS
+MRV_VIALS = RACK_C_VIALS
+PYRIDINE_VIAL = RACK_B_VIALS[0]
+RSO2Cl_STOCK_SOLUTION_VIALS = RACK_B_VIALS[1:]
+PYRIDINE_VIAL.chemical_content = {"pyridine": 1000}
 
 
-def junior_setup():
-    junior_lab = create_junior_base()
-
-    # RACK A: holding HRVs with DCM, on off deck initially
-    rack_and_vials = JuniorRack.create_rack_with_empty_vials(n_vials=1, rack_capacity=1, vial_type="HRV",
-                                                             rack_id="RACK A")
-    RACK_A, RACK_A_VIALS = rack_and_vials[0], rack_and_vials[1:]
-    RACK_A: JuniorRack
-    RACK_A_VIALS: list[JuniorVial]
-    for v in RACK_A_VIALS:
-        v.content = {"DCM": 10}
-    JuniorRack.put_rack_in_a_slot(RACK_A, junior_lab['RACK SLOT OFF-1'])
-
-    # RACK B: holding HRVs for reactions, at 2-3-2 initially, one for RSO2Cl stock solution, another for pyridine source
-    rack_and_vials = JuniorRack.create_rack_with_empty_vials(n_vials=2, rack_capacity=2, vial_type="HRV",
-                                                             rack_id="RACK B")
-    RACK_B, RACK_B_VIALS = rack_and_vials[0], rack_and_vials[1:]
-    RACK_B: JuniorRack
-    pyridine_vail = junior_lab[RACK_B.content['1']]
-    pyridine_vail.content = {"pyridine": 10}
-    JuniorRack.put_rack_in_a_slot(RACK_B, junior_lab['RACK SLOT 2'])
-
-    # RACK C: holding one MRV for reaction, at 2-3-1 initially
-    rack_and_vials = JuniorRack.create_rack_with_empty_vials(n_vials=1, rack_capacity=1, vial_type="MRV",
-                                                             rack_id="RACK C")
-    RACK_C, RACK_C_VIALS = rack_and_vials[0], rack_and_vials[1:]
-    RACK_C: JuniorRack
-    JuniorRack.put_rack_in_a_slot(RACK_C, junior_lab['RACK SLOT 1'])
-
-    # IGNORE PDT TIP RACK FN
-
-    SVV_1 = JuniorVial(identifier="SV VIAL 1", position_relative=junior_lab['SVV SLOT 1'].identifier, type="SV",
-                       content={"solid amine": 10})
-    SVV_2 = JuniorVial(identifier="SV VIAL 2", position_relative=junior_lab['SVV SLOT 2'].identifier, type="SV",
-                       content={"sulfonyl chloride": 10})
-    junior_lab['SVV SLOT 1'].content = SVV_1.identifier
-    junior_lab['SVV SLOT 2'].content = SVV_2.identifier
-
-    return junior_lab
-
-
-def junior_instructions():
-    junior_lab = junior_setup()
-
-    j_rack_a = junior_lab['RACK A']
-    j_rack_b = junior_lab['RACK B']
-    j_rack_c = junior_lab['RACK C']
-    j_rack_c: JuniorRack
-
-    j_vial_rso2cl = junior_lab[j_rack_b.content['0']]
-    j_vial_pyridine = junior_lab[j_rack_b.content['1']]
-    j_vial_mrv = junior_lab[j_rack_c.content['0']]
-    j_vial_dcm = junior_lab[j_rack_a.content['0']]
-
-    j_sv_vial_1 = junior_lab['SV VIAL 1']
-    j_sv_vial_2 = junior_lab['SV VIAL 2']
-    j_z1_arm = junior_lab['Z1 ARM']
-    j_z2_arm = junior_lab['Z2 ARM']
-    j_sv_tool = junior_lab['SV TOOL']
-
-    # TODO this completely ignore the fact you need first pick up the rack, put it down on the balance, then put the rack back...
-    # 1a dispense RSO2Cl from `SV VIAL 2` to `HRV 1` on rack c
-    ins_1a1 = Instruction(
-        identifier="1a1",
-        device=j_z2_arm, action_name="pick_up",
+def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorSlot):
+    ins1 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
-            "obj": j_sv_tool,
+            "anchor_arm": Z2_ARM,
+            "move_to_slot": VPG_SLOT,
         },
-        description="pick up sv tool",
+        description=f"move to slot: {VPG_SLOT.identifier}"
     )
 
-    ins_1a2 = Instruction(
-        identifier="1a2",
-        device=j_z2_arm, action_name="pick_up",
+    ins2 = JuniorInstruction(
+        device=Z2_ARM, action_name="pick_up",
         action_parameters={
-            "obj": j_sv_vial_2,
-        }, preceding_instructions=[ins_1a1.identifier],
-        description="pick up RSO2Cl sv vial",
-    )
-
-    ins_1a3 = Instruction(
-        identifier="1a3",
-        device=j_z2_arm, action_name="dispense_sv",
-        action_parameters={
-            "to_vial": j_vial_rso2cl,
-            "amount": 0.1
-        }, preceding_instructions=[ins_1a2.identifier],
-        # TODO somewhere a bug making rack content dict[str, Vial]...
-        description="dispense RSO2Cl to " + j_vial_rso2cl.identifier
-    )
-
-    # 1b dispense solid amine from `SV VIAL 2` to `HRV 2` on rack c
-    # first put down RSO2Cl vial
-    ins_1b1 = Instruction(
-        identifier="1b1",
-        device=j_z2_arm, action_name="put_down",
-        action_parameters={
-            "to_slot": junior_lab['SVV SLOT 2']
+            "thing": VPG,
         },
-        preceding_instructions=[ins_1a3.identifier, ins_1a1.identifier],
-        description="put down RSO2Cl sv vial"
+        description=f"pick up: {VPG.identifier}"
     )
 
-    ins_1b2 = Instruction(
-        identifier="1b2",
-        device=j_z2_arm, action_name="pick_up",
+    ins3 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
-            "obj": j_sv_vial_1,
-        }, preceding_instructions=[ins_1b1.identifier],
-        description="pick up solid amine sv vial"
+            "anchor_arm": Z2_ARM,
+            "move_to_slot": src_slot,
+        },
+        description=f"move to slot: {src_slot.identifier}"
     )
-
-    ins_1b3 = Instruction(
-        identifier="1b3",
-        device=j_z2_arm, action_name="dispense_sv",
+    ins4 = JuniorInstruction(
+        device=Z2_ARM, action_name="pick_up",
         action_parameters={
-            "to_vial": j_vial_mrv,
-            "amount": 0.1
-        }, preceding_instructions=[ins_1b2.identifier],
-        description="dispense solid amine to " + j_vial_mrv.identifier
+            "thing": rack,
+        },
+        description=f"pick up: {rack.identifier}"
     )
-
-    ins_2a = Instruction(
-        identifier="2a",
-        device=j_z2_arm, action_name="put_down",
+    ins5 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
-            "to_slot": junior_lab['SVV SLOT 1']
-        }, preceding_instructions=[ins_1b3.identifier],
-        description="put down sv vial this also free this slot for ARM Z1: " + j_z1_arm.identifier
+            "anchor_arm": Z2_ARM,
+            "move_to_slot": dest_slot,
+        },
+        description=f"move to slot: {dest_slot.identifier}"
     )
-
-    ins_2b = Instruction(
-        identifier="2b",
-        device=j_z1_arm, action_name="transfer_liquid",
+    ins6 = JuniorInstruction(
+        device=Z2_ARM, action_name="put_down",
         action_parameters={
-            "use_needles": ["1"],
-            "from_vials": [j_vial_dcm],
-            "to_vials": [j_vial_rso2cl],
-            "amounts": [2.0],
-        }, preceding_instructions=[ins_1a3.identifier, ins_1b3.identifier, ins_2a.identifier],
-        description="dispense DCM to RSO2Cl vial to make stock solution"
+            "dest_slot": dest_slot,
+        },
+        description=f"put down: {dest_slot.identifier}"
     )
 
-    ins_3 = Instruction(
-        identifier="3",
-        device=j_z1_arm, action_name="transfer_liquid",
+    ins7 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
-            "use_needles": ["1"],
-            "from_vials": [j_vial_dcm],
-            "to_vials": [j_vial_mrv],
-            "amounts": [2.0],
-        }, preceding_instructions=[ins_1a3.identifier, ins_1b3.identifier],
-        description="dispense DCM to mrv vial (has aniline)"
+            "anchor_arm": Z2_ARM,
+            "move_to_slot": VPG_SLOT,
+        },
+        description=f"move to slot: {VPG_SLOT.identifier}"
     )
-    ins_4a = Instruction(
-        identifier="4a",
-        device=j_z2_arm, action_name="put_down",
+
+    ins8 = JuniorInstruction(
+        device=Z2_ARM, action_name="put_down",
         action_parameters={
-            "to_slot": junior_lab['SV TOOL SLOT']
-        }, preceding_instructions=[ins_2a.identifier],
-        description="put down sv tool"
+            "dest_slot": VPG_SLOT,
+        },
+        description=f"put down: {VPG_SLOT.identifier}"
     )
 
-    ins_4b = Instruction(
-        identifier="4b",
-        device=j_z2_arm, action_name="pick_up",
+    ins_list = [ins1, ins2, ins3, ins4, ins5, ins6, ins7, ins8]
+    JuniorInstruction.path_graph(ins_list)
+    return ins_list
+
+
+def solid_dispense(
+        sv_vial: JuniorVial,
+        sv_vial_slot: JuniorSlot,
+        dest_vials: list[JuniorVial],
+        amount: float, speed: float,
+        include_pickup_svtool=True,
+        include_dropoff_svvial=True,
+        include_dropoff_svtool=True,
+):
+    ins3 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
-            "obj": junior_lab['PDT 1'],
-        }, preceding_instructions=[ins_4a.identifier, ],
-        description="pick up pdt 1 for pyridine"
+            "anchor_arm": Z2_ARM,
+            "move_to_slot": sv_vial_slot,
+        },
+        description=f"move to slot: {sv_vial_slot.identifier}"
     )
 
-    ins_4c_dep = Instruction(
-        identifier="4c_dep",
-        device=j_z1_arm, action_name="move_to",
+    ins4 = JuniorInstruction(
+        device=Z2_ARM, action_name="pick_up",
+        action_parameters={"thing": sv_vial},
+        description=f"pick up: {sv_vial.identifier}",
+    )
+
+    ins5 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
-            "move_to_slot": junior_lab['RACK SLOT OFF-3']
-        }, preceding_instructions=[ins_3.identifier],  # last time we use z1,
-        description="move z1 to off deck so z2 has access"
+            "anchor_arm": Z2_ARM,
+            "move_to_slot": BALANCE_SLOT,
+        },
+        description=f"move to slot: {BALANCE_SLOT.identifier}"
     )
 
-    ins_4c = Instruction(
-        identifier="4c",
-        device=j_z2_arm, action_name="transfer_liquid_pdt",
+    if include_pickup_svtool:
+        ins1 = JuniorInstruction(
+            device=ARM_PLATFORM, action_name="move_to",
+            action_parameters={
+                "anchor_arm": Z2_ARM,
+                "move_to_slot": SV_TOOL_SLOT,
+            },
+            description=f"move to slot: {SV_TOOL_SLOT.identifier}"
+        )
+
+        ins2 = JuniorInstruction(
+            device=Z2_ARM, action_name="pick_up",
+            action_parameters={"thing": SV_TOOL},
+            description=f"pick up: {SV_TOOL.identifier}",
+        )
+        ins_list = [ins1, ins2, ins3, ins4, ins5]
+    else:
+        ins_list = [ins3, ins4, ins5]
+
+    for dest_vial in dest_vials:
+        ins6 = JuniorInstruction(
+            device=Z2_ARM, action_name="dispense_sv",
+            action_parameters={
+                "destination_container": dest_vial,
+                "amount": amount,
+                "dispense_speed": speed,
+            },
+            description=f"dispense_sv to: {dest_vial.identifier}",
+        )
+        ins_list.append(ins6)
+
+    if include_dropoff_svvial:
+        ins7 = JuniorInstruction(
+            device=ARM_PLATFORM, action_name="move_to",
+            action_parameters={
+                "anchor_arm": Z2_ARM,
+                "move_to_slot": sv_vial_slot,
+            },
+            description=f"move to slot: {sv_vial_slot.identifier}"
+        )
+
+        ins8 = JuniorInstruction(
+            device=Z2_ARM, action_name="put_down",
+            action_parameters={
+                "dest_slot": sv_vial_slot,
+            },
+            description=f"put down: {sv_vial_slot.identifier}"
+        )
+        ins_list.append(ins7)
+        ins_list.append(ins8)
+
+    if include_dropoff_svtool:
+        ins9 = JuniorInstruction(
+            device=ARM_PLATFORM, action_name="move_to",
+            action_parameters={
+                "anchor_arm": Z2_ARM,
+                "move_to_slot": SV_TOOL_SLOT,
+            },
+            description=f"move to slot: {SV_TOOL_SLOT.identifier}"
+        )
+
+        ins10 = JuniorInstruction(
+            device=Z2_ARM, action_name="put_down",
+            action_parameters={
+                "dest_slot": SV_TOOL_SLOT,
+            },
+            description=f"put down: {SV_TOOL_SLOT.identifier}"
+        )
+        ins_list.append(ins9)
+        ins_list.append(ins10)
+
+    JuniorInstruction.path_graph(ins_list)
+
+    return ins_list
+
+
+def needle_dispense(
+        src_vials: list[JuniorVial],
+        src_slot: JuniorSlot,
+        dest_vials: list[JuniorVial],
+        dest_vials_slot: JuniorSlot,
+        amount: float, speed: float,
+):
+    ins1 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
-            "from_vial": j_vial_pyridine,
-            "to_vial": j_vial_mrv,
-            "amount": 0.05,
-        }, preceding_instructions=[ins_4b.identifier, ins_4c_dep.identifier],
-        description="use pdt to transfer pyridine"
+            "anchor_arm": Z1_ARM,
+            "move_to_slot": src_slot,
+        },
+        description=f"move to slot: {src_slot.identifier}"
     )
-
-    # SKIP INS 5
-
-    ins6 = Instruction(
-        identifier="6",
-        device=j_z2_arm, action_name="transfer_liquid_pdt",
+    ins2 = JuniorInstruction(
+        device=Z1_ARM, action_name="concurrent_aspirate",
         action_parameters={
-            "from_vial": j_vial_rso2cl,
-            "to_vial": j_vial_mrv,
-            "amount": 1.0,
-        }, preceding_instructions=[ins_4c.identifier, ins_2b.identifier],
-        description="use pdt to transfer rso2cl stock solution"
+            "source_containers": src_vials,
+            "dispenser_containers": Z1NEEDLES,
+            "amounts": [amount, ] * CONCURRENCY,
+            "aspirate_speed": speed,
+        },
+        description=f"concurrent aspirate from: {','.join([v.identifier for v in src_vials])}"
+    )
+    ins3 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
+        action_parameters={
+            "anchor_arm": Z1_ARM,
+            "move_to_slot": dest_vials_slot,
+        },
+        description=f"move to slot: {dest_vials_slot.identifier}"
+    )
+    ins4 = JuniorInstruction(
+        device=Z1_ARM, action_name="concurrent_dispense",
+        action_parameters={
+            "destination_containers": dest_vials,
+            "dispenser_containers": Z1NEEDLES,
+            "dispense_speed": speed,
+            "amounts": [amount, ] * CONCURRENCY,
+        },
+        description=f"concurrent dispense to: {','.join([v.identifier for v in dest_vials])}"
+    )
+    ins5 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
+        action_parameters={
+            "anchor_arm": Z1_ARM,
+            "move_to_slot": JUNIOR_LAB['WASH BAY'],
+        },
+        description=f"move to slot: WASH BAY"
+    )
+    ins6 = JuniorInstruction(
+        device=Z1_ARM, action_name="wash",
+        action_parameters={
+            "wash_bay": JUNIOR_LAB['WASH BAY'],
+        },
+        description="wash needles"
+    )
+    ins_list = [ins1, ins2, ins3, ins4, ins5, ins6]
+    JuniorInstruction.path_graph(ins_list)
+    return ins_list
+
+
+def pdp_dispense(
+        src_vial: JuniorVial, src_slot: JuniorSlot,
+        tips: list[JuniorPdpTip], tips_slot: JuniorSlot,
+        dest_vials: list[JuniorVial], dest_vials_slot: JuniorSlot,
+        amount: float, speed: float
+):
+    ins1 = JuniorInstruction(
+        device=ARM_PLATFORM, action_name="move_to",
+        action_parameters={
+            "anchor_arm": Z2_ARM,
+            "move_to_slot": JUNIOR_LAB['PDT SLOT 1'],
+        },
+        description=f"move to slot: PDT SLOT 1"
     )
 
-    ins7 = Instruction(
-        identifier="7",
-        device=junior_lab['RACK SLOT 1'], action_name="wait",
-        action_parameters={"wait_time": 3600},
-        preceding_instructions=[ins6.identifier, ],
-        description="wait until reaction finishes",
+    ins2 = JuniorInstruction(
+        device=Z2_ARM, action_name="pick_up",
+        action_parameters={"thing": PDP_1},
+        description=f"pick up: {PDP_1.identifier}",
     )
 
-    return junior_lab
+    ins_list = [ins1, ins2]
+
+    for tip, dest_vial in zip(tips, dest_vials):
+        i_a = JuniorInstruction(
+            device=ARM_PLATFORM, action_name="move_to",
+            action_parameters={
+                "anchor_arm": Z2_ARM,
+                "move_to_slot": tips_slot,
+            },
+            description=f"move to slot: {tips_slot.identifier}"
+        )
+        i_b = JuniorInstruction(
+            device=Z2_ARM, action_name="pick_up",
+            action_parameters={"thing": tip},
+            description=f"pick up: {tip.identifier}",
+        )
+        i_c = JuniorInstruction(
+            device=ARM_PLATFORM, action_name="move_to",
+            action_parameters={
+                "anchor_arm": Z2_ARM,
+                "move_to_slot": src_slot,
+            },
+            description=f"move to slot: {src_slot.identifier}"
+        )
+        i_d = JuniorInstruction(
+            device=Z2_ARM, action_name="aspirate_pdp",
+            action_parameters={
+                "source_container": src_vial,
+                "amount": amount,
+                "aspirate_speed": speed,
+            },
+            description=f"aspirate_pdp from: {src_vial.identifier}"
+        )
+        i_e = JuniorInstruction(
+            device=ARM_PLATFORM, action_name="move_to",
+            action_parameters={
+                "anchor_arm": Z2_ARM,
+                "move_to_slot": dest_vials_slot,
+            },
+            description=f"move to slot: {dest_vials_slot.identifier}"
+        )
+        i_f = JuniorInstruction(
+            device=Z2_ARM, action_name="dispense_pdp",
+            action_parameters={
+                "destination_container": dest_vial,
+                "amount": amount,
+                "dispense_speed": speed,
+            },
+            description=f"dispense_pdp to: {dest_vial.identifier}"
+        )
+        i_g = JuniorInstruction(
+            device=ARM_PLATFORM, action_name="move_to",
+            action_parameters={
+                "anchor_arm": Z2_ARM,
+                "move_to_slot": JUNIOR_LAB['DISPOSAL'],
+            },
+            description=f"move to slot: DISPOSAL"
+        )
+        i_h = JuniorInstruction(
+            device=Z2_ARM, action_name="put_down",
+            action_parameters={
+                "dest_slot": JUNIOR_LAB['DISPOSAL'],
+            },
+            description="put down: DISPOSAL"
+        )
+        ins_list += [i_a, i_b, i_c, i_d, i_e, i_f, i_g, i_h]
+    JuniorInstruction.path_graph(ins_list)
+    return ins_list
 
 
-jlab = junior_instructions()
+ins_list1 = pick_drop_rack_to(RACK_B, JUNIOR_LAB['SLOT 2-3-2'], BALANCE_SLOT)
 
-from N2G import drawio_diagram
+ins_list2 = solid_dispense(SVV_2, JUNIOR_LAB['SVV SLOT 2'], RSO2Cl_STOCK_SOLUTION_VIALS, 10, 0.2,
+                           include_pickup_svtool=True, include_dropoff_svvial=True, include_dropoff_svtool=True)
+ins_list2[0].preceding_instructions.append(ins_list1[-1].identifier)
 
-diagram = drawio_diagram()
-diagram.add_diagram("Page-1")
-for ins in jlab.dict_instruction.values():
-    diagram.add_node(id=f"{ins.identifier}\n{ins.description}")
-for ins in jlab.dict_instruction.values():
-    for dep in ins.preceding_instructions:
-        pre_ins = jlab.dict_instruction[dep]
-        this_ins_node = f"{ins.identifier}\n{ins.description}"
-        pre_ins_node = f"{pre_ins.identifier}\n{pre_ins.description}"
-        diagram.add_link(pre_ins_node, this_ins_node, style="endArrow=classic")
-diagram.layout(algo="kk")
+ins_list3 = pick_drop_rack_to(RACK_B, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-2'])
+ins_list3[0].preceding_instructions.append(ins_list2[-1].identifier)
+
+ins_list4 = pick_drop_rack_to(RACK_C, JUNIOR_LAB['SLOT 2-3-1'], BALANCE_SLOT)
+ins_list4[0].preceding_instructions.append(ins_list3[-1].identifier)
+
+ins_list5 = solid_dispense(SVV_1, JUNIOR_LAB['SVV SLOT 1'], MRV_VIALS, 10, 0.2, include_pickup_svtool=True,
+                           include_dropoff_svvial=True, include_dropoff_svtool=True)
+ins_list5[0].preceding_instructions.append(ins_list4[-1].identifier)
+
+ins_list6 = pick_drop_rack_to(RACK_C, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-1'])
+ins_list6[0].preceding_instructions.append(ins_list5[-1].identifier)
+
+ins_list7 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'], 10, 0.2)
+ins_list7[0].preceding_instructions.append(ins_list6[-1].identifier)
+
+ins_list8 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'],
+                            10, 0.2)
+ins_list8[0].preceding_instructions.append(ins_list7[-1].identifier)
+
+ins_list9 = pdp_dispense(PYRIDINE_VIAL, JUNIOR_LAB['SLOT 2-3-2'], RACK_D_TIPS, JUNIOR_LAB['SLOT 2-3-3'], MRV_VIALS,
+                         JUNIOR_LAB['SLOT 2-3-1'], 10, 0.2)
+ins_list9[0].preceding_instructions.append(ins_list8[-1].identifier)
+
+ins_stir1 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 300},
+    description="wait for 5 min"
+)
+ins_stir2 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 300},
+    description="wait for 5 min"
+)
+ins_stir3 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 300},
+    description="wait for 5 min"
+)
+
+for i in [ins_stir1, ins_stir2, ins_stir3]:
+    i.preceding_instructions.append(ins_list9[-1].identifier)
+
+ins_list10 = needle_dispense(RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'],
+                             10, 0.2)
+ins_list10[0].preceding_instructions = [ins_stir1.identifier, ins_stir2.identifier, ins_stir3.identifier]
+
+ins_stir21 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 7200},
+    description="wait for 120 min"
+)
+ins_stir22 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 7200},
+    description="wait for 120 min"
+)
+ins_stir23 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 7200},
+    description="wait for 120 min"
+)
+
+for i in [ins_stir21, ins_stir22, ins_stir23]:
+    i.preceding_instructions.append(ins_list10[-1].identifier)
+
+diagram = JUNIOR_LAB.instruction_graph
+
+diagram.layout(algo="rt_circular")
 diagram.dump_file(filename="sim_junior_instruction.drawio", folder="./")
-
-import pickle
-
-with open(f"/home/qai/workplace/simulator-aspire-poc/sim_junior/lab_states/state_0.pkl", "wb") as f:
-    output = {"simulation time": 0, "lab": jlab, "log": ["SIMULATION INITIALIZED"]}
-    pickle.dump(output, f)
 
 from casymda_hardware.model import *
 import simpy
 
 env = simpy.Environment()
 
-model = Model(env, jlab)
+model = Model(env, JUNIOR_LAB, wdir=os.path.abspath("./"), model_name=f"con-{CONCURRENCY}")
 
 env.run()

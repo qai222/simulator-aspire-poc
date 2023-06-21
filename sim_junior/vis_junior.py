@@ -1,15 +1,47 @@
-import glob
-import os.path
 import pickle
 import pprint
+import math
 
 import dash_bootstrap_components as dbc
 import dash_renderjson
 import plotly.graph_objects as go
 from dash import Dash, dcc, html, Input, Output
-
+import plotly.figure_factory as ff
 from hardware_pydantic.junior import *
+import plotly.express as px
+import pandas as pd
 
+
+def get_gantt_fig(states):
+    df_data = []
+
+    for state in states:
+        if state['instruction'] is None:
+            continue
+        start = state['last_entry']
+        end = state['finished']
+        task = state['instruction'].identifier
+        des = state['instruction'].description
+
+        gantt_task = des.split(":")[0]
+        if gantt_task.startswith("wait"):
+            gantt_task = "wait"
+
+        df_data.append(
+            {"Task": gantt_task, "Start": start, "des": des, "Finish": end, "cost": end - start}
+        )
+    if len(df_data) == 0:
+        return go.Figure()
+    df = pd.DataFrame(df_data)
+
+    colors = px.colors.qualitative.G10
+    keys = sorted(df['Task'].unique())
+    assert len(keys) <= len(colors)
+    colors = dict(zip(keys, colors[:len(keys)]))
+
+    fig = ff.create_gantt(df, index_col='Task', bar_width=0.4, show_colorbar=True, colors=colors)
+    fig.update_layout(xaxis_type='linear', autosize=True, yaxis_visible=False)
+    return fig
 
 def get_layout_figure(lab: Lab) -> go.Figure:
     fig = go.Figure()
@@ -45,15 +77,17 @@ def get_layout_figure(lab: Lab) -> go.Figure:
 
     z2_arm = lab['Z2 ARM']
     z2_arm: JuniorArmZ2
-    assert z1_arm.position_on_top_of != z2_arm.position_on_top_of
+
+    arm_platform = lab['ARM PLATFORM']
+    arm_platform: JuniorArmPlatform
 
     for k, v in lab.dict_object.items():
-        if isinstance(v, JuniorSlot):
-            x0, y0 = v.layout_position
-            x1 = x0 + v.layout_x
-            y1 = y0 + v.layout_y
+        if isinstance(v, (JuniorSlot, JuniorWashBay, JuniorTipDisposal)):
+            x0, y0 = v.layout.layout_position
+            x1 = x0 + v.layout.layout_x
+            y1 = y0 + v.layout.layout_y
 
-            if v.content is not None:
+            if isinstance(v, JuniorSlot) and v.slot_content['SLOT'] is not None:
                 fillcolor = "gray"
             else:
                 fillcolor = None
@@ -66,8 +100,8 @@ def get_layout_figure(lab: Lab) -> go.Figure:
             )
             fig.add_trace(
                 go.Scatter(
-                    x=[x0, x0, x0 + v.layout_x, x0 + v.layout_x],
-                    y=[y0, y0 + v.layout_y, y0 + v.layout_y, y0],
+                    x=[x0, x0, x0 + v.layout.layout_x, x0 + v.layout.layout_x],
+                    y=[y0, y0 + v.layout.layout_y, y0 + v.layout.layout_y, y0],
                     fill="toself",
                     mode='lines',
                     name='',
@@ -76,14 +110,14 @@ def get_layout_figure(lab: Lab) -> go.Figure:
                     opacity=0
                 )
             )
-            if z1_arm.position_on_top_of == v.identifier:
+            if arm_platform.anchor_arm == z1_arm.identifier and arm_platform.position_on_top_of == v.identifier:
                 bgcolor = "red"
-            elif z2_arm.position_on_top_of == v.identifier:
+            elif arm_platform.anchor_arm == z2_arm.identifier and arm_platform.position_on_top_of == v.identifier:
                 bgcolor = "blue"
             else:
                 bgcolor = None
 
-            fig.add_annotation(x=x0 + v.layout_x / 2, y=y0 + v.layout_y / 2,
+            fig.add_annotation(x=x0 + v.layout.layout_x / 2, y=y0 + v.layout.layout_y / 2,
                                font={"color": "black"},
                                text=v.identifier,
                                bordercolor=bgcolor,
@@ -114,34 +148,41 @@ JsonTheme = {
     "base0F": "#cc6633",
 }
 
-state_files = glob.glob("/home/qai/workplace/simulator-aspire-poc/sim_junior/lab_states/state_*.pkl")
-STATES = []
-for sf in sorted(state_files, key=lambda x: int(os.path.basename(x).replace(".pkl", "").replace("state_", ""))):
-    with open(sf, "rb") as f:
-        STATE = pickle.load(f)
-        STATES.append(STATE)
+with open("sim_con-4.pkl", "rb") as f:
+    sim_logs = pickle.load(f)
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title="JUNIOR SIMULATOR")
 
 card_layout = dbc.Card(
     [
         dbc.CardHeader("Junior Layout"),
         dbc.CardBody(
             dcc.Graph(
-                style={'height': '700px'},
+                style={'height': '600px'},
                 config={'displayModeBar': False},
-                id="layout-figure"
-            )
+                id="layout-figure",
+            ),
+            style={'height': '600px'},
         )
     ]
 )
 
-col_left = html.Div(card_layout, className="col-7 p-2")
+col_left = html.Div(
+    [
+        card_layout,
+        dcc.Graph(
+            style={'height': '700px'},
+            config={'displayModeBar': False},
+            id="gantt-figure"
+        )
+    ],
+    className="col-7 p-2"
+)
 
 
-def get_tracker_options():
+def get_tracker_options(states):
     """ this persists """
-    state = STATES[0]
+    state = states[0]
     lab = state["lab"]
     d = []
     for k in lab.dict_object:
@@ -154,26 +195,25 @@ def get_tracker_options():
 
 card_tracker1 = dbc.Col(dbc.Card(
     [
-        dbc.CardHeader("Tracker 1"),
+        dbc.CardHeader("Object Tracker"),
         dbc.CardBody(
             [
-                dcc.Dropdown(id="tracker-1-select", options=get_tracker_options(), value="Z1 ARM"),
+                dcc.Dropdown(id="tracker-1-select", options=get_tracker_options(sim_logs), value="Z2 ARM"),
                 dash_renderjson.DashRenderjson(id="tracker-1-json", max_depth=-1, theme=JsonTheme, invert_theme=True, )
             ],
         )
-    ]
+    ], className="h-100"
 ))
 
-list_group = dbc.ListGroup(id='sim-log',
-                           )
+list_group = dbc.ListGroup(id='sim-log', )
 
 card_log = dbc.Col(dbc.Card(
     [
         dbc.CardHeader("Simulation log"),
         dbc.CardBody(
-            list_group
+            list_group, style={"overflow": "scroll", "height": 600}
         )
-    ]
+    ],
 ))
 
 card_trackers = [card_tracker1, card_log]
@@ -214,10 +254,12 @@ state_controller = html.Div(
             type="number",
             placeholder="state index",
             value=0,
-            max=len(STATES) - 1,
+            max=len(sim_logs) - 1,
             min=0,
         ),
         html.H5(style={'margin-right': 20}, id="sim-time"),
+        # dcc.Slider(0, sim_logs[-1]['finished'], value=0, marks={j['finished']: {'label': ""} for j in sim_logs[1:]}, id='sim-slider'),
+        # TODO add this
     ], className="mt-3 mx-3"
 )
 
@@ -230,31 +272,53 @@ app.layout = html.Div(
 )
 
 
+
 @app.callback(
     Output("layout-figure", "figure"),
     Output("sim-time", "children"),
     Output("tracker-1-json", "data"),
     Output("sim-log", "children"),
+    Output("gantt-figure", "figure"),
     Input("state-number", "value"),
     Input("tracker-1-select", "value"),
-
 )
 def update_layout_figure(i_state: int, tracker_1_id):
-    if i_state > len(STATES) - 1:
-        i_state = len(STATES) - 1
-    loaded_state = STATES[i_state]
-    current_time = loaded_state['simulation time']
+    if i_state > len(sim_logs) - 1:
+        i_state = len(sim_logs) - 1
+    loaded_state = sim_logs[i_state]
+    current_time = loaded_state['finished']
     current_lab = loaded_state['lab']
     fig_layout = get_layout_figure(current_lab)
     tracker_1_obj = current_lab[tracker_1_id]
 
-    sim_log = loaded_state['log']
-    log_items = [
-        dbc.ListGroupItem(l) for l in sim_log
-    ]
+    log_items = []
 
-    return fig_layout, "Simulation time: {}".format(current_time), tracker_1_obj.model_dump(), log_items
+    for state in sim_logs[:i_state + 1]:
+        ins = state['instruction']
+        if ins is None:
+            ins_id = None
+            ins_des = None
+        else:
+            ins_id = ins.identifier
+            ins_des = ins.description
+        item_content = [
+            html.B("SIM TIME "),
+            f"{state['finished']}",
+            html.Br(),
+            html.B("FINISHED INSTRUCTION "),
+            html.Br(),
+            ins_id,
+            html.Br(),
+            html.B("DESCRIPTION "),
+            html.Br(),
+            ins_des
+        ]
+        log_items.append(
+            dbc.ListGroupItem(item_content)
+        )
+    fig_gantt = get_gantt_fig(sim_logs[:i_state+1])
+    return fig_layout, "Simulation time: {}".format(current_time), tracker_1_obj.model_dump(), log_items, fig_gantt
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(port=8049)
