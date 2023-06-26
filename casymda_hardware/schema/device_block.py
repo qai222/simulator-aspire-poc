@@ -18,22 +18,27 @@ class DeviceBlock(Block):
         super().__init__(env, name=self.identifier, block_capacity=block_capacity)
 
     def actual_processing(self, job: InstructionJob):
+        # check we are using the right device
         assert job.get_next_machine() == self.device.identifier
-        involved_objects, processing_time = self.device.act_by_instruction(job.instruction, is_pre=True)
-        # print(f"projected processing time: {job.identifier} == {processing_time}")
-        # print(f"involved objects: {involved_objects}")
-        # TODO test object resources are working
+
+        # make projections
+        involved_objects, processing_time = self.device.act_by_instruction(job.instruction, actor_type="proj")
+
+        # request resources for lab objects
         resource_objects = [LabObjectResource.from_lab_object(obj, self.env) for obj in involved_objects]
         reqs = [ro.resource.request() for ro in resource_objects]
         # note the device resource is requested/released in `_process_entity` of `Block`
         for req in reqs:
             yield req
-        # TODO should I only check preactor here?
-        # print(f"requested: {[ro.resource.count for ro in resource_objects]}")
+
+        # everything is ready, run preactor check
+        self.device.act_by_instruction(job.instruction, actor_type="pre")
+        # move clock
         yield self.env.timeout(processing_time)
+        self.device.act_by_instruction(job.instruction, actor_type="post")
+        # release resources
         for i, ro in enumerate(resource_objects):
             req = reqs[i]
             ro.resource.release(req)
-            # print(f"released: {[ro.resource.count for ro in resource_objects]}")
-        self.device.act_by_instruction(job.instruction, is_pre=False)
+        # exit, change job status
         job.notify_processing_step_completion()
