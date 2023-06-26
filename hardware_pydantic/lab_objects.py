@@ -123,20 +123,3 @@ class LabContainee(LabObject):
                 return LabContainee.get_container(current_container, lab)
             else:
                 return current_container
-
-
-class Plate(LabObject):
-    position: str | None = None
-    content: dict[str, dict[str, float]] = {"A1": {}, "A2": {}, "B1": {}, "B2": {}}
-
-    @property
-    def capacity(self):
-        return len(self.content)
-
-    @classmethod
-    def from_capacity(cls, capacity: int = 96, rack_id: str = None):
-        content = {str(i): {} for i in range(capacity)}
-        if rack_id is None:
-            return cls(content=content)
-        else:
-            return cls(content=content, identifier=rack_id)
