@@ -63,12 +63,12 @@ class LabContainer(LabObject):
         return len(self.slot_content)
 
     @classmethod
-    def from_capacity(cls, can_contain: list[str], capacity: int = 16, container_id: str = None, ) -> LabContainer:
+    def from_capacity(cls, can_contain: list[str], capacity: int = 16, container_id: str = None, **kwargs) -> LabContainer:
         content = {str(i + 1): None for i in range(capacity)}
         if container_id is None:
-            return cls(slot_content=content, can_contain=can_contain)
+            return cls(slot_content=content, can_contain=can_contain, **kwargs)
         else:
-            return cls(slot_content=content, identifier=container_id, can_contain=can_contain)
+            return cls(slot_content=content, identifier=container_id, can_contain=can_contain, **kwargs)
 
     @staticmethod
     def get_all_containees(container: LabContainer, lab: Lab) -> list[str]:
