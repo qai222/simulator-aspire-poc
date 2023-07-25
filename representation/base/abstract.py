@@ -39,11 +39,14 @@ class Individual(BaseModel):
             WORLD.add_node(self.identifier, individual=self)
 
         for k in self.model_fields_set:
-            if k in ("identifier", ):
+            if k in ("identifier",):
                 continue
             v = getattr(self, k)
             if isinstance(v, Individual):
                 ObjectProperty(predicate=k, subject_identifier=self.identifier, object_identifier=v.identifier)
+            elif isinstance(v, (list, tuple, set)) and len(v) > 0 and all(isinstance(vv, Individual) for vv in v):
+                for vv in v:
+                    ObjectProperty(predicate=k, subject_identifier=self.identifier, object_identifier=vv.identifier)
 
     def __hash__(self):
         return hash(self.identifier)
