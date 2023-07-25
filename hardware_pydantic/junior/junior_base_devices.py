@@ -94,7 +94,6 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             - source_container: ChemicalContainer,
             - dispenser_container: ChemicalContainer,
             - amount: float,
-            - aspirate_speed: float = 5,
         """
         if actor_type == 'pre':
             if amount > dispenser_container.volume_capacity:
@@ -125,7 +124,6 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             - destination_container: ChemicalContainer,
             - dispenser_container: ChemicalContainer,
             - amount: float,
-            - dispense_speed: float = 5,
         """
         if actor_type == 'pre':
             if amount > dispenser_container.content_sum:
@@ -136,6 +134,6 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             removed = dispenser_container.remove_content(amount)
             destination_container.add_content(removed)
         elif actor_type == 'proj':
-            return [destination_container, dispenser_container], amount / dispense_speed
+            return [destination_container, dispenser_container], 0.0082 * amount + 16.1725
         else:
             raise ValueError
