@@ -180,7 +180,13 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         if actor_type == 'proj':
             return objs, max(times)
 
-    def action__wash(self, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE, wash_bay: JuniorWashBay):
+    def action__wash(self,
+                     actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+                     wash_bay: JuniorWashBay,
+                     wash_volume: float = 10,
+                     flush_volume: float = 10,
+                     ):
+        """The unit of wash_volume and flush_volume is mL."""
         if actor_type == 'pre':
             if JUNIOR_LAB[self.contained_by].position_on_top_of != wash_bay.identifier:
                 raise PreActError
@@ -189,7 +195,7 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 JUNIOR_LAB[n].chemical_content = dict()
         elif actor_type == 'proj':
             containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
-            return [JUNIOR_LAB[i] for i in containees], 10
+            return [JUNIOR_LAB[i] for i in containees], 6.0270*wash_volume + 32.0000*flush_volume
 
 
 class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
