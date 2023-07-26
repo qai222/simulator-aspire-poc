@@ -245,7 +245,10 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             else:
                 LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB, dest_slot="SLOT")
         elif actor_type == 'proj':
-            pickup_cost = 7
+            if isinstance(thing, JuniorSvt):
+                pickup_cost = 29.0
+            else:
+                pickup_cost = 10
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
                 return [thing, ], pickup_cost
             else:
