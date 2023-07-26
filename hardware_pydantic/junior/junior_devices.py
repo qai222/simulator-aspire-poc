@@ -245,8 +245,11 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             else:
                 LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB, dest_slot="SLOT")
         elif actor_type == 'proj':
+            # putting down SV Powder Dispense Tool
             if isinstance(thing, JuniorSvt):
-                pickup_cost = 29.0
+                pickup_cost = 29
+            elif isinstance(thing, JuniorPdp):
+                pickup_cost = 5.9231
             else:
                 pickup_cost = 10
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
@@ -295,7 +298,15 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 thing.contained_by = None
                 thing.contained_in_slot = None  # disposal doesn't have slot labels
         elif actor_type == 'proj':
-            put_down_cost = 7
+            # putting down SV Powder Dispense Tool
+            if isinstance(thing, JuniorSvt):
+                put_down_cost = 35
+            # putting down PDP
+            elif isinstance(thing, JuniorPdp):
+                put_down_cost = 12
+            else:
+                put_down_cost = 7
+
             return objs, put_down_cost
         else:
             raise ValueError
@@ -358,6 +369,7 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             if not isinstance(JUNIOR_LAB[self.attachment.slot_content['SLOT']], JuniorVial):
                 raise PreActError
         elif actor_type == 'proj':
+            # 185.0, 236.0 seconds for 18mg and 55 mg respectively
             if self.attachment.powder_param_known:
                 dispense_speed = dispense_speed * 10
             else:
