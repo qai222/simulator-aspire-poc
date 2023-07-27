@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
-from hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, JuniorBaseLiquidDispenser
-from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, JuniorSvt, JuniorPdp, \
+from hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, \
+    JuniorBaseLiquidDispenser
+from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, \
+    JuniorSvt, JuniorPdp, \
     JuniorVpg, JuniorVial, JuniorPdpTip, JuniorTipDisposal
 from hardware_pydantic.junior.settings import *
 from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
@@ -201,7 +203,8 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 JUNIOR_LAB[n].chemical_content = dict()
         elif actor_type == 'proj':
             containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
-            return [JUNIOR_LAB[i] for i in containees], 6.0270*wash_volume + 32.0000*flush_volume
+            return [JUNIOR_LAB[i] for i in
+                    containees], 6.0270 * wash_volume + 32.0000 * flush_volume
 
 
 class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
@@ -233,11 +236,15 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             thing_slot = LabContainee.get_container(thing, JUNIOR_LAB, upto=JuniorSlot)
             # TODO merge this with "ArmPlatform.move_to"
             if thing_slot.identifier != self.arm_platform.position_on_top_of:
-                raise PreActError(f"you are picking up from: {thing_slot.identifier} but the arm is on top of: {self.arm_platform.position_on_top_of}")
+                raise PreActError(
+                    f"you are picking up from: {thing_slot.identifier} but the arm is on top of: "
+                    f"{self.arm_platform.position_on_top_of}")
 
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
                 if self.attachment is not None:
-                    raise PreActError(f"you are picking up: {thing.__class__.__name__} but the current attachment is: {self.attachment.__class__.__name__}")
+                    raise PreActError(
+                        f"you are picking up: {thing.__class__.__name__} but the current "
+                        f"attachment is: {self.attachment.__class__.__name__}")
             else:
                 if isinstance(thing, JuniorVial) and not isinstance(self.attachment, JuniorSvt):
                     raise PreActError
@@ -247,9 +254,11 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                     raise PreActError
         elif actor_type == 'post':
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
-                LabContainee.move(containee=thing, dest_container=self, lab=JUNIOR_LAB, dest_slot="SLOT")
+                LabContainee.move(containee=thing, dest_container=self, lab=JUNIOR_LAB,
+                                  dest_slot="SLOT")
             else:
-                LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB, dest_slot="SLOT")
+                LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB,
+                                  dest_slot="SLOT")
         elif actor_type == 'proj':
             # putting down SV Powder Dispense Tool
             if isinstance(thing, JuniorSvt):
@@ -292,7 +301,8 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                     raise PreActError
         elif actor_type == 'post':
             if not isinstance(dest_slot, JuniorTipDisposal):
-                LabContainee.move(containee=thing, dest_container=dest_slot, lab=JUNIOR_LAB, dest_slot="SLOT")
+                LabContainee.move(containee=thing, dest_container=dest_slot, lab=JUNIOR_LAB,
+                                  dest_slot="SLOT")
                 if isinstance(thing, JuniorVial):
                     self.attachment.powder_param_known = False
             else:
@@ -369,7 +379,8 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
         if actor_type == 'pre':
             if dest_slot.identifier != self.arm_platform.position_on_top_of:
-                raise PreActError(f"destination slot is: {dest_slot.identifier} but the arm is on top of: {self.arm_platform.position_on_top_of}")
+                raise PreActError(f"destination slot is: {dest_slot.identifier} but the arm is on "
+                                  f"top of: {self.arm_platform.position_on_top_of}")
             if not isinstance(self.attachment, JuniorSvt):
                 raise PreActError
             if not isinstance(JUNIOR_LAB[self.attachment.slot_content['SLOT']], JuniorVial):
