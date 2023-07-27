@@ -189,8 +189,8 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
     def action__wash(self,
                      actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
                      wash_bay: JuniorWashBay,
-                     wash_volume: float = 10,
-                     flush_volume: float = 10,
+                     wash_volume: float = 1,
+                     flush_volume: float = 1,
                      ):
         """The unit of wash_volume and flush_volume is mL."""
         if actor_type == 'pre':
