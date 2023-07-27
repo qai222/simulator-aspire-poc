@@ -356,7 +356,7 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         return self.action__dispense(
             actor_type=actor_type, destination_container=destination_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, dispense_speed=dispense_speed
+            amount=amount,
         )
 
     def action__dispense_sv(
@@ -385,7 +385,7 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         return self.action__dispense(
             actor_type=actor_type, destination_container=destination_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, dispense_speed=dispense_speed
+            amount=amount,
         )
 
 
