@@ -114,7 +114,6 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             destination_container: ChemicalContainer,
             dispenser_container: ChemicalContainer,
             amount: float,
-            dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: dispense

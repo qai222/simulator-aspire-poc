@@ -81,8 +81,10 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
         PARAMS:
             - wait_time: float = 0
         """
+        # it takes time zero to move to the same slot
         if self.position_on_top_of == move_to_slot.identifier:
             move_cost = 1e-6
+        # it takes 5 seconds to move to a different slot
         else:
             move_cost = 5
 
@@ -114,7 +116,6 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             source_containers: list[ChemicalContainer],
             dispenser_containers: list[JuniorZ1Needle],
             amounts: list[float],
-            aspirate_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: concurrent_aspirate
@@ -136,8 +137,11 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         objs = []
         times = []
         for s, d, a in zip(source_containers, dispenser_containers, amounts):
-            res = self.action__aspirate(actor_type=actor_type, source_container=s, dispenser_container=d, amount=a,
-                                        aspirate_speed=aspirate_speed)
+            res = self.action__aspirate(actor_type=actor_type,
+                                        source_container=s,
+                                        dispenser_container=d,
+                                        amount=a,
+                                        )
             if actor_type == 'proj':
                 objs += res[0]
                 times.append(res[1])
@@ -172,7 +176,10 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         objs = []
         times = []
         for s, d, a in zip(destination_containers, dispenser_containers, amounts):
-            res = self.action__dispense(actor_type=actor_type, destination_container=s, dispenser_container=d, amount=a,
+            res = self.action__dispense(actor_type=actor_type,
+                                        destination_container=s,
+                                        dispenser_container=d,
+                                        amount=a,
                                         dispense_speed=dispense_speed)
             if actor_type == 'proj':
                 objs += res[0]
