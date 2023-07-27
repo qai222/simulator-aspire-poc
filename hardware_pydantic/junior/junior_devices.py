@@ -154,7 +154,6 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             destination_containers: list[ChemicalContainer],
             dispenser_containers: list[JuniorZ1Needle],
             amounts: list[float],
-            dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: concurrent_dispense
@@ -180,7 +179,7 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                                         destination_container=s,
                                         dispenser_container=d,
                                         amount=a,
-                                        dispense_speed=dispense_speed)
+                                        )
             if actor_type == 'proj':
                 objs += res[0]
                 times.append(res[1])
