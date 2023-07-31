@@ -148,7 +148,7 @@ JsonTheme = {
     "base0F": "#cc6633",
 }
 
-with open("sim_con-4.pkl", "rb") as f:
+with open("sim_con-1.pkl", "rb") as f:
     sim_logs = pickle.load(f)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title="JUNIOR SIMULATOR")
