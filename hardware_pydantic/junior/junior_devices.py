@@ -345,8 +345,7 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         return self.action__aspirate(
             actor_type=actor_type, source_container=source_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, aspirate_speed=aspirate_speed,
-        )
+            amount=amount, )
 
     def action__dispense_pdp(
             self,

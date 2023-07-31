@@ -115,6 +115,7 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             destination_container: ChemicalContainer,
             dispenser_container: ChemicalContainer,
             amount: float,
+            dispense_speed: float = None,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: dispense
@@ -134,6 +135,11 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             removed = dispenser_container.remove_content(amount)
             destination_container.add_content(removed)
         elif actor_type == 'proj':
-            return [destination_container, dispenser_container], running_time_dispensing(amount)
+            if dispense_speed is None:
+                running_time = running_time_dispensing(amount)
+            else:
+                running_time = amount / dispense_speed
+
+            return [destination_container, dispenser_container], running_time
         else:
             raise ValueError
