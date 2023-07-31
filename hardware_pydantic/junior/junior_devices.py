@@ -8,7 +8,7 @@ from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, 
     JuniorVpg, JuniorVial, JuniorPdpTip, JuniorTipDisposal
 from hardware_pydantic.junior.settings import *
 from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
-
+from hardware_pydantic.junior.utils import running_time_washing
 
 class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
     """
@@ -204,7 +204,7 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         elif actor_type == 'proj':
             containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
             return [JUNIOR_LAB[i] for i in
-                    containees], 6.0270 * wash_volume + 32.0000 * flush_volume
+                    containees], running_time_washing(wash_volume, flush_volume)
 
 
 class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
