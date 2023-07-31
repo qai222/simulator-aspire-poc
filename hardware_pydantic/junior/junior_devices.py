@@ -376,6 +376,8 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
+        scaling_factor = 1.0
+
         if actor_type == 'pre':
             if dest_slot.identifier != self.arm_platform.position_on_top_of:
                 raise PreActError(f"destination slot is: {dest_slot.identifier} but the arm is on "
@@ -387,15 +389,14 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         elif actor_type == 'proj':
             # 185.0, 236.0 seconds for 18mg and 55 mg respectively
             if self.attachment.powder_param_known:
-                dispense_speed = dispense_speed * 10
-            else:
-                dispense_speed = dispense_speed
+                scaling_factor = scaling_factor / 10
+
         elif actor_type == 'post':
             self.attachment.powder_param_known = True
         return self.action__dispense(
             actor_type=actor_type, destination_container=destination_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount,
+            amount=amount, scaling_factor=scaling_factor,
         )
 
 
