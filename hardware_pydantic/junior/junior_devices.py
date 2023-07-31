@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 from hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
-from hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, JuniorBaseLiquidDispenser
-from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, JuniorSvt, JuniorPdp, \
+from hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, \
+    JuniorBaseLiquidDispenser
+from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, \
+    JuniorSvt, JuniorPdp, \
     JuniorVpg, JuniorVial, JuniorPdpTip, JuniorTipDisposal
 from hardware_pydantic.junior.settings import *
 from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
-
+from hardware_pydantic.junior.utils import running_time_washing
 
 class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
     """
@@ -81,8 +83,10 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
         PARAMS:
             - wait_time: float = 0
         """
+        # it takes time zero to move to the same slot
         if self.position_on_top_of == move_to_slot.identifier:
             move_cost = 1e-6
+        # it takes 5 seconds to move to a different slot
         else:
             move_cost = 5
 
@@ -114,7 +118,6 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             source_containers: list[ChemicalContainer],
             dispenser_containers: list[JuniorZ1Needle],
             amounts: list[float],
-            aspirate_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: concurrent_aspirate
@@ -136,8 +139,11 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         objs = []
         times = []
         for s, d, a in zip(source_containers, dispenser_containers, amounts):
-            res = self.action__aspirate(actor_type=actor_type, source_container=s, dispenser_container=d, amount=a,
-                                        aspirate_speed=aspirate_speed)
+            res = self.action__aspirate(actor_type=actor_type,
+                                        source_container=s,
+                                        dispenser_container=d,
+                                        amount=a,
+                                        )
             if actor_type == 'proj':
                 objs += res[0]
                 times.append(res[1])
@@ -150,7 +156,6 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             destination_containers: list[ChemicalContainer],
             dispenser_containers: list[JuniorZ1Needle],
             amounts: list[float],
-            dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: concurrent_dispense
@@ -172,15 +177,24 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         objs = []
         times = []
         for s, d, a in zip(destination_containers, dispenser_containers, amounts):
-            res = self.action__dispense(actor_type=actor_type, destination_container=s, dispenser_container=d, amount=a,
-                                        dispense_speed=dispense_speed)
+            res = self.action__dispense(actor_type=actor_type,
+                                        destination_container=s,
+                                        dispenser_container=d,
+                                        amount=a,
+                                        )
             if actor_type == 'proj':
                 objs += res[0]
                 times.append(res[1])
         if actor_type == 'proj':
             return objs, max(times)
 
-    def action__wash(self, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE, wash_bay: JuniorWashBay):
+    def action__wash(self,
+                     actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
+                     wash_bay: JuniorWashBay,
+                     wash_volume: float = 1,
+                     flush_volume: float = 1,
+                     ):
+        """The unit of wash_volume and flush_volume is mL."""
         if actor_type == 'pre':
             if JUNIOR_LAB[self.contained_by].position_on_top_of != wash_bay.identifier:
                 raise PreActError
@@ -189,7 +203,8 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 JUNIOR_LAB[n].chemical_content = dict()
         elif actor_type == 'proj':
             containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
-            return [JUNIOR_LAB[i] for i in containees], 10
+            return [JUNIOR_LAB[i] for i in
+                    containees], running_time_washing(wash_volume, flush_volume)
 
 
 class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
@@ -221,11 +236,15 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             thing_slot = LabContainee.get_container(thing, JUNIOR_LAB, upto=JuniorSlot)
             # TODO merge this with "ArmPlatform.move_to"
             if thing_slot.identifier != self.arm_platform.position_on_top_of:
-                raise PreActError(f"you are picking up from: {thing_slot.identifier} but the arm is on top of: {self.arm_platform.position_on_top_of}")
+                raise PreActError(
+                    f"you are picking up from: {thing_slot.identifier} but the arm is on top of: "
+                    f"{self.arm_platform.position_on_top_of}")
 
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
                 if self.attachment is not None:
-                    raise PreActError(f"you are picking up: {thing.__class__.__name__} but the current attachment is: {self.attachment.__class__.__name__}")
+                    raise PreActError(
+                        f"you are picking up: {thing.__class__.__name__} but the current "
+                        f"attachment is: {self.attachment.__class__.__name__}")
             else:
                 if isinstance(thing, JuniorVial) and not isinstance(self.attachment, JuniorSvt):
                     raise PreActError
@@ -235,11 +254,19 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                     raise PreActError
         elif actor_type == 'post':
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
-                LabContainee.move(containee=thing, dest_container=self, lab=JUNIOR_LAB, dest_slot="SLOT")
+                LabContainee.move(containee=thing, dest_container=self, lab=JUNIOR_LAB,
+                                  dest_slot="SLOT")
             else:
-                LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB, dest_slot="SLOT")
+                LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB,
+                                  dest_slot="SLOT")
         elif actor_type == 'proj':
-            pickup_cost = 7
+            # putting down SV Powder Dispense Tool
+            if isinstance(thing, JuniorSvt):
+                pickup_cost = 29
+            elif isinstance(thing, JuniorPdp):
+                pickup_cost = 5.9231
+            else:
+                pickup_cost = 10
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
                 return [thing, ], pickup_cost
             else:
@@ -274,7 +301,8 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                     raise PreActError
         elif actor_type == 'post':
             if not isinstance(dest_slot, JuniorTipDisposal):
-                LabContainee.move(containee=thing, dest_container=dest_slot, lab=JUNIOR_LAB, dest_slot="SLOT")
+                LabContainee.move(containee=thing, dest_container=dest_slot, lab=JUNIOR_LAB,
+                                  dest_slot="SLOT")
                 if isinstance(thing, JuniorVial):
                     self.attachment.powder_param_known = False
             else:
@@ -286,7 +314,15 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 thing.contained_by = None
                 thing.contained_in_slot = None  # disposal doesn't have slot labels
         elif actor_type == 'proj':
-            put_down_cost = 7
+            # putting down SV Powder Dispense Tool
+            if isinstance(thing, JuniorSvt):
+                put_down_cost = 35
+            # putting down PDP
+            elif isinstance(thing, JuniorPdp):
+                put_down_cost = 12
+            else:
+                put_down_cost = 7
+
             return objs, put_down_cost
         else:
             raise ValueError
@@ -309,8 +345,7 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         return self.action__aspirate(
             actor_type=actor_type, source_container=source_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, aspirate_speed=aspirate_speed,
-        )
+            amount=amount, )
 
     def action__dispense_pdp(
             self,
@@ -330,7 +365,7 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         return self.action__dispense(
             actor_type=actor_type, destination_container=destination_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, dispense_speed=dispense_speed
+            amount=amount,
         )
 
     def action__dispense_sv(
@@ -341,24 +376,27 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
+        scaling_factor = 1.0
+
         if actor_type == 'pre':
             if dest_slot.identifier != self.arm_platform.position_on_top_of:
-                raise PreActError(f"destination slot is: {dest_slot.identifier} but the arm is on top of: {self.arm_platform.position_on_top_of}")
+                raise PreActError(f"destination slot is: {dest_slot.identifier} but the arm is on "
+                                  f"top of: {self.arm_platform.position_on_top_of}")
             if not isinstance(self.attachment, JuniorSvt):
                 raise PreActError
             if not isinstance(JUNIOR_LAB[self.attachment.slot_content['SLOT']], JuniorVial):
                 raise PreActError
         elif actor_type == 'proj':
+            # 185.0, 236.0 seconds for 18mg and 55 mg respectively
             if self.attachment.powder_param_known:
-                dispense_speed = dispense_speed * 10
-            else:
-                dispense_speed = dispense_speed
+                scaling_factor = scaling_factor / 10
+
         elif actor_type == 'post':
             self.attachment.powder_param_known = True
         return self.action__dispense(
             actor_type=actor_type, destination_container=destination_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, dispense_speed=dispense_speed
+            amount=amount, scaling_factor=scaling_factor,
         )
 
 
