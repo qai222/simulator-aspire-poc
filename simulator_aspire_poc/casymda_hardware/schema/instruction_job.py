@@ -2,7 +2,7 @@ from casymda.blocks.entity import Entity
 from simpy.core import Environment
 from simpy.events import Event, EventCallback
 
-from hardware_pydantic import Lab, Instruction
+from simulator_aspire_poc.hardware_pydantic import Lab, Instruction
 
 
 class InstructionJob(Entity):

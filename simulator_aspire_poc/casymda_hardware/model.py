@@ -2,8 +2,13 @@ from __future__ import annotations
 
 from simpy import Environment
 import os
-from hardware_pydantic import *
-from .schema import Source, Buffer, Spreader, Check, Sink, DeviceBlock
+from simulator_aspire_poc.hardware_pydantic import *
+from simulator_aspire_poc.casymda_hardware.schema import (Source,
+                                                          Buffer,
+                                                          Spreader,
+                                                          Check,
+                                                          Sink,
+                                                          DeviceBlock)
 
 
 class Model:

@@ -6,8 +6,8 @@ import pickle
 from casymda.blocks.block_components.block import Block
 from simpy import Environment
 from copy import deepcopy
-from hardware_pydantic import Lab
-from .instruction_job import InstructionJob
+from simulator_aspire_poc.hardware_pydantic import Lab
+from simulator_aspire_poc.casymda_hardware.schema.instruction_job import InstructionJob
 
 
 class Sink(Block):

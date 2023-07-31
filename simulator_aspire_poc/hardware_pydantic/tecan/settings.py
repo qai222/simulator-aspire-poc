@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from hardware_pydantic.base import Lab, LabObject, Instruction, BaseModel
+from simulator_aspire_poc.hardware_pydantic.base import Lab, LabObject, Instruction, BaseModel
 
 TECAN_LAYOUT_SLOT_SIZE_X = 80
 TECAN_LAYOUT_SLOT_SIZE_Y = 120

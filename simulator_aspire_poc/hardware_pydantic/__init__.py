@@ -1,3 +1,3 @@
-from hardware_pydantic.utils import *
-from hardware_pydantic.base import *
-from hardware_pydantic.lab_objects import *
+from simulator_aspire_poc.hardware_pydantic.utils import *
+from simulator_aspire_poc.hardware_pydantic.base import *
+from simulator_aspire_poc.hardware_pydantic.lab_objects import *

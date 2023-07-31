@@ -1,8 +1,8 @@
 from casymda.blocks.block_components.block import Block
 from simpy.core import Environment
 
-from .device_block import DeviceBlock
-from .instruction_job import InstructionJob
+from simulator_aspire_poc.casymda_hardware.schema.device_block import DeviceBlock
+from simulator_aspire_poc.casymda_hardware.schema.instruction_job import InstructionJob
 
 
 class Spreader(Block):

@@ -1,4 +1,4 @@
 """
 specific to the Junior platform at NCATS
 """
-from hardware_pydantic.junior.junior_lab import *
+from simulator_aspire_poc.hardware_pydantic.junior.junior_lab import *

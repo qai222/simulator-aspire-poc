@@ -1,9 +1,9 @@
 from casymda.blocks.block_components.block import Block
 from simpy.core import Environment
 
-from hardware_pydantic import Device
-from .instruction_job import InstructionJob
-from .object_resource import LabObjectResource
+from simulator_aspire_poc.hardware_pydantic import Device
+from simulator_aspire_poc.casymda_hardware.schema.instruction_job import InstructionJob
+from simulator_aspire_poc.casymda_hardware.schema.object_resource import LabObjectResource
 
 
 class DeviceBlock(Block):

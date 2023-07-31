@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from hardware_pydantic.base import Device, PreActError, DEVICE_ACTION_METHOD_ACTOR_TYPE
-from hardware_pydantic.junior.junior_objects import JuniorStirBar
-from hardware_pydantic.junior.settings import *
-from hardware_pydantic.lab_objects import LabContainer, ChemicalContainer
+from simulator_aspire_poc.hardware_pydantic.base import Device, PreActError, DEVICE_ACTION_METHOD_ACTOR_TYPE
+from simulator_aspire_poc.hardware_pydantic.junior.junior_objects import JuniorStirBar
+from simulator_aspire_poc.hardware_pydantic.junior.settings import *
+from simulator_aspire_poc.hardware_pydantic.lab_objects import LabContainer, ChemicalContainer
 
 
 class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):

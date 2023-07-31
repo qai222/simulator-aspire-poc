@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
-from hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, JuniorBaseLiquidDispenser
-from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, JuniorSvt, JuniorPdp, \
+from simulator_aspire_poc.hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
+from simulator_aspire_poc.hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, JuniorBaseLiquidDispenser
+from simulator_aspire_poc.hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, JuniorSvt, JuniorPdp, \
     JuniorVpg, JuniorVial, JuniorPdpTip, JuniorTipDisposal
-from hardware_pydantic.junior.settings import *
-from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
+from simulator_aspire_poc.hardware_pydantic.junior.settings import *
+from simulator_aspire_poc.hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
 
 
 class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):

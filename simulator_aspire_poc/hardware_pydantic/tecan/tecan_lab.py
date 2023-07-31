@@ -1,5 +1,5 @@
-from hardware_pydantic.tecan.tecan_devices import *
-from hardware_pydantic.tecan.tecan_objects import TecanHotel
+from simulator_aspire_poc.hardware_pydantic.tecan.tecan_devices import *
+from simulator_aspire_poc.hardware_pydantic.tecan.tecan_objects import TecanHotel
 
 
 def create_tecan_base():
