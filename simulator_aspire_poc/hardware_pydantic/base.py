@@ -5,7 +5,7 @@ from typing import Any, Literal, Type
 from N2G import drawio_diagram  # only used for drawing instruction DAG
 from pydantic import BaseModel, Field
 
-from .utils import str_uuid
+from simulator_aspire_poc.hardware_pydantic.utils import str_uuid
 
 DEVICE_ACTION_METHOD_PREFIX = "action__"
 DEVICE_ACTION_METHOD_ACTOR_TYPE = Literal['pre', 'post', 'proj']

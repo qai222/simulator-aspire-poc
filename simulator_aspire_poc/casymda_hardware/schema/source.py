@@ -3,8 +3,8 @@ from casymda.blocks.entity import Entity
 from simpy.core import Environment
 from simpy.events import AllOf, ProcessGenerator
 
-from hardware_pydantic.base import Lab
-from .instruction_job import InstructionJob
+from simulator_aspire_poc.hardware_pydantic.base import Lab
+from simulator_aspire_poc.casymda_hardware.schema.instruction_job import InstructionJob
 
 
 class Source(Block):

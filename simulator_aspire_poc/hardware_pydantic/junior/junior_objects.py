@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from hardware_pydantic.junior.settings import JUNIOR_LAB, JuniorLabObject, JUNIOR_VIAL_TYPE, JuniorLayout
-from hardware_pydantic.lab_objects import ChemicalContainer, LabContainee, LabContainer
+from simulator_aspire_poc.hardware_pydantic.junior.settings import JUNIOR_LAB, JuniorLabObject, JUNIOR_VIAL_TYPE, JuniorLayout
+from simulator_aspire_poc.hardware_pydantic.lab_objects import ChemicalContainer, LabContainee, LabContainer
 
 
 class JuniorStirBar(LabContainee, JuniorLabObject):

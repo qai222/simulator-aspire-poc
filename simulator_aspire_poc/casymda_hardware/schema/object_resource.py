@@ -1,6 +1,6 @@
 from simpy import Resource, Environment
 
-from hardware_pydantic.lab_objects import LabObject
+from simulator_aspire_poc.hardware_pydantic.lab_objects import LabObject
 
 
 class LabObjectResource:

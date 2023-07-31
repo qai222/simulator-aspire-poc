@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Type
 
-from hardware_pydantic.base import Lab, LabObject
+from simulator_aspire_poc.hardware_pydantic.base import Lab, LabObject
 
 
 class ChemicalContainer(LabObject):

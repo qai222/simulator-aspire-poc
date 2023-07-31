@@ -1,5 +1,5 @@
-from hardware_pydantic.junior.junior_devices import *
-from hardware_pydantic.junior.settings import *
+from simulator_aspire_poc.hardware_pydantic.junior.junior_devices import *
+from simulator_aspire_poc.hardware_pydantic.junior.settings import *
 
 
 def create_junior_base():

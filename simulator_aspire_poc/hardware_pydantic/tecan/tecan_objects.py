@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from hardware_pydantic.lab_objects import ChemicalContainer, LabContainee, LabContainer
-from hardware_pydantic.tecan.settings import TecanLayout, TecanLabObject
+from simulator_aspire_poc.hardware_pydantic.lab_objects import ChemicalContainer, LabContainee, LabContainer
+from simulator_aspire_poc.hardware_pydantic.tecan.settings import TecanLayout, TecanLabObject
 
 
 class TecanPlateWell(ChemicalContainer, LabContainee, TecanLabObject):

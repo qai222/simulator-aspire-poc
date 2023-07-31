@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
-from hardware_pydantic.tecan.settings import *
-from hardware_pydantic.tecan.tecan_base_devices import TecanBaseHeater, TecanBaseLiquidDispenser
-from hardware_pydantic.tecan.tecan_objects import *
+from simulator_aspire_poc.hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
+from simulator_aspire_poc.hardware_pydantic.tecan.settings import *
+from simulator_aspire_poc.hardware_pydantic.tecan.tecan_base_devices import TecanBaseHeater, TecanBaseLiquidDispenser
+from simulator_aspire_poc.hardware_pydantic.tecan.tecan_objects import *
 
 
 class TecanSlot(TecanBaseHeater):
