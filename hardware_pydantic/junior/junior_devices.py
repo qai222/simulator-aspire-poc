@@ -104,7 +104,7 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
 
 
 class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
-    allowed_concurrency: list[int] = [1, 4, 6]
+    allowed_concurrency: list[int] = [1, 2, 4, 6]
 
     slot_content: dict[str, str] = dict()
 
@@ -133,7 +133,7 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             if len(set([JUNIOR_LAB[sc.contained_by] for sc in source_containers])) != 1:
                 raise PreActError
             if not len(source_containers) == len(dispenser_containers) == len(amounts):
-                raise PreActError
+                raise PreActError(f"{source_containers}\n{len(dispenser_containers)}\n{amounts}")
             if len(source_containers) not in self.allowed_concurrency:
                 raise PreActError
         objs = []
@@ -171,7 +171,7 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             if len(set([JUNIOR_LAB[dc.contained_by] for dc in destination_containers])) != 1:
                 raise PreActError
             if not len(destination_containers) == len(dispenser_containers) == len(amounts):
-                raise PreActError
+                raise PreActError(f"{len(destination_containers)} {len(dispenser_containers)} {len(amounts)}")
             if len(destination_containers) not in self.allowed_concurrency:
                 raise PreActError
         objs = []

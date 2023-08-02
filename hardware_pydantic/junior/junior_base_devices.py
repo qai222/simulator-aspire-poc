@@ -128,9 +128,9 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
         """
         if actor_type == 'pre':
             if amount > dispenser_container.content_sum:
-                raise PreActError
+                raise PreActError(f"{amount} {dispenser_container.content_sum}")
             if amount + destination_container.content_sum > destination_container.volume_capacity:
-                raise PreActError
+                raise PreActError(f"you are adding {amount} to a container of {destination_container.content_sum}, but the capacity of this container is: {destination_container.volume_capacity}")
         elif actor_type == 'post':
             removed = dispenser_container.remove_content(amount)
             destination_container.add_content(removed)

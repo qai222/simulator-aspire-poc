@@ -518,7 +518,7 @@ ins_list1 = pick_drop_rack_to(rack=RACK_B,
 ins_list2 = solid_dispense(sv_vial=SVV_2,
                            sv_vial_slot=JUNIOR_LAB['SVV SLOT 2'],
                            dest_vials=RSO2Cl_STOCK_SOLUTION_VIALS_2,
-                           amount=20,
+                           amount=2,
                            include_pickup_svtool=True,
                            include_dropoff_svvial=True,
                            include_dropoff_svtool=True)
@@ -540,8 +540,8 @@ ins_list5[0].preceding_instructions.append(ins_list4[-1].identifier)
 ins_list6 = pick_drop_rack_to(RACK_C, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-1'])
 ins_list6[0].preceding_instructions.append(ins_list5[-1].identifier)
 
-ins_list7 = needle_dispense(DCM_VIALS_2, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS_2, JUNIOR_LAB['SLOT '
-                                                                                        '2-3-1'], 10)
+ins_list7 = needle_dispense(DCM_VIALS_2 + DCM_VIALS_1, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS_2 + MRV_VIALS_1, JUNIOR_LAB['SLOT '
+                                                                                        '2-3-1'], 1)
 ins_list7[0].preceding_instructions.append(ins_list6[-1].identifier)
 
 # def needle_dispense(
@@ -552,11 +552,11 @@ ins_list7[0].preceding_instructions.append(ins_list6[-1].identifier)
 #         amount: float,
 #         # speed: float,
 # )
-ins_list8 = needle_dispense(src_vials=DCM_VIALS_2,
+ins_list8 = needle_dispense(src_vials=DCM_VIALS_2 + DCM_VIALS_1,
                             src_slot=JUNIOR_LAB['SLOT OFF-1'],
-                            dest_vials=RSO2Cl_STOCK_SOLUTION_VIALS_2,
+                            dest_vials=RSO2Cl_STOCK_SOLUTION_VIALS_2 + RSO2Cl_STOCK_SOLUTION_VIALS_1,
                             dest_vials_slot=JUNIOR_LAB['SLOT 2-3-2'],
-                            amount=20,
+                            amount=2,
                             )
 ins_list8[0].preceding_instructions.append(ins_list7[-1].identifier)
 
@@ -586,10 +586,10 @@ for i in [ins_stir1, ins_stir2, ins_stir3]:
     i.preceding_instructions.append(ins_list9[-1].identifier)
 
 
-ins_list10 = needle_dispense(RSO2Cl_STOCK_SOLUTION_VIALS_2, JUNIOR_LAB['SLOT 2-3-2'],
-                             MRV_VIALS_2,
+ins_list10 = needle_dispense(RSO2Cl_STOCK_SOLUTION_VIALS_2 + RSO2Cl_STOCK_SOLUTION_VIALS_1, JUNIOR_LAB['SLOT 2-3-2'],
+                             MRV_VIALS_2+MRV_VIALS_1,
                              JUNIOR_LAB['SLOT 2-3-1'],
-                             10)
+                             1)
 ins_list10[0].preceding_instructions = [ins_stir1.identifier, ins_stir2.identifier, ins_stir3.identifier]
 
 ins_stir21 = JuniorInstruction(
