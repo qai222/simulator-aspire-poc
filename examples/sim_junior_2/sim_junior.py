@@ -6,12 +6,12 @@ following the notes of N-Sulfonylation
 
 create_junior_base()
 
-CONCURRENCY = 2
+CONCURRENCY = 1
 # CONCURRENCY = 1
 
 # RACK A: holding HRVs with DCM, on off deck initially
 RACK_A, RACK_A_VIALS = JuniorRack.create_rack_with_empty_vials(
-    n_vials=CONCURRENCY, rack_capacity=6, vial_type="HRV", rack_id="RACK A"
+    n_vials=CONCURRENCY*2, rack_capacity=6, vial_type="HRV", rack_id="RACK A"
 )
 RACK_A: JuniorRack
 RACK_A_VIALS: list[JuniorVial]
@@ -33,7 +33,7 @@ JuniorSlot.put_rack_in_a_slot(RACK_B, JUNIOR_LAB['SLOT 2-3-2'])
 
 # RACK C: holding one MRV for reaction, at 2-3-1 initially
 RACK_C, RACK_C_VIALS = JuniorRack.create_rack_with_empty_vials(
-    n_vials=CONCURRENCY, rack_capacity=6, vial_type="MRV", rack_id="RACK C"
+    n_vials=CONCURRENCY*2, rack_capacity=6, vial_type="MRV", rack_id="RACK C"
 )
 RACK_C: JuniorRack
 RACK_C_VIALS: list[JuniorVial]
@@ -41,7 +41,7 @@ JuniorSlot.put_rack_in_a_slot(RACK_C, JUNIOR_LAB['SLOT 2-3-1'])
 
 # RACK D: holding PDP tips, at 2-3-3 initially
 RACK_D, RACK_D_TIPS = JuniorRack.create_rack_with_empty_tips(
-    n_tips=CONCURRENCY, rack_capacity=6, rack_id="RACK D", tip_id_inherit=True
+    n_tips=CONCURRENCY*2, rack_capacity=6, rack_id="RACK D", tip_id_inherit=True
 )
 RACK_D: JuniorRack
 RACK_D_TIPS: list[JuniorPdpTip]
@@ -426,87 +426,90 @@ def pdp_dispense(
     return ins_list
 
 
-# build instruction graph
+## build instruction graph
 # pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorSlot)
-# ins_list1 = pick_drop_rack_to(rack=RACK_B,
-#                               src_slot=JUNIOR_LAB['SLOT 2-3-2'],
-#                               dest_slot=BALANCE_SLOT,
-#                               )
-#
-# ins_list2 = solid_dispense(sv_vial=SVV_2,
-#                            sv_vial_slot=JUNIOR_LAB['SVV SLOT 2'],
-#                            dest_vials=RSO2Cl_STOCK_SOLUTION_VIALS,
-#                            amount=10,
-#                            include_pickup_svtool=True,
-#                            include_dropoff_svvial=True,
-#                            include_dropoff_svtool=True)
-# ins_list2[0].preceding_instructions.append(ins_list1[-1].identifier)
-#
-# ins_list3 = pick_drop_rack_to(RACK_B, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-2'])
-# ins_list3[0].preceding_instructions.append(ins_list2[-1].identifier)
-#
-# ins_list4 = pick_drop_rack_to(RACK_C, JUNIOR_LAB['SLOT 2-3-1'], BALANCE_SLOT)
-# ins_list4[0].preceding_instructions.append(ins_list3[-1].identifier)
-#
-# ins_list5 = solid_dispense(sv_vial=SVV_1, sv_vial_slot=JUNIOR_LAB['SVV SLOT 1'],
-#                            dest_vials=MRV_VIALS,
-#                            amount=10,
-#                            include_pickup_svtool=True,
-#                            include_dropoff_svvial=True, include_dropoff_svtool=True)
-# ins_list5[0].preceding_instructions.append(ins_list4[-1].identifier)
-#
-# ins_list6 = pick_drop_rack_to(RACK_C, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-1'])
-# ins_list6[0].preceding_instructions.append(ins_list5[-1].identifier)
-#
-# ins_list7 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'], 10)
-# ins_list7[0].preceding_instructions.append(ins_list6[-1].identifier)
-#
-# ins_list8 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'],
-#                             10)
-# ins_list8[0].preceding_instructions.append(ins_list7[-1].identifier)
-#
-# ins_list9 = pdp_dispense(PYRIDINE_VIAL, JUNIOR_LAB['SLOT 2-3-2'], RACK_D_TIPS, JUNIOR_LAB['SLOT 2-3-3'], MRV_VIALS,
-#                          JUNIOR_LAB['SLOT 2-3-1'], 10)
-# ins_list9[0].preceding_instructions.append(ins_list8[-1].identifier)
-#
-# ins_stir1 = JuniorInstruction(
-#     device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 300},
-#     description="wait for 5 min"
-# )
-# ins_stir2 = JuniorInstruction(
-#     device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 300},
-#     description="wait for 5 min"
-# )
-# ins_stir3 = JuniorInstruction(
-#     device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 300},
-#     description="wait for 5 min"
-# )
-#
-# # preceding instructions
-# for i in [ins_stir1, ins_stir2, ins_stir3]:
-#     i.preceding_instructions.append(ins_list9[-1].identifier)
-#
-#
-# ins_list10 = needle_dispense(RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'],
-#                              10)
-# ins_list10[0].preceding_instructions = [ins_stir1.identifier, ins_stir2.identifier, ins_stir3.identifier]
-#
-# ins_stir21 = JuniorInstruction(
-#     device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 7200},
-#     description="wait for 120 min"
-# )
-# ins_stir22 = JuniorInstruction(
-#     device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 7200},
-#     description="wait for 120 min"
-# )
-# ins_stir23 = JuniorInstruction(
-#     device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 7200},
-#     description="wait for 120 min"
-# )
-#
-# # preceding instructions
-# for i in [ins_stir21, ins_stir22, ins_stir23]:
-#     i.preceding_instructions.append(ins_list10[-1].identifier)
+ins_list1_1 = pick_drop_rack_to(rack=RACK_B,
+                                src_slot=JUNIOR_LAB['SLOT 2-3-2'],
+                                dest_slot=BALANCE_SLOT,
+                               )
+
+ins_list2_1 = solid_dispense(sv_vial=SVV_2,
+                           sv_vial_slot=JUNIOR_LAB['SVV SLOT 2'],
+                           dest_vials=RSO2Cl_STOCK_SOLUTION_VIALS_1,
+                           amount=10,
+                           include_pickup_svtool=True,
+                           include_dropoff_svvial=True,
+                           include_dropoff_svtool=True)
+ins_list2_1[0].preceding_instructions.append(ins_list1_1[-1].identifier)
+
+ins_list3_1 = pick_drop_rack_to(RACK_B, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-2'])
+ins_list3_1[0].preceding_instructions.append(ins_list2_1[-1].identifier)
+
+ins_list4_1 = pick_drop_rack_to(RACK_C, JUNIOR_LAB['SLOT 2-3-1'], BALANCE_SLOT)
+ins_list4_1[0].preceding_instructions.append(ins_list3_1[-1].identifier)
+
+ins_list5_1 = solid_dispense(sv_vial=SVV_1, sv_vial_slot=JUNIOR_LAB['SVV SLOT 1'],
+                           dest_vials=MRV_VIALS_1,
+                           amount=10,
+                           include_pickup_svtool=True,
+                           include_dropoff_svvial=True, include_dropoff_svtool=True)
+ins_list5_1[0].preceding_instructions.append(ins_list4_1[-1].identifier)
+
+ins_list6_1 = pick_drop_rack_to(RACK_C, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-1'])
+ins_list6_1[0].preceding_instructions.append(ins_list5_1[-1].identifier)
+
+ins_list7_1 = needle_dispense(DCM_VIALS_1, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS_1,
+                              JUNIOR_LAB['SLOT 2-3-1'], 10)
+ins_list7_1[0].preceding_instructions.append(ins_list6_1[-1].identifier)
+
+ins_list8_1 = needle_dispense(DCM_VIALS_1, JUNIOR_LAB['SLOT OFF-1'],
+                              RSO2Cl_STOCK_SOLUTION_VIALS_1, JUNIOR_LAB['SLOT 2-3-2'],
+                            1.5)
+ins_list8_1[0].preceding_instructions.append(ins_list7_1[-1].identifier)
+
+ins_list9_1 = pdp_dispense(PYRIDINE_VIAL, JUNIOR_LAB['SLOT 2-3-2'], RACK_D_TIPS, JUNIOR_LAB['SLOT 2-3-3'], MRV_VIALS_1,
+                         JUNIOR_LAB['SLOT 2-3-1'], 1.5)
+ins_list9_1[0].preceding_instructions.append(ins_list8_1[-1].identifier)
+
+ins_stir1 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 300},
+    description="wait for 5 min"
+)
+ins_stir2 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 300},
+    description="wait for 5 min"
+)
+ins_stir3 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 300},
+    description="wait for 5 min"
+)
+
+# preceding instructions
+for i in [ins_stir1, ins_stir2, ins_stir3]:
+    i.preceding_instructions.append(ins_list9_1[-1].identifier)
+
+
+ins_list10_1 = needle_dispense(RSO2Cl_STOCK_SOLUTION_VIALS_1, JUNIOR_LAB['SLOT 2-3-2'],
+                               MRV_VIALS_1, JUNIOR_LAB['SLOT 2-3-1'],
+                             10)
+ins_list10_1[0].preceding_instructions = [ins_stir1.identifier, ins_stir2.identifier, ins_stir3.identifier]
+
+ins_stir21_1 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 7200},
+    description="wait for 120 min"
+)
+ins_stir22_1 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 7200},
+    description="wait for 120 min"
+)
+ins_stir23_1 = JuniorInstruction(
+    device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 7200},
+    description="wait for 120 min"
+)
+
+# preceding instructions
+for i in [ins_stir21_1, ins_stir22_1, ins_stir23_1]:
+    i.preceding_instructions.append(ins_list10_1[-1].identifier)
 
 # ===============================================================================
 # the second copy of parallel chemistry
