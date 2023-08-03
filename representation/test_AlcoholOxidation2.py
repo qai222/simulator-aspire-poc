@@ -1,3 +1,5 @@
+import json
+
 import dash_bootstrap_components as dbc
 import dash_cytoscape as cyto
 import dash_renderjson
@@ -99,6 +101,17 @@ def create_world():
 
 create_world()
 
+def dump_world(w: nx.MultiDiGraph, fn:str="world.json"):
+    nodes = []
+    for node, d in w.nodes(data=True):
+        nodes.append(d['individual'].model_dump())
+    edges = []
+    for u, v, k, d in w.edges(data=True, keys=True):
+        edges.append([u, v, k, d['object_property'].model_dump()])
+    with open(fn, "w") as f:
+        json.dump({"nodes": nodes, "edges": edges}, f)
+
+dump_world(WORLD)
 
 def individual_to_cyto_element(individual: Individual, index: int):
     if isinstance(individual, (ChemicalIdentifier)):
