@@ -4,6 +4,7 @@ from hardware_pydantic.base import Device, PreActError, DEVICE_ACTION_METHOD_ACT
 from hardware_pydantic.junior.junior_objects import JuniorStirBar
 from hardware_pydantic.junior.settings import *
 from hardware_pydantic.lab_objects import LabContainer, ChemicalContainer
+from hardware_pydantic.junior.utils import running_time_aspirate, running_time_dispensing
 
 
 class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):
@@ -86,7 +87,6 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             source_container: ChemicalContainer,
             dispenser_container: ChemicalContainer,
             amount: float,
-            aspirate_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: aspirate
@@ -95,7 +95,6 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             - source_container: ChemicalContainer,
             - dispenser_container: ChemicalContainer,
             - amount: float,
-            - aspirate_speed: float = 5,
         """
         if actor_type == 'pre':
             if amount > dispenser_container.volume_capacity:
@@ -106,7 +105,7 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             removed = source_container.remove_content(amount)
             dispenser_container.add_content(removed)
         elif actor_type == 'proj':
-            return [source_container, dispenser_container], amount / aspirate_speed
+            return [source_container, dispenser_container], running_time_aspirate(amount)
         else:
             raise ValueError
 
@@ -116,7 +115,7 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             destination_container: ChemicalContainer,
             dispenser_container: ChemicalContainer,
             amount: float,
-            dispense_speed: float = 5,
+            scaling_factor: float = 1.0,
     ) -> tuple[list[LabObject], float] | None:
         """
         ACTION: dispense
@@ -126,7 +125,6 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             - destination_container: ChemicalContainer,
             - dispenser_container: ChemicalContainer,
             - amount: float,
-            - dispense_speed: float = 5,
         """
         if actor_type == 'pre':
             if amount > dispenser_container.content_sum:
@@ -137,6 +135,8 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             removed = dispenser_container.remove_content(amount)
             destination_container.add_content(removed)
         elif actor_type == 'proj':
-            return [destination_container, dispenser_container], amount / dispense_speed
+            running_time = running_time_dispensing(amount) * scaling_factor
+
+            return [destination_container, dispenser_container], running_time
         else:
             raise ValueError

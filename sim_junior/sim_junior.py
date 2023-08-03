@@ -154,7 +154,8 @@ def solid_dispense(
         sv_vial: JuniorVial,
         sv_vial_slot: JuniorSlot,
         dest_vials: list[JuniorVial],
-        amount: float, speed: float,
+        amount: float,
+        # speed: float,
         include_pickup_svtool=True,
         include_dropoff_svvial=True,
         include_dropoff_svtool=True,
@@ -208,7 +209,7 @@ def solid_dispense(
             action_parameters={
                 "destination_container": dest_vial,
                 "amount": amount,
-                "dispense_speed": speed,
+                # "dispense_speed": speed,
             },
             description=f"dispense_sv to: {dest_vial.identifier}",
         )
@@ -264,7 +265,8 @@ def needle_dispense(
         src_slot: JuniorSlot,
         dest_vials: list[JuniorVial],
         dest_vials_slot: JuniorSlot,
-        amount: float, speed: float,
+        amount: float,
+        # speed: float,
 ):
     ins1 = JuniorInstruction(
         device=ARM_PLATFORM, action_name="move_to",
@@ -280,7 +282,7 @@ def needle_dispense(
             "source_containers": src_vials,
             "dispenser_containers": Z1NEEDLES,
             "amounts": [amount, ] * CONCURRENCY,
-            "aspirate_speed": speed,
+            # "aspirate_speed": speed,
         },
         description=f"concurrent aspirate from: {','.join([v.identifier for v in src_vials])}"
     )
@@ -297,7 +299,7 @@ def needle_dispense(
         action_parameters={
             "destination_containers": dest_vials,
             "dispenser_containers": Z1NEEDLES,
-            "dispense_speed": speed,
+            # "dispense_speed": speed,
             "amounts": [amount, ] * CONCURRENCY,
         },
         description=f"concurrent dispense to: {','.join([v.identifier for v in dest_vials])}"
@@ -326,7 +328,8 @@ def pdp_dispense(
         src_vial: JuniorVial, src_slot: JuniorSlot,
         tips: list[JuniorPdpTip], tips_slot: JuniorSlot,
         dest_vials: list[JuniorVial], dest_vials_slot: JuniorSlot,
-        amount: float, speed: float
+        amount: float,
+        # speed: float
 ):
     ins1 = JuniorInstruction(
         device=ARM_PLATFORM, action_name="move_to",
@@ -372,7 +375,7 @@ def pdp_dispense(
             action_parameters={
                 "source_container": src_vial,
                 "amount": amount,
-                "aspirate_speed": speed,
+                # "aspirate_speed": speed,
             },
             description=f"aspirate_pdp from: {src_vial.identifier}"
         )
@@ -389,7 +392,7 @@ def pdp_dispense(
             action_parameters={
                 "destination_container": dest_vial,
                 "amount": amount,
-                "dispense_speed": speed,
+                # "dispense_speed": speed,
             },
             description=f"dispense_pdp to: {dest_vial.identifier}"
         )
@@ -415,8 +418,13 @@ def pdp_dispense(
 
 ins_list1 = pick_drop_rack_to(RACK_B, JUNIOR_LAB['SLOT 2-3-2'], BALANCE_SLOT)
 
-ins_list2 = solid_dispense(SVV_2, JUNIOR_LAB['SVV SLOT 2'], RSO2Cl_STOCK_SOLUTION_VIALS, 10, 0.2,
-                           include_pickup_svtool=True, include_dropoff_svvial=True, include_dropoff_svtool=True)
+ins_list2 = solid_dispense(sv_vial=SVV_2,
+                           sv_vial_slot=JUNIOR_LAB['SVV SLOT 2'],
+                           dest_vials=RSO2Cl_STOCK_SOLUTION_VIALS,
+                           amount=10,
+                           include_pickup_svtool=True,
+                           include_dropoff_svvial=True,
+                           include_dropoff_svtool=True)
 ins_list2[0].preceding_instructions.append(ins_list1[-1].identifier)
 
 ins_list3 = pick_drop_rack_to(RACK_B, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-2'])
@@ -425,22 +433,25 @@ ins_list3[0].preceding_instructions.append(ins_list2[-1].identifier)
 ins_list4 = pick_drop_rack_to(RACK_C, JUNIOR_LAB['SLOT 2-3-1'], BALANCE_SLOT)
 ins_list4[0].preceding_instructions.append(ins_list3[-1].identifier)
 
-ins_list5 = solid_dispense(SVV_1, JUNIOR_LAB['SVV SLOT 1'], MRV_VIALS, 10, 0.2, include_pickup_svtool=True,
+ins_list5 = solid_dispense(sv_vial=SVV_1, sv_vial_slot=JUNIOR_LAB['SVV SLOT 1'],
+                           dest_vials=MRV_VIALS,
+                           amount=10,
+                           include_pickup_svtool=True,
                            include_dropoff_svvial=True, include_dropoff_svtool=True)
 ins_list5[0].preceding_instructions.append(ins_list4[-1].identifier)
 
 ins_list6 = pick_drop_rack_to(RACK_C, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-1'])
 ins_list6[0].preceding_instructions.append(ins_list5[-1].identifier)
 
-ins_list7 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'], 10, 0.2)
+ins_list7 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'], 10)
 ins_list7[0].preceding_instructions.append(ins_list6[-1].identifier)
 
 ins_list8 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'],
-                            10, 0.2)
+                            10)
 ins_list8[0].preceding_instructions.append(ins_list7[-1].identifier)
 
 ins_list9 = pdp_dispense(PYRIDINE_VIAL, JUNIOR_LAB['SLOT 2-3-2'], RACK_D_TIPS, JUNIOR_LAB['SLOT 2-3-3'], MRV_VIALS,
-                         JUNIOR_LAB['SLOT 2-3-1'], 10, 0.2)
+                         JUNIOR_LAB['SLOT 2-3-1'], 10)
 ins_list9[0].preceding_instructions.append(ins_list8[-1].identifier)
 
 ins_stir1 = JuniorInstruction(
@@ -460,7 +471,7 @@ for i in [ins_stir1, ins_stir2, ins_stir3]:
     i.preceding_instructions.append(ins_list9[-1].identifier)
 
 ins_list10 = needle_dispense(RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'],
-                             10, 0.2)
+                             10)
 ins_list10[0].preceding_instructions = [ins_stir1.identifier, ins_stir2.identifier, ins_stir3.identifier]
 
 ins_stir21 = JuniorInstruction(
