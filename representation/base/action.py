@@ -6,14 +6,14 @@ from .hardware import *
 class Action(Individual):
     description: str = ""
 
-    precedents: list[Action]
+    precedents: list[Action] = Field(..., exclude=True)
 
     # TODO action inputs
     # TODO action outputs
     # inputs: list[HomogenousMixture]
     # outputs: list[HomogenousMixture]
-    inputs: list[Compound | ChemicalIdentifier]
-    outputs: list[Compound | ChemicalIdentifier]
+    inputs: list[Compound | ChemicalIdentifier] = Field(..., exclude=True)
+    outputs: list[Compound | ChemicalIdentifier] = Field(..., exclude=True)
 
     # TODO pre conditions
     # TODO post conditions (necessary?)
@@ -26,4 +26,4 @@ class Action(Individual):
 
     # TODO there could be a list of possible assignments
     #  ex. a liquid transfer can be assigned to [s, t, lh1] or [s, t, lh2]
-    uses_hardware_unit: list[HardwareUnit]
+    uses_hardware_unit: list[HardwareUnit] = Field(..., exclude=True)

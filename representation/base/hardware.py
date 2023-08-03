@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .abstract import Individual
+from pydantic import Field
 
 
 class ChemicalIdentifier(Individual):
@@ -10,7 +11,7 @@ class ChemicalIdentifier(Individual):
 
 
 class Compound(Individual):
-    chemical_identifier: ChemicalIdentifier
+    chemical_identifier: ChemicalIdentifier = Field(..., exclude=True)
 
     amount: float | None = None
 
@@ -23,7 +24,7 @@ class HeterogeneousMixture:
 
 
 class HomogenousMixture(Individual):
-    from_compounds: list[Compound]
+    from_compounds: list[Compound] = Field(..., exclude=True)
 
     phase: str = "SOLUTION"
 
@@ -39,8 +40,8 @@ class HardwareClass(Individual):
 
 
 class HardwareUnit(Individual):
-    hardware_class: HardwareClass
+    hardware_class: HardwareClass = Field(..., exclude=True)
 
-    made_of: list[ChemicalIdentifier]
+    made_of: list[ChemicalIdentifier] = Field(..., exclude=True)
 
     # initial_position: tuple[float, float] = (0.0, 0.0)
