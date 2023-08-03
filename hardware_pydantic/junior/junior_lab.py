@@ -2,7 +2,22 @@ from hardware_pydantic.junior.junior_devices import *
 from hardware_pydantic.junior.settings import *
 
 
+"""The lab objects of the Junior platform from NCATS."""
+
+
 def create_junior_base():
+    """Create the base of the Junior platform from NCATS.
+
+    Returns
+    -------
+    LabBase
+        The Junior platform object.
+
+    Notes
+    -----
+    This function is a wrapper to create a LabBase object for the Junior platform from NCATS.
+
+    """
     assert len(JUNIOR_LAB.dict_object) == 0, "JUNIOR BASE HAS ALREADY BEEN INIT!!!"
 
     slot_off_1 = JuniorSlot(
