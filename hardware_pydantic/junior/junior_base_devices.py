@@ -8,27 +8,52 @@ from hardware_pydantic.junior.utils import running_time_aspirate, running_time_d
 
 
 class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):
-    """ the heating component under a rack slot, it cannot be read directly """
+    """The heating component under a rack slot. Please note it cannot be read directly.
+
+    Parameters
+    ----------
+    can_heat : bool
+        Tag to indicate if the object can be heated or not. If False all related actions would
+        error out.
+    set_point : float
+        Current set point in Celsius.
+    set_point_max : float
+        Allowed max set point.
+
+    """
 
     can_heat: bool = True
-    """ if False all related actions would error out """
-
     set_point: float = 25
-    """ current set point in C """
-
     set_point_max: float = 400
-    """ allowed max set point """
 
     def action__set_point(
             self,
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE = 'pre',
             set_point: float = 25
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: set_point
-        DESCRIPTION: set the temperature point of a heater
-        PARAMS:
-            - set_point: float = 25
+        """The action of setting the temperature point of a heater.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        set_point : float, optional
+            The temperature point to set, by default 25 Celsius.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by the action and the running time of the
+            action if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the set point is out of range. The other case is if
+            the actor type is 'post' and the lab object/device can not be heated.
+        ValueError
+            If the actor type is not 'pre', 'post' or 'proj'.
+
         """
         if actor_type == 'pre':
             if not self.can_heat:
@@ -44,19 +69,47 @@ class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):
 
 
 class JuniorBaseStirrer(Device, LabContainer, JuniorLabObject):
-    can_stir: bool = True
-    """ if False all related actions would error out """
+    """The stirrer unit under a rack slot.
 
+    Parameters
+    ----------
+    can_stir : bool
+        Tag to indicate if the object can be stirred or not. If False all related actions would
+        error out. Default is True.
+    stir_turned_on : bool
+        Tag to indicate if the stirrer is turned on or not. Default is False.
+
+    """
+    can_stir: bool = True
     stir_turned_on: bool = False
 
     def action__onoff_switch(
             self,
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE = 'pre',
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: start_stir
-        DESCRIPTION: start/stop stirring, if there is a stirring bar then it starts/stops spinning
-        PARAMS:
+        """The action to switch on or off the stirrer.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE, optional
+            The actor type of the action, 'pre', 'post' or 'proj'. Default is 'pre'.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by the action and the running time of the action.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the lab object/device can not be stirred.
+        ValueError
+            If the actor type is not 'pre', 'post' or 'proj'.
+
+        Notes
+        -----
+        If there is a stirring bar then it starts/stops spinning.
+
         """
         stirring_bars = []
         containees = LabContainer.get_all_containees(self, JUNIOR_LAB)
@@ -79,7 +132,7 @@ class JuniorBaseStirrer(Device, LabContainer, JuniorLabObject):
 
 
 class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
-    """ a generic liquid dispenser """
+    """A generic liquid dispenser for the Junior platform."""
 
     def action__aspirate(
             self,
@@ -88,13 +141,33 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             dispenser_container: ChemicalContainer,
             amount: float,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: aspirate
-        DESCRIPTION: aspirate liquid from a ChemicalContainer to the dispenser_container (ex. PdpTip)
-        PARAMS:
-            - source_container: ChemicalContainer,
-            - dispenser_container: ChemicalContainer,
-            - amount: float,
+        """The action of aspirating liquid from a container.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        source_container : ChemicalContainer
+            The container to aspirate from.
+        dispenser_container : ChemicalContainer
+            The container to dispense to.
+        amount : float
+            The amount to aspirate.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by the action and the running time of the
+            aspirate action if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the amount is out of range. The other case is if
+            required amount is larger than the content sum of the source container.
+        ValueError
+            If the actor type is not 'pre', 'post' or 'proj'.
+
         """
         if actor_type == 'pre':
             if amount > dispenser_container.volume_capacity:
@@ -117,14 +190,34 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
             amount: float,
             scaling_factor: float = 1.0,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: dispense
-        DESCRIPTION: dispense liquid from the dispenser_container (ex. PdpTip) to a ChemicalContainer
-        PARAMS:
-            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
-            - destination_container: ChemicalContainer,
-            - dispenser_container: ChemicalContainer,
-            - amount: float,
+        """The action of dispensing liquid to a container.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action, one of 'pre', 'post' or 'proj'.
+        destination_container : ChemicalContainer
+            The container to dispense to.
+        dispenser_container : ChemicalContainer
+            The container to dispense from.
+        amount : float
+            The amount to dispense.
+        scaling_factor : float, optional
+            The scaling factor for the running time of the action. Default is 1.0.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by the action and the running time of the dispense
+            action if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the amount is out of range.
+        ValueError
+            If the actor type is not 'pre', 'post' or 'proj'.
+
         """
         if actor_type == 'pre':
             if amount > dispenser_container.content_sum:
