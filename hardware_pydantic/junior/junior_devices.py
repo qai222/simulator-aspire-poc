@@ -538,8 +538,24 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             source_container: ChemicalContainer,
             amount: float,
-            aspirate_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
+        """The action of aspirating from a pdp tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        source_container : ChemicalContainer
+            The source container.
+        amount : float
+            The amount to aspirate.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost if the actor type is 'proj'.
+
+        """
         source_slot = LabContainee.get_container(source_container, JUNIOR_LAB, upto=JuniorSlot)
         if actor_type == 'pre':
             if source_slot.identifier != self.arm_platform.position_on_top_of:
@@ -551,15 +567,40 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         return self.action__aspirate(
             actor_type=actor_type, source_container=source_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, )
+            amount=amount,
+        )
 
     def action__dispense_pdp(
             self,
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             destination_container: ChemicalContainer,
             amount: float,
-            dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
+        """The action of dispensing to a pdp tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        destination_container : ChemicalContainer
+            The destination container.
+        amount : float
+            The amount to dispense.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if the arm is not on top of the destination slot;
+            2. if the attachment is not a JuniorPdp;
+            3. if the pdp tip is not a JuniorPdpTip.
+
+        """
         dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
         if actor_type == 'pre':
             if dest_slot.identifier != self.arm_platform.position_on_top_of:
@@ -579,8 +620,36 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             destination_container: ChemicalContainer,
             amount: float,
-            dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
+        """The action of dispensing to a sv tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        destination_container : ChemicalContainer
+            The destination container.
+        amount : float
+            The amount to dispense.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if the arm is not on top of the destination slot;
+            2. if the attachment is not a JuniorSvt;
+            3. if the slot content of the attachment is not a JuniorSvTip.
+
+        Notes
+        -----
+        When the powder parameter is known, the time cost is reduced by a factor of 10.
+
+        """
         dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
         scaling_factor = 1.0
 
