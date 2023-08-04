@@ -7,6 +7,19 @@ from hardware_pydantic.tecan.tecan_objects import *
 
 
 class TecanSlot(TecanBaseHeater):
+    """Slot in the Tecan deck, can contain plates, liquid tanks, etc.
+
+    Attributes
+    ----------
+    can_contain : list[str]
+        List of objects that can be contained in this slot.
+    can_heat : bool
+        Whether this slot can be heated. If True, then the slot can be heated to a certain
+        temperature. Default is False.
+    layout : TecanLayout | None
+        The layout of the slot. Default is None.
+
+    """
     can_contain: list[str] = [TecanPlate.__name__, ]
 
     can_heat: bool = False
@@ -18,11 +31,27 @@ class TecanSlot(TecanBaseHeater):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE = 'pre',
             wait_time: float = 0
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: wait
-        DESCRIPTION: hold everything in this slot for a while, ex. heat/cool/stir
-        PARAMS:
-            - wait_time: float = 0
+        """The action of waiting for a certain amount of time.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE, optional
+            The actor type of the action. Default is 'pre'.
+        wait_time : float, optional
+            The amount of time to wait. Default is 0.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by this action and the amount of time.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the slot cannot be heated.
+        ValueError
+            If the actor type is not 'pre', 'post', or 'proj'.
+
         """
         if actor_type == 'pre':
             if not self.can_heat:
@@ -37,6 +66,16 @@ class TecanSlot(TecanBaseHeater):
 
     @staticmethod
     def put_plate_in_a_slot(plate: TecanPlate, tecan_slot: TecanSlot):
+        """Put a plate in a slot.
+
+        Parameters
+        ----------
+        plate : TecanPlate
+            The plate to put in the slot.
+        tecan_slot : TecanSlot
+            The slot to put the plate in.
+
+        """
         if plate.contained_by is not None:
             prev_slot = TECAN_LAB[plate.contained_by]
             assert isinstance(prev_slot, TecanSlot)
@@ -48,19 +87,40 @@ class TecanSlot(TecanBaseHeater):
 
 
 class TecanArm(Device, LabContainer, TecanLabObject):
+    """The Tecan arm.
+
+    Attributes
+    ----------
+    position_on_top_of : str | None
+        The current position, can only be a slot (not vial). Default is None.
+
+    """
     position_on_top_of: str | None = None
-    """ the current position, can only be a slot (not vial) """
 
     def action__move_to(
             self,
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             move_to_slot: TecanSlot | TecanLiquidTank | TecanHotel,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: wait
-        DESCRIPTION: hold everything in this slot for a while, ex. heat/cool/stir
-        PARAMS:
-            - wait_time: float = 0
+        """The action of moving to a slot.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        move_to_slot : TecanSlot | TecanLiquidTank | TecanHotel
+            The slot to move to.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by this action and the amount of time.
+
+        Raises
+        ------
+        ValueError
+            If the actor type is not 'pre', 'post', or 'proj'.
+
         """
         if self.position_on_top_of == move_to_slot.identifier:
             move_cost = 1e-6
@@ -79,6 +139,16 @@ class TecanArm(Device, LabContainer, TecanLabObject):
 
 
 class TecanArm1(TecanArm, TecanBaseLiquidDispenser):
+    """The Tecan arm 1.
+
+    Attributes
+    ----------
+    slot_content : dict[str, str]
+        The content of the slot. Default is {}.
+    can_contain : list[str]
+        List of objects that can be contained in this slot. Default is [TecanArm1Needle.__name__, ].
+
+    """
     slot_content: dict[str, str] = dict()
 
     can_contain: list[str] = [TecanArm1Needle.__name__, ]
@@ -91,15 +161,33 @@ class TecanArm1(TecanArm, TecanBaseLiquidDispenser):
             amounts: list[float],
             aspirate_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: concurrent_aspirate
-        DESCRIPTION: aspirate liquid from a list of ChemicalContainer to a list of dispenser_container
-        PARAMS:
-            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
-            - source_container: TecanLiquidTank,
-            - dispenser_containers: list[ChemicalContainer],
-            - amounts: list[float],
-            - aspirate_speed: float = 5,
+        """Action of aspirating liquid from a list of ChemicalContainer to a list of
+        dispenser_container.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        source_container : TecanLiquidTank
+            The source container.
+        dispenser_containers : list[TecanArm1Needle]
+            The list of dispenser containers.
+        amounts : list[float]
+            The list of amounts to aspirate.
+        aspirate_speed : float, optional
+            The speed of aspiration. Default is 5.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by this action and the amount of time.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the number of `dispenser_containers` is not equal to
+            the number of amounts.
+
         """
         if actor_type == 'pre':
             if not len(dispenser_containers) == len(amounts):
@@ -123,15 +211,33 @@ class TecanArm1(TecanArm, TecanBaseLiquidDispenser):
             amounts: list[float],
             dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: concurrent_dispense
-        DESCRIPTION: dispense liquid from a list of dispenser_container to a list of ChemicalContainer
-        PARAMS:
-            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
-            - destination_containers: list[ChemicalContainer],
-            - dispenser_containers: list[TecanZ1Needle],
-            - amounts: list[float],
-            - dispense_speed: float = 5,
+        """The action of dispensing liquid from a list of dispenser_container to a list of
+        ChemicalContainer.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        destination_containers : list[ChemicalContainer]
+            The list of destination containers.
+        dispenser_containers : list[TecanArm1Needle]
+            The list of dispenser containers.
+        amounts : list[float]
+            The list of amounts to dispense.
+        dispense_speed : float, optional
+            The speed of dispensing. Default is 5.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by this action and the amount of time.
+
+        Raises
+        ------
+        PreActError
+            If there is more than one type of destination containees or the number of
+            `destination_containers`, `dispenser_containers`, and `amounts` are not equal.
+
         """
         if actor_type == 'pre':
             if len(set([TECAN_LAB[dc.contained_by] for dc in destination_containers])) != 1:
@@ -150,6 +256,26 @@ class TecanArm1(TecanArm, TecanBaseLiquidDispenser):
             return objs, max(times)
 
     def action__wash(self, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE, wash_bay: TecanWashBay):
+        """The action of washing the needle.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        wash_bay : TecanWashBay
+            The wash bay.
+
+        Returns
+        -------
+        list[LabObject]
+            The list of objects that are affected by this action.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the arm is not on top of the wash bay.
+
+        """
         if actor_type == 'pre':
             if self.position_on_top_of != wash_bay.identifier:
                 raise PreActError
@@ -162,10 +288,26 @@ class TecanArm1(TecanArm, TecanBaseLiquidDispenser):
 
 
 class TecanArm2(TecanArm):
+    """The Tecan Arm 2.
+
+    Attributes
+    ----------
+    identifier : str
+        The identifier of the arm.
+
+    """
     can_contain: list[str] = [TecanPlate.__name__, ]
 
     @property
     def attachment(self) -> TecanPlate | None:
+        """The attachment of the arm.
+
+        Returns
+        -------
+        TecanPlate | None
+            The attachment of the arm.
+
+        """
         if self.slot_content['SLOT'] is None:
             return None
         return TECAN_LAB[self.slot_content['SLOT']]
@@ -175,11 +317,30 @@ class TecanArm2(TecanArm):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             thing: TecanPlate,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: pick_up
-        DESCRIPTION: pick up an attachment or a sv vial or a rack or a pdp tip
-        PARAMS:
-            - thing: TecanSvt | TecanPdp | TecanVpg | TecanVial | TecanPdpTip | TecanRack
+        """The action of picking up a TecanPlate.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        thing : TecanPlate
+            The TecanPlate to pick up.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by this action and the amount of time.
+
+        Raises
+        ------
+        PreActError
+            It errors out with any of these two conditions:
+            1. If the actor type is 'pre' and the arm is not on top of the thing or the
+            arm.
+            2. If the actor type is 'pre' and the arm already has an attachment.
+        ValueError
+            If the actor type is not 'pre', 'post', or 'proj'.
+
         """
 
         if actor_type == 'pre':
@@ -187,7 +348,8 @@ class TecanArm2(TecanArm):
             # TODO merge this with "move_to"
             if thing_slot.identifier != self.position_on_top_of:
                 raise PreActError(
-                    f"you are picking up from: {thing_slot.identifier} but the arm is on top of: {self.position_on_top_of}")
+                    f"you are picking up from: {thing_slot.identifier} "
+                    f"but the arm is on top of: {self.position_on_top_of}")
             if self.attachment is not None:
                 raise PreActError("already has an attachment, cannot pick up")
         elif actor_type == 'post':
@@ -204,18 +366,37 @@ class TecanArm2(TecanArm):
             dest_slot: TecanSlot | TecanHotel,
             dest_slot_key: str,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: put_down
-        DESCRIPTION: put down an attachment or a sv vial or a rack or a pdp tip
-        PARAMS:
-            - dest_slot: TecanSlot | TecanTipDisposal
-        """
+        """The action of putting down a TecanPlate.
 
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action.
+        dest_slot : TecanSlot | TecanHotel
+            The destination slot.
+        dest_slot_key : str
+            The key of the destination slot.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of objects that are affected by this action and the amount of time.
+
+        Raises
+        ------
+        PreActError
+            It errors out with any of these three conditions when the actor type is 'pre':
+            1. the arm is not on top of the destination slot;
+            2. the slot is not empty;
+            3. the slot is a TecanHotel and the slot key is not in the slot content.
+        ValueError
+            If the actor type is not 'pre', 'post', or 'proj'.
+
+        """
         thing = self.attachment
         objs = [thing, dest_slot]
         if isinstance(dest_slot, TecanSlot):
             dest_slot_key = "SLOT"
-
 
         if actor_type == 'pre':
             if dest_slot.identifier != self.position_on_top_of:
