@@ -38,10 +38,10 @@ class TecanInstruction(Instruction):
 class TecanLayout(BaseModel):
     """A region appears in layout.
 
-    Parameters
+    Attributes
     ----------
     layout_position : tuple[float, float] | None
-        left bot conor of the layout box. Default is None.
+        The left bot conor of the layout box. Default is None.
     layout_x : float
         The x length. Default is TECAN_LAYOUT_SLOT_SIZE_X.
     layout_y : float
