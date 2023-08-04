@@ -556,13 +556,13 @@ chain_ins_lol(
 diagram = JUNIOR_LAB.instruction_graph
 
 diagram.layout(algo="rt_circular")
-diagram.dump_file(filename="sim_junior_multi_instruction.drawio", folder="./")
+diagram.dump_file(filename="sim_junior_multi_single_step.drawio", folder="./")
 
 from casymda_hardware.model import *
 import simpy
 
 env = simpy.Environment()
 
-model = Model(env, JUNIOR_LAB, wdir=os.path.abspath("./"), model_name=f"multi")
+model = Model(env, JUNIOR_LAB, wdir=os.path.abspath("./"), model_name=f"junior_multi_single_step")
 
 env.run()
