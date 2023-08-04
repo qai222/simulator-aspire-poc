@@ -13,7 +13,7 @@ class ChemicalContainer(LabObject):
     """
     A container that is designed to be in direct contact with (reaction-participating) chemicals.
 
-    Parameters
+    Att
     ----------
     volume_capacity : float
         The maximum volume of the container in mL. Default is 40.
@@ -90,7 +90,7 @@ class ChemicalContainer(LabObject):
 class LabContainer(LabObject):
     """A container designed to hold other LabObject instances, such as a vial plate.
 
-    Parameters
+    Attributes
     ----------
     can_contain : list[str]
         The class names of the thing it can hold.
@@ -192,7 +192,7 @@ class LabContainee(LabObject):
     """
     Lab objects that can be held by another lab container
 
-    Parameters
+    Attributes
     ----------
     contained_by : str | None
         The identifier of the container that contains this object. Default is None.
