@@ -59,6 +59,10 @@ class LabContainer(LabObject):
     """ dict[<slot identifier>, <object identifier>] """
 
     @property
+    def empty_slot_keys(self):
+        return [k for k, v in self.slot_content.items() if v is None]
+
+    @property
     def slot_capacity(self):
         return len(self.slot_content)
 
