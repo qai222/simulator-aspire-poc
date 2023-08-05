@@ -5,32 +5,7 @@ from hardware_pydantic.junior.benchtop.tips_pn_grignard import setup_grignard_be
 from hardware_pydantic.junior.instruction_prototype import *
 
 """
-making JA's molecule following 10.1021/ja0162459
-
-# pentacenequinone
-- original procedure: 10.1002/ange.19530652309
-- actual procedure from: https://www.mdpi.com/1420-3049/17/4/4625
-- skipping purification (black box)
-
-1. procedure text:
-Aqueous NaOH (10%, 5.96 g, 149 mmol) was slowly added to 
-a solution of o-phthalaldehyde (10 g, 74.6 mmol) and 1,4-cyclohexanedione (4.18 g, 37.3 mmol) in ethanol (460 mL) 
-under a N2 atmosphere. 
-The solution turned from yellow to golden brown to dark brown before a yellow solid corresponding to 
-pentacene-6,13-dione precipitated. After stirring the reaction mixture for four hours, 
-the crude reaction mixture was filtered and washed with ethanol, water, and methanol until the washings were colorless.
- The solid residue was dried under vacuum to obtain 11.02 g (96% yield) of bright yellow pentacene-6,13-dione. 
-
-2. benchtop setup:
-fresh solution: 
-- Aqueous NaOH (10%, 5.96 g, 149 mmol)
-solvent:
-- ethanol
-- water
-solid needed:
-- o-phthalaldehyde (10 g, 74.6 mmol)
-- 1,4-cyclohexanedione (4.18 g, 37.3 mmol)
-
+see docstring of `hardware_pydantic.junior.benchtop.tips_pn_grignard` for reaction info
 """
 
 JUNIOR_BENCHTOP = create_junior_base()
@@ -54,7 +29,9 @@ def get_ins_lst_ef():  # quinone (0), grignard (1)
     )
     ins_list2 = solid_dispense(
         junior_benchtop=JUNIOR_BENCHTOP,
-        sv_vial=REACTION_BENCHTOP.QUINONE_SVV, sv_vial_slot=JUNIOR_BENCHTOP.SV_VIAL_SLOTS[0], dest_vials=[REACTION_BENCHTOP.QUINONE_VIAL, ], amount=0.5, include_pickup_svtool=True, include_dropoff_svvial=True, include_dropoff_svtool=True
+        sv_vial=REACTION_BENCHTOP.QUINONE_SVV, sv_vial_slot=JUNIOR_BENCHTOP.SV_VIAL_SLOTS[0],
+        dest_vials=[REACTION_BENCHTOP.QUINONE_VIAL, ], amount=0.5, include_pickup_svtool=True,
+        include_dropoff_svvial=True, include_dropoff_svtool=True
     )
     ins_list3 = pick_drop_rack_to(JUNIOR_BENCHTOP, REACTION_BENCHTOP.RACK_REACTANT, JUNIOR_BENCHTOP.BALANCE,
                                   JUNIOR_BENCHTOP.SLOT_2_3_2, )
@@ -163,4 +140,5 @@ def simulate(name):
 
 if __name__ == '__main__':
     import os.path
+
     simulate(os.path.basename(__file__).rstrip(".py"))

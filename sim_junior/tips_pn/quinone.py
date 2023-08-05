@@ -4,6 +4,10 @@ from casymda_hardware.model import *
 from hardware_pydantic.junior.benchtop.tips_pn_quinone import setup_quinone_benchtop
 from hardware_pydantic.junior.instruction_prototype import *
 
+"""
+see docstring of `hardware_pydantic.junior.benchtop.tips_pn_quinone` for reaction info
+"""
+
 JUNIOR_BENCHTOP = create_junior_base()
 
 REACTION_BENCHTOP = setup_quinone_benchtop(

@@ -66,7 +66,6 @@ class QuinoneBenchtop(BaseModel):
     NAOH_SVV: JuniorVial
 
 
-
 def setup_quinone_benchtop(
         junior_benchtop: JuniorBenchtop,
         n_reactors: int = 4,
@@ -79,18 +78,6 @@ def setup_quinone_benchtop(
         naoh_init_amount: float = 100,
         aldehyde_init_amount: float = 100,
 ):
-    """
-    a. solid dispense naoh -> hrv
-    b. solid dispense diketone -> hrv
-    c. solid dispense aldehyde -> mrvs
-    d. z1 dispense water -> naoh
-    e. z1 dispense ethanol -> diketone
-    f. z1 dispense ethanol -> aldehyde
-    d. pdp add diketone -> mrvs
-    e. stir
-    f. pdp add naoh -> mrvs
-    g. react rt 4h
-    """
     n_pdp_tips = n_reactors * 2  # one for diketone another for naoh
     n_ethanol_source_vials = n_reactors + 1  # one additional for diketone stock solution
     ethanol_init_volumes = [ethanol_init_volume, ] * n_ethanol_source_vials
