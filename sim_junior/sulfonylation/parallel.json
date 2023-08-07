@@ -1,5645 +1,2129 @@
-{
-  "c4c71f51-2fc2-4df5-a4b5-04d9c914faab": {
-    "identifier": "c4c71f51-2fc2-4df5-a4b5-04d9c914faab",
+[
+  {
+    "identifier": "554b5e73-abbc-4bc8-b9d6-c8d7cba28fad",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": []
   },
-  "1a9a3894-6af0-4076-a160-a61cc2c61be3": {
-    "identifier": "1a9a3894-6af0-4076-a160-a61cc2c61be3",
+  {
+    "identifier": "dd6342f6-d453-448a-a58a-32cdfec2be5f",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "VPG",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "VPG SLOT",
-        "contained_in_slot": "SLOT"
-      }
+      "thing": "VPG"
     },
     "action_name": "pick_up",
     "description": "pick up: VPG",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "c4c71f51-2fc2-4df5-a4b5-04d9c914faab",
-      "c4c71f51-2fc2-4df5-a4b5-04d9c914faab"
+      "554b5e73-abbc-4bc8-b9d6-c8d7cba28fad",
+      "554b5e73-abbc-4bc8-b9d6-c8d7cba28fad"
     ]
   },
-  "b5ca5a14-27e4-46ca-a92b-5ee439c5ff16": {
-    "identifier": "b5ca5a14-27e4-46ca-a92b-5ee439c5ff16",
+  {
+    "identifier": "ca5f9f31-9dfa-4a69-8630-6e874d3666a2",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "1a9a3894-6af0-4076-a160-a61cc2c61be3",
-      "1a9a3894-6af0-4076-a160-a61cc2c61be3"
+      "dd6342f6-d453-448a-a58a-32cdfec2be5f",
+      "dd6342f6-d453-448a-a58a-32cdfec2be5f"
     ]
   },
-  "6b682bd5-4433-46ab-966e-eb36ae063c36": {
-    "identifier": "6b682bd5-4433-46ab-966e-eb36ae063c36",
+  {
+    "identifier": "f76c70d8-1b81-4ca6-8098-eb80f07642ba",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "RACK_REACTANT",
-        "contained_by": "SLOT 2-3-2",
-        "contained_in_slot": "SLOT",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "1": "vial-1 RACK_REACTANT",
-          "2": "vial-2 RACK_REACTANT",
-          "3": null,
-          "4": null,
-          "5": null,
-          "6": null
-        }
-      }
+      "thing": "RACK_REACTANT"
     },
     "action_name": "pick_up",
     "description": "pick up: RACK_REACTANT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b5ca5a14-27e4-46ca-a92b-5ee439c5ff16",
-      "b5ca5a14-27e4-46ca-a92b-5ee439c5ff16"
+      "ca5f9f31-9dfa-4a69-8630-6e874d3666a2",
+      "ca5f9f31-9dfa-4a69-8630-6e874d3666a2"
     ]
   },
-  "780c6913-8cd9-4087-976f-5f85f5c16131": {
-    "identifier": "780c6913-8cd9-4087-976f-5f85f5c16131",
+  {
+    "identifier": "b9265377-a57e-4542-92ae-de444f0d8962",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "6b682bd5-4433-46ab-966e-eb36ae063c36",
-      "6b682bd5-4433-46ab-966e-eb36ae063c36"
+      "f76c70d8-1b81-4ca6-8098-eb80f07642ba",
+      "f76c70d8-1b81-4ca6-8098-eb80f07642ba"
     ]
   },
-  "168935bb-b54a-477f-a97d-fbeae09f9abe": {
-    "identifier": "168935bb-b54a-477f-a97d-fbeae09f9abe",
+  {
+    "identifier": "e5d79cce-b40c-4b99-b516-18d3c5949bdd",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "BALANCE SLOT"
     },
     "action_name": "put_down",
     "description": "put down: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "780c6913-8cd9-4087-976f-5f85f5c16131",
-      "780c6913-8cd9-4087-976f-5f85f5c16131"
+      "b9265377-a57e-4542-92ae-de444f0d8962",
+      "b9265377-a57e-4542-92ae-de444f0d8962"
     ]
   },
-  "8a2c7dec-ab49-486e-8a85-f6e284a74b4e": {
-    "identifier": "8a2c7dec-ab49-486e-8a85-f6e284a74b4e",
+  {
+    "identifier": "8389d74f-2832-45c6-86ea-bf2b2b305602",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "168935bb-b54a-477f-a97d-fbeae09f9abe",
-      "168935bb-b54a-477f-a97d-fbeae09f9abe"
+      "e5d79cce-b40c-4b99-b516-18d3c5949bdd",
+      "e5d79cce-b40c-4b99-b516-18d3c5949bdd"
     ]
   },
-  "2561ea49-5d0b-4f5e-9449-c651b15e16c8": {
-    "identifier": "2561ea49-5d0b-4f5e-9449-c651b15e16c8",
+  {
+    "identifier": "a44fe58b-425f-4349-84a5-06ec65a4bd10",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "VPG SLOT"
     },
     "action_name": "put_down",
     "description": "put down: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "8a2c7dec-ab49-486e-8a85-f6e284a74b4e",
-      "8a2c7dec-ab49-486e-8a85-f6e284a74b4e"
+      "8389d74f-2832-45c6-86ea-bf2b2b305602",
+      "8389d74f-2832-45c6-86ea-bf2b2b305602"
     ]
   },
-  "6ed2a818-37c0-4ada-934a-89afd6424b4e": {
-    "identifier": "6ed2a818-37c0-4ada-934a-89afd6424b4e",
+  {
+    "identifier": "f202f717-f51b-4a79-9c3f-e415c62467b9",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 1",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "SULFONYL_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 1"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "59564c25-70ea-427d-bb16-1b3561408ce4",
-      "59564c25-70ea-427d-bb16-1b3561408ce4"
+      "001bdfbb-34d2-4e6e-be3a-76b064cfd1e6",
+      "001bdfbb-34d2-4e6e-be3a-76b064cfd1e6"
     ]
   },
-  "2353c656-567c-40fc-b958-d6a0d43fc611": {
-    "identifier": "2353c656-567c-40fc-b958-d6a0d43fc611",
+  {
+    "identifier": "d552a788-7e4c-4403-9e2c-07b2cfcdf0c3",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "SULFONYL_SVV",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SVV SLOT 1",
-        "contained_in_slot": "SLOT",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "sulfonyl chloride": 5.0
-        },
-        "vial_type": "SV"
-      }
+      "thing": "SULFONYL_SVV"
     },
     "action_name": "pick_up",
     "description": "pick up: SULFONYL_SVV",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "6ed2a818-37c0-4ada-934a-89afd6424b4e",
-      "6ed2a818-37c0-4ada-934a-89afd6424b4e"
+      "f202f717-f51b-4a79-9c3f-e415c62467b9",
+      "f202f717-f51b-4a79-9c3f-e415c62467b9"
     ]
   },
-  "c437b414-7962-40bb-b095-cf0a9e2320e9": {
-    "identifier": "c437b414-7962-40bb-b095-cf0a9e2320e9",
+  {
+    "identifier": "414361ca-14a5-4fcc-8367-07991f6818e6",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "2353c656-567c-40fc-b958-d6a0d43fc611",
-      "2353c656-567c-40fc-b958-d6a0d43fc611"
+      "d552a788-7e4c-4403-9e2c-07b2cfcdf0c3",
+      "d552a788-7e4c-4403-9e2c-07b2cfcdf0c3"
     ]
   },
-  "f04da4fd-e68c-4b4f-b0fd-4211d27adf5e": {
-    "identifier": "f04da4fd-e68c-4b4f-b0fd-4211d27adf5e",
+  {
+    "identifier": "9e36edf5-cc96-4b65-99c1-81979f7eff52",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "2561ea49-5d0b-4f5e-9449-c651b15e16c8"
+      "a44fe58b-425f-4349-84a5-06ec65a4bd10"
     ]
   },
-  "59564c25-70ea-427d-bb16-1b3561408ce4": {
-    "identifier": "59564c25-70ea-427d-bb16-1b3561408ce4",
+  {
+    "identifier": "001bdfbb-34d2-4e6e-be3a-76b064cfd1e6",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "SV TOOL",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SV TOOL SLOT",
-        "contained_in_slot": "SLOT",
-        "powder_param_known": false
-      }
+      "thing": "SV TOOL"
     },
     "action_name": "pick_up",
     "description": "pick up: SV TOOL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "f04da4fd-e68c-4b4f-b0fd-4211d27adf5e",
-      "f04da4fd-e68c-4b4f-b0fd-4211d27adf5e"
+      "9e36edf5-cc96-4b65-99c1-81979f7eff52",
+      "9e36edf5-cc96-4b65-99c1-81979f7eff52"
     ]
   },
-  "3edf3b6d-3fa0-4300-aff9-10b5614bdb79": {
-    "identifier": "3edf3b6d-3fa0-4300-aff9-10b5614bdb79",
+  {
+    "identifier": "1eae0d85-2b2e-4fee-877d-f7fa98313ad9",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-1 RACK_REACTANT",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTANT",
-        "contained_in_slot": "1",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "HRV"
-      },
-      "amount": 0.5
+      "destination_container": "vial-1 RACK_REACTANT"
     },
     "action_name": "dispense_sv",
     "description": "dispense_sv to: vial-1 RACK_REACTANT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "c437b414-7962-40bb-b095-cf0a9e2320e9",
-      "c437b414-7962-40bb-b095-cf0a9e2320e9"
+      "414361ca-14a5-4fcc-8367-07991f6818e6",
+      "414361ca-14a5-4fcc-8367-07991f6818e6"
     ]
   },
-  "d8551dc7-c2ab-4beb-b2ff-2ed819f996c6": {
-    "identifier": "d8551dc7-c2ab-4beb-b2ff-2ed819f996c6",
+  {
+    "identifier": "cefb57db-3788-4ada-97fa-c13259a0670b",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 1",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "SULFONYL_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 1"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "3edf3b6d-3fa0-4300-aff9-10b5614bdb79",
-      "3edf3b6d-3fa0-4300-aff9-10b5614bdb79"
+      "1eae0d85-2b2e-4fee-877d-f7fa98313ad9",
+      "1eae0d85-2b2e-4fee-877d-f7fa98313ad9"
     ]
   },
-  "335100df-d596-436f-95b9-5934cae77b81": {
-    "identifier": "335100df-d596-436f-95b9-5934cae77b81",
+  {
+    "identifier": "9504ae5b-ac95-4e9a-839f-d94369d24f90",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SVV SLOT 1",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "SULFONYL_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "dest_slot": "SVV SLOT 1"
     },
     "action_name": "put_down",
     "description": "put down: SVV SLOT 1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "d8551dc7-c2ab-4beb-b2ff-2ed819f996c6",
-      "d8551dc7-c2ab-4beb-b2ff-2ed819f996c6"
+      "cefb57db-3788-4ada-97fa-c13259a0670b",
+      "cefb57db-3788-4ada-97fa-c13259a0670b"
     ]
   },
-  "05ee19d1-200f-49cb-ba6e-a13951a75465": {
-    "identifier": "05ee19d1-200f-49cb-ba6e-a13951a75465",
+  {
+    "identifier": "46369341-a3e5-46cd-b4a3-df1fa5c80c9b",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "335100df-d596-436f-95b9-5934cae77b81",
-      "335100df-d596-436f-95b9-5934cae77b81"
+      "9504ae5b-ac95-4e9a-839f-d94369d24f90",
+      "9504ae5b-ac95-4e9a-839f-d94369d24f90"
     ]
   },
-  "5eb8015e-6c1d-4dd5-b285-673a50db814d": {
-    "identifier": "5eb8015e-6c1d-4dd5-b285-673a50db814d",
+  {
+    "identifier": "6b28871d-bd60-40fe-8016-0fb994d14818",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "SV TOOL SLOT"
     },
     "action_name": "put_down",
     "description": "put down: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "05ee19d1-200f-49cb-ba6e-a13951a75465",
-      "05ee19d1-200f-49cb-ba6e-a13951a75465"
+      "46369341-a3e5-46cd-b4a3-df1fa5c80c9b",
+      "46369341-a3e5-46cd-b4a3-df1fa5c80c9b"
     ]
   },
-  "da455fe7-dba8-4de0-aeb4-96695176787b": {
-    "identifier": "da455fe7-dba8-4de0-aeb4-96695176787b",
+  {
+    "identifier": "934b0c5a-cec9-4342-bbb5-8502bb14ecc5",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "5eb8015e-6c1d-4dd5-b285-673a50db814d"
+      "6b28871d-bd60-40fe-8016-0fb994d14818"
     ]
   },
-  "a29394dd-f355-4ab7-823e-4b64af0029b3": {
-    "identifier": "a29394dd-f355-4ab7-823e-4b64af0029b3",
+  {
+    "identifier": "40cdd754-cb26-4e20-a67f-70bd5505ee2a",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "VPG",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "VPG SLOT",
-        "contained_in_slot": "SLOT"
-      }
+      "thing": "VPG"
     },
     "action_name": "pick_up",
     "description": "pick up: VPG",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "da455fe7-dba8-4de0-aeb4-96695176787b",
-      "da455fe7-dba8-4de0-aeb4-96695176787b"
+      "934b0c5a-cec9-4342-bbb5-8502bb14ecc5",
+      "934b0c5a-cec9-4342-bbb5-8502bb14ecc5"
     ]
   },
-  "af847a16-d55a-4c84-a9a3-456eb5155fdd": {
-    "identifier": "af847a16-d55a-4c84-a9a3-456eb5155fdd",
+  {
+    "identifier": "2c90fbea-5200-45c2-ba98-b0d6e580b906",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "a29394dd-f355-4ab7-823e-4b64af0029b3",
-      "a29394dd-f355-4ab7-823e-4b64af0029b3"
+      "40cdd754-cb26-4e20-a67f-70bd5505ee2a",
+      "40cdd754-cb26-4e20-a67f-70bd5505ee2a"
     ]
   },
-  "f8303fdd-37e9-4f67-bfa9-1b717841ac25": {
-    "identifier": "f8303fdd-37e9-4f67-bfa9-1b717841ac25",
+  {
+    "identifier": "2353edb1-906d-4551-b01a-f9dec93f078a",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "RACK_REACTANT",
-        "contained_by": "SLOT 2-3-2",
-        "contained_in_slot": "SLOT",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "1": "vial-1 RACK_REACTANT",
-          "2": "vial-2 RACK_REACTANT",
-          "3": null,
-          "4": null,
-          "5": null,
-          "6": null
-        }
-      }
+      "thing": "RACK_REACTANT"
     },
     "action_name": "pick_up",
     "description": "pick up: RACK_REACTANT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "af847a16-d55a-4c84-a9a3-456eb5155fdd",
-      "af847a16-d55a-4c84-a9a3-456eb5155fdd"
+      "2c90fbea-5200-45c2-ba98-b0d6e580b906",
+      "2c90fbea-5200-45c2-ba98-b0d6e580b906"
     ]
   },
-  "3d4a6e73-76d6-420f-99ca-05634250afd0": {
-    "identifier": "3d4a6e73-76d6-420f-99ca-05634250afd0",
+  {
+    "identifier": "d3d71692-8d2e-4217-b90b-3f1c14668ebd",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "f8303fdd-37e9-4f67-bfa9-1b717841ac25",
-      "f8303fdd-37e9-4f67-bfa9-1b717841ac25"
+      "2353edb1-906d-4551-b01a-f9dec93f078a",
+      "2353edb1-906d-4551-b01a-f9dec93f078a"
     ]
   },
-  "4155fe83-5ed6-475d-bf83-3c4fd9bcd17c": {
-    "identifier": "4155fe83-5ed6-475d-bf83-3c4fd9bcd17c",
+  {
+    "identifier": "71038147-03f0-48a3-8662-1cf34edf8d58",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "SLOT 2-3-2"
     },
     "action_name": "put_down",
     "description": "put down: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "3d4a6e73-76d6-420f-99ca-05634250afd0",
-      "3d4a6e73-76d6-420f-99ca-05634250afd0"
+      "d3d71692-8d2e-4217-b90b-3f1c14668ebd",
+      "d3d71692-8d2e-4217-b90b-3f1c14668ebd"
     ]
   },
-  "bbe5b2fd-8121-4c7d-93c7-4b81b49f12d3": {
-    "identifier": "bbe5b2fd-8121-4c7d-93c7-4b81b49f12d3",
+  {
+    "identifier": "0d1cd44d-4231-4fcc-91a4-b2e214fbf99d",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "4155fe83-5ed6-475d-bf83-3c4fd9bcd17c",
-      "4155fe83-5ed6-475d-bf83-3c4fd9bcd17c"
+      "71038147-03f0-48a3-8662-1cf34edf8d58",
+      "71038147-03f0-48a3-8662-1cf34edf8d58"
     ]
   },
-  "3ad86730-cdab-4919-9e9e-4dbc8ff9e1b4": {
-    "identifier": "3ad86730-cdab-4919-9e9e-4dbc8ff9e1b4",
+  {
+    "identifier": "7e0c6bab-44a4-4725-b311-badf27426b1c",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "VPG SLOT"
     },
     "action_name": "put_down",
     "description": "put down: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "bbe5b2fd-8121-4c7d-93c7-4b81b49f12d3",
-      "bbe5b2fd-8121-4c7d-93c7-4b81b49f12d3"
+      "0d1cd44d-4231-4fcc-91a4-b2e214fbf99d",
+      "0d1cd44d-4231-4fcc-91a4-b2e214fbf99d"
     ]
   },
-  "687d9208-784c-47ca-93e8-9146ea93eaec": {
-    "identifier": "687d9208-784c-47ca-93e8-9146ea93eaec",
+  {
+    "identifier": "86fc982a-166e-4b6c-bd1f-47580d87a65e",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "3ad86730-cdab-4919-9e9e-4dbc8ff9e1b4"
+      "7e0c6bab-44a4-4725-b311-badf27426b1c"
     ]
   },
-  "74f97943-94a7-4435-809b-45518963b84b": {
-    "identifier": "74f97943-94a7-4435-809b-45518963b84b",
+  {
+    "identifier": "9442b2f2-2880-4577-aca6-21877c9b2716",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "VPG",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "VPG SLOT",
-        "contained_in_slot": "SLOT"
-      }
+      "thing": "VPG"
     },
     "action_name": "pick_up",
     "description": "pick up: VPG",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "687d9208-784c-47ca-93e8-9146ea93eaec",
-      "687d9208-784c-47ca-93e8-9146ea93eaec"
+      "86fc982a-166e-4b6c-bd1f-47580d87a65e",
+      "86fc982a-166e-4b6c-bd1f-47580d87a65e"
     ]
   },
-  "ca37dee1-3984-43cc-8250-13f4369844e1": {
-    "identifier": "ca37dee1-3984-43cc-8250-13f4369844e1",
+  {
+    "identifier": "ad0849df-2d34-4a03-a4d6-e202eed67581",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "74f97943-94a7-4435-809b-45518963b84b",
-      "74f97943-94a7-4435-809b-45518963b84b"
+      "9442b2f2-2880-4577-aca6-21877c9b2716",
+      "9442b2f2-2880-4577-aca6-21877c9b2716"
     ]
   },
-  "ff386401-ffe5-4171-9513-634a982c9a43": {
-    "identifier": "ff386401-ffe5-4171-9513-634a982c9a43",
+  {
+    "identifier": "fb1f2ce2-0b7e-4ee5-91ba-a18d8faa1720",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "RACK_REACTOR",
-        "contained_by": "SLOT 2-3-1",
-        "contained_in_slot": "SLOT",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "1": "vial-1 RACK_REACTOR",
-          "2": "vial-2 RACK_REACTOR",
-          "3": "vial-3 RACK_REACTOR",
-          "4": "vial-4 RACK_REACTOR",
-          "5": null,
-          "6": null
-        }
-      }
+      "thing": "RACK_REACTOR"
     },
     "action_name": "pick_up",
     "description": "pick up: RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ca37dee1-3984-43cc-8250-13f4369844e1",
-      "ca37dee1-3984-43cc-8250-13f4369844e1"
+      "ad0849df-2d34-4a03-a4d6-e202eed67581",
+      "ad0849df-2d34-4a03-a4d6-e202eed67581"
     ]
   },
-  "bf37a60a-b713-4cf2-bad0-a16c7d0bacd0": {
-    "identifier": "bf37a60a-b713-4cf2-bad0-a16c7d0bacd0",
+  {
+    "identifier": "c6c9c6f3-28c3-4487-8231-d3934bd87fea",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ff386401-ffe5-4171-9513-634a982c9a43",
-      "ff386401-ffe5-4171-9513-634a982c9a43"
+      "fb1f2ce2-0b7e-4ee5-91ba-a18d8faa1720",
+      "fb1f2ce2-0b7e-4ee5-91ba-a18d8faa1720"
     ]
   },
-  "c5f21efc-20f7-42e6-87ac-0f24f70c7235": {
-    "identifier": "c5f21efc-20f7-42e6-87ac-0f24f70c7235",
+  {
+    "identifier": "863e4291-2238-4a60-8040-5f94dfa9df18",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "BALANCE SLOT"
     },
     "action_name": "put_down",
     "description": "put down: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "bf37a60a-b713-4cf2-bad0-a16c7d0bacd0",
-      "bf37a60a-b713-4cf2-bad0-a16c7d0bacd0"
+      "c6c9c6f3-28c3-4487-8231-d3934bd87fea",
+      "c6c9c6f3-28c3-4487-8231-d3934bd87fea"
     ]
   },
-  "4a14fdb0-5548-406e-a7b5-2aa1efc26f41": {
-    "identifier": "4a14fdb0-5548-406e-a7b5-2aa1efc26f41",
+  {
+    "identifier": "b6e156bd-9c79-4f1d-b30e-29d35355f7d2",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "c5f21efc-20f7-42e6-87ac-0f24f70c7235",
-      "c5f21efc-20f7-42e6-87ac-0f24f70c7235"
+      "863e4291-2238-4a60-8040-5f94dfa9df18",
+      "863e4291-2238-4a60-8040-5f94dfa9df18"
     ]
   },
-  "26d0ed07-5bd4-410e-aa59-d5b65e3cc868": {
-    "identifier": "26d0ed07-5bd4-410e-aa59-d5b65e3cc868",
+  {
+    "identifier": "9a4d4942-ca70-43ef-96ff-4b58b758feac",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "VPG SLOT"
     },
     "action_name": "put_down",
     "description": "put down: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "4a14fdb0-5548-406e-a7b5-2aa1efc26f41",
-      "4a14fdb0-5548-406e-a7b5-2aa1efc26f41"
+      "b6e156bd-9c79-4f1d-b30e-29d35355f7d2",
+      "b6e156bd-9c79-4f1d-b30e-29d35355f7d2"
     ]
   },
-  "28d75fa1-94a5-41f9-926a-9f8ec180d60a": {
-    "identifier": "28d75fa1-94a5-41f9-926a-9f8ec180d60a",
+  {
+    "identifier": "141390fe-a1c3-4b7d-8183-613b828d21c8",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "286945d3-8a73-4d56-90dd-8f05abe79a54"
+      "516bf3be-10d4-46a9-8074-e6d36e7526fd"
     ]
   },
-  "ef50e164-7d78-4a91-82c5-f7c1ab57270b": {
-    "identifier": "ef50e164-7d78-4a91-82c5-f7c1ab57270b",
+  {
+    "identifier": "57745164-b460-4543-a6b5-4aa4c1621525",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "VPG",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "VPG SLOT",
-        "contained_in_slot": "SLOT"
-      }
+      "thing": "VPG"
     },
     "action_name": "pick_up",
     "description": "pick up: VPG",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "28d75fa1-94a5-41f9-926a-9f8ec180d60a",
-      "28d75fa1-94a5-41f9-926a-9f8ec180d60a"
+      "141390fe-a1c3-4b7d-8183-613b828d21c8",
+      "141390fe-a1c3-4b7d-8183-613b828d21c8"
     ]
   },
-  "4bdee55e-22e0-45be-8318-fc211a69aedc": {
-    "identifier": "4bdee55e-22e0-45be-8318-fc211a69aedc",
+  {
+    "identifier": "ac787ea0-2c9c-4cd7-a703-adf3f34e78bf",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ef50e164-7d78-4a91-82c5-f7c1ab57270b",
-      "ef50e164-7d78-4a91-82c5-f7c1ab57270b"
+      "57745164-b460-4543-a6b5-4aa4c1621525",
+      "57745164-b460-4543-a6b5-4aa4c1621525"
     ]
   },
-  "b14a5cfe-ddbb-4104-bbdb-c24325b9f40b": {
-    "identifier": "b14a5cfe-ddbb-4104-bbdb-c24325b9f40b",
+  {
+    "identifier": "4326207a-7858-42b7-8215-70d89a479bc1",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "RACK_REACTOR",
-        "contained_by": "SLOT 2-3-1",
-        "contained_in_slot": "SLOT",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "1": "vial-1 RACK_REACTOR",
-          "2": "vial-2 RACK_REACTOR",
-          "3": "vial-3 RACK_REACTOR",
-          "4": "vial-4 RACK_REACTOR",
-          "5": null,
-          "6": null
-        }
-      }
+      "thing": "RACK_REACTOR"
     },
     "action_name": "pick_up",
     "description": "pick up: RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "4bdee55e-22e0-45be-8318-fc211a69aedc",
-      "4bdee55e-22e0-45be-8318-fc211a69aedc"
+      "ac787ea0-2c9c-4cd7-a703-adf3f34e78bf",
+      "ac787ea0-2c9c-4cd7-a703-adf3f34e78bf"
     ]
   },
-  "95211b5b-37b1-44df-8dfd-1dfe66f7326b": {
-    "identifier": "95211b5b-37b1-44df-8dfd-1dfe66f7326b",
+  {
+    "identifier": "d96e60ee-5b80-4630-870b-f55b146e0dba",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b14a5cfe-ddbb-4104-bbdb-c24325b9f40b",
-      "b14a5cfe-ddbb-4104-bbdb-c24325b9f40b"
+      "4326207a-7858-42b7-8215-70d89a479bc1",
+      "4326207a-7858-42b7-8215-70d89a479bc1"
     ]
   },
-  "0dc3e568-f5cf-4778-b0d5-30bc247d3d7b": {
-    "identifier": "0dc3e568-f5cf-4778-b0d5-30bc247d3d7b",
+  {
+    "identifier": "bae935be-282a-4d58-b20c-2b3f9e7fb189",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "SLOT 2-3-1"
     },
     "action_name": "put_down",
     "description": "put down: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "95211b5b-37b1-44df-8dfd-1dfe66f7326b",
-      "95211b5b-37b1-44df-8dfd-1dfe66f7326b"
+      "d96e60ee-5b80-4630-870b-f55b146e0dba",
+      "d96e60ee-5b80-4630-870b-f55b146e0dba"
     ]
   },
-  "55225211-65d8-43df-a4ca-7ffedc5e2d96": {
-    "identifier": "55225211-65d8-43df-a4ca-7ffedc5e2d96",
+  {
+    "identifier": "0bc7f6ef-569d-4242-b77f-9b621cd3cf7c",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "0dc3e568-f5cf-4778-b0d5-30bc247d3d7b",
-      "0dc3e568-f5cf-4778-b0d5-30bc247d3d7b"
+      "bae935be-282a-4d58-b20c-2b3f9e7fb189",
+      "bae935be-282a-4d58-b20c-2b3f9e7fb189"
     ]
   },
-  "fba93513-8aaf-4115-b0ce-e4de3c7ff248": {
-    "identifier": "fba93513-8aaf-4115-b0ce-e4de3c7ff248",
+  {
+    "identifier": "ca2ba785-d8c0-4c20-aae2-256c6767809b",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "VPG SLOT",
-        "can_contain": [
-          "JuniorVpg"
-        ],
-        "slot_content": {
-          "SLOT": "VPG"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "VPG SLOT"
     },
     "action_name": "put_down",
     "description": "put down: VPG SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "55225211-65d8-43df-a4ca-7ffedc5e2d96",
-      "55225211-65d8-43df-a4ca-7ffedc5e2d96"
+      "0bc7f6ef-569d-4242-b77f-9b621cd3cf7c",
+      "0bc7f6ef-569d-4242-b77f-9b621cd3cf7c"
     ]
   },
-  "49e7bf8a-35a0-41c3-beca-1dfa047fa69c": {
-    "identifier": "49e7bf8a-35a0-41c3-beca-1dfa047fa69c",
+  {
+    "identifier": "075aa895-5224-4138-948c-d0b279f0210a",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 2",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_1_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 2"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "416bd849-4a0f-4af6-9850-7e385a14434b",
-      "416bd849-4a0f-4af6-9850-7e385a14434b"
+      "de02ceab-2b31-4434-a3e5-2fd4dd62721e",
+      "de02ceab-2b31-4434-a3e5-2fd4dd62721e"
     ]
   },
-  "670851e7-9b34-46cb-9a3b-afbb8765ec8c": {
-    "identifier": "670851e7-9b34-46cb-9a3b-afbb8765ec8c",
+  {
+    "identifier": "b04cfb2a-2ecb-4f0e-b649-f8ee54490251",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "solid_amine_1_SVV",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SVV SLOT 2",
-        "contained_in_slot": "SLOT",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "solid_amine_1": 5.0
-        },
-        "vial_type": "SV"
-      }
+      "thing": "solid_amine_1_SVV"
     },
     "action_name": "pick_up",
     "description": "pick up: solid_amine_1_SVV",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "49e7bf8a-35a0-41c3-beca-1dfa047fa69c",
-      "49e7bf8a-35a0-41c3-beca-1dfa047fa69c"
+      "075aa895-5224-4138-948c-d0b279f0210a",
+      "075aa895-5224-4138-948c-d0b279f0210a"
     ]
   },
-  "ed840c35-f6cb-4559-b9ba-32f55b090ff9": {
-    "identifier": "ed840c35-f6cb-4559-b9ba-32f55b090ff9",
+  {
+    "identifier": "d72aa51c-7065-4061-80e6-cad4b752aff9",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "670851e7-9b34-46cb-9a3b-afbb8765ec8c",
-      "670851e7-9b34-46cb-9a3b-afbb8765ec8c"
+      "b04cfb2a-2ecb-4f0e-b649-f8ee54490251",
+      "b04cfb2a-2ecb-4f0e-b649-f8ee54490251"
     ]
   },
-  "6b5ec8d4-a30c-49b0-a3fa-d7b29345ed82": {
-    "identifier": "6b5ec8d4-a30c-49b0-a3fa-d7b29345ed82",
+  {
+    "identifier": "12cb6af2-5af5-4ab5-bd72-a6d8d3829a24",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "26d0ed07-5bd4-410e-aa59-d5b65e3cc868"
+      "9a4d4942-ca70-43ef-96ff-4b58b758feac"
     ]
   },
-  "416bd849-4a0f-4af6-9850-7e385a14434b": {
-    "identifier": "416bd849-4a0f-4af6-9850-7e385a14434b",
+  {
+    "identifier": "de02ceab-2b31-4434-a3e5-2fd4dd62721e",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "SV TOOL",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SV TOOL SLOT",
-        "contained_in_slot": "SLOT",
-        "powder_param_known": false
-      }
+      "thing": "SV TOOL"
     },
     "action_name": "pick_up",
     "description": "pick up: SV TOOL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "6b5ec8d4-a30c-49b0-a3fa-d7b29345ed82",
-      "6b5ec8d4-a30c-49b0-a3fa-d7b29345ed82"
+      "12cb6af2-5af5-4ab5-bd72-a6d8d3829a24",
+      "12cb6af2-5af5-4ab5-bd72-a6d8d3829a24"
     ]
   },
-  "5e73709a-3499-42a7-9fe4-42c547536890": {
-    "identifier": "5e73709a-3499-42a7-9fe4-42c547536890",
+  {
+    "identifier": "7673dfcb-deba-455e-bbb0-8be4d7dee929",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-1 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "1",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.5
+      "destination_container": "vial-1 RACK_REACTOR"
     },
     "action_name": "dispense_sv",
     "description": "dispense_sv to: vial-1 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ed840c35-f6cb-4559-b9ba-32f55b090ff9",
-      "ed840c35-f6cb-4559-b9ba-32f55b090ff9"
+      "d72aa51c-7065-4061-80e6-cad4b752aff9",
+      "d72aa51c-7065-4061-80e6-cad4b752aff9"
     ]
   },
-  "dcb58e45-9143-4b30-bb99-64b97277736c": {
-    "identifier": "dcb58e45-9143-4b30-bb99-64b97277736c",
+  {
+    "identifier": "eed562b7-5851-46ad-ae61-c59bbba02643",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 2",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_1_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 2"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "5e73709a-3499-42a7-9fe4-42c547536890",
-      "5e73709a-3499-42a7-9fe4-42c547536890"
+      "7673dfcb-deba-455e-bbb0-8be4d7dee929",
+      "7673dfcb-deba-455e-bbb0-8be4d7dee929"
     ]
   },
-  "df9294ca-2b45-4a65-aa4a-75cc736ae1bc": {
-    "identifier": "df9294ca-2b45-4a65-aa4a-75cc736ae1bc",
+  {
+    "identifier": "090274f3-017c-4199-ae61-9d55395124fe",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SVV SLOT 2",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_1_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "dest_slot": "SVV SLOT 2"
     },
     "action_name": "put_down",
     "description": "put down: SVV SLOT 2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "dcb58e45-9143-4b30-bb99-64b97277736c",
-      "dcb58e45-9143-4b30-bb99-64b97277736c"
+      "eed562b7-5851-46ad-ae61-c59bbba02643",
+      "eed562b7-5851-46ad-ae61-c59bbba02643"
     ]
   },
-  "1d231082-95b1-4d94-831e-356219baf08e": {
-    "identifier": "1d231082-95b1-4d94-831e-356219baf08e",
+  {
+    "identifier": "2b92ace6-e87a-4b19-81be-c03db7d096ae",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "df9294ca-2b45-4a65-aa4a-75cc736ae1bc",
-      "df9294ca-2b45-4a65-aa4a-75cc736ae1bc"
+      "090274f3-017c-4199-ae61-9d55395124fe",
+      "090274f3-017c-4199-ae61-9d55395124fe"
     ]
   },
-  "c688cf71-bd67-466e-b490-1627e420cd6f": {
-    "identifier": "c688cf71-bd67-466e-b490-1627e420cd6f",
+  {
+    "identifier": "49cb1368-9078-4ce8-8e46-c32453390818",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "SV TOOL SLOT"
     },
     "action_name": "put_down",
     "description": "put down: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "1d231082-95b1-4d94-831e-356219baf08e",
-      "1d231082-95b1-4d94-831e-356219baf08e"
+      "2b92ace6-e87a-4b19-81be-c03db7d096ae",
+      "2b92ace6-e87a-4b19-81be-c03db7d096ae"
     ]
   },
-  "069a3b8a-4a95-48b7-8792-1c8c428b8974": {
-    "identifier": "069a3b8a-4a95-48b7-8792-1c8c428b8974",
+  {
+    "identifier": "92c9e797-d263-44ed-9dda-f38a4956ea62",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 3",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_2_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 3"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 3",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ee5f5354-81fe-43b8-bef3-ba58a1f3230d",
-      "ee5f5354-81fe-43b8-bef3-ba58a1f3230d"
+      "44a5dcf7-a9f5-40d8-a6f8-56e5b8c4722f",
+      "44a5dcf7-a9f5-40d8-a6f8-56e5b8c4722f"
     ]
   },
-  "7fdaf343-84d2-41b9-9515-014f78c92608": {
-    "identifier": "7fdaf343-84d2-41b9-9515-014f78c92608",
+  {
+    "identifier": "3d59f58c-25d3-4cce-9428-54c23432fd96",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "solid_amine_2_SVV",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SVV SLOT 3",
-        "contained_in_slot": "SLOT",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "solid_amine_2": 5.0
-        },
-        "vial_type": "SV"
-      }
+      "thing": "solid_amine_2_SVV"
     },
     "action_name": "pick_up",
     "description": "pick up: solid_amine_2_SVV",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "069a3b8a-4a95-48b7-8792-1c8c428b8974",
-      "069a3b8a-4a95-48b7-8792-1c8c428b8974"
+      "92c9e797-d263-44ed-9dda-f38a4956ea62",
+      "92c9e797-d263-44ed-9dda-f38a4956ea62"
     ]
   },
-  "2435b574-96c1-4736-a6d3-6263614eec2f": {
-    "identifier": "2435b574-96c1-4736-a6d3-6263614eec2f",
+  {
+    "identifier": "06e639d7-484e-4fe3-a544-ced04649ac2f",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "7fdaf343-84d2-41b9-9515-014f78c92608",
-      "7fdaf343-84d2-41b9-9515-014f78c92608"
+      "3d59f58c-25d3-4cce-9428-54c23432fd96",
+      "3d59f58c-25d3-4cce-9428-54c23432fd96"
     ]
   },
-  "24b45084-5145-4051-a022-2a0a21947091": {
-    "identifier": "24b45084-5145-4051-a022-2a0a21947091",
+  {
+    "identifier": "645ead60-ea6f-4d62-88d0-45100b159581",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "c688cf71-bd67-466e-b490-1627e420cd6f"
+      "49cb1368-9078-4ce8-8e46-c32453390818"
     ]
   },
-  "ee5f5354-81fe-43b8-bef3-ba58a1f3230d": {
-    "identifier": "ee5f5354-81fe-43b8-bef3-ba58a1f3230d",
+  {
+    "identifier": "44a5dcf7-a9f5-40d8-a6f8-56e5b8c4722f",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "SV TOOL",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SV TOOL SLOT",
-        "contained_in_slot": "SLOT",
-        "powder_param_known": false
-      }
+      "thing": "SV TOOL"
     },
     "action_name": "pick_up",
     "description": "pick up: SV TOOL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "24b45084-5145-4051-a022-2a0a21947091",
-      "24b45084-5145-4051-a022-2a0a21947091"
+      "645ead60-ea6f-4d62-88d0-45100b159581",
+      "645ead60-ea6f-4d62-88d0-45100b159581"
     ]
   },
-  "ab41a586-f570-4a63-8c8b-86e602717ae4": {
-    "identifier": "ab41a586-f570-4a63-8c8b-86e602717ae4",
+  {
+    "identifier": "33b8e6e4-e038-4a79-a523-89e67d71cce4",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-2 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "2",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.5
+      "destination_container": "vial-2 RACK_REACTOR"
     },
     "action_name": "dispense_sv",
     "description": "dispense_sv to: vial-2 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "2435b574-96c1-4736-a6d3-6263614eec2f",
-      "2435b574-96c1-4736-a6d3-6263614eec2f"
+      "06e639d7-484e-4fe3-a544-ced04649ac2f",
+      "06e639d7-484e-4fe3-a544-ced04649ac2f"
     ]
   },
-  "899692a3-0863-419d-8eea-241b9f205894": {
-    "identifier": "899692a3-0863-419d-8eea-241b9f205894",
+  {
+    "identifier": "17d8f5f3-7666-4990-843b-352756facdfb",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 3",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_2_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 3"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 3",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ab41a586-f570-4a63-8c8b-86e602717ae4",
-      "ab41a586-f570-4a63-8c8b-86e602717ae4"
+      "33b8e6e4-e038-4a79-a523-89e67d71cce4",
+      "33b8e6e4-e038-4a79-a523-89e67d71cce4"
     ]
   },
-  "4e679ccc-4e50-478b-99c4-9bb460b338fb": {
-    "identifier": "4e679ccc-4e50-478b-99c4-9bb460b338fb",
+  {
+    "identifier": "f1a098aa-e9af-4150-8266-ab3aca9459b0",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SVV SLOT 3",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_2_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            460.0,
-            120.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "dest_slot": "SVV SLOT 3"
     },
     "action_name": "put_down",
     "description": "put down: SVV SLOT 3",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "899692a3-0863-419d-8eea-241b9f205894",
-      "899692a3-0863-419d-8eea-241b9f205894"
+      "17d8f5f3-7666-4990-843b-352756facdfb",
+      "17d8f5f3-7666-4990-843b-352756facdfb"
     ]
   },
-  "b2f23588-e7ac-40ca-a304-5ebb09295d2c": {
-    "identifier": "b2f23588-e7ac-40ca-a304-5ebb09295d2c",
+  {
+    "identifier": "ff2867f7-d6a0-4fc4-8f77-9f8d5acf66f9",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "4e679ccc-4e50-478b-99c4-9bb460b338fb",
-      "4e679ccc-4e50-478b-99c4-9bb460b338fb"
+      "f1a098aa-e9af-4150-8266-ab3aca9459b0",
+      "f1a098aa-e9af-4150-8266-ab3aca9459b0"
     ]
   },
-  "e4d82ee7-e993-4720-97ad-c54bf147031d": {
-    "identifier": "e4d82ee7-e993-4720-97ad-c54bf147031d",
+  {
+    "identifier": "e1bcfc3a-78d2-429c-b010-194fb0464fe6",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "SV TOOL SLOT"
     },
     "action_name": "put_down",
     "description": "put down: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b2f23588-e7ac-40ca-a304-5ebb09295d2c",
-      "b2f23588-e7ac-40ca-a304-5ebb09295d2c"
+      "ff2867f7-d6a0-4fc4-8f77-9f8d5acf66f9",
+      "ff2867f7-d6a0-4fc4-8f77-9f8d5acf66f9"
     ]
   },
-  "8d2e97a1-a0c3-490b-98ad-6e30328d2950": {
-    "identifier": "8d2e97a1-a0c3-490b-98ad-6e30328d2950",
+  {
+    "identifier": "97b95671-5b11-4951-88fe-cae5d4482109",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 4",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_3_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            160.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 4"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 4",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "1a2a558a-a797-40ff-94d9-b84900d757e7",
-      "1a2a558a-a797-40ff-94d9-b84900d757e7"
+      "a44695ad-8672-4d41-9f1e-7b7a4076f31e",
+      "a44695ad-8672-4d41-9f1e-7b7a4076f31e"
     ]
   },
-  "b486d1bb-e996-4a54-8ef5-8dfc6875d941": {
-    "identifier": "b486d1bb-e996-4a54-8ef5-8dfc6875d941",
+  {
+    "identifier": "0f607afd-0c31-4b26-821d-26d719412ecb",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "solid_amine_3_SVV",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SVV SLOT 4",
-        "contained_in_slot": "SLOT",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "solid_amine_3": 5.0
-        },
-        "vial_type": "SV"
-      }
+      "thing": "solid_amine_3_SVV"
     },
     "action_name": "pick_up",
     "description": "pick up: solid_amine_3_SVV",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "8d2e97a1-a0c3-490b-98ad-6e30328d2950",
-      "8d2e97a1-a0c3-490b-98ad-6e30328d2950"
+      "97b95671-5b11-4951-88fe-cae5d4482109",
+      "97b95671-5b11-4951-88fe-cae5d4482109"
     ]
   },
-  "ccf4a17e-4eda-4bd2-be38-d22260a04ca2": {
-    "identifier": "ccf4a17e-4eda-4bd2-be38-d22260a04ca2",
+  {
+    "identifier": "faefd6fe-a59e-42e8-ab17-3f26bec211f9",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b486d1bb-e996-4a54-8ef5-8dfc6875d941",
-      "b486d1bb-e996-4a54-8ef5-8dfc6875d941"
+      "0f607afd-0c31-4b26-821d-26d719412ecb",
+      "0f607afd-0c31-4b26-821d-26d719412ecb"
     ]
   },
-  "3444295a-1b5b-4bfe-a31c-46ce242627c1": {
-    "identifier": "3444295a-1b5b-4bfe-a31c-46ce242627c1",
+  {
+    "identifier": "7397b46e-3cfb-4e76-b9ed-0804a5ad6b3c",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "e4d82ee7-e993-4720-97ad-c54bf147031d"
+      "e1bcfc3a-78d2-429c-b010-194fb0464fe6"
     ]
   },
-  "1a2a558a-a797-40ff-94d9-b84900d757e7": {
-    "identifier": "1a2a558a-a797-40ff-94d9-b84900d757e7",
+  {
+    "identifier": "a44695ad-8672-4d41-9f1e-7b7a4076f31e",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "SV TOOL",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SV TOOL SLOT",
-        "contained_in_slot": "SLOT",
-        "powder_param_known": false
-      }
+      "thing": "SV TOOL"
     },
     "action_name": "pick_up",
     "description": "pick up: SV TOOL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "3444295a-1b5b-4bfe-a31c-46ce242627c1",
-      "3444295a-1b5b-4bfe-a31c-46ce242627c1"
+      "7397b46e-3cfb-4e76-b9ed-0804a5ad6b3c",
+      "7397b46e-3cfb-4e76-b9ed-0804a5ad6b3c"
     ]
   },
-  "566fd025-4d44-4d08-98a0-a7648396b833": {
-    "identifier": "566fd025-4d44-4d08-98a0-a7648396b833",
+  {
+    "identifier": "c716d452-cdd1-4ebf-935b-2b67dc594965",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-3 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "3",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.5
+      "destination_container": "vial-3 RACK_REACTOR"
     },
     "action_name": "dispense_sv",
     "description": "dispense_sv to: vial-3 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ccf4a17e-4eda-4bd2-be38-d22260a04ca2",
-      "ccf4a17e-4eda-4bd2-be38-d22260a04ca2"
+      "faefd6fe-a59e-42e8-ab17-3f26bec211f9",
+      "faefd6fe-a59e-42e8-ab17-3f26bec211f9"
     ]
   },
-  "1990547c-7c2e-463c-8299-2e9f0fa7f2fc": {
-    "identifier": "1990547c-7c2e-463c-8299-2e9f0fa7f2fc",
+  {
+    "identifier": "7e4dd09d-f41a-4385-8e9d-3405b6d1a437",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 4",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_3_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            160.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 4"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 4",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "566fd025-4d44-4d08-98a0-a7648396b833",
-      "566fd025-4d44-4d08-98a0-a7648396b833"
+      "c716d452-cdd1-4ebf-935b-2b67dc594965",
+      "c716d452-cdd1-4ebf-935b-2b67dc594965"
     ]
   },
-  "28f573f8-a593-40db-9c0e-3dc21a8525d9": {
-    "identifier": "28f573f8-a593-40db-9c0e-3dc21a8525d9",
+  {
+    "identifier": "c0aaa30b-39d8-4a97-b420-26aaac076098",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SVV SLOT 4",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_3_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            160.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "dest_slot": "SVV SLOT 4"
     },
     "action_name": "put_down",
     "description": "put down: SVV SLOT 4",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "1990547c-7c2e-463c-8299-2e9f0fa7f2fc",
-      "1990547c-7c2e-463c-8299-2e9f0fa7f2fc"
+      "7e4dd09d-f41a-4385-8e9d-3405b6d1a437",
+      "7e4dd09d-f41a-4385-8e9d-3405b6d1a437"
     ]
   },
-  "b6b4fdb1-30c0-47fb-8dfe-b8c974448d02": {
-    "identifier": "b6b4fdb1-30c0-47fb-8dfe-b8c974448d02",
+  {
+    "identifier": "823fc85b-bcd2-4840-b002-f9f8b5672b81",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "28f573f8-a593-40db-9c0e-3dc21a8525d9",
-      "28f573f8-a593-40db-9c0e-3dc21a8525d9"
+      "c0aaa30b-39d8-4a97-b420-26aaac076098",
+      "c0aaa30b-39d8-4a97-b420-26aaac076098"
     ]
   },
-  "145772f2-01aa-4083-8937-f02bbb7b3068": {
-    "identifier": "145772f2-01aa-4083-8937-f02bbb7b3068",
+  {
+    "identifier": "e86beae2-7762-4476-af96-7c10d0284f53",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "SV TOOL SLOT"
     },
     "action_name": "put_down",
     "description": "put down: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b6b4fdb1-30c0-47fb-8dfe-b8c974448d02",
-      "b6b4fdb1-30c0-47fb-8dfe-b8c974448d02"
+      "823fc85b-bcd2-4840-b002-f9f8b5672b81",
+      "823fc85b-bcd2-4840-b002-f9f8b5672b81"
     ]
   },
-  "06859564-a375-47c1-b8a4-9e74ca0e62a4": {
-    "identifier": "06859564-a375-47c1-b8a4-9e74ca0e62a4",
+  {
+    "identifier": "20105802-bc11-4718-bea1-021dfab3e0bc",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 5",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_4_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            160.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 5"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 5",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "6f8f2b42-f6e4-4ac1-8131-a4a3f1e0da0b",
-      "6f8f2b42-f6e4-4ac1-8131-a4a3f1e0da0b"
+      "8bbbfbba-6c95-4094-b5e3-6a4f172fef07",
+      "8bbbfbba-6c95-4094-b5e3-6a4f172fef07"
     ]
   },
-  "88e83810-1211-4af7-8943-43c63c01259a": {
-    "identifier": "88e83810-1211-4af7-8943-43c63c01259a",
+  {
+    "identifier": "f79fc624-d6f7-4ec7-9816-741927bc77e7",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "solid_amine_4_SVV",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SVV SLOT 5",
-        "contained_in_slot": "SLOT",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "solid_amine_4": 5.0
-        },
-        "vial_type": "SV"
-      }
+      "thing": "solid_amine_4_SVV"
     },
     "action_name": "pick_up",
     "description": "pick up: solid_amine_4_SVV",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "06859564-a375-47c1-b8a4-9e74ca0e62a4",
-      "06859564-a375-47c1-b8a4-9e74ca0e62a4"
+      "20105802-bc11-4718-bea1-021dfab3e0bc",
+      "20105802-bc11-4718-bea1-021dfab3e0bc"
     ]
   },
-  "908726fe-d29e-4bf0-876b-90ac5b30a575": {
-    "identifier": "908726fe-d29e-4bf0-876b-90ac5b30a575",
+  {
+    "identifier": "a8e765fc-243b-4c45-a7de-e9a061bfc1c2",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "BALANCE SLOT",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": true,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: BALANCE SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "88e83810-1211-4af7-8943-43c63c01259a",
-      "88e83810-1211-4af7-8943-43c63c01259a"
+      "f79fc624-d6f7-4ec7-9816-741927bc77e7",
+      "f79fc624-d6f7-4ec7-9816-741927bc77e7"
     ]
   },
-  "cfc4e0c3-dece-4ef4-a4c3-3434a9469be0": {
-    "identifier": "cfc4e0c3-dece-4ef4-a4c3-3434a9469be0",
+  {
+    "identifier": "f7d16ca0-6593-463b-8856-49558c215490",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "145772f2-01aa-4083-8937-f02bbb7b3068"
+      "e86beae2-7762-4476-af96-7c10d0284f53"
     ]
   },
-  "6f8f2b42-f6e4-4ac1-8131-a4a3f1e0da0b": {
-    "identifier": "6f8f2b42-f6e4-4ac1-8131-a4a3f1e0da0b",
+  {
+    "identifier": "8bbbfbba-6c95-4094-b5e3-6a4f172fef07",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "SV TOOL",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "SV TOOL SLOT",
-        "contained_in_slot": "SLOT",
-        "powder_param_known": false
-      }
+      "thing": "SV TOOL"
     },
     "action_name": "pick_up",
     "description": "pick up: SV TOOL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "cfc4e0c3-dece-4ef4-a4c3-3434a9469be0",
-      "cfc4e0c3-dece-4ef4-a4c3-3434a9469be0"
+      "f7d16ca0-6593-463b-8856-49558c215490",
+      "f7d16ca0-6593-463b-8856-49558c215490"
     ]
   },
-  "b8189ace-53b0-45ae-acdc-7e9098fe2402": {
-    "identifier": "b8189ace-53b0-45ae-acdc-7e9098fe2402",
+  {
+    "identifier": "152aaf52-21bc-4e9c-949d-795ceefcdabf",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-4 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "4",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.5
+      "destination_container": "vial-4 RACK_REACTOR"
     },
     "action_name": "dispense_sv",
     "description": "dispense_sv to: vial-4 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "908726fe-d29e-4bf0-876b-90ac5b30a575",
-      "908726fe-d29e-4bf0-876b-90ac5b30a575"
+      "a8e765fc-243b-4c45-a7de-e9a061bfc1c2",
+      "a8e765fc-243b-4c45-a7de-e9a061bfc1c2"
     ]
   },
-  "9d351bf5-4899-432c-8c15-7a4d854f0e12": {
-    "identifier": "9d351bf5-4899-432c-8c15-7a4d854f0e12",
+  {
+    "identifier": "70ccfd92-a06d-4285-83e9-67594d3f26f6",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SVV SLOT 5",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_4_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            160.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 5"
     },
     "action_name": "move_to",
     "description": "move to slot: SVV SLOT 5",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b8189ace-53b0-45ae-acdc-7e9098fe2402",
-      "b8189ace-53b0-45ae-acdc-7e9098fe2402"
+      "152aaf52-21bc-4e9c-949d-795ceefcdabf",
+      "152aaf52-21bc-4e9c-949d-795ceefcdabf"
     ]
   },
-  "0ae27fa1-b90a-4e56-b21b-e2770540cca6": {
-    "identifier": "0ae27fa1-b90a-4e56-b21b-e2770540cca6",
+  {
+    "identifier": "a61a19a0-b915-4a37-b9dd-dc1b16812539",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SVV SLOT 5",
-        "can_contain": [
-          "JuniorVial"
-        ],
-        "slot_content": {
-          "SLOT": "solid_amine_4_SVV"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            360.0,
-            160.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "dest_slot": "SVV SLOT 5"
     },
     "action_name": "put_down",
     "description": "put down: SVV SLOT 5",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "9d351bf5-4899-432c-8c15-7a4d854f0e12",
-      "9d351bf5-4899-432c-8c15-7a4d854f0e12"
+      "70ccfd92-a06d-4285-83e9-67594d3f26f6",
+      "70ccfd92-a06d-4285-83e9-67594d3f26f6"
     ]
   },
-  "3c56ddf1-5d6d-4989-8da3-cb7b0f47d2f7": {
-    "identifier": "3c56ddf1-5d6d-4989-8da3-cb7b0f47d2f7",
+  {
+    "identifier": "42b43520-ede4-436d-857f-66d28b558101",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
     },
     "action_name": "move_to",
     "description": "move to slot: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "0ae27fa1-b90a-4e56-b21b-e2770540cca6",
-      "0ae27fa1-b90a-4e56-b21b-e2770540cca6"
+      "a61a19a0-b915-4a37-b9dd-dc1b16812539",
+      "a61a19a0-b915-4a37-b9dd-dc1b16812539"
     ]
   },
-  "286945d3-8a73-4d56-90dd-8f05abe79a54": {
-    "identifier": "286945d3-8a73-4d56-90dd-8f05abe79a54",
+  {
+    "identifier": "516bf3be-10d4-46a9-8074-e6d36e7526fd",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "SV TOOL SLOT",
-        "can_contain": [
-          "JuniorSvt"
-        ],
-        "slot_content": {
-          "SLOT": "SV TOOL"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "dest_slot": "SV TOOL SLOT"
     },
     "action_name": "put_down",
     "description": "put down: SV TOOL SLOT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "3c56ddf1-5d6d-4989-8da3-cb7b0f47d2f7",
-      "3c56ddf1-5d6d-4989-8da3-cb7b0f47d2f7"
+      "42b43520-ede4-436d-857f-66d28b558101",
+      "42b43520-ede4-436d-857f-66d28b558101"
     ]
   },
-  "9b2d1946-ba9c-4634-bdda-3da3613d351e": {
-    "identifier": "9b2d1946-ba9c-4634-bdda-3da3613d351e",
+  {
+    "identifier": "c7ca83a4-898f-4ea8-8df3-4eb29d959603",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z1 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z1",
-        "can_contain": [
-          "JuniorZ1Needle"
-        ],
-        "slot_content": {
-          "1": "Z1 Needle 1",
-          "2": "Z1 Needle 2",
-          "3": "Z1 Needle 3",
-          "4": "Z1 Needle 4",
-          "5": "Z1 Needle 5",
-          "6": "Z1 Needle 6",
-          "7": "Z1 Needle 7"
-        },
-        "allowed_concurrency": [
-          1,
-          4,
-          6
-        ]
-      },
-      "move_to_slot": {
-        "identifier": "SLOT OFF-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_SOLVENT"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            0.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT OFF-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT OFF-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "fba93513-8aaf-4115-b0ce-e4de3c7ff248"
+      "ca2ba785-d8c0-4c20-aae2-256c6767809b"
     ]
   },
-  "118ecf3e-6856-4307-aeb7-bafd9045884a": {
-    "identifier": "118ecf3e-6856-4307-aeb7-bafd9045884a",
+  {
+    "identifier": "78b5a44c-90f5-483b-825f-997c8675a862",
     "device": {
       "identifier": "Z1 ARM"
     },
-    "action_parameters": {
-      "source_containers": [
-        {
-          "identifier": "vial-1 RACK_SOLVENT",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_SOLVENT",
-          "contained_in_slot": "1",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {
-            "DCM": 10
-          },
-          "vial_type": "HRV"
-        },
-        {
-          "identifier": "vial-2 RACK_SOLVENT",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_SOLVENT",
-          "contained_in_slot": "2",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {
-            "DCM": 10
-          },
-          "vial_type": "HRV"
-        },
-        {
-          "identifier": "vial-3 RACK_SOLVENT",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_SOLVENT",
-          "contained_in_slot": "3",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {
-            "DCM": 10
-          },
-          "vial_type": "HRV"
-        },
-        {
-          "identifier": "vial-4 RACK_SOLVENT",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_SOLVENT",
-          "contained_in_slot": "4",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {
-            "DCM": 10
-          },
-          "vial_type": "HRV"
-        }
-      ],
-      "dispenser_containers": [
-        {
-          "identifier": "Z1 Needle 1",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "1",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        },
-        {
-          "identifier": "Z1 Needle 2",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "2",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        },
-        {
-          "identifier": "Z1 Needle 3",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "3",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        },
-        {
-          "identifier": "Z1 Needle 4",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "4",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        }
-      ],
-      "amounts": [
-        1,
-        1,
-        1,
-        1
-      ]
-    },
+    "action_parameters": {},
     "action_name": "concurrent_aspirate",
     "description": "concurrent aspirate from: vial-1 RACK_SOLVENT,vial-2 RACK_SOLVENT,vial-3 RACK_SOLVENT,vial-4 RACK_SOLVENT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "9b2d1946-ba9c-4634-bdda-3da3613d351e",
-      "9b2d1946-ba9c-4634-bdda-3da3613d351e"
+      "c7ca83a4-898f-4ea8-8df3-4eb29d959603",
+      "c7ca83a4-898f-4ea8-8df3-4eb29d959603"
     ]
   },
-  "4a581efb-9f4e-447e-8fc9-541f5c5b437a": {
-    "identifier": "4a581efb-9f4e-447e-8fc9-541f5c5b437a",
+  {
+    "identifier": "67c1e132-25ac-4ac1-9fc5-1ba78cba92da",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z1 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z1",
-        "can_contain": [
-          "JuniorZ1Needle"
-        ],
-        "slot_content": {
-          "1": "Z1 Needle 1",
-          "2": "Z1 Needle 2",
-          "3": "Z1 Needle 3",
-          "4": "Z1 Needle 4",
-          "5": "Z1 Needle 5",
-          "6": "Z1 Needle 6",
-          "7": "Z1 Needle 7"
-        },
-        "allowed_concurrency": [
-          1,
-          4,
-          6
-        ]
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT 2-3-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "118ecf3e-6856-4307-aeb7-bafd9045884a",
-      "118ecf3e-6856-4307-aeb7-bafd9045884a"
+      "78b5a44c-90f5-483b-825f-997c8675a862",
+      "78b5a44c-90f5-483b-825f-997c8675a862"
     ]
   },
-  "57b3f8e7-d7ae-49bf-bfca-439091c751b0": {
-    "identifier": "57b3f8e7-d7ae-49bf-bfca-439091c751b0",
+  {
+    "identifier": "933fb81d-3f56-4db1-8cb9-5abcfd9ade3a",
     "device": {
       "identifier": "Z1 ARM"
     },
-    "action_parameters": {
-      "destination_containers": [
-        {
-          "identifier": "vial-1 RACK_REACTOR",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_REACTOR",
-          "contained_in_slot": "1",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {},
-          "vial_type": "MRV"
-        },
-        {
-          "identifier": "vial-2 RACK_REACTOR",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_REACTOR",
-          "contained_in_slot": "2",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {},
-          "vial_type": "MRV"
-        },
-        {
-          "identifier": "vial-3 RACK_REACTOR",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_REACTOR",
-          "contained_in_slot": "3",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {},
-          "vial_type": "MRV"
-        },
-        {
-          "identifier": "vial-4 RACK_REACTOR",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_REACTOR",
-          "contained_in_slot": "4",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {},
-          "vial_type": "MRV"
-        }
-      ],
-      "dispenser_containers": [
-        {
-          "identifier": "Z1 Needle 1",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "1",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        },
-        {
-          "identifier": "Z1 Needle 2",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "2",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        },
-        {
-          "identifier": "Z1 Needle 3",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "3",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        },
-        {
-          "identifier": "Z1 Needle 4",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "4",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        }
-      ],
-      "amounts": [
-        1,
-        1,
-        1,
-        1
-      ]
-    },
+    "action_parameters": {},
     "action_name": "concurrent_dispense",
     "description": "concurrent dispense to: vial-1 RACK_REACTOR,vial-2 RACK_REACTOR,vial-3 RACK_REACTOR,vial-4 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "4a581efb-9f4e-447e-8fc9-541f5c5b437a",
-      "4a581efb-9f4e-447e-8fc9-541f5c5b437a"
+      "67c1e132-25ac-4ac1-9fc5-1ba78cba92da",
+      "67c1e132-25ac-4ac1-9fc5-1ba78cba92da"
     ]
   },
-  "1207d072-c945-4831-bdee-b4b0e8bf669e": {
-    "identifier": "1207d072-c945-4831-bdee-b4b0e8bf669e",
+  {
+    "identifier": "a0456cf1-33ad-47d5-b7d5-307f51f9df5e",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z1 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z1",
-        "can_contain": [
-          "JuniorZ1Needle"
-        ],
-        "slot_content": {
-          "1": "Z1 Needle 1",
-          "2": "Z1 Needle 2",
-          "3": "Z1 Needle 3",
-          "4": "Z1 Needle 4",
-          "5": "Z1 Needle 5",
-          "6": "Z1 Needle 6",
-          "7": "Z1 Needle 7"
-        },
-        "allowed_concurrency": [
-          1,
-          4,
-          6
-        ]
-      },
-      "move_to_slot": {
-        "identifier": "WASH BAY",
-        "layout": {
-          "layout_position": [
-            100.0,
-            0.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 360.0
-        }
-      }
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "WASH BAY"
     },
     "action_name": "move_to",
     "description": "move to slot: WASH BAY",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "57b3f8e7-d7ae-49bf-bfca-439091c751b0",
-      "57b3f8e7-d7ae-49bf-bfca-439091c751b0"
+      "933fb81d-3f56-4db1-8cb9-5abcfd9ade3a",
+      "933fb81d-3f56-4db1-8cb9-5abcfd9ade3a"
     ]
   },
-  "bb500339-e6cc-46de-99ea-adf28bbdd280": {
-    "identifier": "bb500339-e6cc-46de-99ea-adf28bbdd280",
+  {
+    "identifier": "ca3fc61d-9f1a-4e4b-88b6-94e8e90a6c1a",
     "device": {
       "identifier": "Z1 ARM"
     },
     "action_parameters": {
-      "wash_bay": {
-        "identifier": "WASH BAY",
-        "layout": {
-          "layout_position": [
-            100.0,
-            0.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 360.0
-        }
-      }
+      "wash_bay": "WASH BAY"
     },
     "action_name": "wash",
     "description": "wash needles",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "1207d072-c945-4831-bdee-b4b0e8bf669e",
-      "1207d072-c945-4831-bdee-b4b0e8bf669e"
+      "a0456cf1-33ad-47d5-b7d5-307f51f9df5e",
+      "a0456cf1-33ad-47d5-b7d5-307f51f9df5e"
     ]
   },
-  "374043ae-49a9-455e-8c11-e30bcaaaa562": {
-    "identifier": "374043ae-49a9-455e-8c11-e30bcaaaa562",
+  {
+    "identifier": "8a985497-723a-4b45-abbe-0e01cfb53d02",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z1 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z1",
-        "can_contain": [
-          "JuniorZ1Needle"
-        ],
-        "slot_content": {
-          "1": "Z1 Needle 1",
-          "2": "Z1 Needle 2",
-          "3": "Z1 Needle 3",
-          "4": "Z1 Needle 4",
-          "5": "Z1 Needle 5",
-          "6": "Z1 Needle 6",
-          "7": "Z1 Needle 7"
-        },
-        "allowed_concurrency": [
-          1,
-          4,
-          6
-        ]
-      },
-      "move_to_slot": {
-        "identifier": "SLOT OFF-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_SOLVENT"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            0.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT OFF-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT OFF-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "bb500339-e6cc-46de-99ea-adf28bbdd280"
+      "ca3fc61d-9f1a-4e4b-88b6-94e8e90a6c1a"
     ]
   },
-  "5f9a150d-acde-482d-ba15-89a00b71e30e": {
-    "identifier": "5f9a150d-acde-482d-ba15-89a00b71e30e",
+  {
+    "identifier": "c0e08d25-9ced-4a67-8de3-1ed5b8f69fef",
     "device": {
       "identifier": "Z1 ARM"
     },
-    "action_parameters": {
-      "source_containers": [
-        {
-          "identifier": "vial-5 RACK_SOLVENT",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_SOLVENT",
-          "contained_in_slot": "5",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {
-            "DCM": 10
-          },
-          "vial_type": "HRV"
-        }
-      ],
-      "dispenser_containers": [
-        {
-          "identifier": "Z1 Needle 1",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "1",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        }
-      ],
-      "amounts": [
-        1
-      ]
-    },
+    "action_parameters": {},
     "action_name": "concurrent_aspirate",
     "description": "concurrent aspirate from: vial-5 RACK_SOLVENT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "374043ae-49a9-455e-8c11-e30bcaaaa562",
-      "374043ae-49a9-455e-8c11-e30bcaaaa562"
+      "8a985497-723a-4b45-abbe-0e01cfb53d02",
+      "8a985497-723a-4b45-abbe-0e01cfb53d02"
     ]
   },
-  "72bac069-3a96-4324-a878-0a33e32d32f6": {
-    "identifier": "72bac069-3a96-4324-a878-0a33e32d32f6",
+  {
+    "identifier": "8eb1480d-7776-4bd6-90ce-c84fa4a503ed",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z1 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z1",
-        "can_contain": [
-          "JuniorZ1Needle"
-        ],
-        "slot_content": {
-          "1": "Z1 Needle 1",
-          "2": "Z1 Needle 2",
-          "3": "Z1 Needle 3",
-          "4": "Z1 Needle 4",
-          "5": "Z1 Needle 5",
-          "6": "Z1 Needle 6",
-          "7": "Z1 Needle 7"
-        },
-        "allowed_concurrency": [
-          1,
-          4,
-          6
-        ]
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT 2-3-2"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "5f9a150d-acde-482d-ba15-89a00b71e30e",
-      "5f9a150d-acde-482d-ba15-89a00b71e30e"
+      "c0e08d25-9ced-4a67-8de3-1ed5b8f69fef",
+      "c0e08d25-9ced-4a67-8de3-1ed5b8f69fef"
     ]
   },
-  "bfacc7ee-80d2-422d-b213-f725d81862ca": {
-    "identifier": "bfacc7ee-80d2-422d-b213-f725d81862ca",
+  {
+    "identifier": "fe41bc44-2918-4a03-99cc-e732efcfcb96",
     "device": {
       "identifier": "Z1 ARM"
     },
-    "action_parameters": {
-      "destination_containers": [
-        {
-          "identifier": "vial-1 RACK_REACTANT",
-          "can_contain": [
-            "JuniorStirBar"
-          ],
-          "slot_content": {
-            "SLOT": null
-          },
-          "contained_by": "RACK_REACTANT",
-          "contained_in_slot": "1",
-          "volume_capacity": 40,
-          "material": "GLASS",
-          "chemical_content": {},
-          "vial_type": "HRV"
-        }
-      ],
-      "dispenser_containers": [
-        {
-          "identifier": "Z1 Needle 1",
-          "contained_by": "Z1 ARM",
-          "contained_in_slot": "1",
-          "volume_capacity": 40,
-          "material": "STEEL",
-          "chemical_content": {}
-        }
-      ],
-      "amounts": [
-        1
-      ]
-    },
+    "action_parameters": {},
     "action_name": "concurrent_dispense",
     "description": "concurrent dispense to: vial-1 RACK_REACTANT",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "72bac069-3a96-4324-a878-0a33e32d32f6",
-      "72bac069-3a96-4324-a878-0a33e32d32f6"
+      "8eb1480d-7776-4bd6-90ce-c84fa4a503ed",
+      "8eb1480d-7776-4bd6-90ce-c84fa4a503ed"
     ]
   },
-  "46a85926-fd36-4cdc-a006-87eb71180a8a": {
-    "identifier": "46a85926-fd36-4cdc-a006-87eb71180a8a",
+  {
+    "identifier": "ee0aaef5-2040-40c8-8013-ce2147bb5e6f",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z1 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z1",
-        "can_contain": [
-          "JuniorZ1Needle"
-        ],
-        "slot_content": {
-          "1": "Z1 Needle 1",
-          "2": "Z1 Needle 2",
-          "3": "Z1 Needle 3",
-          "4": "Z1 Needle 4",
-          "5": "Z1 Needle 5",
-          "6": "Z1 Needle 6",
-          "7": "Z1 Needle 7"
-        },
-        "allowed_concurrency": [
-          1,
-          4,
-          6
-        ]
-      },
-      "move_to_slot": {
-        "identifier": "WASH BAY",
-        "layout": {
-          "layout_position": [
-            100.0,
-            0.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 360.0
-        }
-      }
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "WASH BAY"
     },
     "action_name": "move_to",
     "description": "move to slot: WASH BAY",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "bfacc7ee-80d2-422d-b213-f725d81862ca",
-      "bfacc7ee-80d2-422d-b213-f725d81862ca"
+      "fe41bc44-2918-4a03-99cc-e732efcfcb96",
+      "fe41bc44-2918-4a03-99cc-e732efcfcb96"
     ]
   },
-  "602a0d25-6a29-4d17-8fb6-287246ece72c": {
-    "identifier": "602a0d25-6a29-4d17-8fb6-287246ece72c",
+  {
+    "identifier": "efa3fc90-7d00-47ec-b018-d3673f55f7b7",
     "device": {
       "identifier": "Z1 ARM"
     },
     "action_parameters": {
-      "wash_bay": {
-        "identifier": "WASH BAY",
-        "layout": {
-          "layout_position": [
-            100.0,
-            0.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 360.0
-        }
-      }
+      "wash_bay": "WASH BAY"
     },
     "action_name": "wash",
     "description": "wash needles",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "46a85926-fd36-4cdc-a006-87eb71180a8a",
-      "46a85926-fd36-4cdc-a006-87eb71180a8a"
+      "ee0aaef5-2040-40c8-8013-ce2147bb5e6f",
+      "ee0aaef5-2040-40c8-8013-ce2147bb5e6f"
     ]
   },
-  "d227f8dc-6e8c-4fa4-b5db-e93d0033b0c8": {
-    "identifier": "d227f8dc-6e8c-4fa4-b5db-e93d0033b0c8",
+  {
+    "identifier": "9cd9c251-7f22-4348-bed1-66508ae16191",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "PDT SLOT 1",
-        "can_contain": [
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": "PDT 1"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "PDT SLOT 1"
     },
     "action_name": "move_to",
     "description": "move to slot: PDT SLOT 1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "602a0d25-6a29-4d17-8fb6-287246ece72c"
+      "efa3fc90-7d00-47ec-b018-d3673f55f7b7"
     ]
   },
-  "5cb52dfb-8897-412b-ba12-e7cce5eab020": {
-    "identifier": "5cb52dfb-8897-412b-ba12-e7cce5eab020",
+  {
+    "identifier": "5e4f9beb-4235-4f76-a85a-2a4f4feb8c53",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "PDT 1",
-        "can_contain": [
-          "JuniorPdpTip"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "PDT SLOT 1",
-        "contained_in_slot": "SLOT"
-      }
+      "thing": "PDT 1"
     },
     "action_name": "pick_up",
     "description": "pick up: PDT 1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "d227f8dc-6e8c-4fa4-b5db-e93d0033b0c8"
+      "9cd9c251-7f22-4348-bed1-66508ae16191"
     ]
   },
-  "e6468375-4b3a-4be6-8631-e2635643eec9": {
-    "identifier": "e6468375-4b3a-4be6-8631-e2635643eec9",
+  {
+    "identifier": "9243468d-c550-4727-99a2-1402feac8060",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-3",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_PDP_TIPS"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-3",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "5cb52dfb-8897-412b-ba12-e7cce5eab020"
+      "5e4f9beb-4235-4f76-a85a-2a4f4feb8c53"
     ]
   },
-  "2a60599e-5c81-4699-a040-7d0b66bf0da3": {
-    "identifier": "2a60599e-5c81-4699-a040-7d0b66bf0da3",
+  {
+    "identifier": "88698f77-fdac-43c0-be11-ed5157fbd181",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "PdpTip-1 RACK_PDP_TIPS",
-        "contained_by": "RACK_PDP_TIPS",
-        "contained_in_slot": "1",
-        "volume_capacity": 40,
-        "material": "PLASTIC",
-        "chemical_content": {}
-      }
+      "thing": "PdpTip-1 RACK_PDP_TIPS"
     },
     "action_name": "pick_up",
     "description": "pick up: PdpTip-1 RACK_PDP_TIPS",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "e6468375-4b3a-4be6-8631-e2635643eec9"
+      "9243468d-c550-4727-99a2-1402feac8060"
     ]
   },
-  "5cc416c4-fe94-4e12-a2e6-3fd91c0ee9ba": {
-    "identifier": "5cc416c4-fe94-4e12-a2e6-3fd91c0ee9ba",
+  {
+    "identifier": "de232468-5426-41c8-adbb-a605cb81900c",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "2a60599e-5c81-4699-a040-7d0b66bf0da3"
+      "88698f77-fdac-43c0-be11-ed5157fbd181"
     ]
   },
-  "8c47c93f-44c6-45e3-aea7-f94d20a16756": {
-    "identifier": "8c47c93f-44c6-45e3-aea7-f94d20a16756",
+  {
+    "identifier": "6538b7df-090d-443b-bd9a-1872e5c41cd6",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "source_container": {
-        "identifier": "vial-2 RACK_REACTANT",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTANT",
-        "contained_in_slot": "2",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "pyridine": 10
-        },
-        "vial_type": "HRV"
-      },
-      "amount": 0.04
+      "source_container": "vial-2 RACK_REACTANT"
     },
     "action_name": "aspirate_pdp",
     "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "5cc416c4-fe94-4e12-a2e6-3fd91c0ee9ba"
+      "de232468-5426-41c8-adbb-a605cb81900c"
     ]
   },
-  "cee61ae5-ea1e-44e1-81be-360f6646a06f": {
-    "identifier": "cee61ae5-ea1e-44e1-81be-360f6646a06f",
+  {
+    "identifier": "dc61086e-6223-4a59-b02c-ffd8f711ebea",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "8c47c93f-44c6-45e3-aea7-f94d20a16756"
+      "6538b7df-090d-443b-bd9a-1872e5c41cd6"
     ]
   },
-  "c2f787c2-1e9e-45f2-8bb9-b7bf2b3030d2": {
-    "identifier": "c2f787c2-1e9e-45f2-8bb9-b7bf2b3030d2",
+  {
+    "identifier": "858ca935-83c4-49de-8432-96ad0c3cceb2",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-1 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "1",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.04
+      "destination_container": "vial-1 RACK_REACTOR"
     },
     "action_name": "dispense_pdp",
     "description": "dispense_pdp to: vial-1 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "cee61ae5-ea1e-44e1-81be-360f6646a06f"
+      "dc61086e-6223-4a59-b02c-ffd8f711ebea"
     ]
   },
-  "2fbf2cf6-0a0a-4eb7-adda-665c7a9c3065": {
-    "identifier": "2fbf2cf6-0a0a-4eb7-adda-665c7a9c3065",
+  {
+    "identifier": "616ba8f4-e3b8-4c52-a72d-c30519fbf436",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
     },
     "action_name": "move_to",
     "description": "move to slot: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "c2f787c2-1e9e-45f2-8bb9-b7bf2b3030d2"
+      "858ca935-83c4-49de-8432-96ad0c3cceb2"
     ]
   },
-  "08cd6fab-034d-40b4-94f4-16eca5144786": {
-    "identifier": "08cd6fab-034d-40b4-94f4-16eca5144786",
+  {
+    "identifier": "9a3f1ab3-858c-481a-b5de-82a3690453c9",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "dest_slot": "DISPOSAL"
     },
     "action_name": "put_down",
     "description": "put down: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "2fbf2cf6-0a0a-4eb7-adda-665c7a9c3065"
+      "616ba8f4-e3b8-4c52-a72d-c30519fbf436"
     ]
   },
-  "ded46bbf-3e82-4a19-89ef-e5ddd9f8cdec": {
-    "identifier": "ded46bbf-3e82-4a19-89ef-e5ddd9f8cdec",
+  {
+    "identifier": "5bd8f911-fc57-4a88-a57c-375fe5b103b1",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-3",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_PDP_TIPS"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-3",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "08cd6fab-034d-40b4-94f4-16eca5144786"
+      "9a3f1ab3-858c-481a-b5de-82a3690453c9"
     ]
   },
-  "59640639-908f-4f50-9a02-040fc5b572d7": {
-    "identifier": "59640639-908f-4f50-9a02-040fc5b572d7",
+  {
+    "identifier": "2c65320f-abd6-4ca1-b303-65c4464266dc",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "PdpTip-2 RACK_PDP_TIPS",
-        "contained_by": "RACK_PDP_TIPS",
-        "contained_in_slot": "2",
-        "volume_capacity": 40,
-        "material": "PLASTIC",
-        "chemical_content": {}
-      }
+      "thing": "PdpTip-2 RACK_PDP_TIPS"
     },
     "action_name": "pick_up",
     "description": "pick up: PdpTip-2 RACK_PDP_TIPS",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "ded46bbf-3e82-4a19-89ef-e5ddd9f8cdec"
+      "5bd8f911-fc57-4a88-a57c-375fe5b103b1"
     ]
   },
-  "03a5ba08-a31b-45e7-8b9c-3e2b4dc7824e": {
-    "identifier": "03a5ba08-a31b-45e7-8b9c-3e2b4dc7824e",
+  {
+    "identifier": "3d41c064-b81a-45bd-9427-336101088f9d",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "59640639-908f-4f50-9a02-040fc5b572d7"
+      "2c65320f-abd6-4ca1-b303-65c4464266dc"
     ]
   },
-  "39873cda-78e5-4e5c-9491-7f1932c47dc8": {
-    "identifier": "39873cda-78e5-4e5c-9491-7f1932c47dc8",
+  {
+    "identifier": "c3849bc0-882f-4e2a-a0e7-ea3e02058524",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "source_container": {
-        "identifier": "vial-2 RACK_REACTANT",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTANT",
-        "contained_in_slot": "2",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "pyridine": 10
-        },
-        "vial_type": "HRV"
-      },
-      "amount": 0.04
+      "source_container": "vial-2 RACK_REACTANT"
     },
     "action_name": "aspirate_pdp",
     "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "03a5ba08-a31b-45e7-8b9c-3e2b4dc7824e"
+      "3d41c064-b81a-45bd-9427-336101088f9d"
     ]
   },
-  "a70001a6-43ee-4067-b13a-3c0dc4b9814d": {
-    "identifier": "a70001a6-43ee-4067-b13a-3c0dc4b9814d",
+  {
+    "identifier": "167e68df-51a6-4357-8a4e-07bf746b257e",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "39873cda-78e5-4e5c-9491-7f1932c47dc8"
+      "c3849bc0-882f-4e2a-a0e7-ea3e02058524"
     ]
   },
-  "b36e5767-7df9-4070-b151-641962cd3d20": {
-    "identifier": "b36e5767-7df9-4070-b151-641962cd3d20",
+  {
+    "identifier": "97669b3b-c177-4057-a717-50bc7cbd269c",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-2 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "2",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.04
+      "destination_container": "vial-2 RACK_REACTOR"
     },
     "action_name": "dispense_pdp",
     "description": "dispense_pdp to: vial-2 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "a70001a6-43ee-4067-b13a-3c0dc4b9814d"
+      "167e68df-51a6-4357-8a4e-07bf746b257e"
     ]
   },
-  "d4066f93-c762-4c0a-a1ac-c61f34dd95fb": {
-    "identifier": "d4066f93-c762-4c0a-a1ac-c61f34dd95fb",
+  {
+    "identifier": "04c39d04-5833-4918-b564-0e7d57a42320",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
     },
     "action_name": "move_to",
     "description": "move to slot: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b36e5767-7df9-4070-b151-641962cd3d20"
+      "97669b3b-c177-4057-a717-50bc7cbd269c"
     ]
   },
-  "fb1cf9db-726b-4835-926a-776a42a6c2d2": {
-    "identifier": "fb1cf9db-726b-4835-926a-776a42a6c2d2",
+  {
+    "identifier": "c810ada9-b935-421a-8f69-074e0f5f89fc",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "dest_slot": "DISPOSAL"
     },
     "action_name": "put_down",
     "description": "put down: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "d4066f93-c762-4c0a-a1ac-c61f34dd95fb"
+      "04c39d04-5833-4918-b564-0e7d57a42320"
     ]
   },
-  "95d32f00-2791-4550-ae92-500372f184f0": {
-    "identifier": "95d32f00-2791-4550-ae92-500372f184f0",
+  {
+    "identifier": "e9bdf7a9-e621-4116-84fb-9777cca8921a",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-3",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_PDP_TIPS"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-3",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "fb1cf9db-726b-4835-926a-776a42a6c2d2"
+      "c810ada9-b935-421a-8f69-074e0f5f89fc"
     ]
   },
-  "37d53620-294f-4aa5-9eff-2360a05dfe56": {
-    "identifier": "37d53620-294f-4aa5-9eff-2360a05dfe56",
+  {
+    "identifier": "54de1a51-0ded-497d-b1a2-41655bc63cae",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "PdpTip-3 RACK_PDP_TIPS",
-        "contained_by": "RACK_PDP_TIPS",
-        "contained_in_slot": "3",
-        "volume_capacity": 40,
-        "material": "PLASTIC",
-        "chemical_content": {}
-      }
+      "thing": "PdpTip-3 RACK_PDP_TIPS"
     },
     "action_name": "pick_up",
     "description": "pick up: PdpTip-3 RACK_PDP_TIPS",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "95d32f00-2791-4550-ae92-500372f184f0"
+      "e9bdf7a9-e621-4116-84fb-9777cca8921a"
     ]
   },
-  "feac00cb-8f48-4914-932e-ae54313f48ee": {
-    "identifier": "feac00cb-8f48-4914-932e-ae54313f48ee",
+  {
+    "identifier": "7c883bd8-5331-47a3-bc87-6c8632d15c13",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "37d53620-294f-4aa5-9eff-2360a05dfe56"
+      "54de1a51-0ded-497d-b1a2-41655bc63cae"
     ]
   },
-  "9d5c9802-76ab-4188-9230-edd6e692f9bc": {
-    "identifier": "9d5c9802-76ab-4188-9230-edd6e692f9bc",
+  {
+    "identifier": "ef262799-684f-4b6b-993c-70814d227e36",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "source_container": {
-        "identifier": "vial-2 RACK_REACTANT",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTANT",
-        "contained_in_slot": "2",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "pyridine": 10
-        },
-        "vial_type": "HRV"
-      },
-      "amount": 0.04
+      "source_container": "vial-2 RACK_REACTANT"
     },
     "action_name": "aspirate_pdp",
     "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "feac00cb-8f48-4914-932e-ae54313f48ee"
+      "7c883bd8-5331-47a3-bc87-6c8632d15c13"
     ]
   },
-  "5516d2fd-4ac2-46e2-bd16-6f488824f87c": {
-    "identifier": "5516d2fd-4ac2-46e2-bd16-6f488824f87c",
+  {
+    "identifier": "f8e64fdd-637d-4482-9bdc-af8a50eb506a",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "9d5c9802-76ab-4188-9230-edd6e692f9bc"
+      "ef262799-684f-4b6b-993c-70814d227e36"
     ]
   },
-  "0bcd8acd-b234-4bbd-9767-1e3b05f5119f": {
-    "identifier": "0bcd8acd-b234-4bbd-9767-1e3b05f5119f",
+  {
+    "identifier": "e0d3b5b4-a85e-4503-8814-680984399f7c",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-3 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "3",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.04
+      "destination_container": "vial-3 RACK_REACTOR"
     },
     "action_name": "dispense_pdp",
     "description": "dispense_pdp to: vial-3 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "5516d2fd-4ac2-46e2-bd16-6f488824f87c"
+      "f8e64fdd-637d-4482-9bdc-af8a50eb506a"
     ]
   },
-  "86cf99b0-0695-4896-9f76-21f541a5e2d5": {
-    "identifier": "86cf99b0-0695-4896-9f76-21f541a5e2d5",
+  {
+    "identifier": "093e656c-ecdb-4b39-947e-3dec8ad3d8da",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
     },
     "action_name": "move_to",
     "description": "move to slot: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "0bcd8acd-b234-4bbd-9767-1e3b05f5119f"
+      "e0d3b5b4-a85e-4503-8814-680984399f7c"
     ]
   },
-  "68c72f17-e438-4f8a-929e-b742a425b7ba": {
-    "identifier": "68c72f17-e438-4f8a-929e-b742a425b7ba",
+  {
+    "identifier": "e1928a00-12b5-4aaa-beaa-82b0ac6869d4",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "dest_slot": "DISPOSAL"
     },
     "action_name": "put_down",
     "description": "put down: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "86cf99b0-0695-4896-9f76-21f541a5e2d5"
+      "093e656c-ecdb-4b39-947e-3dec8ad3d8da"
     ]
   },
-  "53f9458c-8361-4ade-8e65-663dc17e82d6": {
-    "identifier": "53f9458c-8361-4ade-8e65-663dc17e82d6",
+  {
+    "identifier": "01bbbc93-938a-4981-a003-5c85ad566e7b",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-3",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_PDP_TIPS"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            280.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-3",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "68c72f17-e438-4f8a-929e-b742a425b7ba"
+      "e1928a00-12b5-4aaa-beaa-82b0ac6869d4"
     ]
   },
-  "060a8014-28b5-4171-a1a8-285087d573e3": {
-    "identifier": "060a8014-28b5-4171-a1a8-285087d573e3",
+  {
+    "identifier": "76eb5461-3c00-4aa8-a627-d2ea8d7ff850",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "thing": {
-        "identifier": "PdpTip-4 RACK_PDP_TIPS",
-        "contained_by": "RACK_PDP_TIPS",
-        "contained_in_slot": "4",
-        "volume_capacity": 40,
-        "material": "PLASTIC",
-        "chemical_content": {}
-      }
+      "thing": "PdpTip-4 RACK_PDP_TIPS"
     },
     "action_name": "pick_up",
     "description": "pick up: PdpTip-4 RACK_PDP_TIPS",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "53f9458c-8361-4ade-8e65-663dc17e82d6"
+      "01bbbc93-938a-4981-a003-5c85ad566e7b"
     ]
   },
-  "c3f451ea-9430-4923-9438-653f379c38d0": {
-    "identifier": "c3f451ea-9430-4923-9438-653f379c38d0",
+  {
+    "identifier": "3e246c78-5c3c-4a54-a7b7-752e1d8ff18f",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-2",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTANT"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            160.0,
-            140.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-2",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "060a8014-28b5-4171-a1a8-285087d573e3"
+      "76eb5461-3c00-4aa8-a627-d2ea8d7ff850"
     ]
   },
-  "472eb9d4-0c4c-478d-87d1-42d5dedba0e1": {
-    "identifier": "472eb9d4-0c4c-478d-87d1-42d5dedba0e1",
+  {
+    "identifier": "683a7192-cbb0-41bc-b3ca-94f4776a096d",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "source_container": {
-        "identifier": "vial-2 RACK_REACTANT",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTANT",
-        "contained_in_slot": "2",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {
-          "pyridine": 10
-        },
-        "vial_type": "HRV"
-      },
-      "amount": 0.04
+      "source_container": "vial-2 RACK_REACTANT"
     },
     "action_name": "aspirate_pdp",
     "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "c3f451ea-9430-4923-9438-653f379c38d0"
+      "3e246c78-5c3c-4a54-a7b7-752e1d8ff18f"
     ]
   },
-  "456b3d3c-7792-4295-b97d-a0d5e980d594": {
-    "identifier": "456b3d3c-7792-4295-b97d-a0d5e980d594",
+  {
+    "identifier": "3ff38486-4cda-421e-bf7f-7c90806d596c",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "SLOT 2-3-1",
-        "can_contain": [
-          "JuniorRack"
-        ],
-        "slot_content": {
-          "SLOT": "RACK_REACTOR"
-        },
-        "can_stir": true,
-        "stir_turned_on": false,
-        "can_heat": true,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": true,
-        "layout": {
-          "layout_position": [
-            160.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 120.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
     },
     "action_name": "move_to",
     "description": "move to slot: SLOT 2-3-1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "472eb9d4-0c4c-478d-87d1-42d5dedba0e1"
+      "683a7192-cbb0-41bc-b3ca-94f4776a096d"
     ]
   },
-  "0d726844-da1d-4ab9-8a4b-63d2c4acdaea": {
-    "identifier": "0d726844-da1d-4ab9-8a4b-63d2c4acdaea",
+  {
+    "identifier": "f1902697-f0e0-4cab-8457-5a4bcc9ba886",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "destination_container": {
-        "identifier": "vial-4 RACK_REACTOR",
-        "can_contain": [
-          "JuniorStirBar"
-        ],
-        "slot_content": {
-          "SLOT": null
-        },
-        "contained_by": "RACK_REACTOR",
-        "contained_in_slot": "4",
-        "volume_capacity": 40,
-        "material": "GLASS",
-        "chemical_content": {},
-        "vial_type": "MRV"
-      },
-      "amount": 0.04
+      "destination_container": "vial-4 RACK_REACTOR"
     },
     "action_name": "dispense_pdp",
     "description": "dispense_pdp to: vial-4 RACK_REACTOR",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "456b3d3c-7792-4295-b97d-a0d5e980d594"
+      "3ff38486-4cda-421e-bf7f-7c90806d596c"
     ]
   },
-  "4dd0a28f-2b97-4031-b6d5-f477d0c50bd9": {
-    "identifier": "4dd0a28f-2b97-4031-b6d5-f477d0c50bd9",
+  {
+    "identifier": "5a2bbb1d-bd52-4176-bf95-196952a89ec8",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
     },
     "action_name": "move_to",
     "description": "move to slot: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "0d726844-da1d-4ab9-8a4b-63d2c4acdaea"
+      "f1902697-f0e0-4cab-8457-5a4bcc9ba886"
     ]
   },
-  "c675a478-89c9-4669-a12a-3346af1f5e0a": {
-    "identifier": "c675a478-89c9-4669-a12a-3346af1f5e0a",
+  {
+    "identifier": "29cb0a91-6afb-46ed-a492-e59bcd950ff6",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "DISPOSAL",
-        "layout": {
-          "layout_position": [
-            560.0,
-            280.0
-          ],
-          "layout_x": 40.0,
-          "layout_y": 120.0
-        },
-        "disposal_content": []
-      }
+      "dest_slot": "DISPOSAL"
     },
     "action_name": "put_down",
     "description": "put down: DISPOSAL",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "4dd0a28f-2b97-4031-b6d5-f477d0c50bd9"
+      "5a2bbb1d-bd52-4176-bf95-196952a89ec8"
     ]
   },
-  "421fe9d1-4fbc-4a93-941e-ccd4a9566472": {
-    "identifier": "421fe9d1-4fbc-4a93-941e-ccd4a9566472",
+  {
+    "identifier": "b0ef43bc-8f5c-4a0f-a705-147f755adade",
     "device": {
       "identifier": "ARM PLATFORM"
     },
     "action_parameters": {
-      "anchor_arm": {
-        "identifier": "Z2 ARM",
-        "contained_by": "ARM PLATFORM",
-        "contained_in_slot": "z2",
-        "can_contain": [
-          "JuniorSvt",
-          "JuniorVpg",
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": null
-        }
-      },
-      "move_to_slot": {
-        "identifier": "PDT SLOT 1",
-        "can_contain": [
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": "PDT 1"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "PDT SLOT 1"
     },
     "action_name": "move_to",
     "description": "move to slot: PDT SLOT 1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "c675a478-89c9-4669-a12a-3346af1f5e0a"
+      "29cb0a91-6afb-46ed-a492-e59bcd950ff6"
     ]
   },
-  "55b1a3e0-cdef-433b-beb0-da6036b436f6": {
-    "identifier": "55b1a3e0-cdef-433b-beb0-da6036b436f6",
+  {
+    "identifier": "49425878-0c98-4804-855c-003100b49bb3",
     "device": {
       "identifier": "Z2 ARM"
     },
     "action_parameters": {
-      "dest_slot": {
-        "identifier": "PDT SLOT 1",
-        "can_contain": [
-          "JuniorPdp"
-        ],
-        "slot_content": {
-          "SLOT": "PDT 1"
-        },
-        "can_stir": false,
-        "stir_turned_on": false,
-        "can_heat": false,
-        "set_point": 25,
-        "set_point_max": 400,
-        "can_weigh": false,
-        "can_cool": false,
-        "layout": {
-          "layout_position": [
-            260.0,
-            0.0
-          ],
-          "layout_x": 80.0,
-          "layout_y": 20.0
-        }
-      }
+      "dest_slot": "PDT SLOT 1"
     },
     "action_name": "put_down",
     "description": "put down: PDT SLOT 1",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "421fe9d1-4fbc-4a93-941e-ccd4a9566472"
+      "b0ef43bc-8f5c-4a0f-a705-147f755adade"
     ]
   },
-  "b291f4b8-1ae7-48c3-aa23-afe9e1ed7272": {
-    "identifier": "b291f4b8-1ae7-48c3-aa23-afe9e1ed7272",
+  {
+    "identifier": "87a2eee7-6c22-4d2b-8d5d-808a5b6a4c6c",
     "device": {
       "identifier": "SLOT 2-3-1"
     },
-    "action_parameters": {
-      "wait_time": 120
-    },
+    "action_parameters": {},
     "action_name": "wait",
     "description": "capping reactors",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "55b1a3e0-cdef-433b-beb0-da6036b436f6"
+      "49425878-0c98-4804-855c-003100b49bb3"
     ]
   },
-  "840b0a6d-9a89-4dbe-a1b2-659b3deed7ee": {
-    "identifier": "840b0a6d-9a89-4dbe-a1b2-659b3deed7ee",
+  {
+    "identifier": "245cc980-0985-4768-a507-c6ce7da4f42f",
     "device": {
       "identifier": "SLOT 2-3-1"
     },
-    "action_parameters": {
-      "wait_time": 300
-    },
+    "action_parameters": {},
     "action_name": "wait",
     "description": "wait for 5 min",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "b291f4b8-1ae7-48c3-aa23-afe9e1ed7272"
+      "87a2eee7-6c22-4d2b-8d5d-808a5b6a4c6c"
     ]
   },
-  "8a357821-4d2b-4d8f-886d-041e235ae9fa": {
-    "identifier": "8a357821-4d2b-4d8f-886d-041e235ae9fa",
+  {
+    "identifier": "44dc315a-ee1a-4c32-b9e1-0d1f3a9f7309",
     "device": {
       "identifier": "SLOT 2-3-1"
     },
-    "action_parameters": {
-      "wait_time": 7200
-    },
+    "action_parameters": {},
     "action_name": "wait",
     "description": "wait for 120 min",
     "preceding_type": "ALL",
     "preceding_instructions": [
-      "840b0a6d-9a89-4dbe-a1b2-659b3deed7ee"
+      "245cc980-0985-4768-a507-c6ce7da4f42f"
     ]
   }
-}
+]

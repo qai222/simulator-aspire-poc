@@ -142,7 +142,7 @@ def simulate(name):
 
     # dump as json
     with open(f"{name}.json", "w") as f:
-        json.dump({k: v.model_dump() for k, v in JUNIOR_LAB.dict_instruction.items()}, f, indent=2)
+        json.dump([v.as_dict(identifier_only=True) for v in JUNIOR_LAB.dict_instruction.values()], f, indent=2)
 
     env = simpy.Environment()
     Model(env, JUNIOR_LAB, wdir=os.path.abspath("./"), model_name=name)
