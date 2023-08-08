@@ -148,6 +148,18 @@ class Instruction(Individual):
 
     preceding_instructions: list[str] = []
 
+    def as_dict(self, identifier_only=True):
+        if identifier_only:
+            d = self.model_dump()
+            dict_action_parameters = dict()
+            for k, v in self.action_parameters.items():
+                if isinstance(v, LabObject):
+                    dict_action_parameters[k] = v.identifier
+            d['action_parameters'] = dict_action_parameters
+            return d
+        else:
+            self.model_dump()
+
 
 class Lab(BaseModel):
     dict_instruction: dict[str, Instruction] = dict()

@@ -1,0 +1,2129 @@
+[
+  {
+    "identifier": "554b5e73-abbc-4bc8-b9d6-c8d7cba28fad",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": []
+  },
+  {
+    "identifier": "dd6342f6-d453-448a-a58a-32cdfec2be5f",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "VPG"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: VPG",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "554b5e73-abbc-4bc8-b9d6-c8d7cba28fad",
+      "554b5e73-abbc-4bc8-b9d6-c8d7cba28fad"
+    ]
+  },
+  {
+    "identifier": "ca5f9f31-9dfa-4a69-8630-6e874d3666a2",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "dd6342f6-d453-448a-a58a-32cdfec2be5f",
+      "dd6342f6-d453-448a-a58a-32cdfec2be5f"
+    ]
+  },
+  {
+    "identifier": "f76c70d8-1b81-4ca6-8098-eb80f07642ba",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "RACK_REACTANT"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: RACK_REACTANT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ca5f9f31-9dfa-4a69-8630-6e874d3666a2",
+      "ca5f9f31-9dfa-4a69-8630-6e874d3666a2"
+    ]
+  },
+  {
+    "identifier": "b9265377-a57e-4542-92ae-de444f0d8962",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "f76c70d8-1b81-4ca6-8098-eb80f07642ba",
+      "f76c70d8-1b81-4ca6-8098-eb80f07642ba"
+    ]
+  },
+  {
+    "identifier": "e5d79cce-b40c-4b99-b516-18d3c5949bdd",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "BALANCE SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "b9265377-a57e-4542-92ae-de444f0d8962",
+      "b9265377-a57e-4542-92ae-de444f0d8962"
+    ]
+  },
+  {
+    "identifier": "8389d74f-2832-45c6-86ea-bf2b2b305602",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "e5d79cce-b40c-4b99-b516-18d3c5949bdd",
+      "e5d79cce-b40c-4b99-b516-18d3c5949bdd"
+    ]
+  },
+  {
+    "identifier": "a44fe58b-425f-4349-84a5-06ec65a4bd10",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "VPG SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "8389d74f-2832-45c6-86ea-bf2b2b305602",
+      "8389d74f-2832-45c6-86ea-bf2b2b305602"
+    ]
+  },
+  {
+    "identifier": "f202f717-f51b-4a79-9c3f-e415c62467b9",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "001bdfbb-34d2-4e6e-be3a-76b064cfd1e6",
+      "001bdfbb-34d2-4e6e-be3a-76b064cfd1e6"
+    ]
+  },
+  {
+    "identifier": "d552a788-7e4c-4403-9e2c-07b2cfcdf0c3",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "SULFONYL_SVV"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: SULFONYL_SVV",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "f202f717-f51b-4a79-9c3f-e415c62467b9",
+      "f202f717-f51b-4a79-9c3f-e415c62467b9"
+    ]
+  },
+  {
+    "identifier": "414361ca-14a5-4fcc-8367-07991f6818e6",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "d552a788-7e4c-4403-9e2c-07b2cfcdf0c3",
+      "d552a788-7e4c-4403-9e2c-07b2cfcdf0c3"
+    ]
+  },
+  {
+    "identifier": "9e36edf5-cc96-4b65-99c1-81979f7eff52",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "a44fe58b-425f-4349-84a5-06ec65a4bd10"
+    ]
+  },
+  {
+    "identifier": "001bdfbb-34d2-4e6e-be3a-76b064cfd1e6",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "SV TOOL"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: SV TOOL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "9e36edf5-cc96-4b65-99c1-81979f7eff52",
+      "9e36edf5-cc96-4b65-99c1-81979f7eff52"
+    ]
+  },
+  {
+    "identifier": "1eae0d85-2b2e-4fee-877d-f7fa98313ad9",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-1 RACK_REACTANT"
+    },
+    "action_name": "dispense_sv",
+    "description": "dispense_sv to: vial-1 RACK_REACTANT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "414361ca-14a5-4fcc-8367-07991f6818e6",
+      "414361ca-14a5-4fcc-8367-07991f6818e6"
+    ]
+  },
+  {
+    "identifier": "cefb57db-3788-4ada-97fa-c13259a0670b",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "1eae0d85-2b2e-4fee-877d-f7fa98313ad9",
+      "1eae0d85-2b2e-4fee-877d-f7fa98313ad9"
+    ]
+  },
+  {
+    "identifier": "9504ae5b-ac95-4e9a-839f-d94369d24f90",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SVV SLOT 1"
+    },
+    "action_name": "put_down",
+    "description": "put down: SVV SLOT 1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "cefb57db-3788-4ada-97fa-c13259a0670b",
+      "cefb57db-3788-4ada-97fa-c13259a0670b"
+    ]
+  },
+  {
+    "identifier": "46369341-a3e5-46cd-b4a3-df1fa5c80c9b",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "9504ae5b-ac95-4e9a-839f-d94369d24f90",
+      "9504ae5b-ac95-4e9a-839f-d94369d24f90"
+    ]
+  },
+  {
+    "identifier": "6b28871d-bd60-40fe-8016-0fb994d14818",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SV TOOL SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "46369341-a3e5-46cd-b4a3-df1fa5c80c9b",
+      "46369341-a3e5-46cd-b4a3-df1fa5c80c9b"
+    ]
+  },
+  {
+    "identifier": "934b0c5a-cec9-4342-bbb5-8502bb14ecc5",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "6b28871d-bd60-40fe-8016-0fb994d14818"
+    ]
+  },
+  {
+    "identifier": "40cdd754-cb26-4e20-a67f-70bd5505ee2a",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "VPG"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: VPG",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "934b0c5a-cec9-4342-bbb5-8502bb14ecc5",
+      "934b0c5a-cec9-4342-bbb5-8502bb14ecc5"
+    ]
+  },
+  {
+    "identifier": "2c90fbea-5200-45c2-ba98-b0d6e580b906",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "40cdd754-cb26-4e20-a67f-70bd5505ee2a",
+      "40cdd754-cb26-4e20-a67f-70bd5505ee2a"
+    ]
+  },
+  {
+    "identifier": "2353edb1-906d-4551-b01a-f9dec93f078a",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "RACK_REACTANT"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: RACK_REACTANT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "2c90fbea-5200-45c2-ba98-b0d6e580b906",
+      "2c90fbea-5200-45c2-ba98-b0d6e580b906"
+    ]
+  },
+  {
+    "identifier": "d3d71692-8d2e-4217-b90b-3f1c14668ebd",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "2353edb1-906d-4551-b01a-f9dec93f078a",
+      "2353edb1-906d-4551-b01a-f9dec93f078a"
+    ]
+  },
+  {
+    "identifier": "71038147-03f0-48a3-8662-1cf34edf8d58",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SLOT 2-3-2"
+    },
+    "action_name": "put_down",
+    "description": "put down: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "d3d71692-8d2e-4217-b90b-3f1c14668ebd",
+      "d3d71692-8d2e-4217-b90b-3f1c14668ebd"
+    ]
+  },
+  {
+    "identifier": "0d1cd44d-4231-4fcc-91a4-b2e214fbf99d",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "71038147-03f0-48a3-8662-1cf34edf8d58",
+      "71038147-03f0-48a3-8662-1cf34edf8d58"
+    ]
+  },
+  {
+    "identifier": "7e0c6bab-44a4-4725-b311-badf27426b1c",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "VPG SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "0d1cd44d-4231-4fcc-91a4-b2e214fbf99d",
+      "0d1cd44d-4231-4fcc-91a4-b2e214fbf99d"
+    ]
+  },
+  {
+    "identifier": "86fc982a-166e-4b6c-bd1f-47580d87a65e",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "7e0c6bab-44a4-4725-b311-badf27426b1c"
+    ]
+  },
+  {
+    "identifier": "9442b2f2-2880-4577-aca6-21877c9b2716",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "VPG"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: VPG",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "86fc982a-166e-4b6c-bd1f-47580d87a65e",
+      "86fc982a-166e-4b6c-bd1f-47580d87a65e"
+    ]
+  },
+  {
+    "identifier": "ad0849df-2d34-4a03-a4d6-e202eed67581",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "9442b2f2-2880-4577-aca6-21877c9b2716",
+      "9442b2f2-2880-4577-aca6-21877c9b2716"
+    ]
+  },
+  {
+    "identifier": "fb1f2ce2-0b7e-4ee5-91ba-a18d8faa1720",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "RACK_REACTOR"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ad0849df-2d34-4a03-a4d6-e202eed67581",
+      "ad0849df-2d34-4a03-a4d6-e202eed67581"
+    ]
+  },
+  {
+    "identifier": "c6c9c6f3-28c3-4487-8231-d3934bd87fea",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "fb1f2ce2-0b7e-4ee5-91ba-a18d8faa1720",
+      "fb1f2ce2-0b7e-4ee5-91ba-a18d8faa1720"
+    ]
+  },
+  {
+    "identifier": "863e4291-2238-4a60-8040-5f94dfa9df18",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "BALANCE SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "c6c9c6f3-28c3-4487-8231-d3934bd87fea",
+      "c6c9c6f3-28c3-4487-8231-d3934bd87fea"
+    ]
+  },
+  {
+    "identifier": "b6e156bd-9c79-4f1d-b30e-29d35355f7d2",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "863e4291-2238-4a60-8040-5f94dfa9df18",
+      "863e4291-2238-4a60-8040-5f94dfa9df18"
+    ]
+  },
+  {
+    "identifier": "9a4d4942-ca70-43ef-96ff-4b58b758feac",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "VPG SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "b6e156bd-9c79-4f1d-b30e-29d35355f7d2",
+      "b6e156bd-9c79-4f1d-b30e-29d35355f7d2"
+    ]
+  },
+  {
+    "identifier": "141390fe-a1c3-4b7d-8183-613b828d21c8",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "516bf3be-10d4-46a9-8074-e6d36e7526fd"
+    ]
+  },
+  {
+    "identifier": "57745164-b460-4543-a6b5-4aa4c1621525",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "VPG"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: VPG",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "141390fe-a1c3-4b7d-8183-613b828d21c8",
+      "141390fe-a1c3-4b7d-8183-613b828d21c8"
+    ]
+  },
+  {
+    "identifier": "ac787ea0-2c9c-4cd7-a703-adf3f34e78bf",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "57745164-b460-4543-a6b5-4aa4c1621525",
+      "57745164-b460-4543-a6b5-4aa4c1621525"
+    ]
+  },
+  {
+    "identifier": "4326207a-7858-42b7-8215-70d89a479bc1",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "RACK_REACTOR"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ac787ea0-2c9c-4cd7-a703-adf3f34e78bf",
+      "ac787ea0-2c9c-4cd7-a703-adf3f34e78bf"
+    ]
+  },
+  {
+    "identifier": "d96e60ee-5b80-4630-870b-f55b146e0dba",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "4326207a-7858-42b7-8215-70d89a479bc1",
+      "4326207a-7858-42b7-8215-70d89a479bc1"
+    ]
+  },
+  {
+    "identifier": "bae935be-282a-4d58-b20c-2b3f9e7fb189",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SLOT 2-3-1"
+    },
+    "action_name": "put_down",
+    "description": "put down: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "d96e60ee-5b80-4630-870b-f55b146e0dba",
+      "d96e60ee-5b80-4630-870b-f55b146e0dba"
+    ]
+  },
+  {
+    "identifier": "0bc7f6ef-569d-4242-b77f-9b621cd3cf7c",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "VPG SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "bae935be-282a-4d58-b20c-2b3f9e7fb189",
+      "bae935be-282a-4d58-b20c-2b3f9e7fb189"
+    ]
+  },
+  {
+    "identifier": "ca2ba785-d8c0-4c20-aae2-256c6767809b",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "VPG SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: VPG SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "0bc7f6ef-569d-4242-b77f-9b621cd3cf7c",
+      "0bc7f6ef-569d-4242-b77f-9b621cd3cf7c"
+    ]
+  },
+  {
+    "identifier": "075aa895-5224-4138-948c-d0b279f0210a",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "de02ceab-2b31-4434-a3e5-2fd4dd62721e",
+      "de02ceab-2b31-4434-a3e5-2fd4dd62721e"
+    ]
+  },
+  {
+    "identifier": "b04cfb2a-2ecb-4f0e-b649-f8ee54490251",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "solid_amine_1_SVV"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: solid_amine_1_SVV",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "075aa895-5224-4138-948c-d0b279f0210a",
+      "075aa895-5224-4138-948c-d0b279f0210a"
+    ]
+  },
+  {
+    "identifier": "d72aa51c-7065-4061-80e6-cad4b752aff9",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "b04cfb2a-2ecb-4f0e-b649-f8ee54490251",
+      "b04cfb2a-2ecb-4f0e-b649-f8ee54490251"
+    ]
+  },
+  {
+    "identifier": "12cb6af2-5af5-4ab5-bd72-a6d8d3829a24",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "9a4d4942-ca70-43ef-96ff-4b58b758feac"
+    ]
+  },
+  {
+    "identifier": "de02ceab-2b31-4434-a3e5-2fd4dd62721e",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "SV TOOL"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: SV TOOL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "12cb6af2-5af5-4ab5-bd72-a6d8d3829a24",
+      "12cb6af2-5af5-4ab5-bd72-a6d8d3829a24"
+    ]
+  },
+  {
+    "identifier": "7673dfcb-deba-455e-bbb0-8be4d7dee929",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-1 RACK_REACTOR"
+    },
+    "action_name": "dispense_sv",
+    "description": "dispense_sv to: vial-1 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "d72aa51c-7065-4061-80e6-cad4b752aff9",
+      "d72aa51c-7065-4061-80e6-cad4b752aff9"
+    ]
+  },
+  {
+    "identifier": "eed562b7-5851-46ad-ae61-c59bbba02643",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "7673dfcb-deba-455e-bbb0-8be4d7dee929",
+      "7673dfcb-deba-455e-bbb0-8be4d7dee929"
+    ]
+  },
+  {
+    "identifier": "090274f3-017c-4199-ae61-9d55395124fe",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SVV SLOT 2"
+    },
+    "action_name": "put_down",
+    "description": "put down: SVV SLOT 2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "eed562b7-5851-46ad-ae61-c59bbba02643",
+      "eed562b7-5851-46ad-ae61-c59bbba02643"
+    ]
+  },
+  {
+    "identifier": "2b92ace6-e87a-4b19-81be-c03db7d096ae",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "090274f3-017c-4199-ae61-9d55395124fe",
+      "090274f3-017c-4199-ae61-9d55395124fe"
+    ]
+  },
+  {
+    "identifier": "49cb1368-9078-4ce8-8e46-c32453390818",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SV TOOL SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "2b92ace6-e87a-4b19-81be-c03db7d096ae",
+      "2b92ace6-e87a-4b19-81be-c03db7d096ae"
+    ]
+  },
+  {
+    "identifier": "92c9e797-d263-44ed-9dda-f38a4956ea62",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 3"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 3",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "44a5dcf7-a9f5-40d8-a6f8-56e5b8c4722f",
+      "44a5dcf7-a9f5-40d8-a6f8-56e5b8c4722f"
+    ]
+  },
+  {
+    "identifier": "3d59f58c-25d3-4cce-9428-54c23432fd96",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "solid_amine_2_SVV"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: solid_amine_2_SVV",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "92c9e797-d263-44ed-9dda-f38a4956ea62",
+      "92c9e797-d263-44ed-9dda-f38a4956ea62"
+    ]
+  },
+  {
+    "identifier": "06e639d7-484e-4fe3-a544-ced04649ac2f",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "3d59f58c-25d3-4cce-9428-54c23432fd96",
+      "3d59f58c-25d3-4cce-9428-54c23432fd96"
+    ]
+  },
+  {
+    "identifier": "645ead60-ea6f-4d62-88d0-45100b159581",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "49cb1368-9078-4ce8-8e46-c32453390818"
+    ]
+  },
+  {
+    "identifier": "44a5dcf7-a9f5-40d8-a6f8-56e5b8c4722f",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "SV TOOL"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: SV TOOL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "645ead60-ea6f-4d62-88d0-45100b159581",
+      "645ead60-ea6f-4d62-88d0-45100b159581"
+    ]
+  },
+  {
+    "identifier": "33b8e6e4-e038-4a79-a523-89e67d71cce4",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-2 RACK_REACTOR"
+    },
+    "action_name": "dispense_sv",
+    "description": "dispense_sv to: vial-2 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "06e639d7-484e-4fe3-a544-ced04649ac2f",
+      "06e639d7-484e-4fe3-a544-ced04649ac2f"
+    ]
+  },
+  {
+    "identifier": "17d8f5f3-7666-4990-843b-352756facdfb",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 3"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 3",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "33b8e6e4-e038-4a79-a523-89e67d71cce4",
+      "33b8e6e4-e038-4a79-a523-89e67d71cce4"
+    ]
+  },
+  {
+    "identifier": "f1a098aa-e9af-4150-8266-ab3aca9459b0",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SVV SLOT 3"
+    },
+    "action_name": "put_down",
+    "description": "put down: SVV SLOT 3",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "17d8f5f3-7666-4990-843b-352756facdfb",
+      "17d8f5f3-7666-4990-843b-352756facdfb"
+    ]
+  },
+  {
+    "identifier": "ff2867f7-d6a0-4fc4-8f77-9f8d5acf66f9",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "f1a098aa-e9af-4150-8266-ab3aca9459b0",
+      "f1a098aa-e9af-4150-8266-ab3aca9459b0"
+    ]
+  },
+  {
+    "identifier": "e1bcfc3a-78d2-429c-b010-194fb0464fe6",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SV TOOL SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ff2867f7-d6a0-4fc4-8f77-9f8d5acf66f9",
+      "ff2867f7-d6a0-4fc4-8f77-9f8d5acf66f9"
+    ]
+  },
+  {
+    "identifier": "97b95671-5b11-4951-88fe-cae5d4482109",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 4"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 4",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "a44695ad-8672-4d41-9f1e-7b7a4076f31e",
+      "a44695ad-8672-4d41-9f1e-7b7a4076f31e"
+    ]
+  },
+  {
+    "identifier": "0f607afd-0c31-4b26-821d-26d719412ecb",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "solid_amine_3_SVV"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: solid_amine_3_SVV",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "97b95671-5b11-4951-88fe-cae5d4482109",
+      "97b95671-5b11-4951-88fe-cae5d4482109"
+    ]
+  },
+  {
+    "identifier": "faefd6fe-a59e-42e8-ab17-3f26bec211f9",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "0f607afd-0c31-4b26-821d-26d719412ecb",
+      "0f607afd-0c31-4b26-821d-26d719412ecb"
+    ]
+  },
+  {
+    "identifier": "7397b46e-3cfb-4e76-b9ed-0804a5ad6b3c",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "e1bcfc3a-78d2-429c-b010-194fb0464fe6"
+    ]
+  },
+  {
+    "identifier": "a44695ad-8672-4d41-9f1e-7b7a4076f31e",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "SV TOOL"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: SV TOOL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "7397b46e-3cfb-4e76-b9ed-0804a5ad6b3c",
+      "7397b46e-3cfb-4e76-b9ed-0804a5ad6b3c"
+    ]
+  },
+  {
+    "identifier": "c716d452-cdd1-4ebf-935b-2b67dc594965",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-3 RACK_REACTOR"
+    },
+    "action_name": "dispense_sv",
+    "description": "dispense_sv to: vial-3 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "faefd6fe-a59e-42e8-ab17-3f26bec211f9",
+      "faefd6fe-a59e-42e8-ab17-3f26bec211f9"
+    ]
+  },
+  {
+    "identifier": "7e4dd09d-f41a-4385-8e9d-3405b6d1a437",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 4"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 4",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "c716d452-cdd1-4ebf-935b-2b67dc594965",
+      "c716d452-cdd1-4ebf-935b-2b67dc594965"
+    ]
+  },
+  {
+    "identifier": "c0aaa30b-39d8-4a97-b420-26aaac076098",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SVV SLOT 4"
+    },
+    "action_name": "put_down",
+    "description": "put down: SVV SLOT 4",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "7e4dd09d-f41a-4385-8e9d-3405b6d1a437",
+      "7e4dd09d-f41a-4385-8e9d-3405b6d1a437"
+    ]
+  },
+  {
+    "identifier": "823fc85b-bcd2-4840-b002-f9f8b5672b81",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "c0aaa30b-39d8-4a97-b420-26aaac076098",
+      "c0aaa30b-39d8-4a97-b420-26aaac076098"
+    ]
+  },
+  {
+    "identifier": "e86beae2-7762-4476-af96-7c10d0284f53",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SV TOOL SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "823fc85b-bcd2-4840-b002-f9f8b5672b81",
+      "823fc85b-bcd2-4840-b002-f9f8b5672b81"
+    ]
+  },
+  {
+    "identifier": "20105802-bc11-4718-bea1-021dfab3e0bc",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 5"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 5",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "8bbbfbba-6c95-4094-b5e3-6a4f172fef07",
+      "8bbbfbba-6c95-4094-b5e3-6a4f172fef07"
+    ]
+  },
+  {
+    "identifier": "f79fc624-d6f7-4ec7-9816-741927bc77e7",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "solid_amine_4_SVV"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: solid_amine_4_SVV",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "20105802-bc11-4718-bea1-021dfab3e0bc",
+      "20105802-bc11-4718-bea1-021dfab3e0bc"
+    ]
+  },
+  {
+    "identifier": "a8e765fc-243b-4c45-a7de-e9a061bfc1c2",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "BALANCE SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: BALANCE SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "f79fc624-d6f7-4ec7-9816-741927bc77e7",
+      "f79fc624-d6f7-4ec7-9816-741927bc77e7"
+    ]
+  },
+  {
+    "identifier": "f7d16ca0-6593-463b-8856-49558c215490",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "e86beae2-7762-4476-af96-7c10d0284f53"
+    ]
+  },
+  {
+    "identifier": "8bbbfbba-6c95-4094-b5e3-6a4f172fef07",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "SV TOOL"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: SV TOOL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "f7d16ca0-6593-463b-8856-49558c215490",
+      "f7d16ca0-6593-463b-8856-49558c215490"
+    ]
+  },
+  {
+    "identifier": "152aaf52-21bc-4e9c-949d-795ceefcdabf",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-4 RACK_REACTOR"
+    },
+    "action_name": "dispense_sv",
+    "description": "dispense_sv to: vial-4 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "a8e765fc-243b-4c45-a7de-e9a061bfc1c2",
+      "a8e765fc-243b-4c45-a7de-e9a061bfc1c2"
+    ]
+  },
+  {
+    "identifier": "70ccfd92-a06d-4285-83e9-67594d3f26f6",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SVV SLOT 5"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SVV SLOT 5",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "152aaf52-21bc-4e9c-949d-795ceefcdabf",
+      "152aaf52-21bc-4e9c-949d-795ceefcdabf"
+    ]
+  },
+  {
+    "identifier": "a61a19a0-b915-4a37-b9dd-dc1b16812539",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SVV SLOT 5"
+    },
+    "action_name": "put_down",
+    "description": "put down: SVV SLOT 5",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "70ccfd92-a06d-4285-83e9-67594d3f26f6",
+      "70ccfd92-a06d-4285-83e9-67594d3f26f6"
+    ]
+  },
+  {
+    "identifier": "42b43520-ede4-436d-857f-66d28b558101",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SV TOOL SLOT"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "a61a19a0-b915-4a37-b9dd-dc1b16812539",
+      "a61a19a0-b915-4a37-b9dd-dc1b16812539"
+    ]
+  },
+  {
+    "identifier": "516bf3be-10d4-46a9-8074-e6d36e7526fd",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "SV TOOL SLOT"
+    },
+    "action_name": "put_down",
+    "description": "put down: SV TOOL SLOT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "42b43520-ede4-436d-857f-66d28b558101",
+      "42b43520-ede4-436d-857f-66d28b558101"
+    ]
+  },
+  {
+    "identifier": "c7ca83a4-898f-4ea8-8df3-4eb29d959603",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT OFF-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT OFF-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ca2ba785-d8c0-4c20-aae2-256c6767809b"
+    ]
+  },
+  {
+    "identifier": "78b5a44c-90f5-483b-825f-997c8675a862",
+    "device": {
+      "identifier": "Z1 ARM"
+    },
+    "action_parameters": {},
+    "action_name": "concurrent_aspirate",
+    "description": "concurrent aspirate from: vial-1 RACK_SOLVENT,vial-2 RACK_SOLVENT,vial-3 RACK_SOLVENT,vial-4 RACK_SOLVENT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "c7ca83a4-898f-4ea8-8df3-4eb29d959603",
+      "c7ca83a4-898f-4ea8-8df3-4eb29d959603"
+    ]
+  },
+  {
+    "identifier": "67c1e132-25ac-4ac1-9fc5-1ba78cba92da",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT 2-3-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "78b5a44c-90f5-483b-825f-997c8675a862",
+      "78b5a44c-90f5-483b-825f-997c8675a862"
+    ]
+  },
+  {
+    "identifier": "933fb81d-3f56-4db1-8cb9-5abcfd9ade3a",
+    "device": {
+      "identifier": "Z1 ARM"
+    },
+    "action_parameters": {},
+    "action_name": "concurrent_dispense",
+    "description": "concurrent dispense to: vial-1 RACK_REACTOR,vial-2 RACK_REACTOR,vial-3 RACK_REACTOR,vial-4 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "67c1e132-25ac-4ac1-9fc5-1ba78cba92da",
+      "67c1e132-25ac-4ac1-9fc5-1ba78cba92da"
+    ]
+  },
+  {
+    "identifier": "a0456cf1-33ad-47d5-b7d5-307f51f9df5e",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "WASH BAY"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: WASH BAY",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "933fb81d-3f56-4db1-8cb9-5abcfd9ade3a",
+      "933fb81d-3f56-4db1-8cb9-5abcfd9ade3a"
+    ]
+  },
+  {
+    "identifier": "ca3fc61d-9f1a-4e4b-88b6-94e8e90a6c1a",
+    "device": {
+      "identifier": "Z1 ARM"
+    },
+    "action_parameters": {
+      "wash_bay": "WASH BAY"
+    },
+    "action_name": "wash",
+    "description": "wash needles",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "a0456cf1-33ad-47d5-b7d5-307f51f9df5e",
+      "a0456cf1-33ad-47d5-b7d5-307f51f9df5e"
+    ]
+  },
+  {
+    "identifier": "8a985497-723a-4b45-abbe-0e01cfb53d02",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT OFF-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT OFF-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ca3fc61d-9f1a-4e4b-88b6-94e8e90a6c1a"
+    ]
+  },
+  {
+    "identifier": "c0e08d25-9ced-4a67-8de3-1ed5b8f69fef",
+    "device": {
+      "identifier": "Z1 ARM"
+    },
+    "action_parameters": {},
+    "action_name": "concurrent_aspirate",
+    "description": "concurrent aspirate from: vial-5 RACK_SOLVENT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "8a985497-723a-4b45-abbe-0e01cfb53d02",
+      "8a985497-723a-4b45-abbe-0e01cfb53d02"
+    ]
+  },
+  {
+    "identifier": "8eb1480d-7776-4bd6-90ce-c84fa4a503ed",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "SLOT 2-3-2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "c0e08d25-9ced-4a67-8de3-1ed5b8f69fef",
+      "c0e08d25-9ced-4a67-8de3-1ed5b8f69fef"
+    ]
+  },
+  {
+    "identifier": "fe41bc44-2918-4a03-99cc-e732efcfcb96",
+    "device": {
+      "identifier": "Z1 ARM"
+    },
+    "action_parameters": {},
+    "action_name": "concurrent_dispense",
+    "description": "concurrent dispense to: vial-1 RACK_REACTANT",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "8eb1480d-7776-4bd6-90ce-c84fa4a503ed",
+      "8eb1480d-7776-4bd6-90ce-c84fa4a503ed"
+    ]
+  },
+  {
+    "identifier": "ee0aaef5-2040-40c8-8013-ce2147bb5e6f",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z1 ARM",
+      "move_to_slot": "WASH BAY"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: WASH BAY",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "fe41bc44-2918-4a03-99cc-e732efcfcb96",
+      "fe41bc44-2918-4a03-99cc-e732efcfcb96"
+    ]
+  },
+  {
+    "identifier": "efa3fc90-7d00-47ec-b018-d3673f55f7b7",
+    "device": {
+      "identifier": "Z1 ARM"
+    },
+    "action_parameters": {
+      "wash_bay": "WASH BAY"
+    },
+    "action_name": "wash",
+    "description": "wash needles",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ee0aaef5-2040-40c8-8013-ce2147bb5e6f",
+      "ee0aaef5-2040-40c8-8013-ce2147bb5e6f"
+    ]
+  },
+  {
+    "identifier": "9cd9c251-7f22-4348-bed1-66508ae16191",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "PDT SLOT 1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: PDT SLOT 1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "efa3fc90-7d00-47ec-b018-d3673f55f7b7"
+    ]
+  },
+  {
+    "identifier": "5e4f9beb-4235-4f76-a85a-2a4f4feb8c53",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "PDT 1"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: PDT 1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "9cd9c251-7f22-4348-bed1-66508ae16191"
+    ]
+  },
+  {
+    "identifier": "9243468d-c550-4727-99a2-1402feac8060",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-3",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "5e4f9beb-4235-4f76-a85a-2a4f4feb8c53"
+    ]
+  },
+  {
+    "identifier": "88698f77-fdac-43c0-be11-ed5157fbd181",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "PdpTip-1 RACK_PDP_TIPS"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: PdpTip-1 RACK_PDP_TIPS",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "9243468d-c550-4727-99a2-1402feac8060"
+    ]
+  },
+  {
+    "identifier": "de232468-5426-41c8-adbb-a605cb81900c",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "88698f77-fdac-43c0-be11-ed5157fbd181"
+    ]
+  },
+  {
+    "identifier": "6538b7df-090d-443b-bd9a-1872e5c41cd6",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "source_container": "vial-2 RACK_REACTANT"
+    },
+    "action_name": "aspirate_pdp",
+    "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "de232468-5426-41c8-adbb-a605cb81900c"
+    ]
+  },
+  {
+    "identifier": "dc61086e-6223-4a59-b02c-ffd8f711ebea",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "6538b7df-090d-443b-bd9a-1872e5c41cd6"
+    ]
+  },
+  {
+    "identifier": "858ca935-83c4-49de-8432-96ad0c3cceb2",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-1 RACK_REACTOR"
+    },
+    "action_name": "dispense_pdp",
+    "description": "dispense_pdp to: vial-1 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "dc61086e-6223-4a59-b02c-ffd8f711ebea"
+    ]
+  },
+  {
+    "identifier": "616ba8f4-e3b8-4c52-a72d-c30519fbf436",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "858ca935-83c4-49de-8432-96ad0c3cceb2"
+    ]
+  },
+  {
+    "identifier": "9a3f1ab3-858c-481a-b5de-82a3690453c9",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "DISPOSAL"
+    },
+    "action_name": "put_down",
+    "description": "put down: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "616ba8f4-e3b8-4c52-a72d-c30519fbf436"
+    ]
+  },
+  {
+    "identifier": "5bd8f911-fc57-4a88-a57c-375fe5b103b1",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-3",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "9a3f1ab3-858c-481a-b5de-82a3690453c9"
+    ]
+  },
+  {
+    "identifier": "2c65320f-abd6-4ca1-b303-65c4464266dc",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "PdpTip-2 RACK_PDP_TIPS"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: PdpTip-2 RACK_PDP_TIPS",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "5bd8f911-fc57-4a88-a57c-375fe5b103b1"
+    ]
+  },
+  {
+    "identifier": "3d41c064-b81a-45bd-9427-336101088f9d",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "2c65320f-abd6-4ca1-b303-65c4464266dc"
+    ]
+  },
+  {
+    "identifier": "c3849bc0-882f-4e2a-a0e7-ea3e02058524",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "source_container": "vial-2 RACK_REACTANT"
+    },
+    "action_name": "aspirate_pdp",
+    "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "3d41c064-b81a-45bd-9427-336101088f9d"
+    ]
+  },
+  {
+    "identifier": "167e68df-51a6-4357-8a4e-07bf746b257e",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "c3849bc0-882f-4e2a-a0e7-ea3e02058524"
+    ]
+  },
+  {
+    "identifier": "97669b3b-c177-4057-a717-50bc7cbd269c",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-2 RACK_REACTOR"
+    },
+    "action_name": "dispense_pdp",
+    "description": "dispense_pdp to: vial-2 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "167e68df-51a6-4357-8a4e-07bf746b257e"
+    ]
+  },
+  {
+    "identifier": "04c39d04-5833-4918-b564-0e7d57a42320",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "97669b3b-c177-4057-a717-50bc7cbd269c"
+    ]
+  },
+  {
+    "identifier": "c810ada9-b935-421a-8f69-074e0f5f89fc",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "DISPOSAL"
+    },
+    "action_name": "put_down",
+    "description": "put down: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "04c39d04-5833-4918-b564-0e7d57a42320"
+    ]
+  },
+  {
+    "identifier": "e9bdf7a9-e621-4116-84fb-9777cca8921a",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-3",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "c810ada9-b935-421a-8f69-074e0f5f89fc"
+    ]
+  },
+  {
+    "identifier": "54de1a51-0ded-497d-b1a2-41655bc63cae",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "PdpTip-3 RACK_PDP_TIPS"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: PdpTip-3 RACK_PDP_TIPS",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "e9bdf7a9-e621-4116-84fb-9777cca8921a"
+    ]
+  },
+  {
+    "identifier": "7c883bd8-5331-47a3-bc87-6c8632d15c13",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "54de1a51-0ded-497d-b1a2-41655bc63cae"
+    ]
+  },
+  {
+    "identifier": "ef262799-684f-4b6b-993c-70814d227e36",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "source_container": "vial-2 RACK_REACTANT"
+    },
+    "action_name": "aspirate_pdp",
+    "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "7c883bd8-5331-47a3-bc87-6c8632d15c13"
+    ]
+  },
+  {
+    "identifier": "f8e64fdd-637d-4482-9bdc-af8a50eb506a",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "ef262799-684f-4b6b-993c-70814d227e36"
+    ]
+  },
+  {
+    "identifier": "e0d3b5b4-a85e-4503-8814-680984399f7c",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-3 RACK_REACTOR"
+    },
+    "action_name": "dispense_pdp",
+    "description": "dispense_pdp to: vial-3 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "f8e64fdd-637d-4482-9bdc-af8a50eb506a"
+    ]
+  },
+  {
+    "identifier": "093e656c-ecdb-4b39-947e-3dec8ad3d8da",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "e0d3b5b4-a85e-4503-8814-680984399f7c"
+    ]
+  },
+  {
+    "identifier": "e1928a00-12b5-4aaa-beaa-82b0ac6869d4",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "DISPOSAL"
+    },
+    "action_name": "put_down",
+    "description": "put down: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "093e656c-ecdb-4b39-947e-3dec8ad3d8da"
+    ]
+  },
+  {
+    "identifier": "01bbbc93-938a-4981-a003-5c85ad566e7b",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-3"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-3",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "e1928a00-12b5-4aaa-beaa-82b0ac6869d4"
+    ]
+  },
+  {
+    "identifier": "76eb5461-3c00-4aa8-a627-d2ea8d7ff850",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "thing": "PdpTip-4 RACK_PDP_TIPS"
+    },
+    "action_name": "pick_up",
+    "description": "pick up: PdpTip-4 RACK_PDP_TIPS",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "01bbbc93-938a-4981-a003-5c85ad566e7b"
+    ]
+  },
+  {
+    "identifier": "3e246c78-5c3c-4a54-a7b7-752e1d8ff18f",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-2"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-2",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "76eb5461-3c00-4aa8-a627-d2ea8d7ff850"
+    ]
+  },
+  {
+    "identifier": "683a7192-cbb0-41bc-b3ca-94f4776a096d",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "source_container": "vial-2 RACK_REACTANT"
+    },
+    "action_name": "aspirate_pdp",
+    "description": "aspirate_pdp from: vial-2 RACK_REACTANT amount: 0.04",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "3e246c78-5c3c-4a54-a7b7-752e1d8ff18f"
+    ]
+  },
+  {
+    "identifier": "3ff38486-4cda-421e-bf7f-7c90806d596c",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "SLOT 2-3-1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: SLOT 2-3-1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "683a7192-cbb0-41bc-b3ca-94f4776a096d"
+    ]
+  },
+  {
+    "identifier": "f1902697-f0e0-4cab-8457-5a4bcc9ba886",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "destination_container": "vial-4 RACK_REACTOR"
+    },
+    "action_name": "dispense_pdp",
+    "description": "dispense_pdp to: vial-4 RACK_REACTOR",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "3ff38486-4cda-421e-bf7f-7c90806d596c"
+    ]
+  },
+  {
+    "identifier": "5a2bbb1d-bd52-4176-bf95-196952a89ec8",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "DISPOSAL"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "f1902697-f0e0-4cab-8457-5a4bcc9ba886"
+    ]
+  },
+  {
+    "identifier": "29cb0a91-6afb-46ed-a492-e59bcd950ff6",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "DISPOSAL"
+    },
+    "action_name": "put_down",
+    "description": "put down: DISPOSAL",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "5a2bbb1d-bd52-4176-bf95-196952a89ec8"
+    ]
+  },
+  {
+    "identifier": "b0ef43bc-8f5c-4a0f-a705-147f755adade",
+    "device": {
+      "identifier": "ARM PLATFORM"
+    },
+    "action_parameters": {
+      "anchor_arm": "Z2 ARM",
+      "move_to_slot": "PDT SLOT 1"
+    },
+    "action_name": "move_to",
+    "description": "move to slot: PDT SLOT 1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "29cb0a91-6afb-46ed-a492-e59bcd950ff6"
+    ]
+  },
+  {
+    "identifier": "49425878-0c98-4804-855c-003100b49bb3",
+    "device": {
+      "identifier": "Z2 ARM"
+    },
+    "action_parameters": {
+      "dest_slot": "PDT SLOT 1"
+    },
+    "action_name": "put_down",
+    "description": "put down: PDT SLOT 1",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "b0ef43bc-8f5c-4a0f-a705-147f755adade"
+    ]
+  },
+  {
+    "identifier": "87a2eee7-6c22-4d2b-8d5d-808a5b6a4c6c",
+    "device": {
+      "identifier": "SLOT 2-3-1"
+    },
+    "action_parameters": {},
+    "action_name": "wait",
+    "description": "capping reactors",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "49425878-0c98-4804-855c-003100b49bb3"
+    ]
+  },
+  {
+    "identifier": "245cc980-0985-4768-a507-c6ce7da4f42f",
+    "device": {
+      "identifier": "SLOT 2-3-1"
+    },
+    "action_parameters": {},
+    "action_name": "wait",
+    "description": "wait for 5 min",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "87a2eee7-6c22-4d2b-8d5d-808a5b6a4c6c"
+    ]
+  },
+  {
+    "identifier": "44dc315a-ee1a-4c32-b9e1-0d1f3a9f7309",
+    "device": {
+      "identifier": "SLOT 2-3-1"
+    },
+    "action_parameters": {},
+    "action_name": "wait",
+    "description": "wait for 120 min",
+    "preceding_type": "ALL",
+    "preceding_instructions": [
+      "245cc980-0985-4768-a507-c6ce7da4f42f"
+    ]
+  }
+]
