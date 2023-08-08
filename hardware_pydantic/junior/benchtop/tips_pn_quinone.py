@@ -108,7 +108,7 @@ def setup_quinone_benchtop(
 
     # create a rack for PDP tips on 2-3-3
     rack_pdp_tips, pdp_tips = JuniorRack.create_rack_with_empty_tips(
-        n_tips=n_pdp_tips, rack_capacity=12, rack_id="RACK_PDP_TIPS", tip_id_inherit=True
+        n_tips=n_pdp_tips, rack_capacity=36, rack_id="RACK_PDP_TIPS", tip_id_inherit=True
     )
     JuniorSlot.put_rack_in_a_slot(rack_pdp_tips, junior_benchtop.SLOT_2_3_3)
 
