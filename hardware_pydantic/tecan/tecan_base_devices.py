@@ -5,24 +5,46 @@ from hardware_pydantic.tecan.settings import *
 from hardware_pydantic.lab_objects import LabContainer, ChemicalContainer
 
 
+"""Device classes for Tecan devices."""
+
+
 class TecanBaseHeater(Device, LabContainer, TecanLabObject):
-    """ the heating component under a rack slot, it cannot be read directly """
+    """The heating component under a rack slot but it cannot be read directly.
+
+    Attributes
+    ----------
+    can_heat : bool
+        If False all related actions would error out. Defaults to True.
+    set_point : float
+        Current set point in Celsius. Defaults to 25.
+    set_point_max : float
+        Allowed max set point with the unit of Celsius. Defaults to 400.
+
+    Notes
+    -----
+    The temperature unit is Celsius
+
+    """
 
     can_heat: bool = True
-    """ if False all related actions would error out """
-
     set_point: float = 25
-    """ current set point in C """
-
     set_point_max: float = 400
-    """ allowed max set point """
 
     def action__set_point(
             self,
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE = 'pre',
             set_point: float = 25
     ) -> tuple[list[LabObject], float] | None:
-        """
+        """The action of setting the temperature point of a heater.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE, optional
+            The actor type of the action, 'pre', 'post', or 'proj'. Defaults to 'pre'.
+        set_point : float, optional
+            The temperature point to set. Defaults to 25.
+
+
         ACTION: set_point
         DESCRIPTION: set the temperature point of a heater
         PARAMS:
@@ -53,14 +75,36 @@ class TecanBaseLiquidDispenser(Device, TecanLabObject):
             amount: float,
             aspirate_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: aspirate
-        DESCRIPTION: aspirate liquid from a ChemicalContainer to the dispenser_container (ex. PdpTip)
-        PARAMS:
-            - source_container: ChemicalContainer,
-            - dispenser_container: ChemicalContainer,
-            - amount: float,
-            - aspirate_speed: float = 5,
+        """The action of aspirating liquid from a ChemicalContainer to the dispenser_container
+        (ex. PdpTip).
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action, 'pre', 'post', or 'proj'.
+        source_container : ChemicalContainer
+            The container to aspirate from.
+        dispenser_container : ChemicalContainer
+            The container to dispense to.
+        amount : float
+            The amount of liquid to aspirate.
+        aspirate_speed : float, optional
+            The speed of aspirating. Default is 5.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of LabObjects that are involved in the action and the time it takes to
+            complete the action.
+
+        Raises
+        ------
+        PreActError
+            If the amount of liquid to aspirate is greater than the volume capacity or the amount
+            of liquid in the source container is less than the amount to aspirate.
+        ValueError
+            If the actor_type is not 'pre', 'post', or 'proj'.
+
         """
         if actor_type == 'pre':
             if amount > dispenser_container.volume_capacity:
@@ -83,15 +127,35 @@ class TecanBaseLiquidDispenser(Device, TecanLabObject):
             amount: float,
             dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: dispense
-        DESCRIPTION: dispense liquid from the dispenser_container (ex. PdpTip) to a ChemicalContainer
-        PARAMS:
-            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
-            - destination_container: ChemicalContainer,
-            - dispenser_container: ChemicalContainer,
-            - amount: float,
-            - dispense_speed: float = 5,
+        """The action of dispensing liquid from the dispenser_container (ex. PdpTip) to a
+        ChemicalContainer.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type of the action, 'pre', 'post', or 'proj'.
+        destination_container : ChemicalContainer
+            The container to dispense to.
+        dispenser_container : ChemicalContainer
+            The container to dispense from.
+        amount : float
+            The amount of liquid to dispense.
+        dispense_speed : float, optional
+            The speed of dispensing. Default is 5.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of LabObjects that are involved in the action and the time it takes.
+
+        Raises
+        ------
+        PreActError
+            If the amount of liquid to dispense is greater than the volume capacity or the amount
+            of liquid in the dispenser container is less than the amount to dispense.
+        ValueError
+            If the actor_type is not 'pre', 'post', or 'proj'.
+
         """
         if actor_type == 'pre':
             if amount > dispenser_container.content_sum:
