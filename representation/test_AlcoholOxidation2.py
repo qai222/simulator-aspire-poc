@@ -101,7 +101,8 @@ def create_world():
 
 create_world()
 
-def dump_world(w: nx.MultiDiGraph, fn:str="world.json"):
+
+def dump_world(w: nx.MultiDiGraph, fn: str = "world.json"):
     nodes = []
     for node, d in w.nodes(data=True):
         nodes.append(d['individual'].model_dump())
@@ -111,7 +112,9 @@ def dump_world(w: nx.MultiDiGraph, fn:str="world.json"):
     with open(fn, "w") as f:
         json.dump({"nodes": nodes, "edges": edges}, f)
 
+
 dump_world(WORLD)
+
 
 def individual_to_cyto_element(individual: Individual, index: int):
     if isinstance(individual, (ChemicalIdentifier)):
@@ -324,18 +327,4 @@ app.layout = html.Div(
 )
 
 if __name__ == '__main__':
-    # double_edges = [
-    #     {'data': {'id': src + tgt, 'source': src, 'target': tgt}}
-    #     for src, tgt in ['AB', 'BA', 'BC', 'CB', 'CD', 'DC', 'DA', 'AD']
-    # ]
-
-    # double_edged_el = [{'data': {'id': id_}} for id_ in 'ABCD'] + double_edges
-
     app.run(debug=True)
-
-    # create_world()
-    # import networkx as nx
-    # import pprint
-    #
-    # pprint.pp(find_individuals())
-    # pprint.pp(find_object_properties())

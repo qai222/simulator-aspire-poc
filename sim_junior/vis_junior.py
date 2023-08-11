@@ -148,7 +148,7 @@ JsonTheme = {
     "base0F": "#cc6633",
 }
 
-with open("sim_con-4.pkl", "rb") as f:
+with open("tips_pn/sim_tandem.pkl", "rb") as f:
     sim_logs = pickle.load(f)
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], title="JUNIOR SIMULATOR")
@@ -316,8 +316,9 @@ def update_layout_figure(i_state: int, tracker_1_id):
         log_items.append(
             dbc.ListGroupItem(item_content)
         )
-    fig_gantt = get_gantt_fig(sim_logs[:i_state+1])
-    return fig_layout, "Simulation time: {}".format(current_time), tracker_1_obj.model_dump(), log_items, fig_gantt
+    return fig_layout, "Simulation time: {}".format(current_time), tracker_1_obj.model_dump(), log_items, {}
+    # fig_gantt = get_gantt_fig(sim_logs[:i_state+1])
+    # return fig_layout, "Simulation time: {}".format(current_time), tracker_1_obj.model_dump(), log_items, fig_gantt
 
 
 if __name__ == '__main__':

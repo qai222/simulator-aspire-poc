@@ -23,6 +23,7 @@ class DeviceBlock(Block):
 
         # make projections
         involved_objects, processing_time = self.device.act_by_instruction(job.instruction, actor_type="proj")
+        # TODO should projection be made before sending the request or after requests have been accepted (or both)
 
         # request resources for lab objects
         resource_objects = [LabObjectResource.from_lab_object(obj, self.env) for obj in involved_objects]
