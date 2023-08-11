@@ -11,24 +11,37 @@ from hardware_pydantic.junior.utils import running_time_washing
 from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
 
 
+
+"""Devices on the Junior platform at NCATS."""
+
+
 class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
-    """
-    a vial or plate slot, does not include wash bay and tip disposal
-    subclassing `Device` here because some slots function as `Balance` or `Heater`
+    """A slot on the Junior platform at NCATS.
+
+    Parameters
+    ----------
+    can_weigh : bool
+        Whether this slot can weigh or not. Defaults to False.
+    can_heat : bool
+        Whether this slot can heat or not. Defaults to False.
+    can_cool : bool
+        Whether this slot can cool or not. Defaults to False.
+    can_stir : bool
+        Whether this slot can stir or not. Defaults to False.
+    layout : JuniorLayout, optional
+        The layout of this slot, by default None.
+
+    Notes
+    -----
+    A vial or plate slot, does not include wash bay and tip disposal. We subclass the
+    `Device` here because some slots function as `Balance` or `Heater`.
+
     """
 
     can_weigh: bool = False
-    """ is this a balance? """
-
     can_heat: bool = False
-    """ can it heat? """
-
     can_cool: bool = False
-    """ can it coll? """
-
     can_stir: bool = False
-    """ can it stir? """
-
     layout: JuniorLayout | None = None
 
     def action__wait(
@@ -36,11 +49,28 @@ class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE = 'pre',
             wait_time: float = 0
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: wait
-        DESCRIPTION: hold everything in this slot for a while, ex. heat/cool/stir
-        PARAMS:
-            - wait_time: float = 0
+        """The wait action for a slot which holds everything in this slot for a given period of
+        time.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE, optional
+            The actor type, one of 'pre', 'post', or 'proj'. Default is 'pre'.
+        wait_time : float, optional
+            The wait time. Default is 0.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and this slot cannot heat.
+        ValueError
+            If the actor type is not one of 'pre', 'post', or 'proj'.
+
         """
         if actor_type == 'pre':
             if not self.can_heat:
@@ -55,6 +85,16 @@ class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
 
     @staticmethod
     def put_rack_in_a_slot(rack: JuniorRack, slot: JuniorSlot):
+        """Put a rack in a slot.
+
+        Parameters
+        ----------
+        rack : JuniorRack
+            The rack to put in a slot.
+        slot : JuniorSlot
+            The slot to put the rack in.
+
+        """
         if rack.contained_by is not None:
             prev_slot = JUNIOR_LAB[rack.contained_by]
             assert isinstance(prev_slot, JuniorSlot)
@@ -66,11 +106,18 @@ class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
 
 
 class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
-    position_on_top_of: str | None = None
-    """ the current position, can only be a slot (not vial) """
+    """The arm platform on the Junior platform at NCATS.
 
+    Parameters
+    ----------
+    position_on_top_of : str, optional
+        The current position, can only be a slot (not vial). Default is None.
+    anchor_arm : str, optional
+        Which arm is used to define xy position. Default is None.
+
+    """
+    position_on_top_of: str | None = None
     anchor_arm: str | None = None
-    """ which arm is used to define xy position? """
 
     def action__move_to(
             self,
@@ -78,11 +125,28 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
             anchor_arm: JuniorArmZ1 | JuniorArmZ2,
             move_to_slot: JuniorSlot,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: wait
-        DESCRIPTION: hold everything in this slot for a while, ex. heat/cool/stir
-        PARAMS:
-            - wait_time: float = 0
+        """Action to move to a slot.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        anchor_arm : JuniorArmZ1 | JuniorArmZ2
+            Which arm is used to define xy position.
+        move_to_slot : JuniorSlot
+            The slot to move to.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and the anchor arm is not in the same slot as this arm.
+        ValueError
+            If the actor type is not one of 'pre', 'post', or 'proj'.
         """
         # it takes time zero to move to the same slot
         if self.position_on_top_of == move_to_slot.identifier:
@@ -106,12 +170,29 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
 
 # TODO if should occupying a containee imply occupying its container?
 class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
+    """The Z1 arm on the Junior platform at NCATS.
+
+    Parameters
+    ----------
+    allowed_concurrency : list[int], optional
+        The allowed concurrency. Default is [1, 4, 6].
+    slot_content : dict[str, str], optional
+        The slot content. Default is empty dictionary.
+
+    """
     allowed_concurrency: list[int] = [1, 4, 6]
 
     slot_content: dict[str, str] = dict()
 
     @property
     def arm_platform(self) -> JuniorArmPlatform:
+        """The arm platform this arm is on.
+
+        Returns
+        -------
+        JuniorArmPlatform
+            The arm platform this arm is on.
+        """
         return JUNIOR_LAB[self.contained_by]
 
     def action__concurrent_aspirate(
@@ -121,15 +202,34 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             dispenser_containers: list[JuniorZ1Needle],
             amounts: list[float],
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: concurrent_aspirate
-        DESCRIPTION: aspirate liquid from a list of ChemicalContainer to a list of dispenser_container
-        PARAMS:
-            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
-            - source_containers: list[ChemicalContainer],
-            - dispenser_containers: list[ChemicalContainer],
-            - amounts: list[float],
-            - aspirate_speed: float = 5,
+        """The action to aspirate liquid from a list of ChemicalContainer to a list of
+        dispenser_container.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        source_containers : list[ChemicalContainer]
+            The source containers.
+        dispenser_containers : list[JuniorZ1Needle]
+            The dispenser containers.
+        amounts : list[float]
+            The amounts to aspirate.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if two or more lab objects holding the container;
+            2. if the number of source containers, dispenser containers, and amounts are not the
+            same;
+            3. if the number of source containers is not in the allowed concurrency list;
+
         """
         if actor_type == 'pre':
             if len(set([JUNIOR_LAB[sc.contained_by] for sc in source_containers])) != 1:
@@ -159,15 +259,34 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             dispenser_containers: list[JuniorZ1Needle],
             amounts: list[float],
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: concurrent_dispense
-        DESCRIPTION: dispense liquid from a list of dispenser_container to a list of ChemicalContainer
-        PARAMS:
-            - actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
-            - destination_containers: list[ChemicalContainer],
-            - dispenser_containers: list[JuniorZ1Needle],
-            - amounts: list[float],
-            - dispense_speed: float = 5,
+        """The action to dispense liquid from a list of dispenser_container to a list of
+        ChemicalContainers.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        destination_containers : list[ChemicalContainer]
+            The destination containers.
+        dispenser_containers : list[JuniorZ1Needle]
+            The dispenser containers.
+        amounts : list[float]
+            The amounts to dispense.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if two or more lab objects holding the container;
+            2. if the number of destination containers, dispenser containers, and amounts are not
+            the same;
+            3. if the number of destination containers is not in the allowed concurrency list;
+
         """
         if actor_type == 'pre':
             if len(set([JUNIOR_LAB[dc.contained_by] for dc in destination_containers])) != 1:
@@ -196,7 +315,34 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                      wash_volume: float = 1,
                      flush_volume: float = 1,
                      ):
-        """The unit of wash_volume and flush_volume is mL."""
+        """Wash action.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        wash_bay : JuniorWashBay
+            The wash bay.
+        wash_volume : float, optional
+            The wash volume. Default is 1 mL.
+        flush_volume : float, optional
+            The flush volume. Default is 1 mL.
+
+        Returns
+        -------
+        list[ChemicalContainer], float
+            The list of containers and the time cost.
+
+        Raises
+        ------
+        PreActError
+            If the action type is 'pre' and the position of the arm is not on top of the wash bay.
+
+        Notes
+        -----
+        The unit of wash_volume and flush_volume is mL.
+
+        """
         if actor_type == 'pre':
             if JUNIOR_LAB[self.contained_by].position_on_top_of != wash_bay.identifier:
                 raise PreActError
@@ -210,13 +356,30 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
 
 
 class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
+    """The Z2 arm of the Junior liquid handler."""
 
     @property
     def arm_platform(self) -> JuniorArmPlatform:
+        """The arm platform of Z2 arm.
+
+        Returns
+        -------
+        JuniorArmPlatform
+            The arm platform of Z2 arm.
+
+        """
         return JUNIOR_LAB[self.contained_by]
 
     @property
     def attachment(self) -> None | JuniorSvt | JuniorVpg | JuniorPdp:
+        """The attachment on the Z2 arm.
+
+        Returns
+        -------
+        None | JuniorSvt | JuniorVpg | JuniorPdp
+            The attachment on the Z2 arm.
+
+        """
         if self.slot_content['SLOT'] is None:
             return None
         return JUNIOR_LAB[self.slot_content['SLOT']]
@@ -226,11 +389,33 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             thing: JuniorSvt | JuniorPdp | JuniorVpg | JuniorVial | JuniorPdpTip | JuniorRack,
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: pick_up
-        DESCRIPTION: pick up an attachment or a sv vial or a rack or a pdp tip
-        PARAMS:
-            - thing: JuniorSvt | JuniorPdp | JuniorVpg | JuniorVial | JuniorPdpTip | JuniorRack
+        """The action of picking up an attachment or a sv vial or a rack or a pdp tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        thing : JuniorSvt | JuniorPdp | JuniorVpg | JuniorVial | JuniorPdpTip | JuniorRack
+            The thing to pick up.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if the arm is not on top of the thing;
+            2. the `thing` is not a JuniorSvt, JuniorPdp, JuniorVpg, or JuniorVial and the current
+            attachment is not None;
+            3. if the `thing` is a JuniorVial but the current attachment is not a JuniorSvt;
+            4. if the `thing` is a JuniorPdpTip but the current attachment is not a JuniorPdp;
+            5. if the `thing` is a JuniorRack but the current attachment is not a JuniorVpg.
+        ValueError
+            If actor type is not one of 'pre', 'post', or 'proj'.
+
         """
 
         if actor_type == 'pre':
@@ -263,7 +448,9 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 LabContainee.move(containee=thing, dest_container=self, lab=JUNIOR_LAB,
                                   dest_slot="SLOT")
             else:
-                LabContainee.move(containee=thing, dest_container=self.attachment, lab=JUNIOR_LAB,
+                LabContainee.move(containee=thing,
+                                  dest_container=self.attachment,
+                                  lab=JUNIOR_LAB,
                                   dest_slot="SLOT")
         elif actor_type == 'proj':
             thing_slot = LabContainee.get_container(thing, JUNIOR_LAB, upto=JuniorArmZ2)
@@ -287,11 +474,30 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             dest_slot: JuniorSlot | JuniorTipDisposal
     ) -> tuple[list[LabObject], float] | None:
-        """
-        ACTION: put_down
-        DESCRIPTION: put down an attachment or a sv vial or a rack or a pdp tip
-        PARAMS:
-            - dest_slot: JuniorSlot | JuniorTipDisposal
+        """The action of putting down an attachment or a sv vial or a rack or a pdp tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        dest_slot : JuniorSlot | JuniorTipDisposal
+            The destination slot.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if the arm is not on top of the thing;
+            2. When the destination slot is not the JuniorTipDisposal and the destination slot is
+            not empty, it errors out.
+        ValueError
+            If actor type is not one of 'pre', 'post', or 'proj'.
+
         """
 
         if self.attachment.slot_content['SLOT'] is not None:
@@ -340,8 +546,24 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             source_container: ChemicalContainer,
             amount: float,
-            aspirate_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
+        """The action of aspirating from a pdp tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        source_container : ChemicalContainer
+            The source container.
+        amount : float
+            The amount to aspirate.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost if the actor type is 'proj'.
+
+        """
         source_slot = LabContainee.get_container(source_container, JUNIOR_LAB, upto=JuniorSlot)
         if actor_type == 'pre':
             if source_slot.identifier != self.arm_platform.position_on_top_of:
@@ -353,15 +575,40 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         return self.action__aspirate(
             actor_type=actor_type, source_container=source_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
-            amount=amount, )
+            amount=amount,
+        )
 
     def action__dispense_pdp(
             self,
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             destination_container: ChemicalContainer,
             amount: float,
-            dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
+        """The action of dispensing to a pdp tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        destination_container : ChemicalContainer
+            The destination container.
+        amount : float
+            The amount to dispense.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if the arm is not on top of the destination slot;
+            2. if the attachment is not a JuniorPdp;
+            3. if the pdp tip is not a JuniorPdpTip.
+
+        """
         dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
         if actor_type == 'pre':
             if dest_slot.identifier != self.arm_platform.position_on_top_of:
@@ -381,8 +628,36 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE,
             destination_container: ChemicalContainer,
             amount: float,
-            dispense_speed: float = 5,
     ) -> tuple[list[LabObject], float] | None:
+        """The action of dispensing to a sv tip.
+
+        Parameters
+        ----------
+        actor_type : DEVICE_ACTION_METHOD_ACTOR_TYPE
+            The actor type, one of 'pre', 'post', or 'proj'.
+        destination_container : ChemicalContainer
+            The destination container.
+        amount : float
+            The amount to dispense.
+
+        Returns
+        -------
+        tuple[list[LabObject], float] | None
+            The list of lab objects and the time cost if the actor type is 'proj'.
+
+        Raises
+        ------
+        PreActError
+            If the actor type is 'pre' and it will error out for any of the following reasons:
+            1. if the arm is not on top of the destination slot;
+            2. if the attachment is not a JuniorSvt;
+            3. if the slot content of the attachment is not a JuniorSvTip.
+
+        Notes
+        -----
+        When the powder parameter is known, the time cost is reduced by a factor of 10.
+
+        """
         dest_slot = LabContainee.get_container(destination_container, JUNIOR_LAB, upto=JuniorSlot)
         scaling_factor = 1.0
 
