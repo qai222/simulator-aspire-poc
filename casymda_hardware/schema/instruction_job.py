@@ -7,7 +7,7 @@ from hardware_pydantic import Lab, Instruction
 
 class InstructionJob(Entity):
     def __init__(self, env: Environment, lab: Lab, instruction: Instruction):
-        """The instruction job which is bijective to a `hardware.Instruction` instance.
+        """The instruction job which is bijectively mapped to a `hardware.Instruction` instance.
 
         Parameters
         ----------
@@ -20,18 +20,15 @@ class InstructionJob(Entity):
 
         Notes
         -----
-        Technically speaking,  this is `casymda_jobshop.Job` but there is at least one important
-        difference: `Job` describes either one `Instruction` instance, or a set of
-        *linearly* connected `Instruction` instances (like a path graph).
-        We only implement the former case here.
-
-        this means
-        - `_num_completed_machines` can only be 0 (init) or 1 (finished)
-        - there would be at most one "next_machine"
-            - note about "next_machine": in `casymda_jobshop.Job` the concept "next_machine" means
-            the `Block` instance defined for **this `Job` instance** that it has not gone
-            through. it never points to a `Block` instance defined for another `Job` instance.
-
+        This is similar to`casymda_jobshop.Job` but the latter can describe one of the followings
+        1. a set of *linearly* connected intended actions (path graph)
+            - `_num_completed_machines` can be any non-negative int
+            - this is good for having a concise precedence graph, but at the cost of less optimization room
+        2. one intended action
+            - `_num_completed_machines` can only be 0 (init) or 1 (finished), there would be at most one "next_machine"
+                - about "next_machine": in `casymda_jobshop.Job` the concept "next_machine" means
+                    the `Block` instance defined for **this `Job` instance** that it has not gone
+                    through. it never points to a `Block` instance defined for another `Job` instance.
         """
         #TODO serialization
         #TODO visualization

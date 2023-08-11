@@ -1,4 +1,6 @@
 """
-Connect hardware with simpy using Wladimir Hofmann's [casymda](https://github.com/fladdimir/casymda)
-and his [job shop implementation](https://github.com/fladdimir/casymda-job-shop-with-precedence).
+This module is used to impose precedence conditions on a `simpy` simulation using `casymda`.
+Most of the code is taken from
+[a repository by Wladimir Hofmann](https://github.com/fladdimir/casymda-job-shop-with-precedence).
+# TODO ask Flad to add a license
 """

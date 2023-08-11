@@ -63,6 +63,8 @@ class DeviceBlock(Block):
         for req in reqs:
             yield req
 
+        # TODO there is an arbitrary delay between "requests are sent" and "resources are ready",
+        #  projections could change after this delay
         # everything is ready, run preactor check
         self.device.act_by_instruction(job.instruction, actor_type="pre")
         # move clock

@@ -20,7 +20,7 @@ class Check(Block):
         self.buffer = buffer
 
     def actual_processing(self, job: InstructionJob):
-        """Processing the jobs with timeout 0.
+        """Dummy processing.
 
         Parameters
         ----------
