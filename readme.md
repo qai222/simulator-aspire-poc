@@ -8,6 +8,9 @@ A simulation software for organic synthesis on an automated experimentation plat
 
 # Design
 
+The architecture of the simulator is based on the following concepts,
+![architecture](doc/simulator_architecture_simplified_v2.png)
+
 `hw.LabObject`: 
 - any physical object except reaction-participating chemicals
 - a state machine

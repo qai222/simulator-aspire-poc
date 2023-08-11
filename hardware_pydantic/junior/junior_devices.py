@@ -7,8 +7,9 @@ from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, 
     JuniorSvt, JuniorPdp, \
     JuniorVpg, JuniorVial, JuniorPdpTip, JuniorTipDisposal
 from hardware_pydantic.junior.settings import *
-from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
 from hardware_pydantic.junior.utils import running_time_washing
+from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
+
 
 
 """Devices on the Junior platform at NCATS."""
@@ -167,6 +168,7 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
             raise ValueError
 
 
+# TODO if should occupying a containee imply occupying its container?
 class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
     """The Z1 arm on the Junior platform at NCATS.
 
@@ -233,7 +235,7 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             if len(set([JUNIOR_LAB[sc.contained_by] for sc in source_containers])) != 1:
                 raise PreActError
             if not len(source_containers) == len(dispenser_containers) == len(amounts):
-                raise PreActError
+                raise PreActError(f"{source_containers}\n{dispenser_containers}\n{amounts}")
             if len(source_containers) not in self.allowed_concurrency:
                 raise PreActError
         objs = []
@@ -421,9 +423,13 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             thing_slot = LabContainee.get_container(thing, JUNIOR_LAB, upto=JuniorSlot)
             # TODO merge this with "ArmPlatform.move_to"
             if thing_slot.identifier != self.arm_platform.position_on_top_of:
-                raise PreActError(
-                    f"you are picking up from: {thing_slot.identifier} but the arm is on top of: "
-                    f"{self.arm_platform.position_on_top_of}")
+                if thing_slot.identifier == self.arm_platform.identifier:
+                    # TODO find a better way for "I'm already holding this..."
+                    return
+                else:
+                    raise PreActError(
+                        f"you are picking up: {thing.identifier} from: {thing_slot.identifier} but the arm is on top of: "
+                        f"{self.arm_platform.position_on_top_of}")
 
             if isinstance(thing, (JuniorSvt, JuniorPdp, JuniorVpg)):
                 if self.attachment is not None:
@@ -447,7 +453,9 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                                   lab=JUNIOR_LAB,
                                   dest_slot="SLOT")
         elif actor_type == 'proj':
-            # putting down SV Powder Dispense Tool
+            thing_slot = LabContainee.get_container(thing, JUNIOR_LAB, upto=JuniorArmZ2)
+            if thing_slot is not None and thing_slot.identifier == self.identifier:
+                return [thing, ], 0
             if isinstance(thing, JuniorSvt):
                 pickup_cost = 29
             elif isinstance(thing, JuniorPdp):
@@ -674,11 +682,10 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             amount=amount, scaling_factor=scaling_factor,
         )
 
-
-if __name__ == '__main__':
-    slot = JuniorSlot(identifier="slot1", can_contain=[JuniorRack.__name__])
-    jr, vials = JuniorRack.create_rack_with_empty_vials()
-    JuniorSlot.put_rack_in_a_slot(jr, slot)
-    # print(LabContainer.get_all_containees(slot, JUNIOR_LAB))
-    # print(JUNIOR_LAB)
-    print(LabContainee.get_container(jr, JUNIOR_LAB, upto=JuniorSlot))
+# if __name__ == '__main__':
+#     slot = JuniorSlot(identifier="slot1", can_contain=[JuniorRack.__name__])
+#     jr, vials = JuniorRack.create_rack_with_empty_vials()
+#     JuniorSlot.put_rack_in_a_slot(jr, slot)
+#     # print(LabContainer.get_all_containees(slot, JUNIOR_LAB))
+#     # print(JUNIOR_LAB)
+#     print(LabContainee.get_container(jr, JUNIOR_LAB, upto=JuniorSlot))

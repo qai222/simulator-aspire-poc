@@ -2,22 +2,47 @@ from hardware_pydantic.junior.junior_devices import *
 from hardware_pydantic.junior.settings import *
 
 
-"""The lab objects of the Junior platform from NCATS."""
+class JuniorBenchtop(BaseModel):
+    SLOT_OFF_1: JuniorSlot
+    SLOT_OFF_2: JuniorSlot
+    SLOT_OFF_3: JuniorSlot
+
+    WASH_BAY: JuniorWashBay
+
+    SLOT_2_3_1: JuniorSlot
+    SLOT_2_3_2: JuniorSlot
+    SLOT_2_3_3: JuniorSlot
+
+    SLOT_PDT_1: JuniorSlot
+    SLOT_PDT_2: JuniorSlot
+    SLOT_PDT_3: JuniorSlot
+
+    SV_VIAL_SLOTS: list[JuniorSlot]
+
+    SV_TOOL_SLOT: JuniorSlot
+
+    BALANCE: JuniorSlot
+
+    VPG_SLOT: JuniorSlot
+
+    TIP_DISPOSAL: JuniorTipDisposal
+
+    ARM_Z1: JuniorArmZ1
+
+    ARM_Z2: JuniorArmZ2
+
+    ARM_PLATFORM: JuniorArmPlatform
+
+    SV_TOOL: JuniorSvt
+
+    VPG: JuniorVpg
+
+    PDP_1: JuniorPdp
+    PDP_2: JuniorPdp
+    PDP_3: JuniorPdp
 
 
 def create_junior_base():
-    """Create the base of the Junior platform from NCATS.
-
-    Returns
-    -------
-    LabBase
-        The Junior platform object.
-
-    Notes
-    -----
-    This function is a wrapper to create a LabBase object for the Junior platform from NCATS.
-
-    """
     assert len(JUNIOR_LAB.dict_object) == 0, "JUNIOR BASE HAS ALREADY BEEN INIT!!!"
 
     slot_off_1 = JuniorSlot(
@@ -54,17 +79,17 @@ def create_junior_base():
 
     slot_pdt_1 = JuniorSlot(
         identifier="PDT SLOT 1", can_contain=[JuniorPdp.__name__, ],
-        layout=JuniorLayout.from_relative_layout("right_to", slot_2_3_1.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL*2,
+        layout=JuniorLayout.from_relative_layout("right_to", slot_2_3_1.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL * 2,
                                                  JUNIOR_LAYOUT_SLOT_SIZE_Y_SMALL),
     )
     slot_pdt_2 = JuniorSlot(
         identifier="PDT SLOT 2", can_contain=[JuniorPdp.__name__, ],
-        layout=JuniorLayout.from_relative_layout("above", slot_pdt_1.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL*2,
+        layout=JuniorLayout.from_relative_layout("above", slot_pdt_1.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL * 2,
                                                  JUNIOR_LAYOUT_SLOT_SIZE_Y_SMALL),
     )
     slot_pdt_3 = JuniorSlot(
         identifier="PDT SLOT 3", can_contain=[JuniorPdp.__name__, ],
-        layout=JuniorLayout.from_relative_layout("above", slot_pdt_2.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL*2,
+        layout=JuniorLayout.from_relative_layout("above", slot_pdt_2.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL * 2,
                                                  JUNIOR_LAYOUT_SLOT_SIZE_Y_SMALL),
     )
 
@@ -78,7 +103,8 @@ def create_junior_base():
         if i == 0:
             sv_vial_slot = JuniorSlot(
                 identifier=f"SVV SLOT {i + 1}", can_contain=[JuniorVial.__name__, ],
-                layout=JuniorLayout.from_relative_layout('above', slot_pdt_3.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL*2,
+                layout=JuniorLayout.from_relative_layout('above', slot_pdt_3.layout,
+                                                         JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL * 2,
                                                          JUNIOR_LAYOUT_SLOT_SIZE_Y_SMALL),
             )
         else:
@@ -91,7 +117,7 @@ def create_junior_base():
                 relative = sv_vial_slots[i - num_sv_vial_per_row]
             sv_vial_slot = JuniorSlot(
                 identifier=f"SVV SLOT {i + 1}", can_contain=[JuniorVial.__name__, ],
-                layout=JuniorLayout.from_relative_layout(relation, relative.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL*2,
+                layout=JuniorLayout.from_relative_layout(relation, relative.layout, JUNIOR_LAYOUT_SLOT_SIZE_X_SMALL * 2,
                                                          JUNIOR_LAYOUT_SLOT_SIZE_Y_SMALL),
             )
         sv_vial_slots.append(sv_vial_slot)
@@ -149,4 +175,42 @@ def create_junior_base():
     slot_pdt_2.slot_content['SLOT'] = pdp_2.identifier
     slot_pdt_3.slot_content['SLOT'] = pdp_3.identifier
 
-    return JUNIOR_LAB
+    return JuniorBenchtop(
+        SLOT_OFF_1=slot_off_1,
+        SLOT_OFF_2=slot_off_2,
+        SLOT_OFF_3=slot_off_3,
+
+        WASH_BAY=wash_bay,
+
+        SLOT_2_3_1=slot_2_3_1,
+        SLOT_2_3_2=slot_2_3_2,
+        SLOT_2_3_3=slot_2_3_3,
+
+        SLOT_PDT_1=slot_pdt_1,
+        SLOT_PDT_2=slot_pdt_2,
+        SLOT_PDT_3=slot_pdt_3,
+
+        SV_VIAL_SLOTS=sv_vial_slots,
+
+        SV_TOOL_SLOT=sv_tool_slot,
+
+        BALANCE=balance,
+
+        VPG_SLOT=vpg_slot,
+
+        TIP_DISPOSAL=tip_disposal,
+
+        ARM_Z1=arm_z1,
+
+        ARM_Z2=arm_z2,
+
+        ARM_PLATFORM=arm_platform,
+
+        SV_TOOL=sv_tool,
+
+        VPG=vpg,
+
+        PDP_1=pdp_1,
+        PDP_2=pdp_2,
+        PDP_3=pdp_3,
+    )

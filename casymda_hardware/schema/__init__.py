@@ -1,3 +1,5 @@
+"""The schema module for casymda_hardware."""
+
 from .instruction_job import InstructionJob
 from .source import Source
 from .buffer import Buffer

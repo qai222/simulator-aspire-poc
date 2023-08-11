@@ -6,6 +6,7 @@ from hardware_pydantic.junior.settings import *
 from hardware_pydantic.lab_objects import LabContainer, ChemicalContainer
 from hardware_pydantic.junior.utils import running_time_aspirate, running_time_dispensing
 
+_eps = 1e-7
 
 class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):
     """The heating component under a rack slot. Please note it cannot be read directly.
@@ -220,8 +221,8 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
 
         """
         if actor_type == 'pre':
-            if amount > dispenser_container.content_sum:
-                raise PreActError
+            if amount > dispenser_container.content_sum + _eps:
+                raise PreActError(f"{amount} > {dispenser_container.content_sum}")
             if amount + destination_container.content_sum > destination_container.volume_capacity:
                 raise PreActError
         elif actor_type == 'post':
