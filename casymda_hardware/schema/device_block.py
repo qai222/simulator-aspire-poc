@@ -7,12 +7,11 @@ from .object_resource import LabObjectResource
 
 
 class DeviceBlock(Block):
-
     def __init__(
-            self,
-            env: Environment,
-            device: Device,
-            block_capacity=1,
+        self,
+        env: Environment,
+        device: Device,
+        block_capacity=1,
     ):
         """Device block, which can be used to model a device in a lab.
 
@@ -30,13 +29,15 @@ class DeviceBlock(Block):
         self.identifier = self.__class__.__name__ + ": " + self.device.identifier
         super().__init__(env, name=self.identifier, block_capacity=block_capacity)
 
-    def actual_processing(self, job: InstructionJob):
+    def actual_processing(self, job: InstructionJob, use_priority: bool = False):
         """The actual processing of the job.
 
         Parameters
         ----------
         job : InstructionJob
             The job to be processed.
+        use_priority : bool, optional
+            Whether to use priority resource. Default=False.
 
         Notes
         -----
@@ -54,11 +55,24 @@ class DeviceBlock(Block):
         assert job.get_next_machine() == self.device.identifier
 
         # make projections
-        involved_objects, processing_time = self.device.act_by_instruction(job.instruction, actor_type="proj")
+        involved_objects, processing_time = self.device.act_by_instruction(
+            job.instruction, actor_type="proj"
+        )
 
         # request resources for lab objects
-        resource_objects = [LabObjectResource.from_lab_object(obj, self.env) for obj in involved_objects]
-        reqs = [ro.resource.request() for ro in resource_objects]
+        resource_objects = [
+            LabObjectResource.from_lab_object(obj, self.env, use_priority=use_priority)
+            for obj in involved_objects
+        ]
+
+        # use priority resource for Shortest Job First (SJF)
+        if use_priority:
+            resource_objects.sort(key=lambda ro: ro.lab_object.processing_time)
+            reqs = [
+                ro.resource.request(priority=i) for i, ro in enumerate(resource_objects)
+            ]
+        else:
+            reqs = [ro.resource.request() for ro in resource_objects]
         # note the device resource is requested/released in `_process_entity` of `Block`
         for req in reqs:
             yield req
