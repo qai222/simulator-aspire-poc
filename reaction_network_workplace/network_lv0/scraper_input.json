@@ -1,0 +1,104 @@
+{
+  "reactions": [
+    {
+      "reaction_smiles": "CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "reactant_smis_and_ratios": {
+        "CC(=O)Cl": 1.1415783166885376,
+        "CNc1cc(Cl)ncn1": 1.0
+      },
+      "reagent_smis_and_ratios": {
+        "O": 122.73458862304688,
+        "C1CCOC1": 23.84743881225586,
+        "[NaH]": 1.9334627389907837
+      },
+      "temperature": 283.8422594189644
+    },
+    {
+      "reaction_smiles": "CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "reactant_smis_and_ratios": {
+        "CC(=O)N(C)c1cc(Cl)ncn1": 1.0
+      },
+      "reagent_smis_and_ratios": {
+        "O": 100.47624969482422,
+        "O=S(=O)(O)O": 10.720151901245117
+      },
+      "temperature": 298.03952695727344
+    },
+    {
+      "reaction_smiles": "CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "reactant_smis_and_ratios": {
+        "CC(=O)OCC(=O)Cl": 1.0327138900756836,
+        "NCC(=O)Nn1cnnc1": 1.0
+      },
+      "reagent_smis_and_ratios": {
+        "ClCCl": 128.36778259277344,
+        "CCN(CC)CC": 1.138452410697937
+      },
+      "temperature": 294.2118618071079
+    },
+    {
+      "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "reactant_smis_and_ratios": {
+        "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1": 1.0
+      },
+      "reagent_smis_and_ratios": {
+        "ClCCl": 58.016204833984375,
+        "O=C(O)C(F)(F)F": 38.4456901550293
+      },
+      "temperature": 295.95269238352773
+    },
+    {
+      "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "reactant_smis_and_ratios": {
+        "CC(C)(C)OC(=O)NCC(=O)O": 1.0,
+        "Nn1cnnc1": 1.223996639251709
+      },
+      "reagent_smis_and_ratios": {
+        "ClCCl": 72.5438461303711,
+        "CCN(CC)CC": 1.0915040969848633,
+        "CC(C)COC(=O)Cl": 0.8532043695449829
+      },
+      "temperature": 255.3913920521736
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "reactant_smis_and_ratios": {
+        "CCOC(=O)CNC(=O)OC(C)(C)C": 1.0,
+        "O=C(Cl)C1CCCCC1": 1.2057799100875854
+      },
+      "reagent_smis_and_ratios": {
+        "ClCCl": 48.60028839111328,
+        "CCN(CC)CC": 1.3259105682373047
+      },
+      "temperature": 275.63685895800586
+    },
+    {
+      "reaction_smiles": "CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "reactant_smis_and_ratios": {
+        "CCOc1ccc(Br)cc1": 1.0,
+        "OB(O)c1ccccc1": 1.1853855848312378
+      },
+      "reagent_smis_and_ratios": {
+        "C1CCOC1": 21.500661849975586,
+        "F[K]": 2.794527053833008
+      },
+      "temperature": 276.1865709364414
+    },
+    {
+      "reaction_smiles": "NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "reactant_smis_and_ratios": {
+        "NCC(=O)Nn1cnnc1": 1.0,
+        "O=C(Cl)CBr": 1.1601622104644775
+      },
+      "reagent_smis_and_ratios": {
+        "ClCCl": 85.77469635009766,
+        "CCN(CC)CC": 0.8613598942756653
+      },
+      "temperature": 306.7759813606739
+    }
+  ],
+  "n_targets": 5,
+  "source_file": "../data/routes.json",
+  "seed": 2,
+  "compounds": []
+}
