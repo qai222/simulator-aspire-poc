@@ -1,6 +1,7 @@
 import json
 
 import requests
+from pandas._typing import FilePath
 
 ASKCOS_URL = "http://72.70.38.130"
 
@@ -22,3 +23,14 @@ def drawing_url(smiles: str, size=80) -> str:
     q = f"/api/draw/?smiles={smiles}&transparent=true&annotate=false&size={size}"
     q = ASKCOS_URL + q
     return q
+
+
+def json_dump(o, fn: FilePath):
+    with open(fn, "w") as f:
+        json.dump(o, f, indent=2)
+
+
+def json_load(fn: FilePath):
+    with open(fn, "r") as f:
+        o = json.load(f)
+    return o

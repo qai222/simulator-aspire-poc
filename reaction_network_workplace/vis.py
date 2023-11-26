@@ -5,8 +5,9 @@ import dash_cytoscape as cyto
 import dash_renderjson
 from dash import Input, Output, no_update, Dash, html
 
-from reaction_network.schema import NetworkLv0, NetworkLv1
+from reaction_network.utils import json_load
 from reaction_network.visualization import JsonTheme
+from reaction_network.schema import NetworkLv1
 
 """
 define a reaction network
@@ -15,13 +16,8 @@ LV0. given the routes selection seed, scraper_input, and scraper_output
 LV1. given the target product amounts, and expected yields
 """
 
-network = NetworkLv0.from_files(scraper_input="network_lv0/scraper_input.json",
-                                scraper_output="network_lv0/scraper_output.json")
-network = NetworkLv1.from_target_masses_and_expected_yields(
-    target_masses={smi: 0.5 for smi in network.product_smis},
-    expected_yields={},
-    network_lv0=network
-)
+network = json_load("network_lv1/network_lv1.json")
+network = NetworkLv1(**network)
 
 CYTO_ELEMENTS = network.to_cyto_elements()
 

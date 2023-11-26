@@ -1,0 +1,1170 @@
+{
+  "reactions": [
+    {
+      "batch_size": 0.004230498628552874,
+      "expected_yield": 0.5125053776113335,
+      "reaction_lv0": {
+        "reaction_smiles": "CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+        "reactant_smis_and_ratios": {
+          "CC(=O)N(C)c1cc(Cl)ncn1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "O": 100.47624969482422,
+          "O=S(=O)(O)O": 10.720151901245117
+        },
+        "temperature": 298.03952695727344
+      },
+      "reactants": [
+        {
+          "amount": 0.7852397724402131,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004230498628552874,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 7.65753942719766,
+          "amount_unit": "MILLILITER",
+          "moles": 0.42506463653608995,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 2.4174121691428123,
+          "amount_unit": "MILLILITER",
+          "moles": 0.045351587916095955,
+          "compound_lv0": {
+            "smiles": "O=S(=O)(O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 98.07899999999998,
+            "density": 1.84
+          }
+        }
+      ],
+      "product": {
+        "amount": 0.5,
+        "amount_unit": "GRAM",
+        "moles": 0.002168153297110719,
+        "compound_lv0": {
+          "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+          "state_of_matter": "SOLID",
+          "molecular_weight": 230.611,
+          "density": 1.4
+        }
+      }
+    },
+    {
+      "batch_size": 0.0032515461440513244,
+      "expected_yield": 0.6375146591845596,
+      "reaction_lv0": {
+        "reaction_smiles": "CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "CC(=O)OCC(=O)Cl": 1.0327138900756836,
+          "NCC(=O)Nn1cnnc1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 128.36778259277344,
+          "CCN(CC)CC": 1.138452410697937
+        },
+        "temperature": 294.2118618071079
+      },
+      "reactants": [
+        {
+          "amount": 0.3609998594835255,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0033579168671838324,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.534,
+            "density": 1.27
+          }
+        },
+        {
+          "amount": 0.45890371349453957,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0032515461440513244,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 26.755098068570327,
+          "amount_unit": "MILLILITER",
+          "moles": 0.4173937685099512,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 0.5159631117915796,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0037017305461908116,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "product": {
+        "amount": 0.5,
+        "amount_unit": "GRAM",
+        "moles": 0.002072908331847749,
+        "compound_lv0": {
+          "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+          "state_of_matter": "SOLID",
+          "molecular_weight": 241.20700000000002,
+          "density": 1.4
+        }
+      }
+    },
+    {
+      "batch_size": 0.0019030670544074716,
+      "expected_yield": 0.8383497437114557,
+      "reaction_lv0": {
+        "reaction_smiles": "CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+        "reactant_smis_and_ratios": {
+          "CCOC(=O)CNC(=O)OC(C)(C)C": 1.0,
+          "O=C(Cl)C1CCCCC1": 1.2057799100875854
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 48.60028839111328,
+          "CCN(CC)CC": 1.3259105682373047
+        },
+        "temperature": 275.63685895800586
+      },
+      "reactants": [
+        {
+          "amount": 0.38677554200366565,
+          "amount_unit": "GRAM",
+          "moles": 0.0019030670544074716,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 203.23799999999997,
+            "density": 1.4
+          }
+        },
+        {
+          "amount": 0.3069699824356925,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002294680021754087,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)C1CCCCC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 146.617,
+            "density": 1.096
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 5.928618753503021,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0924896076718296,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 0.3517079406841289,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002523296719503104,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "product": {
+        "amount": 0.5,
+        "amount_unit": "GRAM",
+        "moles": 0.0015954357773282186,
+        "compound_lv0": {
+          "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+          "state_of_matter": "SOLID",
+          "molecular_weight": 313.3940000000002,
+          "density": 1.4
+        }
+      }
+    },
+    {
+      "batch_size": 0.002665579238349189,
+      "expected_yield": 0.9460897838524227,
+      "reaction_lv0": {
+        "reaction_smiles": "CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+        "reactant_smis_and_ratios": {
+          "CCOc1ccc(Br)cc1": 1.0,
+          "OB(O)c1ccccc1": 1.1853855848312378
+        },
+        "reagent_smis_and_ratios": {
+          "C1CCOC1": 21.500661849975586,
+          "F[K]": 2.794527053833008
+        },
+        "temperature": 276.1865709364414
+      },
+      "reactants": [
+        {
+          "amount": 0.535949358400203,
+          "amount_unit": "GRAM",
+          "moles": 0.002665579238349189,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(Br)cc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 201.063,
+            "density": 1.407
+          }
+        },
+        {
+          "amount": 0.3852733206665792,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0031597392043645586,
+          "compound_lv0": {
+            "smiles": "OB(O)c1ccccc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 121.93199999999996,
+            "density": 1.0
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 4.648566972046223,
+          "amount_unit": "MILLILITER",
+          "moles": 0.05731171783806138,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        },
+        {
+          "amount": 0.43275903834712615,
+          "amount_unit": "GRAM",
+          "moles": 0.007449033295702391,
+          "compound_lv0": {
+            "smiles": "F[K]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 58.096000000000004,
+            "density": 1.4
+          }
+        }
+      ],
+      "product": {
+        "amount": 0.5,
+        "amount_unit": "MILLILITER",
+        "moles": 0.00252187728545129,
+        "compound_lv0": {
+          "smiles": "CCOc1ccc(-c2ccccc2)cc1",
+          "state_of_matter": "LIQUID",
+          "molecular_weight": 198.26500000000001,
+          "density": 1.0
+        }
+      }
+    },
+    {
+      "batch_size": 0.003510609776530892,
+      "expected_yield": 0.543469416314708,
+      "reaction_lv0": {
+        "reaction_smiles": "NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "NCC(=O)Nn1cnnc1": 1.0,
+          "O=C(Cl)CBr": 1.1601622104644775
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 85.77469635009766,
+          "CCN(CC)CC": 0.8613598942756653
+        },
+        "temperature": 306.7759813606739
+      },
+      "reactants": [
+        {
+          "amount": 0.4954664002009109,
+          "amount_unit": "MILLILITER",
+          "moles": 0.003510609776530892,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 0.339177973973676,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004072876798418285,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)CBr",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 157.394,
+            "density": 1.89
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 19.302000984988368,
+          "amount_unit": "MILLILITER",
+          "moles": 0.30112148758562146,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 0.4214839634510494,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0030238984659557663,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "product": {
+        "amount": 0.5,
+        "amount_unit": "GRAM",
+        "moles": 0.0019079090461599515,
+        "compound_lv0": {
+          "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
+          "state_of_matter": "SOLID",
+          "molecular_weight": 262.067,
+          "density": 1.4
+        }
+      }
+    },
+    {
+      "batch_size": 0.005160948488254877,
+      "expected_yield": 0.8197133992289418,
+      "reaction_lv0": {
+        "reaction_smiles": "CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+        "reactant_smis_and_ratios": {
+          "CC(=O)Cl": 1.1415783166885376,
+          "CNc1cc(Cl)ncn1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "O": 122.73458862304688,
+          "C1CCOC1": 23.84743881225586,
+          "[NaH]": 1.9334627389907837
+        },
+        "temperature": 283.8422594189644
+      },
+      "reactants": [
+        {
+          "amount": 0.41891388354499776,
+          "amount_unit": "MILLILITER",
+          "moles": 0.005891626887738255,
+          "compound_lv0": {
+            "smiles": "CC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 78.498,
+            "density": 1.104
+          }
+        },
+        {
+          "amount": 0.7409935010981706,
+          "amount_unit": "MILLILITER",
+          "moles": 0.005160948488254877,
+          "compound_lv0": {
+            "smiles": "CNc1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 143.57700000000003,
+            "density": 1.0
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 11.411185416336723,
+          "amount_unit": "MILLILITER",
+          "moles": 0.6334268896106979,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 9.982675033527332,
+          "amount_unit": "MILLILITER",
+          "moles": 0.12307540328686256,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        },
+        {
+          "amount": 0.23946408139419903,
+          "amount_unit": "GRAM",
+          "moles": 0.009978501599891618,
+          "compound_lv0": {
+            "smiles": "[NaH]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 23.997999999999998,
+            "density": 1.4
+          }
+        }
+      ],
+      "product": {
+        "amount": 0.7852397724402131,
+        "amount_unit": "MILLILITER",
+        "moles": 0.004230498628552874,
+        "compound_lv0": {
+          "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+          "state_of_matter": "LIQUID",
+          "molecular_weight": 185.614,
+          "density": 1.0
+        }
+      }
+    },
+    {
+      "batch_size": 0.011056403789940395,
+      "expected_yield": 0.6116053690744114,
+      "reaction_lv0": {
+        "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 58.016204833984375,
+          "O=C(O)C(F)(F)F": 38.4456901550293
+        },
+        "temperature": 295.95269238352773
+      },
+      "reactants": [
+        {
+          "amount": 2.6673684707269105,
+          "amount_unit": "GRAM",
+          "moles": 0.011056403789940395,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 41.11722468380881,
+          "amount_unit": "MILLILITER",
+          "moles": 0.6414505870044231,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 32.55033850775459,
+          "amount_unit": "MILLILITER",
+          "moles": 0.4250710743369401,
+          "compound_lv0": {
+            "smiles": "O=C(O)C(F)(F)F",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 114.02200000000002,
+            "density": 1.489
+          }
+        }
+      ],
+      "product": {
+        "amount": 0.9543701136954506,
+        "amount_unit": "MILLILITER",
+        "moles": 0.006762155920582217,
+        "compound_lv0": {
+          "smiles": "NCC(=O)Nn1cnnc1",
+          "state_of_matter": "LIQUID",
+          "molecular_weight": 141.134,
+          "density": 1.0
+        }
+      }
+    },
+    {
+      "batch_size": 0.01273433581824536,
+      "expected_yield": 0.8682356070820062,
+      "reaction_lv0": {
+        "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "CC(C)(C)OC(=O)NCC(=O)O": 1.0,
+          "Nn1cnnc1": 1.223996639251709
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 72.5438461303711,
+          "CCN(CC)CC": 1.0915040969848633,
+          "CC(C)COC(=O)Cl": 0.8532043695449829
+        },
+        "temperature": 255.3913920521736
+      },
+      "reactants": [
+        {
+          "amount": 2.230851885983495,
+          "amount_unit": "MILLILITER",
+          "moles": 0.01273433581824536,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 175.18399999999997,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 1.3105679928573983,
+          "amount_unit": "MILLILITER",
+          "moles": 0.015586784244634982,
+          "compound_lv0": {
+            "smiles": "Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.082,
+            "density": 1.0
+          }
+        }
+      ],
+      "reagents": [
+        {
+          "amount": 59.21578105568303,
+          "amount_unit": "MILLILITER",
+          "moles": 0.9237976981712647,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 1.9373831548252882,
+          "amount_unit": "MILLILITER",
+          "moles": 0.013899579717995901,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        },
+        {
+          "amount": 1.409229568657674,
+          "amount_unit": "MILLILITER",
+          "moles": 0.010864990963380125,
+          "compound_lv0": {
+            "smiles": "CC(C)COC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.57799999999997,
+            "density": 1.053
+          }
+        }
+      ],
+      "product": {
+        "amount": 2.6673684707269105,
+        "amount_unit": "GRAM",
+        "moles": 0.011056403789940395,
+        "compound_lv0": {
+          "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+          "state_of_matter": "SOLID",
+          "molecular_weight": 241.251,
+          "density": 1.4
+        }
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "amount": 14.631242005573556,
+      "amount_unit": "MILLILITER",
+      "moles": 0.18038712112492394,
+      "compound_lv0": {
+        "smiles": "C1CCOC1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 72.107,
+        "density": 0.889
+      }
+    },
+    {
+      "amount": 0.41891388354499776,
+      "amount_unit": "MILLILITER",
+      "moles": 0.005891626887738255,
+      "compound_lv0": {
+        "smiles": "CC(=O)Cl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 78.498,
+        "density": 1.104
+      }
+    },
+    {
+      "amount": 0.7852397724402131,
+      "amount_unit": "MILLILITER",
+      "moles": 0.004230498628552874,
+      "compound_lv0": {
+        "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 185.614,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 0.5,
+      "amount_unit": "GRAM",
+      "moles": 0.002168153297110719,
+      "compound_lv0": {
+        "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 230.611,
+        "density": 1.4
+      }
+    },
+    {
+      "amount": 0.3609998594835255,
+      "amount_unit": "MILLILITER",
+      "moles": 0.0033579168671838324,
+      "compound_lv0": {
+        "smiles": "CC(=O)OCC(=O)Cl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 136.534,
+        "density": 1.27
+      }
+    },
+    {
+      "amount": 0.5,
+      "amount_unit": "GRAM",
+      "moles": 0.002072908331847749,
+      "compound_lv0": {
+        "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 241.20700000000002,
+        "density": 1.4
+      }
+    },
+    {
+      "amount": 2.6673684707269105,
+      "amount_unit": "GRAM",
+      "moles": 0.011056403789940395,
+      "compound_lv0": {
+        "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 241.251,
+        "density": 1.4
+      }
+    },
+    {
+      "amount": 2.230851885983495,
+      "amount_unit": "MILLILITER",
+      "moles": 0.01273433581824536,
+      "compound_lv0": {
+        "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 175.18399999999997,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 1.409229568657674,
+      "amount_unit": "MILLILITER",
+      "moles": 0.010864990963380125,
+      "compound_lv0": {
+        "smiles": "CC(C)COC(=O)Cl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 136.57799999999997,
+        "density": 1.053
+      }
+    },
+    {
+      "amount": 3.2265381707520464,
+      "amount_unit": "MILLILITER",
+      "moles": 0.023148505449645584,
+      "compound_lv0": {
+        "smiles": "CCN(CC)CC",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 101.193,
+        "density": 0.726
+      }
+    },
+    {
+      "amount": 0.5,
+      "amount_unit": "GRAM",
+      "moles": 0.0015954357773282186,
+      "compound_lv0": {
+        "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 313.3940000000002,
+        "density": 1.4
+      }
+    },
+    {
+      "amount": 0.38677554200366565,
+      "amount_unit": "GRAM",
+      "moles": 0.0019030670544074716,
+      "compound_lv0": {
+        "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 203.23799999999997,
+        "density": 1.4
+      }
+    },
+    {
+      "amount": 0.5,
+      "amount_unit": "MILLILITER",
+      "moles": 0.00252187728545129,
+      "compound_lv0": {
+        "smiles": "CCOc1ccc(-c2ccccc2)cc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 198.26500000000001,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 0.535949358400203,
+      "amount_unit": "GRAM",
+      "moles": 0.002665579238349189,
+      "compound_lv0": {
+        "smiles": "CCOc1ccc(Br)cc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 201.063,
+        "density": 1.407
+      }
+    },
+    {
+      "amount": 0.7409935010981706,
+      "amount_unit": "MILLILITER",
+      "moles": 0.005160948488254877,
+      "compound_lv0": {
+        "smiles": "CNc1cc(Cl)ncn1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 143.57700000000003,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 152.31872354655354,
+      "amount_unit": "MILLILITER",
+      "moles": 2.37625314894309,
+      "compound_lv0": {
+        "smiles": "ClCCl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 84.93299999999999,
+        "density": 1.325
+      }
+    },
+    {
+      "amount": 0.43275903834712615,
+      "amount_unit": "GRAM",
+      "moles": 0.007449033295702391,
+      "compound_lv0": {
+        "smiles": "F[K]",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 58.096000000000004,
+        "density": 1.4
+      }
+    },
+    {
+      "amount": 0.9543701136954506,
+      "amount_unit": "MILLILITER",
+      "moles": 0.006762155920582217,
+      "compound_lv0": {
+        "smiles": "NCC(=O)Nn1cnnc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 141.134,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 1.3105679928573983,
+      "amount_unit": "MILLILITER",
+      "moles": 0.015586784244634982,
+      "compound_lv0": {
+        "smiles": "Nn1cnnc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 84.082,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 19.068724843534387,
+      "amount_unit": "MILLILITER",
+      "moles": 1.058491526146788,
+      "compound_lv0": {
+        "smiles": "O",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 18.015,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 0.5,
+      "amount_unit": "GRAM",
+      "moles": 0.0019079090461599515,
+      "compound_lv0": {
+        "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 262.067,
+        "density": 1.4
+      }
+    },
+    {
+      "amount": 0.3069699824356925,
+      "amount_unit": "MILLILITER",
+      "moles": 0.002294680021754087,
+      "compound_lv0": {
+        "smiles": "O=C(Cl)C1CCCCC1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 146.617,
+        "density": 1.096
+      }
+    },
+    {
+      "amount": 0.339177973973676,
+      "amount_unit": "MILLILITER",
+      "moles": 0.004072876798418285,
+      "compound_lv0": {
+        "smiles": "O=C(Cl)CBr",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 157.394,
+        "density": 1.89
+      }
+    },
+    {
+      "amount": 32.55033850775459,
+      "amount_unit": "MILLILITER",
+      "moles": 0.4250710743369401,
+      "compound_lv0": {
+        "smiles": "O=C(O)C(F)(F)F",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 114.02200000000002,
+        "density": 1.489
+      }
+    },
+    {
+      "amount": 2.4174121691428123,
+      "amount_unit": "MILLILITER",
+      "moles": 0.045351587916095955,
+      "compound_lv0": {
+        "smiles": "O=S(=O)(O)O",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 98.07899999999998,
+        "density": 1.84
+      }
+    },
+    {
+      "amount": 0.3852733206665792,
+      "amount_unit": "MILLILITER",
+      "moles": 0.0031597392043645586,
+      "compound_lv0": {
+        "smiles": "OB(O)c1ccccc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 121.93199999999996,
+        "density": 1.0
+      }
+    },
+    {
+      "amount": 0.23946408139419903,
+      "amount_unit": "GRAM",
+      "moles": 0.009978501599891618,
+      "compound_lv0": {
+        "smiles": "[NaH]",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 23.997999999999998,
+        "density": 1.4
+      }
+    }
+  ],
+  "network_lv0": {
+    "reactions": [
+      {
+        "reaction_smiles": "CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+        "reactant_smis_and_ratios": {
+          "CC(=O)Cl": 1.1415783166885376,
+          "CNc1cc(Cl)ncn1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "O": 122.73458862304688,
+          "C1CCOC1": 23.84743881225586,
+          "[NaH]": 1.9334627389907837
+        },
+        "temperature": 283.8422594189644
+      },
+      {
+        "reaction_smiles": "CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+        "reactant_smis_and_ratios": {
+          "CC(=O)N(C)c1cc(Cl)ncn1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "O": 100.47624969482422,
+          "O=S(=O)(O)O": 10.720151901245117
+        },
+        "temperature": 298.03952695727344
+      },
+      {
+        "reaction_smiles": "CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "CC(=O)OCC(=O)Cl": 1.0327138900756836,
+          "NCC(=O)Nn1cnnc1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 128.36778259277344,
+          "CCN(CC)CC": 1.138452410697937
+        },
+        "temperature": 294.2118618071079
+      },
+      {
+        "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1": 1.0
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 58.016204833984375,
+          "O=C(O)C(F)(F)F": 38.4456901550293
+        },
+        "temperature": 295.95269238352773
+      },
+      {
+        "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "CC(C)(C)OC(=O)NCC(=O)O": 1.0,
+          "Nn1cnnc1": 1.223996639251709
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 72.5438461303711,
+          "CCN(CC)CC": 1.0915040969848633,
+          "CC(C)COC(=O)Cl": 0.8532043695449829
+        },
+        "temperature": 255.3913920521736
+      },
+      {
+        "reaction_smiles": "CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+        "reactant_smis_and_ratios": {
+          "CCOC(=O)CNC(=O)OC(C)(C)C": 1.0,
+          "O=C(Cl)C1CCCCC1": 1.2057799100875854
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 48.60028839111328,
+          "CCN(CC)CC": 1.3259105682373047
+        },
+        "temperature": 275.63685895800586
+      },
+      {
+        "reaction_smiles": "CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+        "reactant_smis_and_ratios": {
+          "CCOc1ccc(Br)cc1": 1.0,
+          "OB(O)c1ccccc1": 1.1853855848312378
+        },
+        "reagent_smis_and_ratios": {
+          "C1CCOC1": 21.500661849975586,
+          "F[K]": 2.794527053833008
+        },
+        "temperature": 276.1865709364414
+      },
+      {
+        "reaction_smiles": "NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+        "reactant_smis_and_ratios": {
+          "NCC(=O)Nn1cnnc1": 1.0,
+          "O=C(Cl)CBr": 1.1601622104644775
+        },
+        "reagent_smis_and_ratios": {
+          "ClCCl": 85.77469635009766,
+          "CCN(CC)CC": 0.8613598942756653
+        },
+        "temperature": 306.7759813606739
+      }
+    ],
+    "n_targets": 5,
+    "source_file": "../data/routes.json",
+    "seed": 2,
+    "compounds": [
+      {
+        "smiles": "C1CCOC1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 72.107,
+        "density": 0.889
+      },
+      {
+        "smiles": "CC(=O)Cl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 78.498,
+        "density": 1.104
+      },
+      {
+        "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 185.614,
+        "density": 1.0
+      },
+      {
+        "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 230.611,
+        "density": 1.4
+      },
+      {
+        "smiles": "CC(=O)OCC(=O)Cl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 136.534,
+        "density": 1.27
+      },
+      {
+        "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 241.20700000000002,
+        "density": 1.4
+      },
+      {
+        "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 241.251,
+        "density": 1.4
+      },
+      {
+        "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 175.18399999999997,
+        "density": 1.0
+      },
+      {
+        "smiles": "CC(C)COC(=O)Cl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 136.57799999999997,
+        "density": 1.053
+      },
+      {
+        "smiles": "CCN(CC)CC",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 101.193,
+        "density": 0.726
+      },
+      {
+        "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 313.3940000000002,
+        "density": 1.4
+      },
+      {
+        "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 203.23799999999997,
+        "density": 1.4
+      },
+      {
+        "smiles": "CCOc1ccc(-c2ccccc2)cc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 198.26500000000001,
+        "density": 1.0
+      },
+      {
+        "smiles": "CCOc1ccc(Br)cc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 201.063,
+        "density": 1.407
+      },
+      {
+        "smiles": "CNc1cc(Cl)ncn1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 143.57700000000003,
+        "density": 1.0
+      },
+      {
+        "smiles": "ClCCl",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 84.93299999999999,
+        "density": 1.325
+      },
+      {
+        "smiles": "F[K]",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 58.096000000000004,
+        "density": 1.4
+      },
+      {
+        "smiles": "NCC(=O)Nn1cnnc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 141.134,
+        "density": 1.0
+      },
+      {
+        "smiles": "Nn1cnnc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 84.082,
+        "density": 1.0
+      },
+      {
+        "smiles": "O",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 18.015,
+        "density": 1.0
+      },
+      {
+        "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 262.067,
+        "density": 1.4
+      },
+      {
+        "smiles": "O=C(Cl)C1CCCCC1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 146.617,
+        "density": 1.096
+      },
+      {
+        "smiles": "O=C(Cl)CBr",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 157.394,
+        "density": 1.89
+      },
+      {
+        "smiles": "O=C(O)C(F)(F)F",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 114.02200000000002,
+        "density": 1.489
+      },
+      {
+        "smiles": "O=S(=O)(O)O",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 98.07899999999998,
+        "density": 1.84
+      },
+      {
+        "smiles": "OB(O)c1ccccc1",
+        "state_of_matter": "LIQUID",
+        "molecular_weight": 121.93199999999996,
+        "density": 1.0
+      },
+      {
+        "smiles": "[NaH]",
+        "state_of_matter": "SOLID",
+        "molecular_weight": 23.997999999999998,
+        "density": 1.4
+      }
+    ]
+  }
+}
