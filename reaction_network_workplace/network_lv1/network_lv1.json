@@ -1,8 +1,8 @@
 {
   "reactions": [
     {
-      "batch_size": 0.004230498628552874,
-      "expected_yield": 0.5125053776113335,
+      "batch_size": 0.0019174646676132184,
+      "expected_yield": 0.9676538703114537,
       "reaction_lv0": {
         "reaction_smiles": "CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
         "reactant_smis_and_ratios": {
@@ -16,9 +16,9 @@
       },
       "reactants": [
         {
-          "amount": 0.7852397724402131,
+          "amount": 0.35590828681435993,
           "amount_unit": "MILLILITER",
-          "moles": 0.004230498628552874,
+          "moles": 0.0019174646676132184,
           "compound_lv0": {
             "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
@@ -29,9 +29,9 @@
       ],
       "reagents": [
         {
-          "amount": 7.65753942719766,
+          "amount": 3.4707637519148213,
           "amount_unit": "MILLILITER",
-          "moles": 0.42506463653608995,
+          "moles": 0.19265965872410887,
           "compound_lv0": {
             "smiles": "O",
             "state_of_matter": "LIQUID",
@@ -40,9 +40,9 @@
           }
         },
         {
-          "amount": 2.4174121691428123,
+          "amount": 1.095687016680388,
           "amount_unit": "MILLILITER",
-          "moles": 0.045351587916095955,
+          "moles": 0.02055551250208418,
           "compound_lv0": {
             "smiles": "O=S(=O)(O)O",
             "state_of_matter": "LIQUID",
@@ -52,9 +52,9 @@
         }
       ],
       "product": {
-        "amount": 0.5,
+        "amount": 0.4278853596915767,
         "amount_unit": "GRAM",
-        "moles": 0.002168153297110719,
+        "moles": 0.001855442106801396,
         "compound_lv0": {
           "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
           "state_of_matter": "SOLID",
@@ -64,8 +64,8 @@
       }
     },
     {
-      "batch_size": 0.0032515461440513244,
-      "expected_yield": 0.6375146591845596,
+      "batch_size": 0.0017415162614716438,
+      "expected_yield": 0.7260816497888248,
       "reaction_lv0": {
         "reaction_smiles": "CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
         "reactant_smis_and_ratios": {
@@ -80,9 +80,9 @@
       },
       "reactants": [
         {
-          "amount": 0.3609998594835255,
+          "amount": 0.19335020873983771,
           "amount_unit": "MILLILITER",
-          "moles": 0.0033579168671838324,
+          "moles": 0.0017984880330144427,
           "compound_lv0": {
             "smiles": "CC(=O)OCC(=O)Cl",
             "state_of_matter": "LIQUID",
@@ -91,9 +91,9 @@
           }
         },
         {
-          "amount": 0.45890371349453957,
+          "amount": 0.24578715604653895,
           "amount_unit": "MILLILITER",
-          "moles": 0.0032515461440513244,
+          "moles": 0.0017415162614716438,
           "compound_lv0": {
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
@@ -104,9 +104,9 @@
       ],
       "reagents": [
         {
-          "amount": 26.755098068570327,
+          "amount": 14.329932991702398,
           "amount_unit": "MILLILITER",
-          "moles": 0.4173937685099512,
+          "moles": 0.22355458083437155,
           "compound_lv0": {
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
@@ -115,9 +115,9 @@
           }
         },
         {
-          "amount": 0.5159631117915796,
+          "amount": 0.2763479617684196,
           "amount_unit": "MILLILITER",
-          "moles": 0.0037017305461908116,
+          "moles": 0.0019826333861420516,
           "compound_lv0": {
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
@@ -127,9 +127,9 @@
         }
       ],
       "product": {
-        "amount": 0.5,
+        "amount": 0.3050021510445334,
         "amount_unit": "GRAM",
-        "moles": 0.002072908331847749,
+        "moles": 0.0012644830002633977,
         "compound_lv0": {
           "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
           "state_of_matter": "SOLID",
@@ -139,8 +139,8 @@
       }
     },
     {
-      "batch_size": 0.0019030670544074716,
-      "expected_yield": 0.8383497437114557,
+      "batch_size": 0.0014796118704015115,
+      "expected_yield": 0.765591392441081,
       "reaction_lv0": {
         "reaction_smiles": "CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
         "reactant_smis_and_ratios": {
@@ -155,9 +155,9 @@
       },
       "reactants": [
         {
-          "amount": 0.38677554200366565,
+          "amount": 0.3007133573166624,
           "amount_unit": "GRAM",
-          "moles": 0.0019030670544074716,
+          "moles": 0.0014796118704015115,
           "compound_lv0": {
             "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
             "state_of_matter": "SOLID",
@@ -166,9 +166,9 @@
           }
         },
         {
-          "amount": 0.3069699824356925,
+          "amount": 0.23866548938298457,
           "amount_unit": "MILLILITER",
-          "moles": 0.002294680021754087,
+          "moles": 0.0017840862680572587,
           "compound_lv0": {
             "smiles": "O=C(Cl)C1CCCCC1",
             "state_of_matter": "LIQUID",
@@ -179,9 +179,9 @@
       ],
       "reagents": [
         {
-          "amount": 5.928618753503021,
+          "amount": 4.609430162984614,
           "amount_unit": "MILLILITER",
-          "moles": 0.0924896076718296,
+          "moles": 0.07190956360842798,
           "compound_lv0": {
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
@@ -190,9 +190,9 @@
           }
         },
         {
-          "amount": 0.3517079406841289,
+          "amount": 0.27344871676775157,
           "amount_unit": "MILLILITER",
-          "moles": 0.002523296719503104,
+          "moles": 0.0019618330158547295,
           "compound_lv0": {
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
@@ -202,9 +202,9 @@
         }
       ],
       "product": {
-        "amount": 0.5,
+        "amount": 0.35500586367382386,
         "amount_unit": "GRAM",
-        "moles": 0.0015954357773282186,
+        "moles": 0.0011327781121330456,
         "compound_lv0": {
           "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
           "state_of_matter": "SOLID",
@@ -214,8 +214,8 @@
       }
     },
     {
-      "batch_size": 0.002665579238349189,
-      "expected_yield": 0.9460897838524227,
+      "batch_size": 0.002041189482479573,
+      "expected_yield": 0.8516065864310087,
       "reaction_lv0": {
         "reaction_smiles": "CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
         "reactant_smis_and_ratios": {
@@ -230,9 +230,9 @@
       },
       "reactants": [
         {
-          "amount": 0.535949358400203,
+          "amount": 0.41040768091579033,
           "amount_unit": "GRAM",
-          "moles": 0.002665579238349189,
+          "moles": 0.002041189482479573,
           "compound_lv0": {
             "smiles": "CCOc1ccc(Br)cc1",
             "state_of_matter": "SOLID",
@@ -241,9 +241,9 @@
           }
         },
         {
-          "amount": 0.3852733206665792,
+          "amount": 0.2950262512217172,
           "amount_unit": "MILLILITER",
-          "moles": 0.0031597392043645586,
+          "moles": 0.00241959658844042,
           "compound_lv0": {
             "smiles": "OB(O)c1ccccc1",
             "state_of_matter": "LIQUID",
@@ -254,9 +254,9 @@
       ],
       "reagents": [
         {
-          "amount": 4.648566972046223,
+          "amount": 3.559678840318032,
           "amount_unit": "MILLILITER",
-          "moles": 0.05731171783806138,
+          "moles": 0.04388692483451996,
           "compound_lv0": {
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
@@ -265,9 +265,9 @@
           }
         },
         {
-          "amount": 0.43275903834712615,
+          "amount": 0.3313888346718924,
           "amount_unit": "GRAM",
-          "moles": 0.007449033295702391,
+          "moles": 0.005704159230788563,
           "compound_lv0": {
             "smiles": "F[K]",
             "state_of_matter": "SOLID",
@@ -277,9 +277,9 @@
         }
       ],
       "product": {
-        "amount": 0.5,
+        "amount": 0.34464214762976453,
         "amount_unit": "MILLILITER",
-        "moles": 0.00252187728545129,
+        "moles": 0.0017382904074333065,
         "compound_lv0": {
           "smiles": "CCOc1ccc(-c2ccccc2)cc1",
           "state_of_matter": "LIQUID",
@@ -289,8 +289,8 @@
       }
     },
     {
-      "batch_size": 0.003510609776530892,
-      "expected_yield": 0.543469416314708,
+      "batch_size": 0.002410858745736087,
+      "expected_yield": 0.7079607909051591,
       "reaction_lv0": {
         "reaction_smiles": "NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
         "reactant_smis_and_ratios": {
@@ -305,9 +305,9 @@
       },
       "reactants": [
         {
-          "amount": 0.4954664002009109,
+          "amount": 0.3402541382207169,
           "amount_unit": "MILLILITER",
-          "moles": 0.003510609776530892,
+          "moles": 0.002410858745736087,
           "compound_lv0": {
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
@@ -316,9 +316,9 @@
           }
         },
         {
-          "amount": 0.339177973973676,
+          "amount": 0.23292539956506564,
           "amount_unit": "MILLILITER",
-          "moles": 0.004072876798418285,
+          "moles": 0.002796987211570797,
           "compound_lv0": {
             "smiles": "O=C(Cl)CBr",
             "state_of_matter": "LIQUID",
@@ -329,9 +329,9 @@
       ],
       "reagents": [
         {
-          "amount": 19.302000984988368,
+          "amount": 13.255360420846904,
           "amount_unit": "MILLILITER",
-          "moles": 0.30112148758562146,
+          "moles": 0.20679067685849017,
           "compound_lv0": {
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
@@ -340,9 +340,9 @@
           }
         },
         {
-          "amount": 0.4214839634510494,
+          "amount": 0.289447806551031,
           "amount_unit": "MILLILITER",
-          "moles": 0.0030238984659557663,
+          "moles": 0.002076617034340799,
           "compound_lv0": {
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
@@ -352,9 +352,9 @@
         }
       ],
       "product": {
-        "amount": 0.5,
+        "amount": 0.4472942428328025,
         "amount_unit": "GRAM",
-        "moles": 0.0019079090461599515,
+        "moles": 0.00170679346439194,
         "compound_lv0": {
           "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
           "state_of_matter": "SOLID",
@@ -364,8 +364,8 @@
       }
     },
     {
-      "batch_size": 0.005160948488254877,
-      "expected_yield": 0.8197133992289418,
+      "batch_size": 0.0021234150165971412,
+      "expected_yield": 0.9030098462268734,
       "reaction_lv0": {
         "reaction_smiles": "CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
         "reactant_smis_and_ratios": {
@@ -381,9 +381,9 @@
       },
       "reactants": [
         {
-          "amount": 0.41891388354499776,
+          "amount": 0.17235747130684098,
           "amount_unit": "MILLILITER",
-          "moles": 0.005891626887738255,
+          "moles": 0.0024240445402781276,
           "compound_lv0": {
             "smiles": "CC(=O)Cl",
             "state_of_matter": "LIQUID",
@@ -392,9 +392,9 @@
           }
         },
         {
-          "amount": 0.7409935010981706,
+          "amount": 0.3048735578379678,
           "amount_unit": "MILLILITER",
-          "moles": 0.005160948488254877,
+          "moles": 0.0021234150165971412,
           "compound_lv0": {
             "smiles": "CNc1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
@@ -405,9 +405,9 @@
       ],
       "reagents": [
         {
-          "amount": 11.411185416336723,
+          "amount": 4.695005680712978,
           "amount_unit": "MILLILITER",
-          "moles": 0.6334268896106979,
+          "moles": 0.26061646853805037,
           "compound_lv0": {
             "smiles": "O",
             "state_of_matter": "LIQUID",
@@ -416,9 +416,9 @@
           }
         },
         {
-          "amount": 9.982675033527332,
+          "amount": 4.107260926986888,
           "amount_unit": "MILLILITER",
-          "moles": 0.12307540328686256,
+          "moles": 0.050638009681325584,
           "compound_lv0": {
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
@@ -427,9 +427,9 @@
           }
         },
         {
-          "amount": 0.23946408139419903,
+          "amount": 0.09852484044846962,
           "amount_unit": "GRAM",
-          "moles": 0.009978501599891618,
+          "moles": 0.004105543814004069,
           "compound_lv0": {
             "smiles": "[NaH]",
             "state_of_matter": "SOLID",
@@ -439,9 +439,9 @@
         }
       ],
       "product": {
-        "amount": 0.7852397724402131,
+        "amount": 0.35590828681435993,
         "amount_unit": "MILLILITER",
-        "moles": 0.004230498628552874,
+        "moles": 0.0019174646676132184,
         "compound_lv0": {
           "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
           "state_of_matter": "LIQUID",
@@ -451,8 +451,8 @@
       }
     },
     {
-      "batch_size": 0.011056403789940395,
-      "expected_yield": 0.6116053690744114,
+      "batch_size": 0.005023581938994494,
+      "expected_yield": 0.8265765459055812,
       "reaction_lv0": {
         "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
         "reactant_smis_and_ratios": {
@@ -466,9 +466,9 @@
       },
       "reactants": [
         {
-          "amount": 2.6673684707269105,
+          "amount": 1.2119441663643606,
           "amount_unit": "GRAM",
-          "moles": 0.011056403789940395,
+          "moles": 0.005023581938994494,
           "compound_lv0": {
             "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
@@ -479,9 +479,9 @@
       ],
       "reagents": [
         {
-          "amount": 41.11722468380881,
+          "amount": 18.682001058164506,
           "amount_unit": "MILLILITER",
-          "moles": 0.6414505870044231,
+          "moles": 0.291449158773009,
           "compound_lv0": {
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
@@ -490,9 +490,9 @@
           }
         },
         {
-          "amount": 32.55033850775459,
+          "amount": 14.789555061700083,
           "amount_unit": "MILLILITER",
-          "moles": 0.4250710743369401,
+          "moles": 0.19313507469498362,
           "compound_lv0": {
             "smiles": "O=C(O)C(F)(F)F",
             "state_of_matter": "LIQUID",
@@ -502,9 +502,9 @@
         }
       ],
       "product": {
-        "amount": 0.9543701136954506,
+        "amount": 0.5860412942672558,
         "amount_unit": "MILLILITER",
-        "moles": 0.006762155920582217,
+        "moles": 0.004152375007207731,
         "compound_lv0": {
           "smiles": "NCC(=O)Nn1cnnc1",
           "state_of_matter": "LIQUID",
@@ -514,8 +514,8 @@
       }
     },
     {
-      "batch_size": 0.01273433581824536,
-      "expected_yield": 0.8682356070820062,
+      "batch_size": 0.007086055025755276,
+      "expected_yield": 0.708939165831421,
       "reaction_lv0": {
         "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
         "reactant_smis_and_ratios": {
@@ -531,9 +531,9 @@
       },
       "reactants": [
         {
-          "amount": 2.230851885983495,
+          "amount": 1.2413634636319122,
           "amount_unit": "MILLILITER",
-          "moles": 0.01273433581824536,
+          "moles": 0.007086055025755276,
           "compound_lv0": {
             "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
             "state_of_matter": "LIQUID",
@@ -542,9 +542,9 @@
           }
         },
         {
-          "amount": 1.3105679928573983,
+          "amount": 0.72926904433252,
           "amount_unit": "MILLILITER",
-          "moles": 0.015586784244634982,
+          "moles": 0.00867330753707714,
           "compound_lv0": {
             "smiles": "Nn1cnnc1",
             "state_of_matter": "LIQUID",
@@ -555,9 +555,9 @@
       ],
       "reagents": [
         {
-          "amount": 59.21578105568303,
+          "amount": 32.9507788189823,
           "amount_unit": "MILLILITER",
-          "moles": 0.9237976981712647,
+          "moles": 0.5140496854597335,
           "compound_lv0": {
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
@@ -566,9 +566,9 @@
           }
         },
         {
-          "amount": 1.9373831548252882,
+          "amount": 1.078062007866458,
           "amount_unit": "MILLILITER",
-          "moles": 0.013899579717995901,
+          "moles": 0.007734458092072065,
           "compound_lv0": {
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
@@ -577,9 +577,9 @@
           }
         },
         {
-          "amount": 1.409229568657674,
+          "amount": 0.7841695405206918,
           "amount_unit": "MILLILITER",
-          "moles": 0.010864990963380125,
+          "moles": 0.0060458531108105885,
           "compound_lv0": {
             "smiles": "CC(C)COC(=O)Cl",
             "state_of_matter": "LIQUID",
@@ -589,9 +589,9 @@
         }
       ],
       "product": {
-        "amount": 2.6673684707269105,
+        "amount": 1.2119441663643606,
         "amount_unit": "GRAM",
-        "moles": 0.011056403789940395,
+        "moles": 0.005023581938994494,
         "compound_lv0": {
           "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
           "state_of_matter": "SOLID",
@@ -603,9 +603,9 @@
   ],
   "compounds": [
     {
-      "amount": 14.631242005573556,
+      "amount": 7.66693976730492,
       "amount_unit": "MILLILITER",
-      "moles": 0.18038712112492394,
+      "moles": 0.09452493451584554,
       "compound_lv0": {
         "smiles": "C1CCOC1",
         "state_of_matter": "LIQUID",
@@ -614,9 +614,9 @@
       }
     },
     {
-      "amount": 0.41891388354499776,
+      "amount": 0.17235747130684098,
       "amount_unit": "MILLILITER",
-      "moles": 0.005891626887738255,
+      "moles": 0.0024240445402781276,
       "compound_lv0": {
         "smiles": "CC(=O)Cl",
         "state_of_matter": "LIQUID",
@@ -625,9 +625,9 @@
       }
     },
     {
-      "amount": 0.7852397724402131,
+      "amount": 0.35590828681435993,
       "amount_unit": "MILLILITER",
-      "moles": 0.004230498628552874,
+      "moles": 0.0019174646676132184,
       "compound_lv0": {
         "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
         "state_of_matter": "LIQUID",
@@ -636,9 +636,9 @@
       }
     },
     {
-      "amount": 0.5,
+      "amount": 0.4278853596915767,
       "amount_unit": "GRAM",
-      "moles": 0.002168153297110719,
+      "moles": 0.001855442106801396,
       "compound_lv0": {
         "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
         "state_of_matter": "SOLID",
@@ -647,9 +647,9 @@
       }
     },
     {
-      "amount": 0.3609998594835255,
+      "amount": 0.19335020873983771,
       "amount_unit": "MILLILITER",
-      "moles": 0.0033579168671838324,
+      "moles": 0.0017984880330144427,
       "compound_lv0": {
         "smiles": "CC(=O)OCC(=O)Cl",
         "state_of_matter": "LIQUID",
@@ -658,9 +658,9 @@
       }
     },
     {
-      "amount": 0.5,
+      "amount": 0.3050021510445334,
       "amount_unit": "GRAM",
-      "moles": 0.002072908331847749,
+      "moles": 0.0012644830002633977,
       "compound_lv0": {
         "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
         "state_of_matter": "SOLID",
@@ -669,9 +669,9 @@
       }
     },
     {
-      "amount": 2.6673684707269105,
+      "amount": 1.2119441663643606,
       "amount_unit": "GRAM",
-      "moles": 0.011056403789940395,
+      "moles": 0.005023581938994494,
       "compound_lv0": {
         "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
         "state_of_matter": "SOLID",
@@ -680,9 +680,9 @@
       }
     },
     {
-      "amount": 2.230851885983495,
+      "amount": 1.2413634636319122,
       "amount_unit": "MILLILITER",
-      "moles": 0.01273433581824536,
+      "moles": 0.007086055025755276,
       "compound_lv0": {
         "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
         "state_of_matter": "LIQUID",
@@ -691,9 +691,9 @@
       }
     },
     {
-      "amount": 1.409229568657674,
+      "amount": 0.7841695405206918,
       "amount_unit": "MILLILITER",
-      "moles": 0.010864990963380125,
+      "moles": 0.0060458531108105885,
       "compound_lv0": {
         "smiles": "CC(C)COC(=O)Cl",
         "state_of_matter": "LIQUID",
@@ -702,9 +702,9 @@
       }
     },
     {
-      "amount": 3.2265381707520464,
+      "amount": 1.9173064929536603,
       "amount_unit": "MILLILITER",
-      "moles": 0.023148505449645584,
+      "moles": 0.013755541528409646,
       "compound_lv0": {
         "smiles": "CCN(CC)CC",
         "state_of_matter": "LIQUID",
@@ -713,9 +713,9 @@
       }
     },
     {
-      "amount": 0.5,
+      "amount": 0.35500586367382386,
       "amount_unit": "GRAM",
-      "moles": 0.0015954357773282186,
+      "moles": 0.0011327781121330456,
       "compound_lv0": {
         "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
         "state_of_matter": "SOLID",
@@ -724,9 +724,9 @@
       }
     },
     {
-      "amount": 0.38677554200366565,
+      "amount": 0.3007133573166624,
       "amount_unit": "GRAM",
-      "moles": 0.0019030670544074716,
+      "moles": 0.0014796118704015115,
       "compound_lv0": {
         "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
         "state_of_matter": "SOLID",
@@ -735,9 +735,9 @@
       }
     },
     {
-      "amount": 0.5,
+      "amount": 0.34464214762976453,
       "amount_unit": "MILLILITER",
-      "moles": 0.00252187728545129,
+      "moles": 0.0017382904074333065,
       "compound_lv0": {
         "smiles": "CCOc1ccc(-c2ccccc2)cc1",
         "state_of_matter": "LIQUID",
@@ -746,9 +746,9 @@
       }
     },
     {
-      "amount": 0.535949358400203,
+      "amount": 0.41040768091579033,
       "amount_unit": "GRAM",
-      "moles": 0.002665579238349189,
+      "moles": 0.002041189482479573,
       "compound_lv0": {
         "smiles": "CCOc1ccc(Br)cc1",
         "state_of_matter": "SOLID",
@@ -757,9 +757,9 @@
       }
     },
     {
-      "amount": 0.7409935010981706,
+      "amount": 0.3048735578379678,
       "amount_unit": "MILLILITER",
-      "moles": 0.005160948488254877,
+      "moles": 0.0021234150165971412,
       "compound_lv0": {
         "smiles": "CNc1cc(Cl)ncn1",
         "state_of_matter": "LIQUID",
@@ -768,9 +768,9 @@
       }
     },
     {
-      "amount": 152.31872354655354,
+      "amount": 83.82750345268072,
       "amount_unit": "MILLILITER",
-      "moles": 2.37625314894309,
+      "moles": 1.3077536655340323,
       "compound_lv0": {
         "smiles": "ClCCl",
         "state_of_matter": "LIQUID",
@@ -779,9 +779,9 @@
       }
     },
     {
-      "amount": 0.43275903834712615,
+      "amount": 0.3313888346718924,
       "amount_unit": "GRAM",
-      "moles": 0.007449033295702391,
+      "moles": 0.005704159230788563,
       "compound_lv0": {
         "smiles": "F[K]",
         "state_of_matter": "SOLID",
@@ -790,9 +790,9 @@
       }
     },
     {
-      "amount": 0.9543701136954506,
+      "amount": 0.5860412942672558,
       "amount_unit": "MILLILITER",
-      "moles": 0.006762155920582217,
+      "moles": 0.004152375007207731,
       "compound_lv0": {
         "smiles": "NCC(=O)Nn1cnnc1",
         "state_of_matter": "LIQUID",
@@ -801,9 +801,9 @@
       }
     },
     {
-      "amount": 1.3105679928573983,
+      "amount": 0.72926904433252,
       "amount_unit": "MILLILITER",
-      "moles": 0.015586784244634982,
+      "moles": 0.00867330753707714,
       "compound_lv0": {
         "smiles": "Nn1cnnc1",
         "state_of_matter": "LIQUID",
@@ -812,9 +812,9 @@
       }
     },
     {
-      "amount": 19.068724843534387,
+      "amount": 8.1657694326278,
       "amount_unit": "MILLILITER",
-      "moles": 1.058491526146788,
+      "moles": 0.45327612726215927,
       "compound_lv0": {
         "smiles": "O",
         "state_of_matter": "LIQUID",
@@ -823,9 +823,9 @@
       }
     },
     {
-      "amount": 0.5,
+      "amount": 0.4472942428328025,
       "amount_unit": "GRAM",
-      "moles": 0.0019079090461599515,
+      "moles": 0.00170679346439194,
       "compound_lv0": {
         "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
         "state_of_matter": "SOLID",
@@ -834,9 +834,9 @@
       }
     },
     {
-      "amount": 0.3069699824356925,
+      "amount": 0.23866548938298457,
       "amount_unit": "MILLILITER",
-      "moles": 0.002294680021754087,
+      "moles": 0.0017840862680572587,
       "compound_lv0": {
         "smiles": "O=C(Cl)C1CCCCC1",
         "state_of_matter": "LIQUID",
@@ -845,9 +845,9 @@
       }
     },
     {
-      "amount": 0.339177973973676,
+      "amount": 0.23292539956506564,
       "amount_unit": "MILLILITER",
-      "moles": 0.004072876798418285,
+      "moles": 0.002796987211570797,
       "compound_lv0": {
         "smiles": "O=C(Cl)CBr",
         "state_of_matter": "LIQUID",
@@ -856,9 +856,9 @@
       }
     },
     {
-      "amount": 32.55033850775459,
+      "amount": 14.789555061700083,
       "amount_unit": "MILLILITER",
-      "moles": 0.4250710743369401,
+      "moles": 0.19313507469498362,
       "compound_lv0": {
         "smiles": "O=C(O)C(F)(F)F",
         "state_of_matter": "LIQUID",
@@ -867,9 +867,9 @@
       }
     },
     {
-      "amount": 2.4174121691428123,
+      "amount": 1.095687016680388,
       "amount_unit": "MILLILITER",
-      "moles": 0.045351587916095955,
+      "moles": 0.02055551250208418,
       "compound_lv0": {
         "smiles": "O=S(=O)(O)O",
         "state_of_matter": "LIQUID",
@@ -878,9 +878,9 @@
       }
     },
     {
-      "amount": 0.3852733206665792,
+      "amount": 0.2950262512217172,
       "amount_unit": "MILLILITER",
-      "moles": 0.0031597392043645586,
+      "moles": 0.00241959658844042,
       "compound_lv0": {
         "smiles": "OB(O)c1ccccc1",
         "state_of_matter": "LIQUID",
@@ -889,9 +889,9 @@
       }
     },
     {
-      "amount": 0.23946408139419903,
+      "amount": 0.09852484044846962,
       "amount_unit": "GRAM",
-      "moles": 0.009978501599891618,
+      "moles": 0.004105543814004069,
       "compound_lv0": {
         "smiles": "[NaH]",
         "state_of_matter": "SOLID",

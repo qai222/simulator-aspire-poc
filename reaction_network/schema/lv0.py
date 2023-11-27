@@ -211,3 +211,8 @@ class NetworkLv0(BaseModel):
             ce = CytoEdge(data=CytoEdgeData(id=f"{u} {v}", source=u, target=v, ), classes="", group="edges")
             cyto_edges.append(ce)
         return cyto_nodes + cyto_edges
+
+    @property
+    def starting_smis(self) -> list[str]:
+        g = self.to_nx()
+        return [n for n in g.nodes if g.in_degree(n) == 0 and ">>" not in n]

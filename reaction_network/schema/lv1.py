@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections import defaultdict
+
 import networkx as nx
 from loguru import logger
 from pydantic import BaseModel
@@ -9,6 +11,8 @@ from reaction_network.utils import drawing_url
 from reaction_network.visualization import CytoNodeData, CytoEdge, CytoNode, CytoEdgeData
 
 
+# TODO add volume max limits to reactions
+
 class CompoundLv1(BaseModel):
     amount: float
 
@@ -17,6 +21,20 @@ class CompoundLv1(BaseModel):
     moles: float
 
     compound_lv0: CompoundLv0
+
+    @property
+    def volume(self) -> float:
+        if self.compound_lv0.state_of_matter == "SOLID":
+            return self.amount / self.compound_lv0.density
+        else:
+            return self.amount
+
+    @property
+    def mass(self) -> float:
+        if self.compound_lv0.state_of_matter == "SOLID":
+            return self.amount
+        else:
+            return self.amount * self.compound_lv0.density
 
     @classmethod
     def from_moles(cls, moles: float, compound_lv0: CompoundLv0):
@@ -31,6 +49,16 @@ class CompoundLv1(BaseModel):
         assert self.compound_lv0.smiles == other.compound_lv0.smiles
         return CompoundLv1.from_moles(self.moles + other.moles, self.compound_lv0)
 
+    def __sub__(self, other: CompoundLv1):
+        assert self.compound_lv0.smiles == other.compound_lv0.smiles
+        return CompoundLv1.from_moles(self.moles - other.moles, self.compound_lv0)
+
+    def __mul__(self, fold: float | int) -> CompoundLv1:
+        return CompoundLv1.from_moles(self.moles * fold, self.compound_lv0)
+
+    def __truediv__(self, reciprocal_fold: float | int) -> CompoundLv1:
+        return self * (1 / reciprocal_fold)
+
 
 class ReactionLv1(BaseModel):
     batch_size: float
@@ -43,7 +71,42 @@ class ReactionLv1(BaseModel):
 
     reagents: list[CompoundLv1]
 
-    product: CompoundLv1
+    product: CompoundLv1  # after multiplying the expected yield
+
+    @property
+    def solids(self) -> list[CompoundLv1]:
+        return sorted(
+            [c for c in self.reactants + self.reagents if c.compound_lv0.state_of_matter == "SOLID"],
+            key=lambda x: x.mass
+        )
+
+    @property
+    def liquids(self) -> list[CompoundLv1]:
+        return sorted(
+            [c for c in self.reactants + self.reagents if c.compound_lv0.state_of_matter == "LIQUID"],
+            key=lambda x: x.volume
+        )
+
+    def __mul__(self, fold: float | int):
+        return ReactionLv1(
+            batch_size=self.batch_size * fold,
+            expected_yield=self.expected_yield,
+            reaction_lv0=self.reaction_lv0,
+            reactants=[c * fold for c in self.reactants],
+            reagents=[c * fold for c in self.reagents],
+            product=self.product * fold
+        )
+
+    def __truediv__(self, other: float | int):
+        return self * (1 / other)
+
+    @property
+    def solvent_compound(self) -> CompoundLv1:
+        return self.compound_dict[self.solvent_smi]
+
+    @property
+    def compound_dict(self) -> dict[str, CompoundLv1]:
+        return {c.compound_lv0.smiles: c for c in self.reagents + self.reactants}
 
     @property
     def volume_dict(self) -> dict[str, float]:
@@ -107,6 +170,10 @@ class NetworkLv1(BaseModel):
     @staticmethod
     def calculate_required_moles_and_batches(network_lv0: NetworkLv0, target_masses: dict[str, float],
                                              expected_yields: dict[str, float]):
+        """
+        :param target_masses: a dictionary of dict[<molecular smiles>, <grams of it to be made>]
+        :param expected_yields: a dictionary of dict[<reaction smiles>, <expected yield>]
+        """
 
         for r in network_lv0.reactions:
             if r.reaction_smiles not in expected_yields:
@@ -118,6 +185,7 @@ class NetworkLv1(BaseModel):
         reactions_lv1 = []
 
         # the following method assumes a product can only be made from one reaction, i.e. no materials merge
+        # TODO check if this assumption is realistic
         g = network_lv0.to_nx()
         product_nodes = [n for n in g.nodes if g.in_degree(n) > 0 and ">>" not in n]
         target_nodes = [n for n in g.nodes if g.in_degree(n) > 0 and g.out_degree(n) == 0 and ">>" not in n]
@@ -179,7 +247,7 @@ class NetworkLv1(BaseModel):
 
     @classmethod
     def from_target_masses_and_expected_yields(cls, target_masses: dict[str, float], expected_yields: dict[str, float],
-                                               network_lv0: NetworkLv0):
+                                               network_lv0: NetworkLv0, max_reactor_volume: float = 20.0):
         required_batches, required_moles, reactions_lv1 = NetworkLv1.calculate_required_moles_and_batches(
             network_lv0, target_masses, expected_yields
         )
@@ -220,3 +288,28 @@ class NetworkLv1(BaseModel):
             ce = CytoEdge(data=CytoEdgeData(id=f"{u} {v}", source=u, target=v, ), classes="", group="edges")
             cyto_edges.append(ce)
         return cyto_nodes + cyto_edges
+
+    def get_reaction_precedence(self) -> dict[str, list[str]]:
+        precedence_dict = defaultdict(list)
+        g = self.to_nx()
+        reaction_nodes = [n for n in g.nodes if ">>" in n]
+        for i in reaction_nodes:
+            for j in reaction_nodes:
+                # global precedence
+                # TODO this seems an overkill, dfs may suffice
+                if nx.has_path(j, i) and i != j:
+                    precedence_dict[i].append(j)
+        return precedence_dict
+
+    def get_intermediate_reaction_smis(self) -> list[str]:
+        # an intermediate reaction is one whose product will be used in another reaction
+        # this means an additional loading_storage transform
+        g = self.to_nx()
+        reaction_nodes = [n for n in g.nodes if ">>" in n]
+
+        intermediate_reaction_smis = []
+        for reaction_smi in reaction_nodes:
+            product_smi = self.reaction_dict[reaction_smi].product.compound_lv0.smiles
+            if g.out_degree(product_smi) > 0:
+                intermediate_reaction_smis.append(reaction_smi)
+        return intermediate_reaction_smis
