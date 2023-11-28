@@ -1,0 +1,3421 @@
+{
+  "container_dict": {
+    "fa53b232-804d-4f23-8043-9113ff9c842e": {
+      "id": "fa53b232-804d-4f23-8043-9113ff9c842e",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "047b6f0b-c1f9-4841-a019-04831f7cea46": {
+      "id": "047b6f0b-c1f9-4841-a019-04831f7cea46",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "788fa60d-6459-495f-8e57-0e54ccde2b20": {
+      "id": "788fa60d-6459-495f-8e57-0e54ccde2b20",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "b9008f33-80b3-41b4-90ef-3539542dc984": {
+      "id": "b9008f33-80b3-41b4-90ef-3539542dc984",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "bc825c2b-c69c-4be9-bb08-ca2f082d2ae7": {
+      "id": "bc825c2b-c69c-4be9-bb08-ca2f082d2ae7",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "d69b4475-7f6e-4f89-95a3-4e2b07825dca": {
+      "id": "d69b4475-7f6e-4f89-95a3-4e2b07825dca",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "081b2cb6-b68a-43ec-a8d8-6358c7ab1a9d": {
+      "id": "081b2cb6-b68a-43ec-a8d8-6358c7ab1a9d",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "78ad9b6a-c610-4c68-b0e0-4e4bc2b9b8de": {
+      "id": "78ad9b6a-c610-4c68-b0e0-4e4bc2b9b8de",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "dd51633c-4e99-4606-b878-9fe037fcfe91": {
+      "id": "dd51633c-4e99-4606-b878-9fe037fcfe91",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "1e94106e-81c7-4571-99f0-a3a832b6d7fb": {
+      "id": "1e94106e-81c7-4571-99f0-a3a832b6d7fb",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "eb81fa75-f9e0-4900-9d03-ba8f7c5b9d7c": {
+      "id": "eb81fa75-f9e0-4900-9d03-ba8f7c5b9d7c",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "46f9d159-2278-4a62-a6dc-ba4face9bdfb": {
+      "id": "46f9d159-2278-4a62-a6dc-ba4face9bdfb",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "c90085c2-4e55-4cd2-996e-e814bf168d11": {
+      "id": "c90085c2-4e55-4cd2-996e-e814bf168d11",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "f964c53a-6759-4f75-809e-21026c40e196": {
+      "id": "f964c53a-6759-4f75-809e-21026c40e196",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "64dc2605-30ef-4a33-bf97-b3ba8c7b5f8e": {
+      "id": "64dc2605-30ef-4a33-bf97-b3ba8c7b5f8e",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "2567ea07-ec0b-4db6-8d0c-ed2e72862938": {
+      "id": "2567ea07-ec0b-4db6-8d0c-ed2e72862938",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "787e9cb2-bdb8-437d-88cf-7522e38af93a": {
+      "id": "787e9cb2-bdb8-437d-88cf-7522e38af93a",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "ee25328a-fd41-47af-a416-6c1959e21b27": {
+      "id": "ee25328a-fd41-47af-a416-6c1959e21b27",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "d3146209-6462-4cd6-a319-22d2bf3a59cd": {
+      "id": "d3146209-6462-4cd6-a319-22d2bf3a59cd",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "b38b8232-660a-4db2-9021-8e209340eec2": {
+      "id": "b38b8232-660a-4db2-9021-8e209340eec2",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "ae71f844-70fc-4060-b86c-3b239b562182": {
+      "id": "ae71f844-70fc-4060-b86c-3b239b562182",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "cf4c1e74-7527-4844-9f71-016e7373c530": {
+      "id": "cf4c1e74-7527-4844-9f71-016e7373c530",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "f73caebe-5fe3-49d7-8e4f-377b4b09f31f": {
+      "id": "f73caebe-5fe3-49d7-8e4f-377b4b09f31f",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "1350a0ef-8d15-454a-b0d1-8df4b9a316c0": {
+      "id": "1350a0ef-8d15-454a-b0d1-8df4b9a316c0",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "1c61280e-a2a2-4823-aa8c-6b02da604448": {
+      "id": "1c61280e-a2a2-4823-aa8c-6b02da604448",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "e6f049d6-4f5d-433c-a0c6-62dea01321dd": {
+      "id": "e6f049d6-4f5d-433c-a0c6-62dea01321dd",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "99e0921e-26fa-4b02-b2d5-c73388eaa265": {
+      "id": "99e0921e-26fa-4b02-b2d5-c73388eaa265",
+      "made_of": "GLASS",
+      "type": "on_platform_storage",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1": {
+      "id": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "f2e46e87-1d12-4f13-ba11-1e1d532dff7e": {
+      "id": "f2e46e87-1d12-4f13-ba11-1e1d532dff7e",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1": {
+      "id": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "a01e2ae9-f95a-4f55-87a6-60df4f6ad3b2": {
+      "id": "a01e2ae9-f95a-4f55-87a6-60df4f6ad3b2",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1": {
+      "id": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "3a958c9a-549f-49d2-988b-785ab51aacc7": {
+      "id": "3a958c9a-549f-49d2-988b-785ab51aacc7",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "cfee8165-ff0a-4d6a-82d5-fc1f1d4d5845": {
+      "id": "cfee8165-ff0a-4d6a-82d5-fc1f1d4d5845",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1": {
+      "id": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "08d4c85b-45a8-4314-8f1d-75aaf0d09940": {
+      "id": "08d4c85b-45a8-4314-8f1d-75aaf0d09940",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "c9d1e626-0b0d-41e8-b706-fe71d3cd9225": {
+      "id": "c9d1e626-0b0d-41e8-b706-fe71d3cd9225",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]": {
+      "id": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "5e1292b9-face-455c-975d-ba4d0370dd92": {
+      "id": "5e1292b9-face-455c-975d-ba4d0370dd92",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1": {
+      "id": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "9bc87121-5e2c-4dfa-a63d-25926f496f47": {
+      "id": "9bc87121-5e2c-4dfa-a63d-25926f496f47",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "55d92dca-732f-468a-84c9-ca7470ec561e": {
+      "id": "55d92dca-732f-468a-84c9-ca7470ec561e",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1": {
+      "id": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "79308d5a-dfed-4b43-be11-eb3620df18ba": {
+      "id": "79308d5a-dfed-4b43-be11-eb3620df18ba",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1": {
+      "id": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    },
+    "8d37d1c3-02d9-4845-9138-2b590a8ac5aa": {
+      "id": "8d37d1c3-02d9-4845-9138-2b590a8ac5aa",
+      "made_of": "GLASS",
+      "type": "VIAL",
+      "volume_capacity": 50.0
+    }
+  },
+  "material_dict": {
+    "c446d554-f294-4eea-bc8c-c0c07d017d03": {
+      "id": "c446d554-f294-4eea-bc8c-c0c07d017d03",
+      "compounds": [
+        {
+          "amount": 0.17235747130684098,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0024240445402781276,
+          "compound_lv0": {
+            "smiles": "CC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 78.498,
+            "density": 1.104
+          }
+        }
+      ],
+      "contained_by": "047b6f0b-c1f9-4841-a019-04831f7cea46",
+      "impure": false
+    },
+    "d26a039d-d99e-4ad5-a2aa-261a3480f271": {
+      "id": "d26a039d-d99e-4ad5-a2aa-261a3480f271",
+      "compounds": [
+        {
+          "amount": 0.3048735578379678,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0021234150165971412,
+          "compound_lv0": {
+            "smiles": "CNc1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 143.57700000000003,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "64dc2605-30ef-4a33-bf97-b3ba8c7b5f8e",
+      "impure": false
+    },
+    "b625a672-25e3-41ee-acc3-db477acfaf95": {
+      "id": "b625a672-25e3-41ee-acc3-db477acfaf95",
+      "compounds": [
+        {
+          "amount": 8.1657694326278,
+          "amount_unit": "MILLILITER",
+          "moles": 0.45327612726215927,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "b38b8232-660a-4db2-9021-8e209340eec2",
+      "impure": false
+    },
+    "44cd5157-bce1-47e2-9d07-2fe568424759": {
+      "id": "44cd5157-bce1-47e2-9d07-2fe568424759",
+      "compounds": [
+        {
+          "amount": 7.66693976730492,
+          "amount_unit": "MILLILITER",
+          "moles": 0.09452493451584554,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        }
+      ],
+      "contained_by": "fa53b232-804d-4f23-8043-9113ff9c842e",
+      "impure": false
+    },
+    "0e18c874-a419-4bd2-b397-936c4f8cbbdb": {
+      "id": "0e18c874-a419-4bd2-b397-936c4f8cbbdb",
+      "compounds": [
+        {
+          "amount": 0.09852484044846962,
+          "amount_unit": "GRAM",
+          "moles": 0.004105543814004069,
+          "compound_lv0": {
+            "smiles": "[NaH]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 23.997999999999998,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "99e0921e-26fa-4b02-b2d5-c73388eaa265",
+      "impure": false
+    },
+    "cc704334-9e03-4e64-b2dc-b855338d39cc": {
+      "id": "cc704334-9e03-4e64-b2dc-b855338d39cc",
+      "compounds": [
+        {
+          "amount": 1.095687016680388,
+          "amount_unit": "MILLILITER",
+          "moles": 0.02055551250208418,
+          "compound_lv0": {
+            "smiles": "O=S(=O)(O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 98.07899999999998,
+            "density": 1.84
+          }
+        }
+      ],
+      "contained_by": "1c61280e-a2a2-4823-aa8c-6b02da604448",
+      "impure": false
+    },
+    "9eca2c07-a137-447f-aecb-e386505cbc81": {
+      "id": "9eca2c07-a137-447f-aecb-e386505cbc81",
+      "compounds": [
+        {
+          "amount": 0.19335020873983771,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017984880330144427,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.534,
+            "density": 1.27
+          }
+        }
+      ],
+      "contained_by": "bc825c2b-c69c-4be9-bb08-ca2f082d2ae7",
+      "impure": false
+    },
+    "cd9b1134-8643-4c21-b65c-14cdcf59cc46": {
+      "id": "cd9b1134-8643-4c21-b65c-14cdcf59cc46",
+      "compounds": [
+        {
+          "amount": 83.82750345268072,
+          "amount_unit": "MILLILITER",
+          "moles": 1.3077536655340323,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "2567ea07-ec0b-4db6-8d0c-ed2e72862938",
+      "impure": false
+    },
+    "4ba8c83b-91fc-4e25-b368-1e84df752ed2": {
+      "id": "4ba8c83b-91fc-4e25-b368-1e84df752ed2",
+      "compounds": [
+        {
+          "amount": 1.9173064929536603,
+          "amount_unit": "MILLILITER",
+          "moles": 0.013755541528409646,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "1e94106e-81c7-4571-99f0-a3a832b6d7fb",
+      "impure": false
+    },
+    "03cb3a2d-b179-44b5-8886-294ed1292ebe": {
+      "id": "03cb3a2d-b179-44b5-8886-294ed1292ebe",
+      "compounds": [
+        {
+          "amount": 14.789555061700083,
+          "amount_unit": "MILLILITER",
+          "moles": 0.19313507469498362,
+          "compound_lv0": {
+            "smiles": "O=C(O)C(F)(F)F",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 114.02200000000002,
+            "density": 1.489
+          }
+        }
+      ],
+      "contained_by": "1350a0ef-8d15-454a-b0d1-8df4b9a316c0",
+      "impure": false
+    },
+    "f5ccd044-b05b-426e-b919-8a2b0f1aea27": {
+      "id": "f5ccd044-b05b-426e-b919-8a2b0f1aea27",
+      "compounds": [
+        {
+          "amount": 1.2413634636319122,
+          "amount_unit": "MILLILITER",
+          "moles": 0.007086055025755276,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 175.18399999999997,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "78ad9b6a-c610-4c68-b0e0-4e4bc2b9b8de",
+      "impure": false
+    },
+    "7cf6a57a-1890-4b89-95ae-37f99e495151": {
+      "id": "7cf6a57a-1890-4b89-95ae-37f99e495151",
+      "compounds": [
+        {
+          "amount": 0.72926904433252,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00867330753707714,
+          "compound_lv0": {
+            "smiles": "Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.082,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "d3146209-6462-4cd6-a319-22d2bf3a59cd",
+      "impure": false
+    },
+    "387d784b-ebf4-4c84-83ed-5b94a363bbe0": {
+      "id": "387d784b-ebf4-4c84-83ed-5b94a363bbe0",
+      "compounds": [
+        {
+          "amount": 0.7841695405206918,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0060458531108105885,
+          "compound_lv0": {
+            "smiles": "CC(C)COC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.57799999999997,
+            "density": 1.053
+          }
+        }
+      ],
+      "contained_by": "dd51633c-4e99-4606-b878-9fe037fcfe91",
+      "impure": false
+    },
+    "abb93f2a-f61d-40b1-9ff4-e64952db3b8c": {
+      "id": "abb93f2a-f61d-40b1-9ff4-e64952db3b8c",
+      "compounds": [
+        {
+          "amount": 0.3007133573166624,
+          "amount_unit": "GRAM",
+          "moles": 0.0014796118704015115,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 203.23799999999997,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "46f9d159-2278-4a62-a6dc-ba4face9bdfb",
+      "impure": false
+    },
+    "192ac64e-fb80-40e8-bc95-4122f3aeb340": {
+      "id": "192ac64e-fb80-40e8-bc95-4122f3aeb340",
+      "compounds": [
+        {
+          "amount": 0.23866548938298457,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017840862680572587,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)C1CCCCC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 146.617,
+            "density": 1.096
+          }
+        }
+      ],
+      "contained_by": "cf4c1e74-7527-4844-9f71-016e7373c530",
+      "impure": false
+    },
+    "d62270d8-0cda-4f6c-be8c-003f2ac59454": {
+      "id": "d62270d8-0cda-4f6c-be8c-003f2ac59454",
+      "compounds": [
+        {
+          "amount": 0.41040768091579033,
+          "amount_unit": "GRAM",
+          "moles": 0.002041189482479573,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(Br)cc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 201.063,
+            "density": 1.407
+          }
+        }
+      ],
+      "contained_by": "f964c53a-6759-4f75-809e-21026c40e196",
+      "impure": false
+    },
+    "75c880ff-3135-4239-9725-2a9ddcdcdde2": {
+      "id": "75c880ff-3135-4239-9725-2a9ddcdcdde2",
+      "compounds": [
+        {
+          "amount": 0.2950262512217172,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00241959658844042,
+          "compound_lv0": {
+            "smiles": "OB(O)c1ccccc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 121.93199999999996,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "e6f049d6-4f5d-433c-a0c6-62dea01321dd",
+      "impure": false
+    },
+    "d483ac66-0557-47d0-95f2-5f75c6c232b9": {
+      "id": "d483ac66-0557-47d0-95f2-5f75c6c232b9",
+      "compounds": [
+        {
+          "amount": 0.3313888346718924,
+          "amount_unit": "GRAM",
+          "moles": 0.005704159230788563,
+          "compound_lv0": {
+            "smiles": "F[K]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 58.096000000000004,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "787e9cb2-bdb8-437d-88cf-7522e38af93a",
+      "impure": false
+    },
+    "45abfb68-17ec-4468-8e1e-f3afe313da1d": {
+      "id": "45abfb68-17ec-4468-8e1e-f3afe313da1d",
+      "compounds": [
+        {
+          "amount": 0.23292539956506564,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002796987211570797,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)CBr",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 157.394,
+            "density": 1.89
+          }
+        }
+      ],
+      "contained_by": "f73caebe-5fe3-49d7-8e4f-377b4b09f31f",
+      "impure": false
+    },
+    "87ecf644-6a65-4a05-8c43-034a28a48041": {
+      "id": "87ecf644-6a65-4a05-8c43-034a28a48041",
+      "compounds": [
+        {
+          "amount": 0.3007133573166624,
+          "amount_unit": "GRAM",
+          "moles": 0.0014796118704015115,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 203.23799999999997,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "46f9d159-2278-4a62-a6dc-ba4face9bdfb",
+      "impure": false
+    },
+    "05f5774c-def8-4b82-b6c8-41a44271ebc2": {
+      "id": "05f5774c-def8-4b82-b6c8-41a44271ebc2",
+      "compounds": [
+        {
+          "amount": 0.3007133573166624,
+          "amount_unit": "GRAM",
+          "moles": 0.0014796118704015115,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 203.23799999999997,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "impure": false
+    },
+    "4fc9d511-2ff7-45d6-952a-68ed4b23e211": {
+      "id": "4fc9d511-2ff7-45d6-952a-68ed4b23e211",
+      "compounds": [
+        {
+          "amount": 0.23866548938298457,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017840862680572587,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)C1CCCCC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 146.617,
+            "density": 1.096
+          }
+        }
+      ],
+      "contained_by": "cf4c1e74-7527-4844-9f71-016e7373c530",
+      "impure": false
+    },
+    "6f0f6c51-cd8f-4cff-8b69-51269be8e765": {
+      "id": "6f0f6c51-cd8f-4cff-8b69-51269be8e765",
+      "compounds": [
+        {
+          "amount": 0.23866548938298457,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017840862680572587,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)C1CCCCC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 146.617,
+            "density": 1.096
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "impure": false
+    },
+    "5a7887bb-b058-47e5-a457-2d9d8c51e7b4": {
+      "id": "5a7887bb-b058-47e5-a457-2d9d8c51e7b4",
+      "compounds": [
+        {
+          "amount": 0.27344871676775157,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019618330158547295,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "1e94106e-81c7-4571-99f0-a3a832b6d7fb",
+      "impure": false
+    },
+    "ae65b1f7-c757-40d6-8244-92df98352d03": {
+      "id": "ae65b1f7-c757-40d6-8244-92df98352d03",
+      "compounds": [
+        {
+          "amount": 0.27344871676775157,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019618330158547295,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "impure": false
+    },
+    "a32e8053-e568-434a-9584-55c7a413cefa": {
+      "id": "a32e8053-e568-434a-9584-55c7a413cefa",
+      "compounds": [
+        {
+          "amount": 4.609430162984614,
+          "amount_unit": "MILLILITER",
+          "moles": 0.07190956360842798,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "2567ea07-ec0b-4db6-8d0c-ed2e72862938",
+      "impure": false
+    },
+    "f0ec1b70-1881-4bd7-acf8-5a4d57ebd8eb": {
+      "id": "f0ec1b70-1881-4bd7-acf8-5a4d57ebd8eb",
+      "compounds": [
+        {
+          "amount": 4.609430162984614,
+          "amount_unit": "MILLILITER",
+          "moles": 0.07190956360842798,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "impure": false
+    },
+    "caf58e60-18f8-44f4-8a6d-ec662f779893": {
+      "id": "caf58e60-18f8-44f4-8a6d-ec662f779893",
+      "compounds": [
+        {
+          "amount": 0.3007133573166624,
+          "amount_unit": "GRAM",
+          "moles": 0.0014796118704015115,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 203.23799999999997,
+            "density": 1.4
+          }
+        },
+        {
+          "amount": 0.23866548938298457,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017840862680572587,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)C1CCCCC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 146.617,
+            "density": 1.096
+          }
+        },
+        {
+          "amount": 4.609430162984614,
+          "amount_unit": "MILLILITER",
+          "moles": 0.07190956360842798,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 0.27344871676775157,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019618330158547295,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "impure": false
+    },
+    "0b4b43a8-01de-451a-92f5-7ef9a9085617": {
+      "id": "0b4b43a8-01de-451a-92f5-7ef9a9085617",
+      "compounds": [
+        {
+          "amount": 0.35500586367382386,
+          "amount_unit": "GRAM",
+          "moles": 0.0011327781121330456,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 313.3940000000002,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "impure": true
+    },
+    "6ce656fd-f828-4872-8296-658c126d5f88": {
+      "id": "6ce656fd-f828-4872-8296-658c126d5f88",
+      "compounds": [
+        {
+          "amount": 0.35500586367382386,
+          "amount_unit": "GRAM",
+          "moles": 0.0011327781121330456,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 313.3940000000002,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "f2e46e87-1d12-4f13-ba11-1e1d532dff7e",
+      "impure": false
+    },
+    "9e7f2204-5251-4d7f-b4e7-48b8f989dbb0": {
+      "id": "9e7f2204-5251-4d7f-b4e7-48b8f989dbb0",
+      "compounds": [
+        {
+          "amount": 0.35500586367382386,
+          "amount_unit": "GRAM",
+          "moles": 0.0011327781121330456,
+          "compound_lv0": {
+            "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 313.3940000000002,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "impure": true
+    },
+    "0fbc6249-c98e-4648-b83a-925cc78c7766": {
+      "id": "0fbc6249-c98e-4648-b83a-925cc78c7766",
+      "compounds": [
+        {
+          "amount": 0.3313888346718924,
+          "amount_unit": "GRAM",
+          "moles": 0.005704159230788563,
+          "compound_lv0": {
+            "smiles": "F[K]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 58.096000000000004,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "787e9cb2-bdb8-437d-88cf-7522e38af93a",
+      "impure": false
+    },
+    "95228840-9dc1-4a2b-abe1-860f277f99a8": {
+      "id": "95228840-9dc1-4a2b-abe1-860f277f99a8",
+      "compounds": [
+        {
+          "amount": 0.3313888346718924,
+          "amount_unit": "GRAM",
+          "moles": 0.005704159230788563,
+          "compound_lv0": {
+            "smiles": "F[K]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 58.096000000000004,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "impure": false
+    },
+    "76921758-ab95-4c34-af3d-05c8b512ab07": {
+      "id": "76921758-ab95-4c34-af3d-05c8b512ab07",
+      "compounds": [
+        {
+          "amount": 0.41040768091579033,
+          "amount_unit": "GRAM",
+          "moles": 0.002041189482479573,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(Br)cc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 201.063,
+            "density": 1.407
+          }
+        }
+      ],
+      "contained_by": "f964c53a-6759-4f75-809e-21026c40e196",
+      "impure": false
+    },
+    "dcefe0fc-41c5-4095-893d-cac99063bc72": {
+      "id": "dcefe0fc-41c5-4095-893d-cac99063bc72",
+      "compounds": [
+        {
+          "amount": 0.41040768091579033,
+          "amount_unit": "GRAM",
+          "moles": 0.002041189482479573,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(Br)cc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 201.063,
+            "density": 1.407
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "impure": false
+    },
+    "39f23d8d-b1f6-47e4-a3d4-123040c440cc": {
+      "id": "39f23d8d-b1f6-47e4-a3d4-123040c440cc",
+      "compounds": [
+        {
+          "amount": 0.2950262512217172,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00241959658844042,
+          "compound_lv0": {
+            "smiles": "OB(O)c1ccccc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 121.93199999999996,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "e6f049d6-4f5d-433c-a0c6-62dea01321dd",
+      "impure": false
+    },
+    "b5550b8d-1fcf-499a-a16f-76fdf621e9fd": {
+      "id": "b5550b8d-1fcf-499a-a16f-76fdf621e9fd",
+      "compounds": [
+        {
+          "amount": 0.2950262512217172,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00241959658844042,
+          "compound_lv0": {
+            "smiles": "OB(O)c1ccccc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 121.93199999999996,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "impure": false
+    },
+    "635d210f-7283-4f85-9b3d-65bf323933bb": {
+      "id": "635d210f-7283-4f85-9b3d-65bf323933bb",
+      "compounds": [
+        {
+          "amount": 3.559678840318032,
+          "amount_unit": "MILLILITER",
+          "moles": 0.04388692483451996,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        }
+      ],
+      "contained_by": "fa53b232-804d-4f23-8043-9113ff9c842e",
+      "impure": false
+    },
+    "b747f87d-90a5-4fb5-b586-c65847504e60": {
+      "id": "b747f87d-90a5-4fb5-b586-c65847504e60",
+      "compounds": [
+        {
+          "amount": 3.559678840318032,
+          "amount_unit": "MILLILITER",
+          "moles": 0.04388692483451996,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "impure": false
+    },
+    "c9fb9683-d3c0-43aa-9f5a-926a54537867": {
+      "id": "c9fb9683-d3c0-43aa-9f5a-926a54537867",
+      "compounds": [
+        {
+          "amount": 0.41040768091579033,
+          "amount_unit": "GRAM",
+          "moles": 0.002041189482479573,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(Br)cc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 201.063,
+            "density": 1.407
+          }
+        },
+        {
+          "amount": 0.2950262512217172,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00241959658844042,
+          "compound_lv0": {
+            "smiles": "OB(O)c1ccccc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 121.93199999999996,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 3.559678840318032,
+          "amount_unit": "MILLILITER",
+          "moles": 0.04388692483451996,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        },
+        {
+          "amount": 0.3313888346718924,
+          "amount_unit": "GRAM",
+          "moles": 0.005704159230788563,
+          "compound_lv0": {
+            "smiles": "F[K]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 58.096000000000004,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "impure": false
+    },
+    "e3a88f84-060d-451f-ab27-3029ee4d458e": {
+      "id": "e3a88f84-060d-451f-ab27-3029ee4d458e",
+      "compounds": [
+        {
+          "amount": 0.34464214762976453,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017382904074333065,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(-c2ccccc2)cc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 198.26500000000001,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "impure": true
+    },
+    "4b115cf0-0ddd-44aa-89fe-a19e830373b1": {
+      "id": "4b115cf0-0ddd-44aa-89fe-a19e830373b1",
+      "compounds": [
+        {
+          "amount": 0.34464214762976453,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017382904074333065,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(-c2ccccc2)cc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 198.26500000000001,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "a01e2ae9-f95a-4f55-87a6-60df4f6ad3b2",
+      "impure": false
+    },
+    "10105093-e8ce-40f1-93b3-0b86e10f8632": {
+      "id": "10105093-e8ce-40f1-93b3-0b86e10f8632",
+      "compounds": [
+        {
+          "amount": 0.34464214762976453,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017382904074333065,
+          "compound_lv0": {
+            "smiles": "CCOc1ccc(-c2ccccc2)cc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 198.26500000000001,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "impure": true
+    },
+    "e92f7c2e-b82c-49fe-b543-ea7255cbc440": {
+      "id": "e92f7c2e-b82c-49fe-b543-ea7255cbc440",
+      "compounds": [
+        {
+          "amount": 0.09852484044846962,
+          "amount_unit": "GRAM",
+          "moles": 0.004105543814004069,
+          "compound_lv0": {
+            "smiles": "[NaH]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 23.997999999999998,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "99e0921e-26fa-4b02-b2d5-c73388eaa265",
+      "impure": false
+    },
+    "d23b5e67-ec17-4c3e-9c2b-cfe88543cc46": {
+      "id": "d23b5e67-ec17-4c3e-9c2b-cfe88543cc46",
+      "compounds": [
+        {
+          "amount": 0.09852484044846962,
+          "amount_unit": "GRAM",
+          "moles": 0.004105543814004069,
+          "compound_lv0": {
+            "smiles": "[NaH]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 23.997999999999998,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": false
+    },
+    "bbf68f0a-f272-4686-b6e1-8a96f5a1caf1": {
+      "id": "bbf68f0a-f272-4686-b6e1-8a96f5a1caf1",
+      "compounds": [
+        {
+          "amount": 0.17235747130684098,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0024240445402781276,
+          "compound_lv0": {
+            "smiles": "CC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 78.498,
+            "density": 1.104
+          }
+        }
+      ],
+      "contained_by": "047b6f0b-c1f9-4841-a019-04831f7cea46",
+      "impure": false
+    },
+    "3f902a48-5bc2-4937-b3d5-c60bb5a2ab04": {
+      "id": "3f902a48-5bc2-4937-b3d5-c60bb5a2ab04",
+      "compounds": [
+        {
+          "amount": 0.17235747130684098,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0024240445402781276,
+          "compound_lv0": {
+            "smiles": "CC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 78.498,
+            "density": 1.104
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": false
+    },
+    "7a736d2a-383e-4909-ba35-600ed00264e7": {
+      "id": "7a736d2a-383e-4909-ba35-600ed00264e7",
+      "compounds": [
+        {
+          "amount": 0.3048735578379678,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0021234150165971412,
+          "compound_lv0": {
+            "smiles": "CNc1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 143.57700000000003,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "64dc2605-30ef-4a33-bf97-b3ba8c7b5f8e",
+      "impure": false
+    },
+    "ed30a528-560a-4264-9314-3ff34a679196": {
+      "id": "ed30a528-560a-4264-9314-3ff34a679196",
+      "compounds": [
+        {
+          "amount": 0.3048735578379678,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0021234150165971412,
+          "compound_lv0": {
+            "smiles": "CNc1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 143.57700000000003,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": false
+    },
+    "6462b87e-5497-47b9-96f5-f347b056c1de": {
+      "id": "6462b87e-5497-47b9-96f5-f347b056c1de",
+      "compounds": [
+        {
+          "amount": 4.107260926986888,
+          "amount_unit": "MILLILITER",
+          "moles": 0.050638009681325584,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        }
+      ],
+      "contained_by": "fa53b232-804d-4f23-8043-9113ff9c842e",
+      "impure": false
+    },
+    "a869099e-30bb-4a31-b2da-b0c3656bca5c": {
+      "id": "a869099e-30bb-4a31-b2da-b0c3656bca5c",
+      "compounds": [
+        {
+          "amount": 4.107260926986888,
+          "amount_unit": "MILLILITER",
+          "moles": 0.050638009681325584,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": false
+    },
+    "14972647-8914-4b97-8326-36d5e3a6b8b5": {
+      "id": "14972647-8914-4b97-8326-36d5e3a6b8b5",
+      "compounds": [
+        {
+          "amount": 4.695005680712978,
+          "amount_unit": "MILLILITER",
+          "moles": 0.26061646853805037,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "b38b8232-660a-4db2-9021-8e209340eec2",
+      "impure": false
+    },
+    "fad0b9d9-db67-4368-865b-da73c1443d9e": {
+      "id": "fad0b9d9-db67-4368-865b-da73c1443d9e",
+      "compounds": [
+        {
+          "amount": 4.695005680712978,
+          "amount_unit": "MILLILITER",
+          "moles": 0.26061646853805037,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": false
+    },
+    "c65f7a5c-008d-4d69-a7f8-1efd29fd3e88": {
+      "id": "c65f7a5c-008d-4d69-a7f8-1efd29fd3e88",
+      "compounds": [
+        {
+          "amount": 0.17235747130684098,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0024240445402781276,
+          "compound_lv0": {
+            "smiles": "CC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 78.498,
+            "density": 1.104
+          }
+        },
+        {
+          "amount": 0.3048735578379678,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0021234150165971412,
+          "compound_lv0": {
+            "smiles": "CNc1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 143.57700000000003,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 4.695005680712978,
+          "amount_unit": "MILLILITER",
+          "moles": 0.26061646853805037,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 4.107260926986888,
+          "amount_unit": "MILLILITER",
+          "moles": 0.050638009681325584,
+          "compound_lv0": {
+            "smiles": "C1CCOC1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 72.107,
+            "density": 0.889
+          }
+        },
+        {
+          "amount": 0.09852484044846962,
+          "amount_unit": "GRAM",
+          "moles": 0.004105543814004069,
+          "compound_lv0": {
+            "smiles": "[NaH]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 23.997999999999998,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": false
+    },
+    "ca2b8a47-e789-4444-9621-3a6da603c574": {
+      "id": "ca2b8a47-e789-4444-9621-3a6da603c574",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": true
+    },
+    "68a0b2bc-5507-4e7b-9766-490f31ef8eef": {
+      "id": "68a0b2bc-5507-4e7b-9766-490f31ef8eef",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "3a958c9a-549f-49d2-988b-785ab51aacc7",
+      "impure": false
+    },
+    "f9243bf8-0a7e-4ab9-90c3-4f617e7ee3ea": {
+      "id": "f9243bf8-0a7e-4ab9-90c3-4f617e7ee3ea",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": true
+    },
+    "9ecd706c-7cc2-496b-9874-6ba43b5659ac": {
+      "id": "9ecd706c-7cc2-496b-9874-6ba43b5659ac",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "cfee8165-ff0a-4d6a-82d5-fc1f1d4d5845",
+      "impure": false
+    },
+    "d479c5c5-82ad-4ec3-b2b6-1e7d465174bf": {
+      "id": "d479c5c5-82ad-4ec3-b2b6-1e7d465174bf",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "3a958c9a-549f-49d2-988b-785ab51aacc7",
+      "impure": false
+    },
+    "0967c2f9-ca00-4d67-a311-1538fb3a10e8": {
+      "id": "0967c2f9-ca00-4d67-a311-1538fb3a10e8",
+      "compounds": [
+        {
+          "amount": 0.72926904433252,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00867330753707714,
+          "compound_lv0": {
+            "smiles": "Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.082,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "d3146209-6462-4cd6-a319-22d2bf3a59cd",
+      "impure": false
+    },
+    "216fa0a6-b1bc-4209-86ea-642bfc720e75": {
+      "id": "216fa0a6-b1bc-4209-86ea-642bfc720e75",
+      "compounds": [
+        {
+          "amount": 0.72926904433252,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00867330753707714,
+          "compound_lv0": {
+            "smiles": "Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.082,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "cf51070b-7ec6-4ee0-8c00-cb067ee29a8f": {
+      "id": "cf51070b-7ec6-4ee0-8c00-cb067ee29a8f",
+      "compounds": [
+        {
+          "amount": 0.7841695405206918,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0060458531108105885,
+          "compound_lv0": {
+            "smiles": "CC(C)COC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.57799999999997,
+            "density": 1.053
+          }
+        }
+      ],
+      "contained_by": "dd51633c-4e99-4606-b878-9fe037fcfe91",
+      "impure": false
+    },
+    "b9989018-062c-4601-a03c-7cd593a39889": {
+      "id": "b9989018-062c-4601-a03c-7cd593a39889",
+      "compounds": [
+        {
+          "amount": 0.7841695405206918,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0060458531108105885,
+          "compound_lv0": {
+            "smiles": "CC(C)COC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.57799999999997,
+            "density": 1.053
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "f9cd6563-9053-4270-af5a-d37271760a49": {
+      "id": "f9cd6563-9053-4270-af5a-d37271760a49",
+      "compounds": [
+        {
+          "amount": 1.078062007866458,
+          "amount_unit": "MILLILITER",
+          "moles": 0.007734458092072065,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "1e94106e-81c7-4571-99f0-a3a832b6d7fb",
+      "impure": false
+    },
+    "0f6aa23e-422d-43d9-ac12-796865867117": {
+      "id": "0f6aa23e-422d-43d9-ac12-796865867117",
+      "compounds": [
+        {
+          "amount": 1.078062007866458,
+          "amount_unit": "MILLILITER",
+          "moles": 0.007734458092072065,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "4ff7517e-7f02-4873-aec3-cf15683634c7": {
+      "id": "4ff7517e-7f02-4873-aec3-cf15683634c7",
+      "compounds": [
+        {
+          "amount": 1.2413634636319122,
+          "amount_unit": "MILLILITER",
+          "moles": 0.007086055025755276,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 175.18399999999997,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "78ad9b6a-c610-4c68-b0e0-4e4bc2b9b8de",
+      "impure": false
+    },
+    "902dc657-7902-4f5f-af39-0cba3fb3972f": {
+      "id": "902dc657-7902-4f5f-af39-0cba3fb3972f",
+      "compounds": [
+        {
+          "amount": 1.2413634636319122,
+          "amount_unit": "MILLILITER",
+          "moles": 0.007086055025755276,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 175.18399999999997,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "fd19697c-cc41-4b42-994c-4361afa1f2e9": {
+      "id": "fd19697c-cc41-4b42-994c-4361afa1f2e9",
+      "compounds": [
+        {
+          "amount": 32.9507788189823,
+          "amount_unit": "MILLILITER",
+          "moles": 0.5140496854597335,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "2567ea07-ec0b-4db6-8d0c-ed2e72862938",
+      "impure": false
+    },
+    "17eb42ed-52aa-4fb5-8b91-862d0e100324": {
+      "id": "17eb42ed-52aa-4fb5-8b91-862d0e100324",
+      "compounds": [
+        {
+          "amount": 32.9507788189823,
+          "amount_unit": "MILLILITER",
+          "moles": 0.5140496854597335,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "323219ea-5c1a-480c-b425-fc8d35d8b977": {
+      "id": "323219ea-5c1a-480c-b425-fc8d35d8b977",
+      "compounds": [
+        {
+          "amount": 1.2413634636319122,
+          "amount_unit": "MILLILITER",
+          "moles": 0.007086055025755276,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 175.18399999999997,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 0.72926904433252,
+          "amount_unit": "MILLILITER",
+          "moles": 0.00867330753707714,
+          "compound_lv0": {
+            "smiles": "Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.082,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 32.9507788189823,
+          "amount_unit": "MILLILITER",
+          "moles": 0.5140496854597335,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 1.078062007866458,
+          "amount_unit": "MILLILITER",
+          "moles": 0.007734458092072065,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        },
+        {
+          "amount": 0.7841695405206918,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0060458531108105885,
+          "compound_lv0": {
+            "smiles": "CC(C)COC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.57799999999997,
+            "density": 1.053
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "c8d6e0d6-d976-452e-9f29-74db48c20396": {
+      "id": "c8d6e0d6-d976-452e-9f29-74db48c20396",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "b339d2b6-f63f-45fa-970c-bc0f296c1489": {
+      "id": "b339d2b6-f63f-45fa-970c-bc0f296c1489",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "08d4c85b-45a8-4314-8f1d-75aaf0d09940",
+      "impure": false
+    },
+    "5878064e-d7b2-4f70-8a22-f091ec7de85d": {
+      "id": "5878064e-d7b2-4f70-8a22-f091ec7de85d",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "0a54ad34-f4a3-40a7-8672-da0faa1bd701": {
+      "id": "0a54ad34-f4a3-40a7-8672-da0faa1bd701",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "c9d1e626-0b0d-41e8-b706-fe71d3cd9225",
+      "impure": false
+    },
+    "bb9264cb-a049-4034-8ad3-ca3778be4b48": {
+      "id": "bb9264cb-a049-4034-8ad3-ca3778be4b48",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "08d4c85b-45a8-4314-8f1d-75aaf0d09940",
+      "impure": false
+    },
+    "e1f7b1d5-3794-47cf-b836-422097d3e05e": {
+      "id": "e1f7b1d5-3794-47cf-b836-422097d3e05e",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "cfee8165-ff0a-4d6a-82d5-fc1f1d4d5845",
+      "impure": false
+    },
+    "560d7ecd-47a2-4263-baf7-980727be76a3": {
+      "id": "560d7ecd-47a2-4263-baf7-980727be76a3",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "impure": false
+    },
+    "55d3917a-9119-490c-907a-eb81981c88e9": {
+      "id": "55d3917a-9119-490c-907a-eb81981c88e9",
+      "compounds": [
+        {
+          "amount": 1.095687016680388,
+          "amount_unit": "MILLILITER",
+          "moles": 0.02055551250208418,
+          "compound_lv0": {
+            "smiles": "O=S(=O)(O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 98.07899999999998,
+            "density": 1.84
+          }
+        }
+      ],
+      "contained_by": "1c61280e-a2a2-4823-aa8c-6b02da604448",
+      "impure": false
+    },
+    "3a31c96d-c9f2-4f1c-b34b-00f04f769034": {
+      "id": "3a31c96d-c9f2-4f1c-b34b-00f04f769034",
+      "compounds": [
+        {
+          "amount": 1.095687016680388,
+          "amount_unit": "MILLILITER",
+          "moles": 0.02055551250208418,
+          "compound_lv0": {
+            "smiles": "O=S(=O)(O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 98.07899999999998,
+            "density": 1.84
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "impure": false
+    },
+    "99b99e25-09c4-4397-acc9-ba3af51a3418": {
+      "id": "99b99e25-09c4-4397-acc9-ba3af51a3418",
+      "compounds": [
+        {
+          "amount": 3.4707637519148213,
+          "amount_unit": "MILLILITER",
+          "moles": 0.19265965872410887,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "b38b8232-660a-4db2-9021-8e209340eec2",
+      "impure": false
+    },
+    "c7af3c0f-ede4-4a0e-8b40-ca9fd78be8ab": {
+      "id": "c7af3c0f-ede4-4a0e-8b40-ca9fd78be8ab",
+      "compounds": [
+        {
+          "amount": 3.4707637519148213,
+          "amount_unit": "MILLILITER",
+          "moles": 0.19265965872410887,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "impure": false
+    },
+    "b97b64cb-c11a-4071-883c-a658fd0484c0": {
+      "id": "b97b64cb-c11a-4071-883c-a658fd0484c0",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 3.4707637519148213,
+          "amount_unit": "MILLILITER",
+          "moles": 0.19265965872410887,
+          "compound_lv0": {
+            "smiles": "O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 18.015,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 1.095687016680388,
+          "amount_unit": "MILLILITER",
+          "moles": 0.02055551250208418,
+          "compound_lv0": {
+            "smiles": "O=S(=O)(O)O",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 98.07899999999998,
+            "density": 1.84
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "impure": false
+    },
+    "b99c407f-e316-49f9-921f-d07fead6ae38": {
+      "id": "b99c407f-e316-49f9-921f-d07fead6ae38",
+      "compounds": [
+        {
+          "amount": 0.4278853596915767,
+          "amount_unit": "GRAM",
+          "moles": 0.001855442106801396,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 230.611,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "impure": true
+    },
+    "494647f6-4d27-4bb0-aaf4-9c5aca3f09bc": {
+      "id": "494647f6-4d27-4bb0-aaf4-9c5aca3f09bc",
+      "compounds": [
+        {
+          "amount": 0.4278853596915767,
+          "amount_unit": "GRAM",
+          "moles": 0.001855442106801396,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 230.611,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "5e1292b9-face-455c-975d-ba4d0370dd92",
+      "impure": false
+    },
+    "bd0af650-f876-4f2a-ad97-5a112db4bd00": {
+      "id": "bd0af650-f876-4f2a-ad97-5a112db4bd00",
+      "compounds": [
+        {
+          "amount": 0.4278853596915767,
+          "amount_unit": "GRAM",
+          "moles": 0.001855442106801396,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 230.611,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "impure": true
+    },
+    "3fd0279a-fdb9-4593-baef-b1d7254a237c": {
+      "id": "3fd0279a-fdb9-4593-baef-b1d7254a237c",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "c9d1e626-0b0d-41e8-b706-fe71d3cd9225",
+      "impure": false
+    },
+    "acc856f4-d63f-4072-b234-6168fd008d20": {
+      "id": "acc856f4-d63f-4072-b234-6168fd008d20",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "4dbd0387-e076-428c-a38c-6a0f6812793c": {
+      "id": "4dbd0387-e076-428c-a38c-6a0f6812793c",
+      "compounds": [
+        {
+          "amount": 14.789555061700083,
+          "amount_unit": "MILLILITER",
+          "moles": 0.19313507469498362,
+          "compound_lv0": {
+            "smiles": "O=C(O)C(F)(F)F",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 114.02200000000002,
+            "density": 1.489
+          }
+        }
+      ],
+      "contained_by": "1350a0ef-8d15-454a-b0d1-8df4b9a316c0",
+      "impure": false
+    },
+    "c877615e-f7d4-4f41-99b7-eb063ec73254": {
+      "id": "c877615e-f7d4-4f41-99b7-eb063ec73254",
+      "compounds": [
+        {
+          "amount": 14.789555061700083,
+          "amount_unit": "MILLILITER",
+          "moles": 0.19313507469498362,
+          "compound_lv0": {
+            "smiles": "O=C(O)C(F)(F)F",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 114.02200000000002,
+            "density": 1.489
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "ffc2c569-4809-40a9-8e9c-67a64f7e8b0d": {
+      "id": "ffc2c569-4809-40a9-8e9c-67a64f7e8b0d",
+      "compounds": [
+        {
+          "amount": 18.682001058164506,
+          "amount_unit": "MILLILITER",
+          "moles": 0.291449158773009,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "2567ea07-ec0b-4db6-8d0c-ed2e72862938",
+      "impure": false
+    },
+    "740115f9-dbde-4a01-9f78-ecab070ade75": {
+      "id": "740115f9-dbde-4a01-9f78-ecab070ade75",
+      "compounds": [
+        {
+          "amount": 18.682001058164506,
+          "amount_unit": "MILLILITER",
+          "moles": 0.291449158773009,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "7ba7c192-91ea-459b-9407-1086ebe4ed24": {
+      "id": "7ba7c192-91ea-459b-9407-1086ebe4ed24",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4
+          }
+        },
+        {
+          "amount": 18.682001058164506,
+          "amount_unit": "MILLILITER",
+          "moles": 0.291449158773009,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 14.789555061700083,
+          "amount_unit": "MILLILITER",
+          "moles": 0.19313507469498362,
+          "compound_lv0": {
+            "smiles": "O=C(O)C(F)(F)F",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 114.02200000000002,
+            "density": 1.489
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "307fae5c-4a46-4bc4-8a41-0cd937e5bb32": {
+      "id": "307fae5c-4a46-4bc4-8a41-0cd937e5bb32",
+      "compounds": [
+        {
+          "amount": 0.5860412942672558,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004152375007207731,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "5e462f0c-3468-4526-9f10-5714f9e759e4": {
+      "id": "5e462f0c-3468-4526-9f10-5714f9e759e4",
+      "compounds": [
+        {
+          "amount": 0.5860412942672558,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004152375007207731,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "9bc87121-5e2c-4dfa-a63d-25926f496f47",
+      "impure": false
+    },
+    "33d70a97-4722-47a8-8727-78f1dd49fe92": {
+      "id": "33d70a97-4722-47a8-8727-78f1dd49fe92",
+      "compounds": [
+        {
+          "amount": 0.5860412942672558,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004152375007207731,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "01ec992f-7ff8-42b0-895d-b9e5f523fc4c": {
+      "id": "01ec992f-7ff8-42b0-895d-b9e5f523fc4c",
+      "compounds": [
+        {
+          "amount": 0.5860412942672558,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004152375007207731,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "55d92dca-732f-468a-84c9-ca7470ec561e",
+      "impure": false
+    },
+    "4eaaedd6-16a4-42ed-804e-519080d70c19": {
+      "id": "4eaaedd6-16a4-42ed-804e-519080d70c19",
+      "compounds": [
+        {
+          "amount": 0.5860412942672558,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004152375007207731,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "9bc87121-5e2c-4dfa-a63d-25926f496f47",
+      "impure": false
+    },
+    "d43b5eb3-1c5f-46de-9e16-41e18e58b106": {
+      "id": "d43b5eb3-1c5f-46de-9e16-41e18e58b106",
+      "compounds": [
+        {
+          "amount": 0.19335020873983771,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017984880330144427,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.534,
+            "density": 1.27
+          }
+        }
+      ],
+      "contained_by": "bc825c2b-c69c-4be9-bb08-ca2f082d2ae7",
+      "impure": false
+    },
+    "6a7e773b-46e7-495e-bcd7-dd213e3c50f7": {
+      "id": "6a7e773b-46e7-495e-bcd7-dd213e3c50f7",
+      "compounds": [
+        {
+          "amount": 0.19335020873983771,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017984880330144427,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.534,
+            "density": 1.27
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "147c261e-0975-4b51-ab20-f8d4869fcff8": {
+      "id": "147c261e-0975-4b51-ab20-f8d4869fcff8",
+      "compounds": [
+        {
+          "amount": 0.24578715604653895,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017415162614716438,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "55d92dca-732f-468a-84c9-ca7470ec561e",
+      "impure": false
+    },
+    "70c5f0f8-244b-4625-9444-7bb7aefe4fd5": {
+      "id": "70c5f0f8-244b-4625-9444-7bb7aefe4fd5",
+      "compounds": [
+        {
+          "amount": 0.24578715604653895,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017415162614716438,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "8be3e803-2fa1-4602-8575-43e5f2e0e0c1": {
+      "id": "8be3e803-2fa1-4602-8575-43e5f2e0e0c1",
+      "compounds": [
+        {
+          "amount": 0.2763479617684196,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019826333861420516,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "1e94106e-81c7-4571-99f0-a3a832b6d7fb",
+      "impure": false
+    },
+    "51e26cd5-29ab-4b13-a3e1-d83bd53d6a2d": {
+      "id": "51e26cd5-29ab-4b13-a3e1-d83bd53d6a2d",
+      "compounds": [
+        {
+          "amount": 0.2763479617684196,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019826333861420516,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "1debb7de-afdf-4643-a67a-7f89c603bd43": {
+      "id": "1debb7de-afdf-4643-a67a-7f89c603bd43",
+      "compounds": [
+        {
+          "amount": 14.329932991702398,
+          "amount_unit": "MILLILITER",
+          "moles": 0.22355458083437155,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "2567ea07-ec0b-4db6-8d0c-ed2e72862938",
+      "impure": false
+    },
+    "791eb26c-257f-4af3-bb4d-30334fd9d7a7": {
+      "id": "791eb26c-257f-4af3-bb4d-30334fd9d7a7",
+      "compounds": [
+        {
+          "amount": 14.329932991702398,
+          "amount_unit": "MILLILITER",
+          "moles": 0.22355458083437155,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "dbeb4ab5-a89e-46b0-b024-fb49cc574c87": {
+      "id": "dbeb4ab5-a89e-46b0-b024-fb49cc574c87",
+      "compounds": [
+        {
+          "amount": 0.19335020873983771,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017984880330144427,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)Cl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 136.534,
+            "density": 1.27
+          }
+        },
+        {
+          "amount": 0.24578715604653895,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0017415162614716438,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 14.329932991702398,
+          "amount_unit": "MILLILITER",
+          "moles": 0.22355458083437155,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 0.2763479617684196,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019826333861420516,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "791d3218-f66a-4547-9766-67d5cf30c3d2": {
+      "id": "791d3218-f66a-4547-9766-67d5cf30c3d2",
+      "compounds": [
+        {
+          "amount": 0.3050021510445334,
+          "amount_unit": "GRAM",
+          "moles": 0.0012644830002633977,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.20700000000002,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "f978dce7-6ad6-4a60-b0be-9fb3d1839f7b": {
+      "id": "f978dce7-6ad6-4a60-b0be-9fb3d1839f7b",
+      "compounds": [
+        {
+          "amount": 0.3050021510445334,
+          "amount_unit": "GRAM",
+          "moles": 0.0012644830002633977,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.20700000000002,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "79308d5a-dfed-4b43-be11-eb3620df18ba",
+      "impure": false
+    },
+    "d92d5e9c-a647-450c-aa8b-af27f856ceea": {
+      "id": "d92d5e9c-a647-450c-aa8b-af27f856ceea",
+      "compounds": [
+        {
+          "amount": 0.3050021510445334,
+          "amount_unit": "GRAM",
+          "moles": 0.0012644830002633977,
+          "compound_lv0": {
+            "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.20700000000002,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "2c8d693b-f289-4878-8595-7d727747c467": {
+      "id": "2c8d693b-f289-4878-8595-7d727747c467",
+      "compounds": [
+        {
+          "amount": 0.23292539956506564,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002796987211570797,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)CBr",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 157.394,
+            "density": 1.89
+          }
+        }
+      ],
+      "contained_by": "f73caebe-5fe3-49d7-8e4f-377b4b09f31f",
+      "impure": false
+    },
+    "c8f24dfe-5526-4f34-a052-baa463c5dea7": {
+      "id": "c8f24dfe-5526-4f34-a052-baa463c5dea7",
+      "compounds": [
+        {
+          "amount": 0.23292539956506564,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002796987211570797,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)CBr",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 157.394,
+            "density": 1.89
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "7f4844ad-9eed-4d1f-9d20-f3d6326282af": {
+      "id": "7f4844ad-9eed-4d1f-9d20-f3d6326282af",
+      "compounds": [
+        {
+          "amount": 0.289447806551031,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002076617034340799,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "1e94106e-81c7-4571-99f0-a3a832b6d7fb",
+      "impure": false
+    },
+    "49e9abde-60b0-4df5-bfd9-999eade1f804": {
+      "id": "49e9abde-60b0-4df5-bfd9-999eade1f804",
+      "compounds": [
+        {
+          "amount": 0.289447806551031,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002076617034340799,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "0b5d3e93-9f68-4367-aa0e-79b5d792dff0": {
+      "id": "0b5d3e93-9f68-4367-aa0e-79b5d792dff0",
+      "compounds": [
+        {
+          "amount": 0.3402541382207169,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002410858745736087,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "55d92dca-732f-468a-84c9-ca7470ec561e",
+      "impure": false
+    },
+    "5417f8aa-b800-4a6d-afbf-7b5af1abdad8": {
+      "id": "5417f8aa-b800-4a6d-afbf-7b5af1abdad8",
+      "compounds": [
+        {
+          "amount": 0.3402541382207169,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002410858745736087,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "582b2c7f-1ddf-4eda-bd35-2f35428e34fd": {
+      "id": "582b2c7f-1ddf-4eda-bd35-2f35428e34fd",
+      "compounds": [
+        {
+          "amount": 13.255360420846904,
+          "amount_unit": "MILLILITER",
+          "moles": 0.20679067685849017,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "2567ea07-ec0b-4db6-8d0c-ed2e72862938",
+      "impure": false
+    },
+    "a9e70743-8ab5-42cb-8ff1-7b16b5cd3473": {
+      "id": "a9e70743-8ab5-42cb-8ff1-7b16b5cd3473",
+      "compounds": [
+        {
+          "amount": 13.255360420846904,
+          "amount_unit": "MILLILITER",
+          "moles": 0.20679067685849017,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "eea9e6aa-08a1-40a4-840e-a6f504a7ff61": {
+      "id": "eea9e6aa-08a1-40a4-840e-a6f504a7ff61",
+      "compounds": [
+        {
+          "amount": 0.3402541382207169,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002410858745736087,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0
+          }
+        },
+        {
+          "amount": 0.23292539956506564,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002796987211570797,
+          "compound_lv0": {
+            "smiles": "O=C(Cl)CBr",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 157.394,
+            "density": 1.89
+          }
+        },
+        {
+          "amount": 13.255360420846904,
+          "amount_unit": "MILLILITER",
+          "moles": 0.20679067685849017,
+          "compound_lv0": {
+            "smiles": "ClCCl",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 84.93299999999999,
+            "density": 1.325
+          }
+        },
+        {
+          "amount": 0.289447806551031,
+          "amount_unit": "MILLILITER",
+          "moles": 0.002076617034340799,
+          "compound_lv0": {
+            "smiles": "CCN(CC)CC",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 101.193,
+            "density": 0.726
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "impure": false
+    },
+    "11eaf94c-4e91-4537-b6fc-bcb96235f0f6": {
+      "id": "11eaf94c-4e91-4537-b6fc-bcb96235f0f6",
+      "compounds": [
+        {
+          "amount": 0.4472942428328025,
+          "amount_unit": "GRAM",
+          "moles": 0.00170679346439194,
+          "compound_lv0": {
+            "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 262.067,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "22cf5c76-37b0-44d7-9eb1-26191c975c63": {
+      "id": "22cf5c76-37b0-44d7-9eb1-26191c975c63",
+      "compounds": [
+        {
+          "amount": 0.4472942428328025,
+          "amount_unit": "GRAM",
+          "moles": 0.00170679346439194,
+          "compound_lv0": {
+            "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 262.067,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "8d37d1c3-02d9-4845-9138-2b590a8ac5aa",
+      "impure": false
+    },
+    "f666b70e-f9a0-44a4-9461-1c44c641ce97": {
+      "id": "f666b70e-f9a0-44a4-9461-1c44c641ce97",
+      "compounds": [
+        {
+          "amount": 0.4472942428328025,
+          "amount_unit": "GRAM",
+          "moles": 0.00170679346439194,
+          "compound_lv0": {
+            "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 262.067,
+            "density": 1.4
+          }
+        }
+      ],
+      "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "impure": true
+    }
+  },
+  "transform_dict": {
+    "792df318-889d-43f1-b132-ff63317171a9": {
+      "id": "792df318-889d-43f1-b132-ff63317171a9",
+      "description": "",
+      "consumes": null,
+      "produces": "c446d554-f294-4eea-bc8c-c0c07d017d03",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "a5d892d5-383d-4cd6-84c4-83f6012bf741": {
+      "id": "a5d892d5-383d-4cd6-84c4-83f6012bf741",
+      "description": "",
+      "consumes": null,
+      "produces": "d26a039d-d99e-4ad5-a2aa-261a3480f271",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "0d59b054-26dc-44ff-8330-feb9fbbbc886": {
+      "id": "0d59b054-26dc-44ff-8330-feb9fbbbc886",
+      "description": "",
+      "consumes": null,
+      "produces": "b625a672-25e3-41ee-acc3-db477acfaf95",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "80c26810-d98b-4eb6-b6c0-222fb2820d20": {
+      "id": "80c26810-d98b-4eb6-b6c0-222fb2820d20",
+      "description": "",
+      "consumes": null,
+      "produces": "44cd5157-bce1-47e2-9d07-2fe568424759",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "21a188d3-5d09-41b3-9616-8b04584c39d9": {
+      "id": "21a188d3-5d09-41b3-9616-8b04584c39d9",
+      "description": "",
+      "consumes": null,
+      "produces": "0e18c874-a419-4bd2-b397-936c4f8cbbdb",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "85ed1406-c532-46e7-bcdc-fb91cc59931b": {
+      "id": "85ed1406-c532-46e7-bcdc-fb91cc59931b",
+      "description": "",
+      "consumes": null,
+      "produces": "cc704334-9e03-4e64-b2dc-b855338d39cc",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "af67972d-fa8e-4e18-a025-2f63b07b6686": {
+      "id": "af67972d-fa8e-4e18-a025-2f63b07b6686",
+      "description": "",
+      "consumes": null,
+      "produces": "9eca2c07-a137-447f-aecb-e386505cbc81",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "059c51e7-ebd3-436b-8af1-a8f85550937c": {
+      "id": "059c51e7-ebd3-436b-8af1-a8f85550937c",
+      "description": "",
+      "consumes": null,
+      "produces": "cd9b1134-8643-4c21-b65c-14cdcf59cc46",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "0b7da695-32dd-4ab6-a235-c338a3c2a409": {
+      "id": "0b7da695-32dd-4ab6-a235-c338a3c2a409",
+      "description": "",
+      "consumes": null,
+      "produces": "4ba8c83b-91fc-4e25-b368-1e84df752ed2",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "d035cb57-d337-44a1-b00a-0add542d2a81": {
+      "id": "d035cb57-d337-44a1-b00a-0add542d2a81",
+      "description": "",
+      "consumes": null,
+      "produces": "03cb3a2d-b179-44b5-8886-294ed1292ebe",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "72b48daa-ff63-4b65-8750-6427f3bf367d": {
+      "id": "72b48daa-ff63-4b65-8750-6427f3bf367d",
+      "description": "",
+      "consumes": null,
+      "produces": "f5ccd044-b05b-426e-b919-8a2b0f1aea27",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "7ae30247-1621-437f-ad44-46ef684b58dc": {
+      "id": "7ae30247-1621-437f-ad44-46ef684b58dc",
+      "description": "",
+      "consumes": null,
+      "produces": "7cf6a57a-1890-4b89-95ae-37f99e495151",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "b1af0416-a59d-428b-93e4-25b1a9d7379b": {
+      "id": "b1af0416-a59d-428b-93e4-25b1a9d7379b",
+      "description": "",
+      "consumes": null,
+      "produces": "387d784b-ebf4-4c84-83ed-5b94a363bbe0",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "0004cb11-7a8a-4da7-bfd5-0c38186816f1": {
+      "id": "0004cb11-7a8a-4da7-bfd5-0c38186816f1",
+      "description": "",
+      "consumes": null,
+      "produces": "abb93f2a-f61d-40b1-9ff4-e64952db3b8c",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "361babc0-70dc-437c-97ff-0c5c3a1bf83b": {
+      "id": "361babc0-70dc-437c-97ff-0c5c3a1bf83b",
+      "description": "",
+      "consumes": null,
+      "produces": "192ac64e-fb80-40e8-bc95-4122f3aeb340",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "d320c882-38df-4a85-a13f-27af359338d0": {
+      "id": "d320c882-38df-4a85-a13f-27af359338d0",
+      "description": "",
+      "consumes": null,
+      "produces": "d62270d8-0cda-4f6c-be8c-003f2ac59454",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "d7ef4adf-1bd5-4189-9ea8-b2080359bafc": {
+      "id": "d7ef4adf-1bd5-4189-9ea8-b2080359bafc",
+      "description": "",
+      "consumes": null,
+      "produces": "75c880ff-3135-4239-9725-2a9ddcdcdde2",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "0b980763-096e-41f7-8cf6-7a7a73cf7f76": {
+      "id": "0b980763-096e-41f7-8cf6-7a7a73cf7f76",
+      "description": "",
+      "consumes": null,
+      "produces": "d483ac66-0557-47d0-95f2-5f75c6c232b9",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "2b4f18c9-cbfc-4ecd-9ed0-ccd2a70e26c9": {
+      "id": "2b4f18c9-cbfc-4ecd-9ed0-ccd2a70e26c9",
+      "description": "",
+      "consumes": null,
+      "produces": "45abfb68-17ec-4468-8e1e-f3afe313da1d",
+      "precedents": [],
+      "type": "transform_loading"
+    },
+    "5574578d-0029-4a54-9879-cc07d40a9496": {
+      "id": "5574578d-0029-4a54-9879-cc07d40a9496",
+      "description": "",
+      "consumes": "87ecf644-6a65-4a05-8c43-034a28a48041",
+      "produces": "05f5774c-def8-4b82-b6c8-41a44271ebc2",
+      "precedents": [
+        "0004cb11-7a8a-4da7-bfd5-0c38186816f1"
+      ],
+      "type": "transform_solid_addition"
+    },
+    "1c898f34-d938-441a-8475-f6b41abd84a5": {
+      "id": "1c898f34-d938-441a-8475-f6b41abd84a5",
+      "description": "",
+      "consumes": "4fc9d511-2ff7-45d6-952a-68ed4b23e211",
+      "produces": "6f0f6c51-cd8f-4cff-8b69-51269be8e765",
+      "precedents": [
+        "361babc0-70dc-437c-97ff-0c5c3a1bf83b",
+        "5574578d-0029-4a54-9879-cc07d40a9496"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "f97e6128-76b5-4fb6-b04a-6bfca2a8a41c": {
+      "id": "f97e6128-76b5-4fb6-b04a-6bfca2a8a41c",
+      "description": "",
+      "consumes": "5a7887bb-b058-47e5-a457-2d9d8c51e7b4",
+      "produces": "ae65b1f7-c757-40d6-8244-92df98352d03",
+      "precedents": [
+        "0b7da695-32dd-4ab6-a235-c338a3c2a409",
+        "1c898f34-d938-441a-8475-f6b41abd84a5"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "34921ce5-b6bf-445b-a69b-11487879f501": {
+      "id": "34921ce5-b6bf-445b-a69b-11487879f501",
+      "description": "",
+      "consumes": "a32e8053-e568-434a-9584-55c7a413cefa",
+      "produces": "f0ec1b70-1881-4bd7-acf8-5a4d57ebd8eb",
+      "precedents": [
+        "059c51e7-ebd3-436b-8af1-a8f85550937c",
+        "f97e6128-76b5-4fb6-b04a-6bfca2a8a41c"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "1e6a8b5a-bd99-4572-bae4-1918cafea4a3": {
+      "id": "1e6a8b5a-bd99-4572-bae4-1918cafea4a3",
+      "description": "",
+      "consumes": "caf58e60-18f8-44f4-8a6d-ec662f779893",
+      "produces": "0b4b43a8-01de-451a-92f5-7ef9a9085617",
+      "precedents": [
+        "34921ce5-b6bf-445b-a69b-11487879f501"
+      ],
+      "type": "transform_reaction"
+    },
+    "8af14a60-c40c-45ba-a821-706c055097b3": {
+      "id": "8af14a60-c40c-45ba-a821-706c055097b3",
+      "description": "",
+      "consumes": "9e7f2204-5251-4d7f-b4e7-48b8f989dbb0",
+      "produces": "6ce656fd-f828-4872-8296-658c126d5f88",
+      "precedents": [
+        "1e6a8b5a-bd99-4572-bae4-1918cafea4a3"
+      ],
+      "type": "transform_purification"
+    },
+    "9336d036-5b25-49b0-9bd5-98b784fbe218": {
+      "id": "9336d036-5b25-49b0-9bd5-98b784fbe218",
+      "description": "",
+      "consumes": "0fbc6249-c98e-4648-b83a-925cc78c7766",
+      "produces": "95228840-9dc1-4a2b-abe1-860f277f99a8",
+      "precedents": [
+        "0b980763-096e-41f7-8cf6-7a7a73cf7f76"
+      ],
+      "type": "transform_solid_addition"
+    },
+    "79f7aedf-816a-4ae1-a274-328b6d285af9": {
+      "id": "79f7aedf-816a-4ae1-a274-328b6d285af9",
+      "description": "",
+      "consumes": "76921758-ab95-4c34-af3d-05c8b512ab07",
+      "produces": "dcefe0fc-41c5-4095-893d-cac99063bc72",
+      "precedents": [
+        "d320c882-38df-4a85-a13f-27af359338d0",
+        "9336d036-5b25-49b0-9bd5-98b784fbe218"
+      ],
+      "type": "transform_solid_addition"
+    },
+    "09fa7664-948c-4de5-8c95-1efa30155f07": {
+      "id": "09fa7664-948c-4de5-8c95-1efa30155f07",
+      "description": "",
+      "consumes": "39f23d8d-b1f6-47e4-a3d4-123040c440cc",
+      "produces": "b5550b8d-1fcf-499a-a16f-76fdf621e9fd",
+      "precedents": [
+        "d7ef4adf-1bd5-4189-9ea8-b2080359bafc",
+        "79f7aedf-816a-4ae1-a274-328b6d285af9"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "42fb6221-818c-4326-a219-d3ff5a2a0ea8": {
+      "id": "42fb6221-818c-4326-a219-d3ff5a2a0ea8",
+      "description": "",
+      "consumes": "635d210f-7283-4f85-9b3d-65bf323933bb",
+      "produces": "b747f87d-90a5-4fb5-b586-c65847504e60",
+      "precedents": [
+        "80c26810-d98b-4eb6-b6c0-222fb2820d20",
+        "09fa7664-948c-4de5-8c95-1efa30155f07"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "f9b266ac-13f0-47a7-8b5f-d0a6b292f9f4": {
+      "id": "f9b266ac-13f0-47a7-8b5f-d0a6b292f9f4",
+      "description": "",
+      "consumes": "c9fb9683-d3c0-43aa-9f5a-926a54537867",
+      "produces": "e3a88f84-060d-451f-ab27-3029ee4d458e",
+      "precedents": [
+        "42fb6221-818c-4326-a219-d3ff5a2a0ea8"
+      ],
+      "type": "transform_reaction"
+    },
+    "cc6d1417-bfb3-45a3-a763-1a69fae68b3a": {
+      "id": "cc6d1417-bfb3-45a3-a763-1a69fae68b3a",
+      "description": "",
+      "consumes": "10105093-e8ce-40f1-93b3-0b86e10f8632",
+      "produces": "4b115cf0-0ddd-44aa-89fe-a19e830373b1",
+      "precedents": [
+        "f9b266ac-13f0-47a7-8b5f-d0a6b292f9f4"
+      ],
+      "type": "transform_purification"
+    },
+    "0c9e0232-2bd9-4cf4-ba6f-5433522e0484": {
+      "id": "0c9e0232-2bd9-4cf4-ba6f-5433522e0484",
+      "description": "",
+      "consumes": "e92f7c2e-b82c-49fe-b543-ea7255cbc440",
+      "produces": "d23b5e67-ec17-4c3e-9c2b-cfe88543cc46",
+      "precedents": [
+        "21a188d3-5d09-41b3-9616-8b04584c39d9"
+      ],
+      "type": "transform_solid_addition"
+    },
+    "6624109e-944a-468a-9d7a-a8cc7dea2cb8": {
+      "id": "6624109e-944a-468a-9d7a-a8cc7dea2cb8",
+      "description": "",
+      "consumes": "bbf68f0a-f272-4686-b6e1-8a96f5a1caf1",
+      "produces": "3f902a48-5bc2-4937-b3d5-c60bb5a2ab04",
+      "precedents": [
+        "792df318-889d-43f1-b132-ff63317171a9",
+        "0c9e0232-2bd9-4cf4-ba6f-5433522e0484"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "98989369-c0b3-490b-bd9a-e578e9ab1ba9": {
+      "id": "98989369-c0b3-490b-bd9a-e578e9ab1ba9",
+      "description": "",
+      "consumes": "7a736d2a-383e-4909-ba35-600ed00264e7",
+      "produces": "ed30a528-560a-4264-9314-3ff34a679196",
+      "precedents": [
+        "a5d892d5-383d-4cd6-84c4-83f6012bf741",
+        "6624109e-944a-468a-9d7a-a8cc7dea2cb8"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "5050daa1-09fd-46bc-a07a-8ba669384b48": {
+      "id": "5050daa1-09fd-46bc-a07a-8ba669384b48",
+      "description": "",
+      "consumes": "6462b87e-5497-47b9-96f5-f347b056c1de",
+      "produces": "a869099e-30bb-4a31-b2da-b0c3656bca5c",
+      "precedents": [
+        "80c26810-d98b-4eb6-b6c0-222fb2820d20",
+        "98989369-c0b3-490b-bd9a-e578e9ab1ba9"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "40128d2e-29c2-4b30-a4cc-048eb67e711a": {
+      "id": "40128d2e-29c2-4b30-a4cc-048eb67e711a",
+      "description": "",
+      "consumes": "14972647-8914-4b97-8326-36d5e3a6b8b5",
+      "produces": "fad0b9d9-db67-4368-865b-da73c1443d9e",
+      "precedents": [
+        "0d59b054-26dc-44ff-8330-feb9fbbbc886",
+        "5050daa1-09fd-46bc-a07a-8ba669384b48"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "684f9623-52be-4eb8-96d1-a4c4302c071a": {
+      "id": "684f9623-52be-4eb8-96d1-a4c4302c071a",
+      "description": "",
+      "consumes": "c65f7a5c-008d-4d69-a7f8-1efd29fd3e88",
+      "produces": "ca2b8a47-e789-4444-9621-3a6da603c574",
+      "precedents": [
+        "40128d2e-29c2-4b30-a4cc-048eb67e711a"
+      ],
+      "type": "transform_reaction"
+    },
+    "bfaab1e6-a478-4219-b659-27ce1ff20a6e": {
+      "id": "bfaab1e6-a478-4219-b659-27ce1ff20a6e",
+      "description": "",
+      "consumes": "f9243bf8-0a7e-4ab9-90c3-4f617e7ee3ea",
+      "produces": "68a0b2bc-5507-4e7b-9766-490f31ef8eef",
+      "precedents": [
+        "684f9623-52be-4eb8-96d1-a4c4302c071a"
+      ],
+      "type": "transform_purification"
+    },
+    "1b55b592-2981-48a0-af3d-0e0a2316e27d": {
+      "id": "1b55b592-2981-48a0-af3d-0e0a2316e27d",
+      "description": "",
+      "consumes": "d479c5c5-82ad-4ec3-b2b6-1e7d465174bf",
+      "produces": "9ecd706c-7cc2-496b-9874-6ba43b5659ac",
+      "precedents": [
+        "bfaab1e6-a478-4219-b659-27ce1ff20a6e"
+      ],
+      "type": "transform_reloading"
+    },
+    "a27d04db-45cc-40fe-bc6b-b1863e5d8301": {
+      "id": "a27d04db-45cc-40fe-bc6b-b1863e5d8301",
+      "description": "",
+      "consumes": "0967c2f9-ca00-4d67-a311-1538fb3a10e8",
+      "produces": "216fa0a6-b1bc-4209-86ea-642bfc720e75",
+      "precedents": [
+        "7ae30247-1621-437f-ad44-46ef684b58dc"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "5228d520-77ff-4867-b515-312b561e4ef4": {
+      "id": "5228d520-77ff-4867-b515-312b561e4ef4",
+      "description": "",
+      "consumes": "cf51070b-7ec6-4ee0-8c00-cb067ee29a8f",
+      "produces": "b9989018-062c-4601-a03c-7cd593a39889",
+      "precedents": [
+        "b1af0416-a59d-428b-93e4-25b1a9d7379b",
+        "a27d04db-45cc-40fe-bc6b-b1863e5d8301"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "fca1b797-9683-4272-974d-eb1655d46489": {
+      "id": "fca1b797-9683-4272-974d-eb1655d46489",
+      "description": "",
+      "consumes": "f9cd6563-9053-4270-af5a-d37271760a49",
+      "produces": "0f6aa23e-422d-43d9-ac12-796865867117",
+      "precedents": [
+        "0b7da695-32dd-4ab6-a235-c338a3c2a409",
+        "5228d520-77ff-4867-b515-312b561e4ef4"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "00ca875c-4c76-4940-aef4-a81636f14fb2": {
+      "id": "00ca875c-4c76-4940-aef4-a81636f14fb2",
+      "description": "",
+      "consumes": "4ff7517e-7f02-4873-aec3-cf15683634c7",
+      "produces": "902dc657-7902-4f5f-af39-0cba3fb3972f",
+      "precedents": [
+        "72b48daa-ff63-4b65-8750-6427f3bf367d",
+        "fca1b797-9683-4272-974d-eb1655d46489"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "c8604166-aa4e-41bf-94d4-fd12cec2d531": {
+      "id": "c8604166-aa4e-41bf-94d4-fd12cec2d531",
+      "description": "",
+      "consumes": "fd19697c-cc41-4b42-994c-4361afa1f2e9",
+      "produces": "17eb42ed-52aa-4fb5-8b91-862d0e100324",
+      "precedents": [
+        "059c51e7-ebd3-436b-8af1-a8f85550937c",
+        "00ca875c-4c76-4940-aef4-a81636f14fb2"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "4fe11257-15e7-4054-8a30-5f9240fd079b": {
+      "id": "4fe11257-15e7-4054-8a30-5f9240fd079b",
+      "description": "",
+      "consumes": "323219ea-5c1a-480c-b425-fc8d35d8b977",
+      "produces": "c8d6e0d6-d976-452e-9f29-74db48c20396",
+      "precedents": [
+        "c8604166-aa4e-41bf-94d4-fd12cec2d531"
+      ],
+      "type": "transform_reaction"
+    },
+    "89b81c14-5fb4-4ebd-b6d1-43013baa46b5": {
+      "id": "89b81c14-5fb4-4ebd-b6d1-43013baa46b5",
+      "description": "",
+      "consumes": "5878064e-d7b2-4f70-8a22-f091ec7de85d",
+      "produces": "b339d2b6-f63f-45fa-970c-bc0f296c1489",
+      "precedents": [
+        "4fe11257-15e7-4054-8a30-5f9240fd079b"
+      ],
+      "type": "transform_purification"
+    },
+    "52c69397-b626-44fe-89b8-7ed9b803a775": {
+      "id": "52c69397-b626-44fe-89b8-7ed9b803a775",
+      "description": "",
+      "consumes": "bb9264cb-a049-4034-8ad3-ca3778be4b48",
+      "produces": "0a54ad34-f4a3-40a7-8672-da0faa1bd701",
+      "precedents": [
+        "89b81c14-5fb4-4ebd-b6d1-43013baa46b5"
+      ],
+      "type": "transform_reloading"
+    },
+    "454bbc65-4201-418f-a497-52a95a206bd0": {
+      "id": "454bbc65-4201-418f-a497-52a95a206bd0",
+      "description": "",
+      "consumes": "e1f7b1d5-3794-47cf-b836-422097d3e05e",
+      "produces": "560d7ecd-47a2-4263-baf7-980727be76a3",
+      "precedents": [
+        "1b55b592-2981-48a0-af3d-0e0a2316e27d"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "3634a2dc-a5c1-41be-9c4c-1721fc9d5f74": {
+      "id": "3634a2dc-a5c1-41be-9c4c-1721fc9d5f74",
+      "description": "",
+      "consumes": "55d3917a-9119-490c-907a-eb81981c88e9",
+      "produces": "3a31c96d-c9f2-4f1c-b34b-00f04f769034",
+      "precedents": [
+        "85ed1406-c532-46e7-bcdc-fb91cc59931b",
+        "454bbc65-4201-418f-a497-52a95a206bd0"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "cb8ef87f-74ad-41c0-be50-f3d9b92376cb": {
+      "id": "cb8ef87f-74ad-41c0-be50-f3d9b92376cb",
+      "description": "",
+      "consumes": "99b99e25-09c4-4397-acc9-ba3af51a3418",
+      "produces": "c7af3c0f-ede4-4a0e-8b40-ca9fd78be8ab",
+      "precedents": [
+        "0d59b054-26dc-44ff-8330-feb9fbbbc886",
+        "3634a2dc-a5c1-41be-9c4c-1721fc9d5f74"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "17635f09-07ee-4a7a-a147-a7639025d8c1": {
+      "id": "17635f09-07ee-4a7a-a147-a7639025d8c1",
+      "description": "",
+      "consumes": "b97b64cb-c11a-4071-883c-a658fd0484c0",
+      "produces": "b99c407f-e316-49f9-921f-d07fead6ae38",
+      "precedents": [
+        "cb8ef87f-74ad-41c0-be50-f3d9b92376cb"
+      ],
+      "type": "transform_reaction"
+    },
+    "1048ae57-ec32-48da-aadd-f6b3c54120aa": {
+      "id": "1048ae57-ec32-48da-aadd-f6b3c54120aa",
+      "description": "",
+      "consumes": "bd0af650-f876-4f2a-ad97-5a112db4bd00",
+      "produces": "494647f6-4d27-4bb0-aaf4-9c5aca3f09bc",
+      "precedents": [
+        "17635f09-07ee-4a7a-a147-a7639025d8c1"
+      ],
+      "type": "transform_purification"
+    },
+    "239fa0b1-9b95-4af9-9a2f-86ffcab35b2a": {
+      "id": "239fa0b1-9b95-4af9-9a2f-86ffcab35b2a",
+      "description": "",
+      "consumes": "3fd0279a-fdb9-4593-baef-b1d7254a237c",
+      "produces": "acc856f4-d63f-4072-b234-6168fd008d20",
+      "precedents": [
+        "52c69397-b626-44fe-89b8-7ed9b803a775"
+      ],
+      "type": "transform_solid_addition"
+    },
+    "e2e9b5c4-b119-4b1a-a187-ff9db65f4a73": {
+      "id": "e2e9b5c4-b119-4b1a-a187-ff9db65f4a73",
+      "description": "",
+      "consumes": "4dbd0387-e076-428c-a38c-6a0f6812793c",
+      "produces": "c877615e-f7d4-4f41-99b7-eb063ec73254",
+      "precedents": [
+        "d035cb57-d337-44a1-b00a-0add542d2a81",
+        "239fa0b1-9b95-4af9-9a2f-86ffcab35b2a"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "34474e2d-7583-4ecf-8d5f-48f1537ffa5f": {
+      "id": "34474e2d-7583-4ecf-8d5f-48f1537ffa5f",
+      "description": "",
+      "consumes": "ffc2c569-4809-40a9-8e9c-67a64f7e8b0d",
+      "produces": "740115f9-dbde-4a01-9f78-ecab070ade75",
+      "precedents": [
+        "059c51e7-ebd3-436b-8af1-a8f85550937c",
+        "e2e9b5c4-b119-4b1a-a187-ff9db65f4a73"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "c92674fc-5ebe-4b69-be46-08aba1fc62c6": {
+      "id": "c92674fc-5ebe-4b69-be46-08aba1fc62c6",
+      "description": "",
+      "consumes": "7ba7c192-91ea-459b-9407-1086ebe4ed24",
+      "produces": "307fae5c-4a46-4bc4-8a41-0cd937e5bb32",
+      "precedents": [
+        "34474e2d-7583-4ecf-8d5f-48f1537ffa5f"
+      ],
+      "type": "transform_reaction"
+    },
+    "10558c2e-6ae5-4fc7-9089-36d6f4098125": {
+      "id": "10558c2e-6ae5-4fc7-9089-36d6f4098125",
+      "description": "",
+      "consumes": "33d70a97-4722-47a8-8727-78f1dd49fe92",
+      "produces": "5e462f0c-3468-4526-9f10-5714f9e759e4",
+      "precedents": [
+        "c92674fc-5ebe-4b69-be46-08aba1fc62c6"
+      ],
+      "type": "transform_purification"
+    },
+    "b66d845c-b8df-49b0-815d-7b9153e61222": {
+      "id": "b66d845c-b8df-49b0-815d-7b9153e61222",
+      "description": "",
+      "consumes": "4eaaedd6-16a4-42ed-804e-519080d70c19",
+      "produces": "01ec992f-7ff8-42b0-895d-b9e5f523fc4c",
+      "precedents": [
+        "10558c2e-6ae5-4fc7-9089-36d6f4098125"
+      ],
+      "type": "transform_reloading"
+    },
+    "1b5a0f5a-32f4-4371-8f5c-0c5b7da3754a": {
+      "id": "1b5a0f5a-32f4-4371-8f5c-0c5b7da3754a",
+      "description": "",
+      "consumes": "d43b5eb3-1c5f-46de-9e16-41e18e58b106",
+      "produces": "6a7e773b-46e7-495e-bcd7-dd213e3c50f7",
+      "precedents": [
+        "af67972d-fa8e-4e18-a025-2f63b07b6686"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "731c14d8-13db-41e6-aec8-bbab5dd8e471": {
+      "id": "731c14d8-13db-41e6-aec8-bbab5dd8e471",
+      "description": "",
+      "consumes": "147c261e-0975-4b51-ab20-f8d4869fcff8",
+      "produces": "70c5f0f8-244b-4625-9444-7bb7aefe4fd5",
+      "precedents": [
+        "b66d845c-b8df-49b0-815d-7b9153e61222",
+        "1b5a0f5a-32f4-4371-8f5c-0c5b7da3754a"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "54eb3714-02f1-4095-81a6-d35ddac9207c": {
+      "id": "54eb3714-02f1-4095-81a6-d35ddac9207c",
+      "description": "",
+      "consumes": "8be3e803-2fa1-4602-8575-43e5f2e0e0c1",
+      "produces": "51e26cd5-29ab-4b13-a3e1-d83bd53d6a2d",
+      "precedents": [
+        "0b7da695-32dd-4ab6-a235-c338a3c2a409",
+        "731c14d8-13db-41e6-aec8-bbab5dd8e471"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "0e105992-f5db-4500-8458-3d5c54a72c8a": {
+      "id": "0e105992-f5db-4500-8458-3d5c54a72c8a",
+      "description": "",
+      "consumes": "1debb7de-afdf-4643-a67a-7f89c603bd43",
+      "produces": "791eb26c-257f-4af3-bb4d-30334fd9d7a7",
+      "precedents": [
+        "059c51e7-ebd3-436b-8af1-a8f85550937c",
+        "54eb3714-02f1-4095-81a6-d35ddac9207c"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "72d43ad5-79d0-4084-bb1d-fb0bce7e01f2": {
+      "id": "72d43ad5-79d0-4084-bb1d-fb0bce7e01f2",
+      "description": "",
+      "consumes": "dbeb4ab5-a89e-46b0-b024-fb49cc574c87",
+      "produces": "791d3218-f66a-4547-9766-67d5cf30c3d2",
+      "precedents": [
+        "0e105992-f5db-4500-8458-3d5c54a72c8a"
+      ],
+      "type": "transform_reaction"
+    },
+    "2901d1bf-8f37-48fb-94bf-5da11b1f637b": {
+      "id": "2901d1bf-8f37-48fb-94bf-5da11b1f637b",
+      "description": "",
+      "consumes": "d92d5e9c-a647-450c-aa8b-af27f856ceea",
+      "produces": "f978dce7-6ad6-4a60-b0be-9fb3d1839f7b",
+      "precedents": [
+        "72d43ad5-79d0-4084-bb1d-fb0bce7e01f2"
+      ],
+      "type": "transform_purification"
+    },
+    "79cb29b8-7b8e-4242-ae3b-73be98748463": {
+      "id": "79cb29b8-7b8e-4242-ae3b-73be98748463",
+      "description": "",
+      "consumes": "2c8d693b-f289-4878-8595-7d727747c467",
+      "produces": "c8f24dfe-5526-4f34-a052-baa463c5dea7",
+      "precedents": [
+        "2b4f18c9-cbfc-4ecd-9ed0-ccd2a70e26c9"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "cd024b55-d0a0-4c0a-9525-5ea17f22cddc": {
+      "id": "cd024b55-d0a0-4c0a-9525-5ea17f22cddc",
+      "description": "",
+      "consumes": "7f4844ad-9eed-4d1f-9d20-f3d6326282af",
+      "produces": "49e9abde-60b0-4df5-bfd9-999eade1f804",
+      "precedents": [
+        "0b7da695-32dd-4ab6-a235-c338a3c2a409",
+        "79cb29b8-7b8e-4242-ae3b-73be98748463"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "81d93162-58b8-4636-929a-a16b55d0ff57": {
+      "id": "81d93162-58b8-4636-929a-a16b55d0ff57",
+      "description": "",
+      "consumes": "0b5d3e93-9f68-4367-aa0e-79b5d792dff0",
+      "produces": "5417f8aa-b800-4a6d-afbf-7b5af1abdad8",
+      "precedents": [
+        "b66d845c-b8df-49b0-815d-7b9153e61222",
+        "cd024b55-d0a0-4c0a-9525-5ea17f22cddc"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "005fce20-61cb-4893-b931-21d0aef7e024": {
+      "id": "005fce20-61cb-4893-b931-21d0aef7e024",
+      "description": "",
+      "consumes": "582b2c7f-1ddf-4eda-bd35-2f35428e34fd",
+      "produces": "a9e70743-8ab5-42cb-8ff1-7b16b5cd3473",
+      "precedents": [
+        "059c51e7-ebd3-436b-8af1-a8f85550937c",
+        "81d93162-58b8-4636-929a-a16b55d0ff57"
+      ],
+      "type": "transform_liquid_addition"
+    },
+    "d9eea506-cb55-498c-8949-9b5d44135684": {
+      "id": "d9eea506-cb55-498c-8949-9b5d44135684",
+      "description": "",
+      "consumes": "eea9e6aa-08a1-40a4-840e-a6f504a7ff61",
+      "produces": "11eaf94c-4e91-4537-b6fc-bcb96235f0f6",
+      "precedents": [
+        "005fce20-61cb-4893-b931-21d0aef7e024"
+      ],
+      "type": "transform_reaction"
+    },
+    "281a37dc-fa5e-4905-9d98-9f89223b30e2": {
+      "id": "281a37dc-fa5e-4905-9d98-9f89223b30e2",
+      "description": "",
+      "consumes": "f666b70e-f9a0-44a4-9461-1c44c641ce97",
+      "produces": "22cf5c76-37b0-44d7-9eb1-26191c975c63",
+      "precedents": [
+        "d9eea506-cb55-498c-8949-9b5d44135684"
+      ],
+      "type": "transform_purification"
+    }
+  },
+  "devices": [
+    "SOLID_DISPENSER",
+    "LIQUID_DISPENSER",
+    "HEATING_BLOCK_1",
+    "HEATING_BLOCK_2",
+    "HEATING_BLOCK_3",
+    "ROTAVAP_1",
+    "ROTAVAP_2"
+  ]
+}

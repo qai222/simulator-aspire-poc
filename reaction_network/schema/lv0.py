@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from collections import defaultdict
 
 import networkx as nx
 from pandas._typing import FilePath
@@ -216,3 +217,34 @@ class NetworkLv0(BaseModel):
     def starting_smis(self) -> list[str]:
         g = self.to_nx()
         return [n for n in g.nodes if g.in_degree(n) == 0 and ">>" not in n]
+
+    @property
+    def intermediate_product_smis(self) -> list[str]:
+        g = self.to_nx()
+        return [n for n in g.nodes if g.in_degree(n) > 0 and g.out_degree(n) > 0 and ">>" not in n]
+
+    @property
+    def intermediate_reaction_smis(self) -> list[str]:
+        # an intermediate reaction is one whose product will be used in another reaction
+        # this means an additional loading_storage transform
+        g = self.to_nx()
+        reaction_nodes = [n for n in g.nodes if ">>" in n]
+
+        intermediate_reaction_smis = []
+        for reaction_smi in reaction_nodes:
+            product_smi = self.reaction_dict[reaction_smi].product_smi
+            if g.out_degree(product_smi) > 0:
+                intermediate_reaction_smis.append(reaction_smi)
+        return intermediate_reaction_smis
+
+    def get_reaction_precedence(self) -> dict[str, list[str]]:
+        precedence_dict = defaultdict(list)
+        g = self.to_nx()
+        reaction_nodes = [n for n in g.nodes if ">>" in n]
+        for i in reaction_nodes:
+            for j in reaction_nodes:
+                # global precedence
+                # TODO this seems an overkill, dfs may suffice
+                if nx.has_path(g, j, i) and i != j:
+                    precedence_dict[i].append(j)
+        return precedence_dict

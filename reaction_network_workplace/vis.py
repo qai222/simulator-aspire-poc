@@ -6,8 +6,8 @@ import dash_renderjson
 from dash import Input, Output, no_update, Dash, html
 
 from reaction_network.utils import json_load
-from reaction_network.visualization import JsonTheme
-from reaction_network.schema import NetworkLv1
+from reaction_network.visualization import JsonTheme, STYLESHEET
+from reaction_network.schema.lv2 import BenchTopLv2, NetworkLv1
 
 """
 define a reaction network
@@ -16,10 +16,15 @@ LV0. given the routes selection seed, scraper_input, and scraper_output
 LV1. given the target product amounts, and expected yields
 """
 
-network = json_load("network_lv1/network_lv1.json")
-network = NetworkLv1(**network)
+# network = json_load("network_lv1/network_lv1.json")
+# network = NetworkLv1(**network)
+#
+# CYTO_ELEMENTS = network.to_cyto_elements()
 
+network = json_load("network_lv2/bench_top_lv2.json")
+network = BenchTopLv2(**network)
 CYTO_ELEMENTS = network.to_cyto_elements()
+
 
 cyto.load_extra_layouts()
 app = Dash(
@@ -28,59 +33,7 @@ app = Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP],
 )
 
-STYLESHEET = [
-    {
-        'selector': 'edge',
-        'style': {
-            'curve-style': 'unbundled-bezier',
-            'taxi-direction': 'vertical',
-            'target-arrow-shape': 'triangle',
-            'target-arrow-color': 'black',
-            "opacity": "0.9",
-            "line-color": "black",
-            # "width": "mapData(weight, 0, 1, 1, 8)",
-            "overlay-padding": "3px"
-        }
-    },
-    {
-        'selector': '.reaction',
-        'style': {
-            'width': 500,
-            'height': 200,
-            'shape': 'rectangle',
-            'background-fit': 'contain',
-            'background-image': 'data(url)',
-            "border-width": "6px",
-            "border-color": "red",
-            "border-opacity": "1.0",
-            "background-color": "white",
-        }
-    },
-    {
-        'selector': '.compound',
-        'style': {
-            'width': 200,
-            'height': 200,
-            'shape': 'circle',
-            'background-fit': 'contain',
-            'background-image': 'data(url)',
-            "border-width": "6px",
-            "border-color": "#AAD8FF",
-            "border-opacity": "1.0",
-            "background-color": "white",
-            # "content": 'data(label)',
-            # "text-outline-color": "#77828C"
-        }
-    },
-    {
-        'selector': ':selected',
-        'style': {
-            'z-index': 1000,
-            'background-color': 'SteelBlue',
-            'line-color': 'SteelBlue',
-        }
-    },
-]
+
 
 app.layout = html.Div(
     [

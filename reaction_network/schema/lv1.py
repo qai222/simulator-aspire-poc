@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from collections import defaultdict
-
 import networkx as nx
 from loguru import logger
 from pydantic import BaseModel
@@ -288,28 +286,3 @@ class NetworkLv1(BaseModel):
             ce = CytoEdge(data=CytoEdgeData(id=f"{u} {v}", source=u, target=v, ), classes="", group="edges")
             cyto_edges.append(ce)
         return cyto_nodes + cyto_edges
-
-    def get_reaction_precedence(self) -> dict[str, list[str]]:
-        precedence_dict = defaultdict(list)
-        g = self.to_nx()
-        reaction_nodes = [n for n in g.nodes if ">>" in n]
-        for i in reaction_nodes:
-            for j in reaction_nodes:
-                # global precedence
-                # TODO this seems an overkill, dfs may suffice
-                if nx.has_path(j, i) and i != j:
-                    precedence_dict[i].append(j)
-        return precedence_dict
-
-    def get_intermediate_reaction_smis(self) -> list[str]:
-        # an intermediate reaction is one whose product will be used in another reaction
-        # this means an additional loading_storage transform
-        g = self.to_nx()
-        reaction_nodes = [n for n in g.nodes if ">>" in n]
-
-        intermediate_reaction_smis = []
-        for reaction_smi in reaction_nodes:
-            product_smi = self.reaction_dict[reaction_smi].product.compound_lv0.smiles
-            if g.out_degree(product_smi) > 0:
-                intermediate_reaction_smis.append(reaction_smi)
-        return intermediate_reaction_smis
