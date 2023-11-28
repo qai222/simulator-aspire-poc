@@ -42,10 +42,10 @@ card_reaction_network = get_card(
 )
 
 card_junior_simulator = get_card(
-    title="JUNIOR Simulator",
-    text="Given an operation graph, Simulate its operations on the digital twin of a JUNIOR workstation.",
-    link_text="JUNIOR Simulator",
-    link_path="/junior_simulator",
+    title="Workstation Simulator",
+    text="Given an operation graph, Simulate its operations on the digital twin of a workstation.",
+    link_text="Workstation Simulator",
+    link_path="/workstation_simulator",
     width=20,
 )
 

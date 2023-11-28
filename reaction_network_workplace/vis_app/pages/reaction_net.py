@@ -1,5 +1,3 @@
-import pprint
-
 import dash_bootstrap_components as dbc
 import dash_cytoscape as cyto
 from dash import html, get_app, Input, Output
@@ -169,8 +167,6 @@ def get_reaction_table(data: dict):
 
     rows = [row1, row2]  # TODO tune their sizes...
     rows = [row3, row4, row5]
-
-    pprint.pprint(data)
 
     for i, r in enumerate(data['reactants']):
         amount_string = "{:.3f} ({})".format(r['amount'], r['amount_unit'])

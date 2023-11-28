@@ -113,8 +113,10 @@ app = get_app()
 
 def get_summary():
     operations_by_type = defaultdict(list)
+    n_ops = 0
     for e in CYTO_ELEMENTS:
         if e['group'] == "nodes":
+            n_ops += 1
             t = e['data']['data']['type']
             t = t.replace("transform_", "")
             t = " ".join(t.split("_"))
@@ -122,7 +124,7 @@ def get_summary():
             operations_by_type[t].append(e)
     unique_operation_types = sorted(operations_by_type.keys())
 
-    row1 = html.Tr([html.Td("# of Operations"), html.Td(f"{len(CYTO_ELEMENTS)}")])
+    row1 = html.Tr([html.Td("# of Operations"), html.Td(f"{n_ops}")])
     rows = [row1]
     for t in unique_operation_types:
         row2 = html.Tr([html.Td(t), html.Td(f"{len(operations_by_type[t])}")])
@@ -197,5 +199,4 @@ def display_selected_node(data_list):
             html.H5("Operation Details", className="text-center mt-3"),
             get_transform_table(data),
         ]
-        # pprint.pp(data)
     return children
