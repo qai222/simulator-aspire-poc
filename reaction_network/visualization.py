@@ -63,69 +63,27 @@ STYLESHEET = [
     {
         'selector': '.reaction',
         'style': {
-            'width': 500,
-            'height': 200,
+            'width': 800,
+            'height': 300,
             'shape': 'rectangle',
             'background-fit': 'contain',
             'background-image': 'data(url)',
             "border-width": "6px",
-            "border-color": "red",
+            "border-color": "black",
             "border-opacity": "1.0",
             "background-color": "white",
         }
     },
     {
-        'selector': '.transform_reaction',
-        'style': {
-            'shape': 'rectangle',
-            "background-color": "red",
-        }
-    },
-    {
-        'selector': '.transform_liquid_addition',
-        'style': {
-            'shape': 'rectangle',
-            "background-color": "gray",
-        }
-    },
-    {
-        'selector': '.transform_solid_addition',
-        'style': {
-            'shape': 'rectangle',
-            "background-color": "black",
-        }
-    },
-    {
-        'selector': '.transform_purification',
-        'style': {
-            'shape': 'rectangle',
-            "background-color": "blue",
-        }
-    },
-    {
-        'selector': '.transform_loading',
-        'style': {
-            'shape': 'rectangle',
-            "background-color": "brown",
-        }
-    },
-    {
-        'selector': '.transform_reloading',
-        'style': {
-            'shape': 'rectangle',
-            "background-color": "brown",
-        }
-    },
-    {
         'selector': '.compound',
         'style': {
-            'width': 200,
-            'height': 200,
+            'width': 180,
+            'height': 100,
             'shape': 'circle',
             'background-fit': 'contain',
             'background-image': 'data(url)',
             "border-width": "6px",
-            "border-color": "#AAD8FF",
+            "border-color": "black",
             "border-opacity": "1.0",
             "background-color": "white",
             # "content": 'data(label)',
@@ -133,11 +91,74 @@ STYLESHEET = [
         }
     },
     {
+        'selector': '.compound_starting',
+        'style': {
+            "background-color": "#cff0fa",
+        }
+    },
+    {
+        'selector': '.compound_intermediate',
+        'style': {
+            "background-color": "#f0facf",
+        }
+    },
+    {
+        'selector': '.compound_target',
+        'style': {
+            "background-color": "#ffaba3",
+        }
+    },
+    {
+        'selector': '.transform_reaction',
+        'style': {
+            'shape': 'rectangle',
+            "background-color": "#FF0000",
+        }
+    },
+    {
+        'selector': '.transform_liquid_addition',
+        'style': {
+            'shape': 'rectangle',
+            "background-color": "#808080",
+        }
+    },
+    {
+        'selector': '.transform_solid_addition',
+        'style': {
+            'shape': 'rectangle',
+            "background-color": "#000000",
+        }
+    },
+    {
+        'selector': '.transform_purification',
+        'style': {
+            'shape': 'rectangle',
+            "background-color": "#0000FF",
+        }
+    },
+    {
+        'selector': '.transform_loading',
+        'style': {
+            'shape': 'rectangle',
+            "background-color": "#800020",
+        }
+    },
+    {
+        'selector': '.transform_reloading',
+        'style': {
+            'shape': 'rectangle',
+            "background-color": "#800020",
+        }
+    },
+    {
         'selector': ':selected',
         'style': {
             'z-index': 1000,
-            'background-color': 'SteelBlue',
+            # 'background-color': 'SteelBlue',
+            'border-opacity': "1.0",
+            "border-color": "SteelBlue",
             'line-color': 'SteelBlue',
+            "border-width": "8px",
         }
     },
 ]

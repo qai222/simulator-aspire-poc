@@ -169,7 +169,7 @@ class NetworkLv0(BaseModel):
             self.compounds.append(c)
 
     @property
-    def product_smis(self) -> list[str]:
+    def target_smis(self) -> list[str]:
         g = self.to_nx()
         return [n for n in g.nodes if g.out_degree(n) == 0 and g.in_degree(n) > 0]
 

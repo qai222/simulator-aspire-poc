@@ -73,6 +73,7 @@ class ReactionLv1(BaseModel):
 
     @property
     def solids(self) -> list[CompoundLv1]:
+        """ liquid compounds, sorted by mass """
         return sorted(
             [c for c in self.reactants + self.reagents if c.compound_lv0.state_of_matter == "SOLID"],
             key=lambda x: x.mass
@@ -80,9 +81,10 @@ class ReactionLv1(BaseModel):
 
     @property
     def liquids(self) -> list[CompoundLv1]:
+        """ liquid compounds, reversely sorted by volume """
         return sorted(
             [c for c in self.reactants + self.reagents if c.compound_lv0.state_of_matter == "LIQUID"],
-            key=lambda x: x.volume
+            key=lambda x: x.volume, reverse=True
         )
 
     def __mul__(self, fold: float | int):
@@ -264,7 +266,7 @@ class NetworkLv1(BaseModel):
 
         return self.network_lv0.to_nx()
 
-    def to_cyto_elements(self):
+    def to_cyto_elements(self, size=80):
         # TODO both this and `to_nx` can be realized using lv0 methods with duck-typing
         g = self.to_nx()
         cyto_nodes = []
@@ -279,7 +281,13 @@ class NetworkLv1(BaseModel):
                 except KeyError:
                     data = {}
                 classes = "compound"
-            cnd = CytoNodeData(id=n, label=n, url=drawing_url(n), data=data)
+            if n in self.network_lv0.starting_smis:
+                classes += " compound_starting"
+            elif n in self.network_lv0.intermediate_product_smis:
+                classes += " compound_intermediate"
+            elif ">>" not in n:
+                classes += " compound_target"
+            cnd = CytoNodeData(id=n, label=n, url=drawing_url(n, size=size), data=data)
             cn = CytoNode(data=cnd, classes=classes, group="nodes")
             cyto_nodes.append(cn)
         for u, v in g.edges:
