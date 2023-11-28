@@ -19,7 +19,7 @@ if __name__ == '__main__':
     network_lv0 = NetworkLv0(**network_lv0)
 
     random.seed(42)
-    target_masses = {smi: random.uniform(0.3, 0.5) for smi in network_lv0.product_smis}
+    target_masses = {smi: random.uniform(0.3, 0.5) for smi in network_lv0.target_smis}
     expected_yields = {smi: random.uniform(0.7, 1) for smi in network_lv0.reaction_dict}
 
     network_lv1 = NetworkLv1.from_target_masses_and_expected_yields(
