@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+import random
 import re
 from collections import defaultdict
+from typing import Any
 
 import networkx as nx
 from pandas._typing import FilePath
@@ -10,56 +12,78 @@ from pydantic import BaseModel
 from rdkit.Chem import Descriptors
 from rdkit.Chem import MolFromSmiles
 
-from reaction_network.utils import query_askcos_condition_rec, drawing_url
+from reaction_network.schema.provenance import get_provenance_model
+from reaction_network.utils import query_askcos_condition_rec, drawing_url, json_load
 from reaction_network.visualization import CytoNodeData, CytoEdge, CytoNode, CytoEdgeData
 
 
-class ReactionLv0(BaseModel):
+class ReactionLv0Base(BaseModel):
+    """
+    an unquantified (i.e. consumption of chemicals are unknown) reaction,
+    usually generated from predictive chemistry models
+    """
+
     reaction_smiles: str
+    """ the reaction smiles that contains `>>`, i.e. reagents are excluded """
 
-    reactant_smis_and_ratios: dict[str, float]
+    reactant_stoichiometry: dict[str, float]
+    """ a mapping from `molecular smiles` to `stoichiometric coefficient` for reactants """
 
-    reagent_smis_and_ratios: dict[str, float]
+    reagent_stoichiometry: dict[str, float]
+    """ a mapping from `molecular smiles` to `stoichiometric coefficient` for reagents """
 
     temperature: float
+    """ in C """
 
     @property
-    def smis_and_ratios(self) -> dict[str, float]:
-        assert not set(self.reagent_smis_and_ratios.keys()).intersection(self.reactant_smis_and_ratios.keys())
+    def stoichiometry(self) -> dict[str, float]:
+        """
+        a mapping from `molecular smiles` to `stoichiometric coefficient` for all species,
+        note product always has a coefficient of `-1`
+        """
+        assert not set(self.reagent_stoichiometry.keys()).intersection(self.reactant_stoichiometry.keys())
         d = dict()
-        d.update(self.reactant_smis_and_ratios)
-        d.update(self.reagent_smis_and_ratios)
+        d.update(self.reactant_stoichiometry)
+        d.update(self.reagent_stoichiometry)
         d.update({self.product_smi: - 1.0})
         return d
 
     @property
     def product_smi(self):
+        """ molecular smiles of the product """
         s = self.reaction_smiles.split(">>")[-1]
         assert "." not in s
         return s
 
     @property
     def unique_molecular_smis(self):
-        smis = [self.product_smi]
-        for smi in self.reactant_smis_and_ratios:
-            smis.append(smi)
-        for smi in self.reagent_smis_and_ratios:
-            smis.append(smi)
-        return sorted(set(smis))
+        """ a sorted set of molecular smiles for all species """
+        return sorted(self.stoichiometry.keys())
+
+
+class ReactionLv0(get_provenance_model(ReactionLv0Base, "ReactionLv0_")):
 
     @classmethod
-    def from_reaction_smiles(cls, reaction_smiles: str):
-        response = query_askcos_condition_rec(reaction_smiles)
+    def from_reaction_smiles(cls: type[ReactionLv0Base], reaction_smiles: str):
+        response, query = query_askcos_condition_rec(reaction_smiles, return_query=True)
         result = response['result'][0]
+
         return cls(
             reaction_smiles=reaction_smiles,
-            reactant_smis_and_ratios=result['reactants'],
-            reagent_smis_and_ratios=result['reagents'],
+            reactant_stoichiometry=result['reactants'],
+            reagent_stoichiometry=result['reagents'],
             temperature=result['temperature'],
+
+            reactant_stoichiometry__provenance=query,
+            reagent_stoichiometry__provenance=query,
+            temperature__provenance=query,
         )
 
 
-class CompoundLv0(BaseModel):
+ReactionLv0: type[ReactionLv0Base]
+
+
+class CompoundLv0Base(BaseModel):
     smiles: str
 
     state_of_matter: str
@@ -67,6 +91,61 @@ class CompoundLv0(BaseModel):
     molecular_weight: float  # g/mol
 
     density: float  # g/mL
+
+
+class CompoundLv0(get_provenance_model(CompoundLv0Base, "CompoundLv0_")):
+
+    @staticmethod
+    def parse_scraper_output(scraper_output: FilePath) -> dict[str, tuple[str | None, float | None]]:
+        with open(scraper_output, "r") as f:
+            output = json.load(f)
+        output_data = dict()
+        for smi, data in output.items():
+            try:
+                form_string = data['from']
+                if "liquid" in form_string.lower():
+                    form = "LIQUID"
+                else:
+                    form = "SOLID"
+            except KeyError:
+                form = None
+            try:
+                density_string = data['density']
+                try:
+                    density_string = re.findall("\d+\.\d+\s*g\/mL", density_string)[0]
+                    density_string = density_string.replace("g/mL", "").strip()
+                except IndexError:
+                    density_string = re.findall("\d+\.\d+\s*g\/cm", density_string)[0]
+                    density_string = density_string.replace("g/cm", "").strip()
+                density = float(density_string)
+            except KeyError:
+                density = None
+            output_data[smi] = (form, density)
+        return output_data
+
+    @staticmethod
+    def make_up_compound_info(smiles: str):
+        mw = Descriptors.MolWt(MolFromSmiles(smiles))
+        if mw < 200 and all(m not in smiles for m in ['Li', 'Na', 'K', 'Mg', 'Ca', 'Pd']):
+            form = "LIQUID"
+            density = 1.0
+        else:
+            form = "SOLID"
+            density = 1.4
+        return mw, form, density
+
+    @staticmethod
+    def get_default_compound_lv0(smiles: str):
+        mw, form, density = CompoundLv0.make_up_compound_info(smiles)
+        mw_p = "calculated using rdkit"
+        form_p = "made up"
+        density_p = "made up"
+        return CompoundLv0(
+            smiles=smiles, state_of_matter=form, molecular_weight=mw, density=density,
+            state_of_matter__provenance=form_p,
+            molecular_weight__provenance=mw_p,
+            density__provenance=density_p,
+        )
 
     @classmethod
     def from_smiles(cls, smiles, scraper_output: FilePath = None):
@@ -76,59 +155,34 @@ class CompoundLv0(BaseModel):
             output_data = CompoundLv0.parse_scraper_output(scraper_output)
             if smiles not in output_data:
                 return CompoundLv0.get_default_compound_lv0(smiles)
-            form, mw, density = output_data[smiles]
-            return CompoundLv0(smiles=smiles, state_of_matter=form, molecular_weight=mw, density=density)
-
-    @staticmethod
-    def get_default_compound_lv0(smiles: str):
-        mw = Descriptors.MolWt(MolFromSmiles(smiles))
-        if mw < 200 and all(m not in smiles for m in ['Li', 'Na', 'K', 'Mg', 'Ca', 'Pd']):
-            form = "LIQUID"
-            density = 1.0
-        else:
-            form = "SOLID"
-            density = 1.4
-        return CompoundLv0(smiles=smiles, state_of_matter=form, molecular_weight=mw, density=density)
-
-    @staticmethod
-    def parse_scraper_output(scraper_output: FilePath) -> dict:
-        with open(scraper_output, "r") as f:
-            output = json.load(f)
-        output_data = dict()
-        for smi, data in output.items():
-            mw = Descriptors.MolWt(MolFromSmiles(smi))
-            try:
-                form_string = data['from']
-            except KeyError:
-                # TODO has metalloid then solid
-                if mw < 200 and all(m not in smi for m in ['Li', 'Na', 'K', 'Mg', 'Ca', 'Pd']):
-                    form_string = "liquid"
-                else:
-                    form_string = "solid"
-            if "liquid" in form_string.lower():
-                form = "LIQUID"
             else:
-                form = "SOLID"
-            try:
-                density_string = data['density']
-            except KeyError:
-                if form == "LIQUID":
-                    density_string = "1.0 g/mL"
-                else:
-                    density_string = "1.4 g/mL"
-            density_string = re.findall("\d+\.\d+\s*g\/mL", density_string)[0]
-            density_string = density_string.replace("g/mL", "").strip()
-            density = float(density_string)
-            output_data[smi] = (form, mw, density)
-        return output_data
+                form, density = output_data[smiles]
+                mw, form_mu, density_mu = CompoundLv0.make_up_compound_info(smiles)
+                form_p = f"from scraper output: {scraper_output}"
+                density_p = f"from scraper output: {scraper_output}"
+                mw_p = "calculated using rdkit"
+                if form is None:
+                    form = form_mu
+                    form_p = "made up"
+                if density is None:
+                    density = density_mu
+                    density_p = "made up"
+            return CompoundLv0(
+                smiles=smiles, state_of_matter=form, molecular_weight=mw, density=density,
+                state_of_matter__provenance=form_p,
+                molecular_weight__provenance=mw_p,
+                density__provenance=density_p,
+            )
+
+
+CompoundLv0: type[CompoundLv0Base]
 
 
 class NetworkLv0(BaseModel):
-    reactions: list[ReactionLv0]
-    n_targets: int
-    source_file: str
     seed: int
     compounds: list[CompoundLv0]
+    reactions: list[ReactionLv0]
+    provenance: Any = None
 
     @property
     def summary(self):
@@ -143,17 +197,38 @@ class NetworkLv0(BaseModel):
         return {
             "number of unique reactions": n_reactions,
             "number of unique materials": n_materials,
-            "number of unique starting materials": len([n for n in g.nodes if g.in_degree(n) == 0]),
-            "number of unique target materials": len([n for n in g.nodes if g.out_degree(n) == 0]),
+            "number of unique starting materials": len(self.starting_smis),
+            "number of unique target materials": len(self.target_smis),
         }
 
     @classmethod
-    def from_files(cls, scraper_input: FilePath, scraper_output: FilePath = None):
-        with open(scraper_input, "r") as f:
-            input_data = json.load(f)
-            network = cls(**input_data)
-        if scraper_output is not None:
-            network.populate_compounds(scraper_output)
+    def from_routes(cls, routes_file: FilePath, seed: int = 42, n_target: int | None = 5,
+                    scraper_output: FilePath = None, ):
+        routes = json_load(routes_file)
+        routes = {k: routes[k] for k in routes if len(routes[k]['Reactions']) > 1}  # exclude orphans
+        random.seed(seed)
+        if n_target:
+            routes = {k: routes[k] for k in random.sample(sorted(routes.keys()), k=n_target)}
+        else:
+            routes = {k: routes[k] for k in sorted(routes.keys())}
+
+        reaction_smis = []
+        for target, data in routes.items():
+            for r in data['Reactions']:
+                r_smi = r['smiles']
+                if r_smi.startswith(">>"):
+                    continue
+                reaction_smis.append(r_smi)
+        reaction_smis = sorted(set(reaction_smis))
+        lv0_reactions = [ReactionLv0.from_reaction_smiles(smi) for smi in reaction_smis]
+        network = cls(
+            reactions=lv0_reactions,
+            seed=seed,
+            compounds=[],
+            provenance=routes_file
+        )
+        if scraper_output:
+            network.populate_compounds(scraper_output=scraper_output)
         return network
 
     @property
@@ -184,9 +259,9 @@ class NetworkLv0(BaseModel):
     def to_nx(self) -> nx.DiGraph:
         g = nx.DiGraph()
         for reaction in self.reactions:
-            for smi in reaction.reactant_smis_and_ratios:
+            for smi in reaction.reactant_stoichiometry:
                 g.add_edge(smi, reaction.reaction_smiles)
-            for smi in reaction.reagent_smis_and_ratios:
+            for smi in reaction.reagent_stoichiometry:
                 g.add_edge(smi, reaction.reaction_smiles)
             g.add_edge(reaction.reaction_smiles, reaction.product_smi)
         return g
