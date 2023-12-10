@@ -1,18 +1,22 @@
 from __future__ import annotations
 
+import collections
 import math
 import os
 import random
 from abc import ABC
 from collections import defaultdict
+from itertools import product, combinations
 
 import gurobipy as gp
+import numpy as np
 from docplex.mp.model import Model
 from gurobipy import GRB
 from monty.json import MSONable
 from pydantic import BaseModel
+from ortools.sat.python import cp_model
 
-from reaction_network.schema.lv2 import BenchTopLv2, OperationType
+# from reaction_network.schema.lv2 import BenchTopLv2, OperationType
 
 os.environ["GRB_LICENSE_FILE"] = "/home/qai/local/gurobi_lic/gurobi.lic"
 
@@ -325,3 +329,400 @@ class FJS1(_FJS):
             solved_operations=solved_operations,
             makespan=makespan,
         )
+
+
+class FJSS2(_FJS):
+    """
+    Implementation of the constraint programming formulation in:
+    Boyer, V., Vallikavungal, J., Rodríguez, X. C., & Salazar-Aguilar, M. A. (2021). The generalized flexible job shop scheduling problem. Computers & Industrial Engineering, 160, 107542.
+    """
+
+    def __init__(
+        self,
+        operations: list[str],
+        machines: list[str],
+        time_estimates: dict[str, dict[str, float]],
+        para_a: np.ndarray,
+        para_w: np.ndarray,
+        para_mach_capacity: list[int] | np.ndarray,
+        para_lmin: np.ndarray,
+        para_lmax: np.ndarray,
+        job_data: list[list[tuple[int, int]]],
+        precedence: dict[str, list[str]] | None,
+        co_exist_set: list[str] = None,
+        allowed_overlapping_machine: list[int] = None,
+        model_string: str | None = None,
+        inf_cp: int = 1.0e10,
+    ):
+        """
+        _summary_
+
+        Parameters
+        ----------
+        operations : list[str]
+            _description_
+        machines : list[str]
+            _description_
+        precedence : dict[str, list[str]]
+            _description_
+        time_estimates : dict[str, dict[str, float]]
+            _description_
+        para_a : np.ndarray
+            Setup time of machine m when processing operation i before j and para_a =
+            np.full((n_opt, n_opt, n_mach), dtype=object, fill_value=infinity).
+        para_w : np.ndarray
+            Weight of operation i in machine m and para_w = np.empty((n_opt, n_mach), dtype=object).
+        para_mach_capacity : list[int]|np.ndarray
+            A list of machine capacity or a numpy array of machine capacity.
+        para_lmin : np.ndarray
+            Minimum lag between the starting time of operation i and the ending time of operation j.
+            Shape=(n_opt, n_opt).
+        para_lmax : np.ndarray
+            Maximum lag between the starting time of operation i and the ending time of operation j.
+            Shape=(n_opt, n_opt).
+        job_data : list[list[tuple[int, int]]]
+            The list of jobs. Each job is a list of tuples (machine_id, processing_time).
+        co_exist_set : list[str], optional
+            The list of operation pairs that can overlap, by default None. For example, co_exist_set
+            = ["0,1", "3,4"], that means operation 0 can overlap with operation 1 and operation 3
+            can overlap with operation 4.
+        allowed_overlapping_machine : list[int], optional
+            The machine ids for the machines that allow overlapping. Default=None. For example,
+            allowed_overlapping_machine = [0, 1, 5] means machine 0, 1, 5 allow overlapping.
+        model_string : str | None, optional
+            _description_, by default None
+        inf_cp : int, optional
+            _description_, by default 1.0e10
+        """
+        super().__init__(
+            operations=operations,
+            machines=machines,
+            precedence=precedence,
+            time_estimates=time_estimates,
+            model_string=model_string,
+        )
+        self.inf_cp = inf_cp
+        para_a[para_a == np.inf] = inf_cp
+        para_a[para_a == -np.inf] = -inf_cp
+        self.para_a = para_a
+
+        para_w[para_w == np.inf] = inf_cp
+        para_w[para_w == -np.inf] = -inf_cp
+        self.para_w = para_w
+        self.para_mach_capacity = para_mach_capacity
+
+        para_lmin[para_lmin == np.inf] = inf_cp
+        para_lmin[para_lmin == -np.inf] = -inf_cp
+        self.para_lmin = para_lmin
+
+        para_lmax[para_lmax == np.inf] = inf_cp
+        para_lmax[para_lmax == -np.inf] = -inf_cp
+        self.para_lmax = para_lmax
+        self.co_exist_set = co_exist_set
+        self.allowed_overlapping_machine = allowed_overlapping_machine
+        self._model = None
+
+    def build_model_ortools(self):
+        """Build the model."""
+        n_opt, n_mach = self.get_params()
+        # # operation 0 can overlap with operation 1
+        # # operation 3 can overlap with operation 4
+        # co_exist_set = ["0,1", "3,4"]
+        # # machine ids for the machines that allow overlapping
+        # allowed_overlapping_machine = [0, 1, 2]
+
+        horizon = (
+            np.sum(self.para_p, axis=1).max() + np.sum(self.para_h, axis=1).max() + 1
+        )
+        # horizon = np.sum(self.time_estimates) + 1
+        horizon = int(horizon)
+
+        model = cp_model.CpModel()
+
+        # create variables
+        # if operation i is processed by machine m
+        var_y = np.empty((n_opt, n_mach), dtype=object)
+        for i, m in product(range(n_opt), range(n_mach)):
+            var_y[i, m] = model.NewBoolVar(f"y_{i}_{m}")
+
+        # if operation i is processed before operation j
+        var_x = np.empty((n_opt, n_opt), dtype=object)
+        for i, j in product(range(n_opt), range(n_opt)):
+            var_x[i, j] = model.NewBoolVar(f"x_{i}_{j}")
+
+        # if operation i is processed before operation j on machine m
+        var_z = np.empty((n_opt, n_opt, n_mach), dtype=object)
+        for i, j, m in product(range(n_opt), range(n_opt), range(n_mach)):
+            var_z[i, j, m] = model.NewBoolVar(f"z_{i}_{j}_{m}")
+
+        # starting time of operation i
+        var_s = np.empty((n_opt), dtype=object)
+        for i in range(n_opt):
+            var_s[i] = model.NewIntVar(0, horizon, f"s_{i}")
+
+        # completion time of operation i
+        var_c = np.empty((n_opt), dtype=object)
+        for i in range(n_opt):
+            var_c[i] = model.NewIntVar(0, horizon, f"c_{i}")
+
+        # Named tuple to store information about created variables.
+        task_type = collections.namedtuple("task_type", "start end interval")
+        # Named tuple to manipulate solution information.
+        assigned_task_type = collections.namedtuple(
+            "assigned_task_type", "start job index duration"
+        )
+
+        # Creates job intervals and add to the corresponding machine lists.
+        all_tasks = {}
+        machine_to_intervals = collections.defaultdict(list)
+
+        for job_id, job in enumerate(self.jobs_data):
+            for task_id, task in enumerate(job):
+                machine, duration = task
+                suffix = f"_{job_id}_{task_id}"
+                start_var = model.NewIntVar(0, horizon, "start" + suffix)
+                end_var = model.NewIntVar(0, horizon, "end" + suffix)
+                interval_var = model.NewIntervalVar(
+                    start_var, duration, end_var, "interval" + suffix
+                )
+                all_tasks[job_id, task_id] = task_type(
+                    start=start_var, end=end_var, interval=interval_var
+                )
+                machine_to_intervals[machine].append(interval_var)
+
+        # allowed overlapping opertion ids
+        # check if both allowed_overlapping_machine and co_exist_set are None
+        if (
+            self.allowed_overlapping_machine is not None
+            and self.co_exist_set is not None
+        ):
+            if len(self.allowed_overlapping_machine) < 2:
+                raise ValueError(
+                    "The number of allowed overlapping machines should be greater than 1."
+                )
+
+            for machine_i, machine_j in combinations(
+                self.allowed_overlapping_machine, 2
+            ):
+                for interval_i, interval_j in product(
+                    machine_to_intervals[machine_i], machine_to_intervals[machine_j]
+                ):
+                    job_id_i, task_id_i = interval_i.Name().split("_")[-2:]
+                    job_id_j, task_id_j = interval_j.Name().split("_")[-2:]
+                    if job_id_i < job_id_j:
+                        if f"{job_id_i},{job_id_j}" not in self.co_exist_set:
+                            model.AddNoOverlap([interval_i, interval_j])
+
+        # Precedences inside a job.
+        for job_id, job in enumerate(self.jobs_data):
+            for task_id in range(len(job) - 1):
+                model.Add(
+                    all_tasks[job_id, task_id + 1].start
+                    >= all_tasks[job_id, task_id].end
+                )
+
+        for i, j in product(range(n_opt), range(n_opt)):
+            if (
+                self.para_lmin[i, j] != -self.inf_cp
+                and self.para_lmin[i, j] != self.inf_cp
+            ):
+                # eq. (6)
+                # minimum lag between the starting time of operation i and the ending time of operation j
+                model.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
+            if (
+                self.para_lmax[i, j] != -self.inf_cp
+                and self.para_lmax[i, j] != self.inf_cp
+            ):
+                # eq. (7)
+                # maximum lag between the starting time of operation i and the ending time of operation j
+                model.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
+
+        # eq. (16)
+        for i in range(n_opt):
+            for j in range(n_opt):
+                expr = []
+                for m in range(n_mach):
+                    if i != j:
+                        # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
+                        expr.append(self.para_w[j, m] * var_z[i, j, m])
+                model.Add(
+                    cp_model.LinearExpr.Sum(expr)
+                    <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m]
+                )
+
+        # Makespan objective.
+        obj_var = model.NewIntVar(0, horizon, "makespan")
+        model.AddMaxEquality(
+            obj_var,
+            [
+                all_tasks[job_id, len(job) - 1].end
+                for job_id, job in enumerate(self.jobs_data)
+            ],
+        )
+
+        # ================================
+
+        solver = cp_model.CpSolver()
+        status = solver.Solve(self.model)
+        print(f"Status of solver = {status}.")
+
+        if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+            print("Solution:")
+            # Create one list of assigned tasks per machine.
+            assigned_jobs = collections.defaultdict(list)
+            for job_id, job in enumerate(self.jobs_data):
+                for task_id, task in enumerate(job):
+                    machine = task[0]
+                    assigned_jobs[machine].append(
+                        assigned_task_type(
+                            start=solver.Value(all_tasks[job_id, task_id].start),
+                            job=job_id,
+                            index=task_id,
+                            duration=task[1],
+                        )
+                    )
+
+            # Create per machine output lines.
+            output = ""
+            for machine in self.machines:
+                # Sort by starting time.
+                assigned_jobs[machine].sort()
+                sol_line_tasks = "Machine " + str(machine) + ": "
+                sol_line = "           "
+
+                for assigned_task in assigned_jobs[machine]:
+                    name = f"job_{assigned_task.job}_task_{assigned_task.index}"
+                    # Add spaces to output to align columns.
+                    sol_line_tasks += f"{name:15}"
+
+                    start = assigned_task.start
+                    duration = assigned_task.duration
+                    sol_tmp = f"[{start},{start + duration}]"
+                    # Add spaces to output to align columns.
+                    sol_line += f"{sol_tmp:15}"
+
+                sol_line += "\n"
+                sol_line_tasks += "\n"
+                output += sol_line_tasks
+                output += sol_line
+
+            # Finally print the solution found.
+            print(f"Optimal Schedule Length: {solver.ObjectiveValue()}")
+            print(output)
+        else:
+            print("No solution found.")
+
+        # Statistics.
+        print("\nStatistics")
+        print(f"  - conflicts: {solver.NumConflicts()}")
+        print(f"  - branches : {solver.NumBranches()}")
+        print(f"  - wall time: {solver.WallTime()}s")
+
+        # ================================
+
+        return model
+
+    @property
+    def model(self) -> Model | gp.Model | None:
+        return self._model
+
+    def get_params(self):
+        """Get parameters for the model."""
+        n_opt = len(self.operations)
+        n_mach = len(self.machines)
+        # operation_data = defaultdict(dict)
+
+        # sample jobs_data
+        # jobs_data = [
+        #   # task = (machine_id, processing_time).
+        #   [(0, 3), (1, 2), (2, 2)],  # Job0
+        #   [(0, 2), (2, 1), (1, 4)],  # Job1
+        #   [(1, 4), (2, 3)],  # Job2
+        # ]
+        # jobs_data = []
+        # for i in range(n_opt):
+        #     for _, pw_data in enumerate(operation_data[str(i)]["pw"]):
+        #         jobs_data.append([(int(pw_data[0]), int(pw_data[1]))])
+
+        # return (
+        #     n_opt,
+        #     n_mach,
+        #     # operation_data,
+        #     # machine_data,
+        #     # processing time of operation i in machine m
+        #     # para_p = np.full((n_opt, n_mach), dtype=object, fill_value=infinity)
+        #     # time_estimates is para_p
+        #     self.time_estimates,
+        #     # para_h,
+        #     # weight of operation i in machine m
+        #     # para_w = np.empty((n_opt, n_mach), dtype=object)
+        #     self.para_w,
+        #     # para_delta,
+        #     # set up time of machine m when processing operation i before j
+        #     # a(i,j,m): setup time of machine m when processing operation i before j (aijm = -inf if
+        #     # there is no setups)
+        #     self.para_a,
+        #     self.para_mach_capacity,
+        #     self.jobs_data,
+        # )
+
+        return n_opt, n_mach
+
+    def solve_ortools(self):
+        assert self.model is not None
+
+        solver = cp_model.CpSolver()
+        status = solver.Solve(self.model)
+        print(f"Status of solver = {status}.")
+
+        if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+            print("Solution:")
+            # Create one list of assigned tasks per machine.
+            assigned_jobs = collections.defaultdict(list)
+            for job_id, job in enumerate(self.jobs_data):
+                for task_id, task in enumerate(job):
+                    machine = task[0]
+                    assigned_jobs[machine].append(
+                        assigned_task_type(
+                            start=solver.Value(all_tasks[job_id, task_id].start),
+                            job=job_id,
+                            index=task_id,
+                            duration=task[1],
+                        )
+                    )
+
+            # Create per machine output lines.
+            output = ""
+            for machine in self.machines:
+                # Sort by starting time.
+                assigned_jobs[machine].sort()
+                sol_line_tasks = "Machine " + str(machine) + ": "
+                sol_line = "           "
+
+                for assigned_task in assigned_jobs[machine]:
+                    name = f"job_{assigned_task.job}_task_{assigned_task.index}"
+                    # Add spaces to output to align columns.
+                    sol_line_tasks += f"{name:15}"
+
+                    start = assigned_task.start
+                    duration = assigned_task.duration
+                    sol_tmp = f"[{start},{start + duration}]"
+                    # Add spaces to output to align columns.
+                    sol_line += f"{sol_tmp:15}"
+
+                sol_line += "\n"
+                sol_line_tasks += "\n"
+                output += sol_line_tasks
+                output += sol_line
+
+            # Finally print the solution found.
+            print(f"Optimal Schedule Length: {solver.ObjectiveValue()}")
+            print(output)
+        else:
+            print("No solution found.")
+
+        # Statistics.
+        print("\nStatistics")
+        print(f"  - conflicts: {solver.NumConflicts()}")
+        print(f"  - branches : {solver.NumBranches()}")
+        print(f"  - wall time: {solver.WallTime()}s")
