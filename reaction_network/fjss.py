@@ -398,6 +398,19 @@ class FJSS2(_FJS):
         verbose : bool, optional
             If print out the solution explicitly, by default True.
 
+        Returns
+        -------
+        FjsOutput
+            The output of the FJS solver.
+
+        Notes
+        -----
+        Please note that for the constraint programming solver, all the inputs have to be
+        integers. If you have float numbers in the input, please multiply a large number to make
+        it a large integer. For example, if you have a float number 0.5, you can multiply 1e6 to
+        feed into this model. The model will get you solution with 6 decimal points, which is
+        from 1e6.
+
         """
         self.inf_cp = inf_cp
 
@@ -436,17 +449,13 @@ class FJSS2(_FJS):
         self._model = None
         self.verbose = verbose
 
+        self.all_tasks = None
+
     def build_model_ortools(self):
         """Build the model."""
         n_opt, n_mach = self.get_params()
-        # # operation 0 can overlap with operation 1
-        # # operation 3 can overlap with operation 4
-        # co_exist_set = ["0,1", "3,4"]
-        # # machine ids for the machines that allow overlapping
-        # allowed_overlapping_machine = [0, 1, 2]
 
         model = cp_model.CpModel()
-        # horizon = sum(task[1] for job in jobs_data for task in job)
         horizon = (
                 np.sum(self.para_p[self.para_p != self.inf_cp]).sum()
                 + np.sum(self.para_lmax[self.para_lmax != self.inf_cp]).sum()
@@ -481,10 +490,6 @@ class FJSS2(_FJS):
 
         # Named tuple to store information about created variables.
         task_type = collections.namedtuple("task_type", "start end interval")
-        # Named tuple to manipulate solution information.
-        assigned_task_type = collections.namedtuple(
-            "assigned_task_type", "start job index duration"
-        )
 
         # Creates job intervals and add to the corresponding machine lists.
         all_tasks = {}
@@ -504,7 +509,7 @@ class FJSS2(_FJS):
                 )
                 machine_to_intervals[machine].append(interval_var)
 
-        # ==============================================================================
+        self.all_tasks = all_tasks
         # # Create and add disjunctive constraints.
         # # no overlapping
 
@@ -518,9 +523,6 @@ class FJSS2(_FJS):
                     if f"{job_id_i},{job_id_j}" not in self.co_exist_set:
                         model.AddNoOverlap([interval_i, interval_j])
 
-        # ==============================================================================
-
-        # =============================================================================
         # Precedences inside a job.
         for job_id, job in enumerate(self.jobs_data):
             for task_id in range(len(job) - 1):
@@ -560,10 +562,31 @@ class FJSS2(_FJS):
             [all_tasks[job_id, len(job) - 1].end for job_id, job in enumerate(self.jobs_data)],
         )
         model.Minimize(obj_var)
+        self._model = model
+
+        return model
+
+    @property
+    def model(self) -> Model | gp.Model | None:
+        return self._model
+
+    def get_params(self):
+        """Get parameters for the model."""
+        n_opt = len(self.operations)
+        n_mach = len(self.machines)
+
+        return n_opt, n_mach
+
+    def solve_ortools(self):
+        assert self.model is not None
 
         # Creates the solver and solve.
         solver = cp_model.CpSolver()
-        status = solver.Solve(model)
+        status = solver.Solve(self._model)
+        # Named tuple to manipulate solution information.
+        assigned_task_type = collections.namedtuple(
+            "assigned_task_type", "start job index duration"
+        )
 
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
             print("Solution:")
@@ -575,7 +598,7 @@ class FJSS2(_FJS):
                     machine = task[0]
                     assigned_jobs[str(machine)].append(
                         assigned_task_type(
-                            start=solver.Value(all_tasks[job_id, task_id].start),
+                            start=solver.Value(self.all_tasks[job_id, task_id].start),
                             job=job_id,
                             index=task_id,
                             duration=task[1],
@@ -584,8 +607,8 @@ class FJSS2(_FJS):
                     solved_operation = SolvedOperation(
                         id=f"job_{job_id}_task_{task_id}",
                         assigned_to=str(machine),
-                        start_time=solver.Value(all_tasks[job_id, task_id].start),
-                        end_time=solver.Value(all_tasks[job_id, task_id].end),
+                        start_time=solver.Value(self.all_tasks[job_id, task_id].start),
+                        end_time=solver.Value(self.all_tasks[job_id, task_id].end),
                     )
                     solved_operations.append(solved_operation)
 
@@ -616,70 +639,17 @@ class FJSS2(_FJS):
             # Finally print the solution found.
             print(f"Optimal Schedule Length: {solver.ObjectiveValue()}")
             print(output)
+            # Statistics.
+            print("\nStatistics")
+            print(f"  - conflicts: {solver.NumConflicts()}")
+            print(f"  - branches : {solver.NumBranches()}")
+            print(f"  - wall time: {solver.WallTime()}s")
+
+            return FjsOutput(
+                solved_operations=solved_operations,
+                makespan=solver.ObjectiveValue(),
+            )
+
         else:
             print("No solution found.")
-
-        # Statistics.
-        print("\nStatistics")
-        print(f"  - conflicts: {solver.NumConflicts()}")
-        print(f"  - branches : {solver.NumBranches()}")
-        print(f"  - wall time: {solver.WallTime()}s")
-
-        self._model = model
-
-        return model
-
-    @property
-    def model(self) -> Model | gp.Model | None:
-        return self._model
-
-    def get_params(self):
-        """Get parameters for the model."""
-        n_opt = len(self.operations)
-        n_mach = len(self.machines)
-        # operation_data = defaultdict(dict)
-
-        # sample jobs_data
-        # jobs_data = [
-        #   # task = (machine_id, processing_time).
-        #   [(0, 3), (1, 2), (2, 2)],  # Job0
-        #   [(0, 2), (2, 1), (1, 4)],  # Job1
-        #   [(1, 4), (2, 3)],  # Job2
-        # ]
-        # jobs_data = []
-        # for i in range(n_opt):
-        #     for _, pw_data in enumerate(operation_data[str(i)]["pw"]):
-        #         jobs_data.append([(int(pw_data[0]), int(pw_data[1]))])
-
-        # return (
-        #     n_opt,
-        #     n_mach,
-        #     # operation_data,
-        #     # machine_data,
-        #     # processing time of operation i in machine m
-        #     # para_p = np.full((n_opt, n_mach), dtype=object, fill_value=infinity)
-        #     # time_estimates is para_p
-        #     self.time_estimates,
-        #     # para_h,
-        #     # weight of operation i in machine m
-        #     # para_w = np.empty((n_opt, n_mach), dtype=object)
-        #     self.para_w,
-        #     # para_delta,
-        #     # set up time of machine m when processing operation i before j
-        #     # a(i,j,m): setup time of machine m when processing operation i before j (aijm = -inf if
-        #     # there is no setups)
-        #     self.para_a,
-        #     self.para_mach_capacity,
-        #     self.jobs_data,
-        # )
-
-        return n_opt, n_mach
-
-    def solve_ortools(self):
-        assert self.model is not None
-
-        solver = cp_model.CpSolver()
-        status = solver.Solve(self._model)
-        print(f"Status of solver = {status}.")
-
-        pass
+            return None
