@@ -542,9 +542,9 @@ class FJSS2(_FJS):
 
         # eq. (16)
         for i in range(n_opt):
-            for j in range(n_opt):
+            for m in range(n_mach):
                 expr = []
-                for m in range(n_mach):
+                for j in range(n_opt):
                     if i != j:
                         # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
                         expr.append(self.para_w[j, m] * var_z[i, j, m])
