@@ -74,7 +74,8 @@ def get_dummy_time_est(operation_type: OperationType):
 
 class _FJS(MSONable, ABC):
     def __init__(self, operations: list[str], machines: list[str], precedence: dict[str, list[str]],
-                 time_estimates: dict[str, dict[str, float]], model_string: str | None = None, ):
+                 time_estimates: dict[str, dict[str, float]]|None, model_string: str | None =
+                 None, ):
         """
         # TODO implement io (loading lp file)
 
@@ -341,13 +342,13 @@ class FJSS2(_FJS):
         self,
         operations: list[str],
         machines: list[str],
-        time_estimates: dict[str, dict[str, float]],
+        para_p: np.ndarray,
         para_a: np.ndarray,
         para_w: np.ndarray,
         para_mach_capacity: list[int] | np.ndarray,
         para_lmin: np.ndarray,
         para_lmax: np.ndarray,
-        job_data: list[list[tuple[int, int]]],
+        jobs_data: list[list[tuple[int, int]]],
         precedence: dict[str, list[str]] | None,
         co_exist_set: list[str] = None,
         allowed_overlapping_machine: list[int] = None,
@@ -365,7 +366,7 @@ class FJSS2(_FJS):
             _description_
         precedence : dict[str, list[str]]
             _description_
-        time_estimates : dict[str, dict[str, float]]
+        time_estimates : np.ndarray
             _description_
         para_a : np.ndarray
             Setup time of machine m when processing operation i before j and para_a =
@@ -394,30 +395,38 @@ class FJSS2(_FJS):
         inf_cp : int, optional
             _description_, by default 1.0e10
         """
+        self.inf_cp = inf_cp
+
+        para_p[para_p == np.inf] = inf_cp
+        para_p[para_p == -np.inf] = -inf_cp
+        self.para_p = para_p.astype(int)
+
         super().__init__(
             operations=operations,
             machines=machines,
             precedence=precedence,
-            time_estimates=time_estimates,
+            time_estimates=None,
             model_string=model_string,
         )
-        self.inf_cp = inf_cp
+
         para_a[para_a == np.inf] = inf_cp
         para_a[para_a == -np.inf] = -inf_cp
-        self.para_a = para_a
+        self.para_a = para_a.astype(int)
 
         para_w[para_w == np.inf] = inf_cp
         para_w[para_w == -np.inf] = -inf_cp
-        self.para_w = para_w
-        self.para_mach_capacity = para_mach_capacity
+        self.para_w = para_w.astype(int)
+        self.para_mach_capacity = para_mach_capacity.astype(int)
 
         para_lmin[para_lmin == np.inf] = inf_cp
         para_lmin[para_lmin == -np.inf] = -inf_cp
-        self.para_lmin = para_lmin
+        self.para_lmin = para_lmin.astype(int)
 
         para_lmax[para_lmax == np.inf] = inf_cp
         para_lmax[para_lmax == -np.inf] = -inf_cp
-        self.para_lmax = para_lmax
+        self.para_lmax = para_lmax.astype(int)
+
+        self.jobs_data = jobs_data
         self.co_exist_set = co_exist_set
         self.allowed_overlapping_machine = allowed_overlapping_machine
         self._model = None
@@ -431,15 +440,15 @@ class FJSS2(_FJS):
         # # machine ids for the machines that allow overlapping
         # allowed_overlapping_machine = [0, 1, 2]
 
+        model = cp_model.CpModel()
+        # horizon = sum(task[1] for job in jobs_data for task in job)
         horizon = (
-            np.sum(self.para_p, axis=1).max() + np.sum(self.para_h, axis=1).max() + 1
+                np.sum(self.para_p[self.para_p != self.inf_cp]).sum()
+                + np.sum(self.para_lmax[self.para_lmax != self.inf_cp]).sum()
+                + 1
         )
-        # horizon = np.sum(self.time_estimates) + 1
         horizon = int(horizon)
 
-        model = cp_model.CpModel()
-
-        # create variables
         # if operation i is processed by machine m
         var_y = np.empty((n_opt, n_mach), dtype=object)
         for i, m in product(range(n_opt), range(n_mach)):
@@ -456,12 +465,12 @@ class FJSS2(_FJS):
             var_z[i, j, m] = model.NewBoolVar(f"z_{i}_{j}_{m}")
 
         # starting time of operation i
-        var_s = np.empty((n_opt), dtype=object)
+        var_s = np.empty(n_opt, dtype=object)
         for i in range(n_opt):
             var_s[i] = model.NewIntVar(0, horizon, f"s_{i}")
 
         # completion time of operation i
-        var_c = np.empty((n_opt), dtype=object)
+        var_c = np.empty(n_opt, dtype=object)
         for i in range(n_opt):
             var_c[i] = model.NewIntVar(0, horizon, f"c_{i}")
 
@@ -490,49 +499,36 @@ class FJSS2(_FJS):
                 )
                 machine_to_intervals[machine].append(interval_var)
 
-        # allowed overlapping opertion ids
-        # check if both allowed_overlapping_machine and co_exist_set are None
-        if (
-            self.allowed_overlapping_machine is not None
-            and self.co_exist_set is not None
-        ):
-            if len(self.allowed_overlapping_machine) < 2:
-                raise ValueError(
-                    "The number of allowed overlapping machines should be greater than 1."
-                )
+        # ==============================================================================
+        # # Create and add disjunctive constraints.
+        # # no overlapping
 
-            for machine_i, machine_j in combinations(
-                self.allowed_overlapping_machine, 2
-            ):
-                for interval_i, interval_j in product(
+        for machine_i, machine_j in combinations(self.allowed_overlapping_machine, 2):
+            for interval_i, interval_j in product(
                     machine_to_intervals[machine_i], machine_to_intervals[machine_j]
-                ):
-                    job_id_i, task_id_i = interval_i.Name().split("_")[-2:]
-                    job_id_j, task_id_j = interval_j.Name().split("_")[-2:]
-                    if job_id_i < job_id_j:
-                        if f"{job_id_i},{job_id_j}" not in self.co_exist_set:
-                            model.AddNoOverlap([interval_i, interval_j])
+            ):
+                job_id_i, task_id_i = interval_i.Name().split("_")[-2:]
+                job_id_j, task_id_j = interval_j.Name().split("_")[-2:]
+                if job_id_i < job_id_j:
+                    if f"{job_id_i},{job_id_j}" not in self.co_exist_set:
+                        model.AddNoOverlap([interval_i, interval_j])
 
+        # ==============================================================================
+
+        # =============================================================================
         # Precedences inside a job.
         for job_id, job in enumerate(self.jobs_data):
             for task_id in range(len(job) - 1):
                 model.Add(
-                    all_tasks[job_id, task_id + 1].start
-                    >= all_tasks[job_id, task_id].end
+                    all_tasks[job_id, task_id + 1].start >= all_tasks[job_id, task_id].end
                 )
 
         for i, j in product(range(n_opt), range(n_opt)):
-            if (
-                self.para_lmin[i, j] != -self.inf_cp
-                and self.para_lmin[i, j] != self.inf_cp
-            ):
+            if self.para_lmin[i, j] != -self.inf_cp and self.para_lmin[i, j] != self.inf_cp:
                 # eq. (6)
                 # minimum lag between the starting time of operation i and the ending time of operation j
                 model.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
-            if (
-                self.para_lmax[i, j] != -self.inf_cp
-                and self.para_lmax[i, j] != self.inf_cp
-            ):
+            if self.para_lmax[i, j] != -self.inf_cp and self.para_lmax[i, j] != self.inf_cp:
                 # eq. (7)
                 # maximum lag between the starting time of operation i and the ending time of operation j
                 model.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
@@ -545,6 +541,7 @@ class FJSS2(_FJS):
                     if i != j:
                         # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
                         expr.append(self.para_w[j, m] * var_z[i, j, m])
+                # TODO: Fix this as the index m is not right
                 model.Add(
                     cp_model.LinearExpr.Sum(expr)
                     <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m]
@@ -554,17 +551,13 @@ class FJSS2(_FJS):
         obj_var = model.NewIntVar(0, horizon, "makespan")
         model.AddMaxEquality(
             obj_var,
-            [
-                all_tasks[job_id, len(job) - 1].end
-                for job_id, job in enumerate(self.jobs_data)
-            ],
+            [all_tasks[job_id, len(job) - 1].end for job_id, job in enumerate(self.jobs_data)],
         )
+        model.Minimize(obj_var)
 
-        # ================================
-
+        # Creates the solver and solve.
         solver = cp_model.CpSolver()
-        status = solver.Solve(self.model)
-        print(f"Status of solver = {status}.")
+        status = solver.Solve(model)
 
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
             print("Solution:")
@@ -573,7 +566,7 @@ class FJSS2(_FJS):
             for job_id, job in enumerate(self.jobs_data):
                 for task_id, task in enumerate(job):
                     machine = task[0]
-                    assigned_jobs[machine].append(
+                    assigned_jobs[str(machine)].append(
                         assigned_task_type(
                             start=solver.Value(all_tasks[job_id, task_id].start),
                             job=job_id,
@@ -586,7 +579,7 @@ class FJSS2(_FJS):
             output = ""
             for machine in self.machines:
                 # Sort by starting time.
-                assigned_jobs[machine].sort()
+                assigned_jobs[str(machine)].sort()
                 sol_line_tasks = "Machine " + str(machine) + ": "
                 sol_line = "           "
 
@@ -619,7 +612,6 @@ class FJSS2(_FJS):
         print(f"  - wall time: {solver.WallTime()}s")
 
         # ================================
-
         return model
 
     @property
@@ -672,57 +664,7 @@ class FJSS2(_FJS):
         assert self.model is not None
 
         solver = cp_model.CpSolver()
-        status = solver.Solve(self.model)
+        status = solver.Solve(self._model)
         print(f"Status of solver = {status}.")
 
-        if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-            print("Solution:")
-            # Create one list of assigned tasks per machine.
-            assigned_jobs = collections.defaultdict(list)
-            for job_id, job in enumerate(self.jobs_data):
-                for task_id, task in enumerate(job):
-                    machine = task[0]
-                    assigned_jobs[machine].append(
-                        assigned_task_type(
-                            start=solver.Value(all_tasks[job_id, task_id].start),
-                            job=job_id,
-                            index=task_id,
-                            duration=task[1],
-                        )
-                    )
-
-            # Create per machine output lines.
-            output = ""
-            for machine in self.machines:
-                # Sort by starting time.
-                assigned_jobs[machine].sort()
-                sol_line_tasks = "Machine " + str(machine) + ": "
-                sol_line = "           "
-
-                for assigned_task in assigned_jobs[machine]:
-                    name = f"job_{assigned_task.job}_task_{assigned_task.index}"
-                    # Add spaces to output to align columns.
-                    sol_line_tasks += f"{name:15}"
-
-                    start = assigned_task.start
-                    duration = assigned_task.duration
-                    sol_tmp = f"[{start},{start + duration}]"
-                    # Add spaces to output to align columns.
-                    sol_line += f"{sol_tmp:15}"
-
-                sol_line += "\n"
-                sol_line_tasks += "\n"
-                output += sol_line_tasks
-                output += sol_line
-
-            # Finally print the solution found.
-            print(f"Optimal Schedule Length: {solver.ObjectiveValue()}")
-            print(output)
-        else:
-            print("No solution found.")
-
-        # Statistics.
-        print("\nStatistics")
-        print(f"  - conflicts: {solver.NumConflicts()}")
-        print(f"  - branches : {solver.NumBranches()}")
-        print(f"  - wall time: {solver.WallTime()}s")
+        pass
