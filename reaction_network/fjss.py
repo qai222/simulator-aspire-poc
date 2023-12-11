@@ -354,6 +354,7 @@ class FJSS2(_FJS):
         allowed_overlapping_machine: list[int] = None,
         model_string: str | None = None,
         inf_cp: int = 1.0e10,
+        verbose: bool = True,
     ):
         """
         _summary_
@@ -394,6 +395,9 @@ class FJSS2(_FJS):
             _description_, by default None
         inf_cp : int, optional
             _description_, by default 1.0e10
+        verbose : bool, optional
+            If print out the solution explicitly, by default True.
+
         """
         self.inf_cp = inf_cp
 
@@ -430,6 +434,7 @@ class FJSS2(_FJS):
         self.co_exist_set = co_exist_set
         self.allowed_overlapping_machine = allowed_overlapping_machine
         self._model = None
+        self.verbose = verbose
 
     def build_model_ortools(self):
         """Build the model."""
@@ -549,6 +554,7 @@ class FJSS2(_FJS):
 
         # Makespan objective.
         obj_var = model.NewIntVar(0, horizon, "makespan")
+        # self.obj_var = obj_var
         model.AddMaxEquality(
             obj_var,
             [all_tasks[job_id, len(job) - 1].end for job_id, job in enumerate(self.jobs_data)],
@@ -563,6 +569,7 @@ class FJSS2(_FJS):
             print("Solution:")
             # Create one list of assigned tasks per machine.
             assigned_jobs = collections.defaultdict(list)
+            solved_operations = []
             for job_id, job in enumerate(self.jobs_data):
                 for task_id, task in enumerate(job):
                     machine = task[0]
@@ -574,6 +581,13 @@ class FJSS2(_FJS):
                             duration=task[1],
                         )
                     )
+                    solved_operation = SolvedOperation(
+                        id=f"job_{job_id}_task_{task_id}",
+                        assigned_to=str(machine),
+                        start_time=solver.Value(all_tasks[job_id, task_id].start),
+                        end_time=solver.Value(all_tasks[job_id, task_id].end),
+                    )
+                    solved_operations.append(solved_operation)
 
             # Create per machine output lines.
             output = ""
@@ -611,7 +625,8 @@ class FJSS2(_FJS):
         print(f"  - branches : {solver.NumBranches()}")
         print(f"  - wall time: {solver.WallTime()}s")
 
-        # ================================
+        self._model = model
+
         return model
 
     @property
