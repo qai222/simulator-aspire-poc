@@ -15,16 +15,21 @@ from gurobipy import GRB
 from monty.json import MSONable
 from pydantic import BaseModel
 from ortools.sat.python import cp_model
+from ortools.linear_solver import pywraplp
+from utils import get_m_value
 
 # from reaction_network.schema.lv2 import BenchTopLv2, OperationType
 
-os.environ["GRB_LICENSE_FILE"] = "/home/qai/local/gurobi_lic/gurobi.lic"
+# os.environ["GRB_LICENSE_FILE"] = "/home/qai/local/gurobi_lic/gurobi.lic"
 
 
-def get_gurobi_var_index(var_name: str, var_header: str, ) -> int | list[int]:
+def get_gurobi_var_index(
+    var_name: str,
+    var_header: str,
+) -> int | list[int]:
     assert var_name.startswith(var_header)
     assert var_name.endswith("]")
-    stripped_index_string = var_name[len(var_header):].lstrip("[").rstrip("]")
+    stripped_index_string = var_name[len(var_header) :].lstrip("[").rstrip("]")
     n_index = var_name.count(",") + 1
     assert n_index >= 1
     if n_index == 1:
@@ -56,8 +61,11 @@ class FjsOutput(BaseModel):
 
 def get_dummy_time_est(operation_type: OperationType):
     # in seconds
-    if operation_type in [OperationType.OPERATION_LOADING, OperationType.OPERATION_UNLOADING,
-                          OperationType.OPERATION_RELOADING]:
+    if operation_type in [
+        OperationType.OPERATION_LOADING,
+        OperationType.OPERATION_UNLOADING,
+        OperationType.OPERATION_RELOADING,
+    ]:
         base_cost = 120
     elif operation_type in [OperationType.OPERATION_HEATING]:
         base_cost = 30 * 60
@@ -73,9 +81,14 @@ def get_dummy_time_est(operation_type: OperationType):
 
 
 class _FJS(MSONable, ABC):
-    def __init__(self, operations: list[str], machines: list[str], precedence: dict[str, list[str]],
-                 time_estimates: dict[str, dict[str, float]]|None, model_string: str | None =
-                 None, ):
+    def __init__(
+        self,
+        operations: list[str],
+        machines: list[str],
+        precedence: dict[str, list[str]],
+        time_estimates: dict[str, dict[str, float]] | None,
+        model_string: str | None = None,
+    ):
         """
         # TODO implement io (loading lp file)
 
@@ -101,7 +114,9 @@ class _FJS(MSONable, ABC):
         return amids
 
     @classmethod
-    def from_bench_top(cls, bench_top: BenchTopLv2, time_estimates: dict[str, dict[str, float]] = None):
+    def from_bench_top(
+        cls, bench_top: BenchTopLv2, time_estimates: dict[str, dict[str, float]] = None
+    ):
         p = dict()
         for operation_id, operation in bench_top.operation_dict.items():
             p[operation_id] = operation.precedents
@@ -115,7 +130,9 @@ class _FJS(MSONable, ABC):
             time_est = defaultdict(dict)
             random.seed(42)
             for operation_id, operation in bench_top.operation_dict.items():
-                can_be_processed_by = bench_top.operation_type_device_mapping[operation.type]
+                can_be_processed_by = bench_top.operation_type_device_mapping[
+                    operation.type
+                ]
                 for mid in machines:
                     if mid in can_be_processed_by:
                         time_est[operation_id][mid] = get_dummy_time_est(operation.type)
@@ -127,7 +144,7 @@ class _FJS(MSONable, ABC):
             operations=sorted(bench_top.operation_dict.keys()),
             machines=machines,
             precedence=p,
-            time_estimates=time_est
+            time_estimates=time_est,
         )
 
 
@@ -152,7 +169,9 @@ class FJS1(_FJS):
                 te = self.time_estimates[operation_id][machine_id]
                 if not math.isinf(te):
                     p_i_k[i][k] = te
-        p_i_k: dict[int, dict[int, float]]  # processing time of operation i on machine k
+        p_i_k: dict[
+            int, dict[int, float]
+        ]  # processing time of operation i on machine k
 
         pj = dict()
         for i, operation_id in i_dict.items():
@@ -171,28 +190,41 @@ class FJS1(_FJS):
     def build_model_cplex(self):
         from docplex.mp.model import Model
         from docplex.mp.dvar import Var
+
         i_dict, i_dict_rev, k_dict, p_i_k, pj, big_m = self.get_params()
 
         model = Model(name="FJS1")
         var_c_max = model.continuous_var(name="C_max", lb=0, ub=model.infinity)
 
-        vars_x_i_j_k = model.binary_var_cube(len(i_dict), len(i_dict), len(k_dict), name="X")  # eq 15
+        vars_x_i_j_k = model.binary_var_cube(
+            len(i_dict), len(i_dict), len(k_dict), name="X"
+        )  # eq 15
         vars_x_i_j_k: dict[tuple[int, int, int], Var]
 
-        vars_y_i_k = model.binary_var_matrix(len(i_dict), len(k_dict), name="Y")  # eq 16
+        vars_y_i_k = model.binary_var_matrix(
+            len(i_dict), len(k_dict), name="Y"
+        )  # eq 16
         vars_y_i_k: dict[tuple[int, int], Var]
 
-        vars_c_i = model.continuous_var_dict(len(i_dict), lb=0, ub=model.infinity, name="C")
+        vars_c_i = model.continuous_var_dict(
+            len(i_dict), lb=0, ub=model.infinity, name="C"
+        )
         vars_c_i: dict[int, Var]
 
         # eq 9 and 10
         for i, operation_id in i_dict.items():
             available_ks = sorted(p_i_k[i].keys())
-            model.add_constraint(sum([vars_y_i_k[(i, k)] for k in available_ks]) == 1, ctname=f"eq 9: i={i}")
+            model.add_constraint(
+                sum([vars_y_i_k[(i, k)] for k in available_ks]) == 1,
+                ctname=f"eq 9: i={i}",
+            )
             for j in pj[i]:
                 model.add_constraint(
-                    vars_c_i[i] >= vars_c_i[j] + sum([vars_y_i_k[(i, k)] * p_i_k[i][k] for k in available_ks]),
-                    ctname=f"eq 10: i={i} j={j}")
+                    vars_c_i[i]
+                    >= vars_c_i[j]
+                    + sum([vars_y_i_k[(i, k)] * p_i_k[i][k] for k in available_ks]),
+                    ctname=f"eq 10: i={i} j={j}",
+                )
 
         # eq 11 and eq 12
         for i, operation_id_i in i_dict.items():
@@ -202,15 +234,31 @@ class FJS1(_FJS):
                 k_list = sorted(set(p_i_k[i].keys()).intersection(set(p_i_k[j].keys())))
                 for k in k_list:
                     model.add_constraint(
-                        vars_c_i[i] >= vars_c_i[j] + p_i_k[i][k] - big_m * (
-                                2 + vars_x_i_j_k[(i, j, k)] - vars_y_i_k[(i, k)] - vars_y_i_k[(j, k)]),
-                        ctname=f"eq 11: i={i} j={j} k={k}"
+                        vars_c_i[i]
+                        >= vars_c_i[j]
+                        + p_i_k[i][k]
+                        - big_m
+                        * (
+                            2
+                            + vars_x_i_j_k[(i, j, k)]
+                            - vars_y_i_k[(i, k)]
+                            - vars_y_i_k[(j, k)]
+                        ),
+                        ctname=f"eq 11: i={i} j={j} k={k}",
                     )
 
                     model.add_constraint(
-                        vars_c_i[j] >= vars_c_i[i] + p_i_k[j][k] - big_m * (
-                                3 - vars_x_i_j_k[(i, j, k)] - vars_y_i_k[(i, k)] - vars_y_i_k[(j, k)]),
-                        ctname=f"eq 12: i={i} j={j} k={k}"
+                        vars_c_i[j]
+                        >= vars_c_i[i]
+                        + p_i_k[j][k]
+                        - big_m
+                        * (
+                            3
+                            - vars_x_i_j_k[(i, j, k)]
+                            - vars_y_i_k[(i, k)]
+                            - vars_y_i_k[(j, k)]
+                        ),
+                        ctname=f"eq 12: i={i} j={j} k={k}",
                     )
 
         # eq 14
@@ -220,35 +268,50 @@ class FJS1(_FJS):
         return model
 
     def build_model_gurobi(self):
-
-        env = gp.Env(empty=True)  # TODO this arrangement doesn't really suppress stdout...
-        env.setParam('OutputFlag', 0)
-        env.setParam('LogToConsole', 0)
+        env = gp.Env(
+            empty=True
+        )  # TODO this arrangement doesn't really suppress stdout...
+        env.setParam("OutputFlag", 0)
+        env.setParam("LogToConsole", 0)
         env.start()
 
         i_dict, i_dict_rev, k_dict, p_i_k, pj, big_m = self.get_params()
 
         model = gp.Model(self.__class__.__name__)
 
-        var_c_max = model.addVar(name="C_max", lb=1e-5, ub=float('inf'), vtype=GRB.CONTINUOUS)
+        var_c_max = model.addVar(
+            name="C_max", lb=1e-5, ub=float("inf"), vtype=GRB.CONTINUOUS
+        )
 
-        vars_x_i_j_k = model.addVars(len(i_dict), len(i_dict), len(k_dict), name="X", vtype=GRB.BINARY)  # eq 15
+        vars_x_i_j_k = model.addVars(
+            len(i_dict), len(i_dict), len(k_dict), name="X", vtype=GRB.BINARY
+        )  # eq 15
         vars_x_i_j_k: gp.tupledict[tuple[int, int, int], gp.Var]
 
-        vars_y_i_k = model.addVars(len(i_dict), len(k_dict), name="Y", vtype=GRB.BINARY)  # eq 16
+        vars_y_i_k = model.addVars(
+            len(i_dict), len(k_dict), name="Y", vtype=GRB.BINARY
+        )  # eq 16
         vars_y_i_k: gp.tupledict[tuple[int, int], gp.Var]
 
-        vars_c_i = model.addVars(len(i_dict), name="C", lb=0, ub=float('inf'), vtype=GRB.CONTINUOUS)
+        vars_c_i = model.addVars(
+            len(i_dict), name="C", lb=0, ub=float("inf"), vtype=GRB.CONTINUOUS
+        )
         vars_c_i: gp.tupledict[int, gp.Var]
 
         # eq 9 and 10
         for i, operation_id in i_dict.items():
             available_ks = sorted(p_i_k[i].keys())
-            model.addConstr(sum([vars_y_i_k[(i, k)] for k in available_ks]) == 1, name=f"eq 9: i={i}")
+            model.addConstr(
+                sum([vars_y_i_k[(i, k)] for k in available_ks]) == 1,
+                name=f"eq 9: i={i}",
+            )
             for j in pj[i]:
                 model.addConstr(
-                    vars_c_i[i] >= vars_c_i[j] + sum([vars_y_i_k[(i, k)] * p_i_k[i][k] for k in available_ks]),
-                    name=f"eq 10: i={i} j={j}")
+                    vars_c_i[i]
+                    >= vars_c_i[j]
+                    + sum([vars_y_i_k[(i, k)] * p_i_k[i][k] for k in available_ks]),
+                    name=f"eq 10: i={i} j={j}",
+                )
 
         # eq 11 and eq 12
         for i, operation_id_i in i_dict.items():
@@ -258,15 +321,31 @@ class FJS1(_FJS):
                 k_list = sorted(set(p_i_k[i].keys()).intersection(set(p_i_k[j].keys())))
                 for k in k_list:
                     model.addConstr(
-                        vars_c_i[i] >= vars_c_i[j] + p_i_k[i][k] - big_m * (
-                                2 + vars_x_i_j_k[(i, j, k)] - vars_y_i_k[(i, k)] - vars_y_i_k[(j, k)]),
-                        name=f"eq 11: i={i} j={j} k={k}"
+                        vars_c_i[i]
+                        >= vars_c_i[j]
+                        + p_i_k[i][k]
+                        - big_m
+                        * (
+                            2
+                            + vars_x_i_j_k[(i, j, k)]
+                            - vars_y_i_k[(i, k)]
+                            - vars_y_i_k[(j, k)]
+                        ),
+                        name=f"eq 11: i={i} j={j} k={k}",
                     )
 
                     model.addConstr(
-                        vars_c_i[j] >= vars_c_i[i] + p_i_k[j][k] - big_m * (
-                                3 - vars_x_i_j_k[(i, j, k)] - vars_y_i_k[(i, k)] - vars_y_i_k[(j, k)]),
-                        name=f"eq 12: i={i} j={j} k={k}"
+                        vars_c_i[j]
+                        >= vars_c_i[i]
+                        + p_i_k[j][k]
+                        - big_m
+                        * (
+                            3
+                            - vars_x_i_j_k[(i, j, k)]
+                            - vars_y_i_k[(i, k)]
+                            - vars_y_i_k[(j, k)]
+                        ),
+                        name=f"eq 12: i={i} j={j} k={k}",
                     )
 
         # eq 14
@@ -459,8 +538,6 @@ class FJSS2(_FJS):
         self.verbose = verbose
         self.var_c_max = inf_cp
 
-        print(f"horizon: {self.horizon}")
-
     def get_horizon(self):
         """Get the horizon."""
         # the horizon
@@ -517,7 +594,10 @@ class FJSS2(_FJS):
             model.Add(var_c[i] >= var_s[i] + sum(expr))
 
             # eq. (4)
-            expr = [(self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m] for m in range(n_mach)]
+            expr = [
+                (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m]
+                for m in range(n_mach)
+            ]
             model.Add(var_c[i] <= var_s[i] + sum(expr))
 
         # eq. (5)
@@ -548,10 +628,18 @@ class FJSS2(_FJS):
                 bool_b2 = model.NewBoolVar(f"bool_b2_{i}_{j}_{m}")
                 bool_a1 = model.NewBoolVar(f"bool_a1_{i}_{j}_{m}")
                 bool_a2 = model.NewBoolVar(f"bool_a2_{i}_{j}_{m}")
-                model.Add(var_s[j] >= var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(bool_a1)
-                model.Add(var_s[j] < var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(bool_a1.Not())
-                model.Add(var_s[i] >= var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(bool_a2)
-                model.Add(var_s[i] < var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(bool_a2.Not())
+                model.Add(var_s[j] >= var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(
+                    bool_a1
+                )
+                model.Add(var_s[j] < var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(
+                    bool_a1.Not()
+                )
+                model.Add(var_s[i] >= var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(
+                    bool_a2
+                )
+                model.Add(var_s[i] < var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(
+                    bool_a2.Not()
+                )
 
                 model.Add(bool_a1 + bool_a2 >= 1).OnlyEnforceIf(bool_b2)
                 model.Add(bool_a1 + bool_a2 < 1).OnlyEnforceIf(bool_b2.Not())
@@ -563,35 +651,41 @@ class FJSS2(_FJS):
                 # left part of the implication is the same as eq. (22), so we can reuse bool_b1
                 # right part of the implication
                 bool_b3 = model.NewBoolVar(f"bool_b3_{i}_{j}_{m}")
-                max_eq23_first = model.NewIntVar(0, horizon, f"max_eq23_{i}_{j}_{m}_first")
+                max_eq23_first = model.NewIntVar(
+                    0, horizon, f"max_eq23_{i}_{j}_{m}_first"
+                )
                 model.AddMaxEquality(
                     max_eq23_first, [0, var_c[i] - var_s[i] - var_c[j] + var_s[j]]
                 )
 
-                max_eq23_second = model.NewIntVar(0, horizon, f"max_eq23_{i}_{j}_{m}_second")
+                max_eq23_second = model.NewIntVar(
+                    0, horizon, f"max_eq23_{i}_{j}_{m}_second"
+                )
                 model.AddMaxEquality(
                     max_eq23_second, [0, var_c[j] - var_s[j] - var_c[i] + var_s[i]]
                 )
 
                 # define the intermediate variable for var_s[j] >= var_s[i] + max_eq23_first + para_delta       [m]
                 bool_a3 = model.NewBoolVar(f"bool_a3_{i}_{j}_{m}")
-                model.Add(var_s[j] >= var_s[i] + max_eq23_first + self.para_delta[m]).OnlyEnforceIf(
-                    bool_a3
-                )
-                model.Add(var_s[j] < var_s[i] + max_eq23_first + self.para_delta[m]).OnlyEnforceIf(
-                    bool_a3.Not()
-                )
+                model.Add(
+                    var_s[j] >= var_s[i] + max_eq23_first + self.para_delta[m]
+                ).OnlyEnforceIf(bool_a3)
+                model.Add(
+                    var_s[j] < var_s[i] + max_eq23_first + self.para_delta[m]
+                ).OnlyEnforceIf(bool_a3.Not())
                 # define the intermediate variable for var_s[i] >= var_s[j] + max_eq23_second + para_delta      [m]
                 bool_a4 = model.NewBoolVar(f"bool_a4_{i}_{j}_{m}")
-                model.Add(var_s[i] >= var_s[j] + max_eq23_second + self.para_delta[m]).OnlyEnforceIf(
-                    bool_a4
-                )
-                model.Add(var_s[i] < var_s[j] + max_eq23_second + self.para_delta[m]).OnlyEnforceIf(
-                    bool_a4.Not()
-                )
+                model.Add(
+                    var_s[i] >= var_s[j] + max_eq23_second + self.para_delta[m]
+                ).OnlyEnforceIf(bool_a4)
+                model.Add(
+                    var_s[i] < var_s[j] + max_eq23_second + self.para_delta[m]
+                ).OnlyEnforceIf(bool_a4.Not())
 
                 model.AddBoolOr(bool_a3, bool_a4).OnlyEnforceIf(bool_b3)
-                model.AddBoolAnd(bool_a3.Not(), bool_a4.Not()).OnlyEnforceIf(bool_b3.Not())
+                model.AddBoolAnd(bool_a3.Not(), bool_a4.Not()).OnlyEnforceIf(
+                    bool_b3.Not()
+                )
 
                 # the implication
                 model.AddImplication(bool_b1, bool_b3)
@@ -607,7 +701,9 @@ class FJSS2(_FJS):
             for idx_t, t in enumerate(np.arange(num_t)):
                 constr_25 = 0
                 for idx_i, i in enumerate(np.arange(n_opt)):
-                    yu = model.NewIntVar(0, np.max(self.para_w), f"yu_{idx_i}_{idx_m}_{idx_t}")
+                    yu = model.NewIntVar(
+                        0, np.max(self.para_w), f"yu_{idx_i}_{idx_m}_{idx_t}"
+                    )
                     model.AddMultiplicationEquality(
                         yu, [var_y[idx_i, idx_m], var_u[idx_i, idx_m, idx_t]]
                     )
@@ -631,11 +727,13 @@ class FJSS2(_FJS):
                     bool_x9_and = model.NewBoolVar(f"bool_x9_{i}_{idx_t}")
 
                     # when bool_x7 and bool_x8 are both true, var_u is is w_im
-                    model.Add(var_u[idx_i, idx_m, idx_t] == self.para_w[idx_i, idx_m]).OnlyEnforceIf(
-                        bool_x9_and
-                    )
+                    model.Add(
+                        var_u[idx_i, idx_m, idx_t] == self.para_w[idx_i, idx_m]
+                    ).OnlyEnforceIf(bool_x9_and)
 
-                    model.Add(var_u[idx_i, idx_m, idx_t] == 0).OnlyEnforceIf(bool_x9_and.Not())
+                    model.Add(var_u[idx_i, idx_m, idx_t] == 0).OnlyEnforceIf(
+                        bool_x9_and.Not()
+                    )
 
         model.Minimize(var_c_max)
         self._model = model
@@ -686,3 +784,267 @@ class FJSS2(_FJS):
         else:
             print("No solution found.")
             return None
+
+
+class FJSS3(_FJS):
+    """
+    Implementation of the mixed integer programming formulation in:
+    Boyer, V., Vallikavungal, J., Rodríguez, X. C., & Salazar-Aguilar, M. A. (2021). The generalized flexible job shop scheduling problem. Computers & Industrial Engineering, 160, 107542.
+    """
+
+    def __init__(
+        self,
+        operations: list[str],
+        machines: list[str],
+        para_p: np.ndarray,
+        para_a: np.ndarray,
+        para_w: np.ndarray,
+        para_h: np.ndarray,
+        para_delta: np.ndarray,
+        para_mach_capacity: list[int] | np.ndarray,
+        para_lmin: np.ndarray,
+        para_lmax: np.ndarray,
+        precedence: dict[str, list[str]],
+        model_string: str | None = None,
+        inf_milp: int = 1.0e7,
+        num_workers: int = 4,
+        verbose: bool = True,
+    ):
+        self.inf_milp = inf_milp
+        self.num_workers = num_workers
+        self.big_m = get_m_value(
+            para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        )
+
+        super().__init__(
+            operations=operations,
+            machines=machines,
+            precedence=precedence,
+            time_estimates=None,
+            model_string=model_string,
+        )
+
+        para_p[para_p == np.inf] = inf_milp
+        para_p[para_p == -np.inf] = -inf_milp
+        para_a[para_a == np.inf] = inf_milp
+        para_a[para_a == -np.inf] = -inf_milp
+        para_w[para_w == np.inf] = inf_milp
+        para_w[para_w == -np.inf] = -inf_milp
+        para_delta[para_delta == np.inf] = inf_milp
+        para_delta[para_delta == -np.inf] = -inf_milp
+        para_lmin[para_lmin == np.inf] = inf_milp
+        para_lmin[para_lmin == -np.inf] = -inf_milp
+        para_lmax[para_lmax == np.inf] = inf_milp
+        para_lmax[para_lmax == -np.inf] = -inf_milp
+        para_h[para_h == np.inf] = inf_milp
+        para_h[para_h == -np.inf] = -inf_milp
+
+        self.para_p = para_p
+        self.para_a = para_a
+        self.para_w = para_w
+        self.para_delta = para_delta
+        self.para_lmin = para_lmin
+        self.para_lmax = para_lmax
+        self.para_h = para_h
+        self.para_mach_capacity = para_mach_capacity
+
+        self.solver = None
+        self.verbose = verbose
+        self.var_c_max = inf_milp
+
+    def build_model_gurobi(self):
+        """Build the mixed integer linear programming model with gurobi."""
+        # create variables
+        solver = pywraplp.Solver(
+            "SolveIntegerProblem", pywraplp.Solver.GUROBI_MIXED_INTEGER_PROGRAMMING
+        )
+        ort_infinity = solver.infinity()
+
+        n_opt, n_mach = self.get_params()
+        # if operation i is processed by machine m
+        var_y = np.empty((n_opt, n_mach), dtype=object)
+        for i, m in product(range(n_opt), range(n_mach)):
+            var_y[i, m] = solver.BoolVar(f"y_{i}_{m}")
+
+        # if operation i is processed before operation j
+        var_x = np.empty((n_opt, n_opt), dtype=object)
+        for i, j in product(range(n_opt), range(n_opt)):
+            var_x[i, j] = solver.BoolVar(f"x_{i}_{j}")
+
+        # if operation i is processed before operation j on machine m
+        var_z = np.empty((n_opt, n_opt, n_mach), dtype=object)
+        for i, j, m in product(range(n_opt), range(n_opt), range(n_mach)):
+            var_z[i, j, m] = solver.BoolVar(f"z_{i}_{j}_{m}")
+
+        # starting time of operation i
+        var_s = np.empty((n_opt), dtype=object)
+        for i in range(n_opt):
+            var_s[i] = solver.NumVar(0, ort_infinity, f"s_{i}")
+
+        # completion time of operation i
+        var_c = np.empty((n_opt), dtype=object)
+        for i in range(n_opt):
+            var_c[i] = solver.NumVar(0, ort_infinity, f"c_{i}")
+
+        # make span
+        var_c_max = solver.NumVar(0, ort_infinity, "C_max")
+
+        # add constraints
+        for i in range(n_opt):
+            # eq. (2)
+            solver.Add(var_c_max >= var_c[i])
+
+            # eq. (3)
+            expr = [self.para_p[i, m] * var_y[i, m] for m in range(n_mach)]
+            solver.Add(var_c[i] >= var_s[i] + sum(expr))
+
+            # eq. (4)
+            expr = [
+                (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m]
+                for m in range(n_mach)
+            ]
+            solver.Add(var_c[i] <= var_s[i] + sum(expr))
+
+        # eq. (5)
+        for i in range(n_opt):
+            # sum of y_im = 1
+            solver.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
+
+        for i, j in product(range(n_opt), range(n_opt)):
+            # eq. (6)
+            # minimum lag between the starting time of operation i and the ending time of operation j
+            solver.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
+            # eq. (7)
+            # maximum lag between the starting time of operation i and the ending time of operation j
+            solver.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
+
+        for i, j in product(range(n_opt), range(n_opt)):
+            # eq. (6)
+            # minimum lag between the starting time of operation i and the ending time of operation j
+            solver.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
+            # eq. (7)
+            # maximum lag between the starting time of operation i and the ending time of operation j
+            solver.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
+
+        for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
+            if i < j:
+                # eq. (8)
+                # setup time of machine m when processing operation i before j
+                solver.Add(
+                    var_s[j]
+                    >= var_c[i]
+                    + self.para_a[i, j, m]
+                    - self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+                # eq. (9)
+                # setup time of machine m when processing operation i before j
+                solver.Add(
+                    var_s[i]
+                    >= var_c[i]
+                    + self.para_a[i, j, m]
+                    - self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+
+        # eq. (10) and (11)
+        for i, m in product(range(n_opt), range(n_mach)):
+            if i < j:
+                # eq. (10)
+                solver.Add(
+                    var_s[j]
+                    >= var_s[i]
+                    + self.para_delta[m]
+                    - self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+                # eq. (11)
+                solver.Add(
+                    var_s[i]
+                    >= var_s[j]
+                    + self.para_delta[m]
+                    - self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+
+        # eq. (12) and (13)
+        for i, m in product(range(n_opt), range(n_mach)):
+            if i < j:
+                # eq. (12)
+                solver.Add(
+                    var_c[j]
+                    >= var_c[i]
+                    + self.para_delta[m]
+                    - self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+                # eq. (13)
+                solver.Add(
+                    var_c[i]
+                    >= var_c[j]
+                    + self.para_delta[m]
+                    - self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+
+        # eq. (14) and (15)
+        for i, j, m in product(range(n_opt), range(n_opt), range(n_mach)):
+            if i < j:
+                # eq. (14)
+                solver.Add(
+                    var_s[j]
+                    >= var_c[i]
+                    - self.big_m
+                    * (3 + var_z[i, j, m] - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+                # eq. (15)
+                solver.Add(
+                    var_s[i]
+                    >= var_c[j]
+                    - self.big_m
+                    * (2 + var_z[i, j, m] + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                )
+
+        # eq. (16)
+        for i in range(n_opt):
+            for j in range(n_opt):
+                expr = []
+                for m in range(n_mach):
+                    if i != j:
+                        # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
+                        expr.append(self.para_w[j, m] * var_z[i, j, m])
+                solver.Add(
+                    solver.Sum(expr)
+                    <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m]
+                )
+
+        self.var_c_max = var_c_max
+        self.solver = solver
+
+    def solve_gurobi(self):
+        """Solve the mixed integer linear programming model with gurobi."""
+        # creates the solver and solve
+        if self.solver is None:
+            self.build_model_gurobi()
+
+        # self.solver.SetNumThreads(self.num_workers)
+        if self.verbose:
+            self.solver.EnableOutput()
+
+        self.solver.Minimize(self.var_c_max)
+
+        status = self.solver.Solve()
+
+        # print out the solution
+        if status == pywraplp.Solver.OPTIMAL:
+            print(f"opt_obj = {self.solver.Objective().Value():.4f}")
+
+            return FjsOutput(
+                solved_operations=[],
+                makespan=self.solver.Objective().Value(),
+            )
+        else:
+            print("No solution found.")
+            return None
+
+
+    def get_params(self):
+        """Get parameters for the model."""
+        n_opt = len(self.operations)
+        n_mach = len(self.machines)
+
+        return n_opt, n_mach
