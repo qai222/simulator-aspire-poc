@@ -13,13 +13,13 @@ JUNIOR_VIAL_TYPE = Literal["HRV", "MRV", "SV"]
 
 
 class JuniorLabObject(LabObject):
-
+    """Base class for all Junior lab objects."""
     def model_post_init(self, *args) -> None:
         JUNIOR_LAB.add_object(self)
 
 
 class JuniorInstruction(Instruction):
-
+    """Base class for all Junior instructions."""
     def model_post_init(self, *args) -> None:
         JUNIOR_LAB.add_instruction(self)
 
@@ -31,24 +31,49 @@ class JuniorInstruction(Instruction):
 
 
 class JuniorLayout(BaseModel):
-    """ a region appears in layout """
+    """A region appears in layout.
 
+    Parameters
+    ----------
+    layout_position : tuple[float, float], optional
+        The left bot conor of the layout box. Default is None.
+    layout_x : float, optional
+        The x length. Default is JUNIOR_LAYOUT_SLOT_SIZE_X.
+    layout_y : float, optional
+        The y length, Default is JUNIOR_LAYOUT_SLOT_SIZE_Y.
+
+    """
     layout_position: tuple[float, float] | None = None
-    """ left bot conor of the layout box """
-
     layout_x: float = JUNIOR_LAYOUT_SLOT_SIZE_X
-    """ x length """
-
     layout_y: float = JUNIOR_LAYOUT_SLOT_SIZE_Y
-    """ y length """
 
     @classmethod
     def from_relative_layout(
             cls,
             layout_relation: Literal["above", "right_to"] = None,
             layout_relative: JuniorLayout = None,
-            layout_x: float = JUNIOR_LAYOUT_SLOT_SIZE_X, layout_y: float = JUNIOR_LAYOUT_SLOT_SIZE_Y,
+            layout_x: float = JUNIOR_LAYOUT_SLOT_SIZE_X,
+            layout_y: float = JUNIOR_LAYOUT_SLOT_SIZE_Y,
     ):
+        """Create a layout from a relative layout.
+
+        Parameters
+        ----------
+        layout_relation : Literal["above", "right_to"], optional
+            The relation between the new layout and the relative layout. Default is None.
+        layout_relative : JuniorLayout, optional
+            The relative layout. Default is None.
+        layout_x : float, optional
+            The x length. Default is JUNIOR_LAYOUT_SLOT_SIZE_X.
+        layout_y : float, optional
+            The y length, Default is JUNIOR_LAYOUT_SLOT_SIZE_Y.
+
+        Returns
+        -------
+        layout : JuniorLayout
+            The layout.
+
+        """
         if layout_relative is None:
             abs_layout_position = (0, 0)
         else:

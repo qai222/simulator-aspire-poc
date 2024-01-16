@@ -1,13 +1,29 @@
 from __future__ import annotations
 
-from simpy import Environment
 import os
+
+from simpy import Environment
+
 from hardware_pydantic import *
 from .schema import Source, Buffer, Spreader, Check, Sink, DeviceBlock
 
 
 class Model:
-    def __init__(self, env: Environment, lab: Lab, wdir: str | os.PathLike, model_name:str):
+    def __init__(self, env: Environment, lab: Lab, wdir: str | os.PathLike, model_name: str):
+        """Model class for the casymda hardware.
+
+        Parameters
+        ----------
+        env : Environment
+            The simpy environment.
+        lab : Lab
+            The lab object.
+        wdir : str | os.PathLike
+            The working directory.
+        model_name : str
+            The name of the model.
+
+        """
         self.env = env
         self.lab = lab
 

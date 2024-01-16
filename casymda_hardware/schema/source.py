@@ -8,17 +8,37 @@ from .instruction_job import InstructionJob
 
 
 class Source(Block):
-    """
-    conceptual block used for creating all jobs
-    """
-
     def __init__(self, env: Environment, lab: Lab):
+        """
+        Conceptual block used for creating all jobs.
+
+        Parameters
+        ----------
+        env : Environment
+            The `simpy` environment.
+        lab : Lab
+            The lab object.
+
+        """
         super().__init__(env, name="SOURCE", block_capacity=float('inf'))
         self.lab = lab
 
         env.process(self.creation_loop(self.lab))
 
     def creation_loop(self, lab: Lab) -> ProcessGenerator:
+        """Create all jobs and let them subscribe to the completion of the jobs they depend on.
+
+        Parameters
+        ----------
+        lab : Lab
+            The lab object.
+
+        Yields
+        -------
+        ProcessGenerator
+            The process generator.
+
+        """
         # create all jobs
         dict_instruction_job = dict()
         for k, v in lab.dict_instruction.items():
@@ -54,4 +74,5 @@ class Source(Block):
             self.env.process(self.process_entity(instruction_job))
 
     def actual_processing(self, entity: Entity):
+        """Do nothing, as this block is only conceptual."""
         yield self.env.timeout(0)
