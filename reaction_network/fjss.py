@@ -345,15 +345,15 @@ class FJSS2(_FJS):
         para_p: np.ndarray,
         para_a: np.ndarray,
         para_w: np.ndarray,
+        para_h: np.ndarray,
+        para_delta: np.ndarray,
         para_mach_capacity: list[int] | np.ndarray,
         para_lmin: np.ndarray,
         para_lmax: np.ndarray,
-        jobs_data: list[list[tuple[int, int]]],
-        precedence: dict[str, list[str]] | None,
-        co_exist_set: list[str] = None,
-        allowed_overlapping_machine: list[int] = None,
+        precedence: dict[str, list[str]],
         model_string: str | None = None,
         inf_cp: int = 1.0e10,
+        num_workers: int = 4,
         verbose: bool = True,
     ):
         """
@@ -413,6 +413,7 @@ class FJSS2(_FJS):
 
         """
         self.inf_cp = inf_cp
+        self.num_workers = num_workers
 
         para_p[para_p == np.inf] = inf_cp
         para_p[para_p == -np.inf] = -inf_cp
@@ -426,143 +427,219 @@ class FJSS2(_FJS):
             model_string=model_string,
         )
 
+        self.para_a = para_a.astype(int)
+        self.para_w = para_w.astype(int)
+        self.para_mach_capacity = para_mach_capacity.astype(int)
+        self.para_delta = para_delta.astype(int)
+        self.para_lmin = para_lmin.astype(int)
+        self.para_lmax = para_lmax.astype(int)
+        self.para_h = para_h.astype(int)
+
+        self.horizon = self.get_horizon()
+
         para_a[para_a == np.inf] = inf_cp
         para_a[para_a == -np.inf] = -inf_cp
-        self.para_a = para_a.astype(int)
 
         para_w[para_w == np.inf] = inf_cp
         para_w[para_w == -np.inf] = -inf_cp
-        self.para_w = para_w.astype(int)
-        self.para_mach_capacity = para_mach_capacity.astype(int)
+
+        para_delta[para_delta == np.inf] = inf_cp
+        para_delta[para_delta == -np.inf] = -inf_cp
 
         para_lmin[para_lmin == np.inf] = inf_cp
         para_lmin[para_lmin == -np.inf] = -inf_cp
-        self.para_lmin = para_lmin.astype(int)
 
         para_lmax[para_lmax == np.inf] = inf_cp
         para_lmax[para_lmax == -np.inf] = -inf_cp
-        self.para_lmax = para_lmax.astype(int)
 
-        self.jobs_data = jobs_data
-        self.co_exist_set = co_exist_set
-        self.allowed_overlapping_machine = allowed_overlapping_machine
+        para_h[para_h == np.inf] = inf_cp
+        para_h[para_h == -np.inf] = -inf_cp
+
         self._model = None
         self.verbose = verbose
+        self.var_c_max = inf_cp
 
-        self.all_tasks = None
+        print(f"horizon: {self.horizon}")
+
+    def get_horizon(self):
+        """Get the horizon."""
+        # the horizon
+        para_p_horizon = np.copy(self.para_p)
+        para_p_horizon[para_p_horizon == self.inf_cp] = 0
+
+        para_h_horizon = np.copy(self.para_h)
+        para_h_horizon[para_h_horizon == self.inf_cp] = 0
+
+        para_lmax_horizon = np.copy(self.para_lmax)
+        para_lmax_horizon[para_lmax_horizon == self.inf_cp] = 0
+        horizon = (
+            np.sum(para_p_horizon, axis=1)
+            + np.sum(para_h_horizon, axis=1)
+            + np.sum(para_lmax_horizon, axis=1)
+        )
+        horizon = int(np.sum(horizon)) + 1
+
+        return horizon
 
     def build_model_ortools(self):
         """Build the model."""
         n_opt, n_mach = self.get_params()
 
         model = cp_model.CpModel()
-        horizon = (
-                np.sum(self.para_p[self.para_p != self.inf_cp]).sum()
-                + np.sum(self.para_lmax[self.para_lmax != self.inf_cp]).sum()
-                + 1
-        )
-        horizon = int(horizon)
 
+        horizon = self.horizon
+        # make span
+        var_c_max = model.NewIntVar(0, horizon, "C_max")
+
+        # define the variables
         # if operation i is processed by machine m
         var_y = np.empty((n_opt, n_mach), dtype=object)
         for i, m in product(range(n_opt), range(n_mach)):
             var_y[i, m] = model.NewBoolVar(f"y_{i}_{m}")
 
-        # if operation i is processed before operation j
-        var_x = np.empty((n_opt, n_opt), dtype=object)
-        for i, j in product(range(n_opt), range(n_opt)):
-            var_x[i, j] = model.NewBoolVar(f"x_{i}_{j}")
-
-        # if operation i is processed before operation j on machine m
-        var_z = np.empty((n_opt, n_opt, n_mach), dtype=object)
-        for i, j, m in product(range(n_opt), range(n_opt), range(n_mach)):
-            var_z[i, j, m] = model.NewBoolVar(f"z_{i}_{j}_{m}")
-
         # starting time of operation i
-        var_s = np.empty(n_opt, dtype=object)
+        var_s = np.empty((n_opt), dtype=object)
         for i in range(n_opt):
             var_s[i] = model.NewIntVar(0, horizon, f"s_{i}")
 
         # completion time of operation i
-        var_c = np.empty(n_opt, dtype=object)
+        var_c = np.empty((n_opt), dtype=object)
         for i in range(n_opt):
             var_c[i] = model.NewIntVar(0, horizon, f"c_{i}")
 
-        # Named tuple to store information about created variables.
-        task_type = collections.namedtuple("task_type", "start end interval")
+        # add constraints
+        for i in range(n_opt):
+            # eq. (2)
+            model.Add(var_c_max >= var_c[i])
 
-        # Creates job intervals and add to the corresponding machine lists.
-        all_tasks = {}
-        machine_to_intervals = collections.defaultdict(list)
+            # eq. (3)
+            expr = [self.para_p[i, m] * var_y[i, m] for m in range(n_mach)]
+            model.Add(var_c[i] >= var_s[i] + sum(expr))
 
-        for job_id, job in enumerate(self.jobs_data):
-            for task_id, task in enumerate(job):
-                machine, duration = task
-                suffix = f"_{job_id}_{task_id}"
-                start_var = model.NewIntVar(0, horizon, "start" + suffix)
-                end_var = model.NewIntVar(0, horizon, "end" + suffix)
-                interval_var = model.NewIntervalVar(
-                    start_var, duration, end_var, "interval" + suffix
-                )
-                all_tasks[job_id, task_id] = task_type(
-                    start=start_var, end=end_var, interval=interval_var
-                )
-                machine_to_intervals[machine].append(interval_var)
+            # eq. (4)
+            expr = [(self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m] for m in range(n_mach)]
+            model.Add(var_c[i] <= var_s[i] + sum(expr))
 
-        self.all_tasks = all_tasks
-        # # Create and add disjunctive constraints.
-        # # no overlapping
-
-        for machine_i, machine_j in combinations(self.allowed_overlapping_machine, 2):
-            for interval_i, interval_j in product(
-                    machine_to_intervals[machine_i], machine_to_intervals[machine_j]
-            ):
-                job_id_i, task_id_i = interval_i.Name().split("_")[-2:]
-                job_id_j, task_id_j = interval_j.Name().split("_")[-2:]
-                if job_id_i < job_id_j:
-                    if f"{job_id_i},{job_id_j}" not in self.co_exist_set:
-                        model.AddNoOverlap([interval_i, interval_j])
-
-        # Precedences inside a job.
-        for job_id, job in enumerate(self.jobs_data):
-            for task_id in range(len(job) - 1):
-                model.Add(
-                    all_tasks[job_id, task_id + 1].start >= all_tasks[job_id, task_id].end
-                )
+        # eq. (5)
+        for i in range(n_opt):
+            # sum of y_im = 1
+            model.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
 
         for i, j in product(range(n_opt), range(n_opt)):
-            if self.para_lmin[i, j] != -self.inf_cp and self.para_lmin[i, j] != self.inf_cp:
-                # eq. (6)
-                # minimum lag between the starting time of operation i and the ending time of operation j
-                model.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
-            if self.para_lmax[i, j] != -self.inf_cp and self.para_lmax[i, j] != self.inf_cp:
-                # eq. (7)
-                # maximum lag between the starting time of operation i and the ending time of operation j
-                model.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
+            # eq. (6)
+            # minimum lag between the starting time of operation i and the ending time of operation j
+            model.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
+            # eq. (7)
+            # maximum lag between the starting time of operation i and the ending time of operation j
+            model.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
 
-        # eq. (16)
-        for i in range(n_opt):
-            for m in range(n_mach):
-                expr = []
-                for j in range(n_opt):
-                    if i != j:
-                        # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
-                        expr.append(self.para_w[j, m] * var_z[i, j, m])
-                # TODO: Fix this as the index m is not right
-                model.Add(
-                    cp_model.LinearExpr.Sum(expr)
-                    <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m]
+        # https://developers.google.com/optimization/cp/channeling
+        for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
+            if i != j:
+                # https://github.com/d-krupke/cpsat-primer
+
+                # eq. (22)
+                # left part of the implication
+                bool_b1 = model.NewBoolVar(f"bool_b1_{i}_{j}_{m}")
+                model.Add(var_y[i, m] + var_y[j, m] == 2).OnlyEnforceIf(bool_b1)
+                model.Add(var_y[i, m] + var_y[j, m] != 2).OnlyEnforceIf(bool_b1.Not())
+
+                # right part of the implication
+                bool_b2 = model.NewBoolVar(f"bool_b2_{i}_{j}_{m}")
+                bool_a1 = model.NewBoolVar(f"bool_a1_{i}_{j}_{m}")
+                bool_a2 = model.NewBoolVar(f"bool_a2_{i}_{j}_{m}")
+                model.Add(var_s[j] >= var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(bool_a1)
+                model.Add(var_s[j] < var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(bool_a1.Not())
+                model.Add(var_s[i] >= var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(bool_a2)
+                model.Add(var_s[i] < var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(bool_a2.Not())
+
+                model.Add(bool_a1 + bool_a2 >= 1).OnlyEnforceIf(bool_b2)
+                model.Add(bool_a1 + bool_a2 < 1).OnlyEnforceIf(bool_b2.Not())
+
+                # the implication
+                model.AddImplication(bool_b1, bool_b2)
+
+                # eq. (23)
+                # left part of the implication is the same as eq. (22), so we can reuse bool_b1
+                # right part of the implication
+                bool_b3 = model.NewBoolVar(f"bool_b3_{i}_{j}_{m}")
+                max_eq23_first = model.NewIntVar(0, horizon, f"max_eq23_{i}_{j}_{m}_first")
+                model.AddMaxEquality(
+                    max_eq23_first, [0, var_c[i] - var_s[i] - var_c[j] + var_s[j]]
                 )
 
-        # Makespan objective.
-        obj_var = model.NewIntVar(0, horizon, "makespan")
-        # self.obj_var = obj_var
-        model.AddMaxEquality(
-            obj_var,
-            [all_tasks[job_id, len(job) - 1].end for job_id, job in enumerate(self.jobs_data)],
-        )
-        model.Minimize(obj_var)
+                max_eq23_second = model.NewIntVar(0, horizon, f"max_eq23_{i}_{j}_{m}_second")
+                model.AddMaxEquality(
+                    max_eq23_second, [0, var_c[j] - var_s[j] - var_c[i] + var_s[i]]
+                )
+
+                # define the intermediate variable for var_s[j] >= var_s[i] + max_eq23_first + para_delta       [m]
+                bool_a3 = model.NewBoolVar(f"bool_a3_{i}_{j}_{m}")
+                model.Add(var_s[j] >= var_s[i] + max_eq23_first + self.para_delta[m]).OnlyEnforceIf(
+                    bool_a3
+                )
+                model.Add(var_s[j] < var_s[i] + max_eq23_first + self.para_delta[m]).OnlyEnforceIf(
+                    bool_a3.Not()
+                )
+                # define the intermediate variable for var_s[i] >= var_s[j] + max_eq23_second + para_delta      [m]
+                bool_a4 = model.NewBoolVar(f"bool_a4_{i}_{j}_{m}")
+                model.Add(var_s[i] >= var_s[j] + max_eq23_second + self.para_delta[m]).OnlyEnforceIf(
+                    bool_a4
+                )
+                model.Add(var_s[i] < var_s[j] + max_eq23_second + self.para_delta[m]).OnlyEnforceIf(
+                    bool_a4.Not()
+                )
+
+                model.AddBoolOr(bool_a3, bool_a4).OnlyEnforceIf(bool_b3)
+                model.AddBoolAnd(bool_a3.Not(), bool_a4.Not()).OnlyEnforceIf(bool_b3.Not())
+
+                # the implication
+                model.AddImplication(bool_b1, bool_b3)
+
+        sum_time = horizon
+        num_t = int(sum_time / 1.0e0)
+        var_u = np.empty((n_opt, n_mach, num_t), dtype=object)
+        for i, m, t in product(range(n_opt), range(n_mach), range(num_t)):
+            var_u[i, m, t] = model.NewIntVar(0, np.max(self.para_w), f"u_{i}_{m}_{t}")
+
+        # eq. (25)
+        for idx_m, m in enumerate(np.arange(n_mach)):
+            for idx_t, t in enumerate(np.arange(num_t)):
+                constr_25 = 0
+                for idx_i, i in enumerate(np.arange(n_opt)):
+                    yu = model.NewIntVar(0, np.max(self.para_w), f"yu_{idx_i}_{idx_m}_{idx_t}")
+                    model.AddMultiplicationEquality(
+                        yu, [var_y[idx_i, idx_m], var_u[idx_i, idx_m, idx_t]]
+                    )
+                    constr_25 += yu
+                model.Add(constr_25 <= self.para_mach_capacity[idx_m])
+
+        # eq. (24)
+        for idx_m, m in enumerate(np.arange(n_mach)):
+            for idx_i, i in enumerate(np.arange(n_opt)):
+                for idx_t, t in enumerate(np.arange(num_t)):
+                    bool_list = []
+
+                    bool_x7 = model.NewBoolVar(f"bool_x7_{i}_{idx_t}")
+                    model.Add(var_s[i] <= t).OnlyEnforceIf(bool_x7)
+                    bool_list.append(bool_x7)
+
+                    bool_x8 = model.NewBoolVar(f"bool_x8_{i}_{idx_t}")
+                    model.Add(var_c[i] >= t).OnlyEnforceIf(bool_x8)
+                    bool_list.append(bool_x8)
+
+                    bool_x9_and = model.NewBoolVar(f"bool_x9_{i}_{idx_t}")
+
+                    # when bool_x7 and bool_x8 are both true, var_u is is w_im
+                    model.Add(var_u[idx_i, idx_m, idx_t] == self.para_w[idx_i, idx_m]).OnlyEnforceIf(
+                        bool_x9_and
+                    )
+
+                    model.Add(var_u[idx_i, idx_m, idx_t] == 0).OnlyEnforceIf(bool_x9_and.Not())
+
+        model.Minimize(var_c_max)
         self._model = model
+        self.var_c_max = var_c_max
 
         return model
 
@@ -578,67 +655,23 @@ class FJSS2(_FJS):
         return n_opt, n_mach
 
     def solve_ortools(self):
-        assert self.model is not None
+        # creates the solver and solve.
 
-        # Creates the solver and solve.
+        if self._model is None:
+            self.build_model_ortools()
+
         solver = cp_model.CpSolver()
+        solver.parameters.num_search_workers = self.num_workers
+        solver.parameters.log_search_progress = self.verbose
+
+        # TODO: add call back function to pint out the solution
         status = solver.Solve(self._model)
-        # Named tuple to manipulate solution information.
-        assigned_task_type = collections.namedtuple(
-            "assigned_task_type", "start job index duration"
-        )
 
+        solved_operations = []
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-            print("Solution:")
-            # Create one list of assigned tasks per machine.
-            assigned_jobs = collections.defaultdict(list)
-            solved_operations = []
-            for job_id, job in enumerate(self.jobs_data):
-                for task_id, task in enumerate(job):
-                    machine = task[0]
-                    assigned_jobs[str(machine)].append(
-                        assigned_task_type(
-                            start=solver.Value(self.all_tasks[job_id, task_id].start),
-                            job=job_id,
-                            index=task_id,
-                            duration=task[1],
-                        )
-                    )
-                    solved_operation = SolvedOperation(
-                        id=f"job_{job_id}_task_{task_id}",
-                        assigned_to=str(machine),
-                        start_time=solver.Value(self.all_tasks[job_id, task_id].start),
-                        end_time=solver.Value(self.all_tasks[job_id, task_id].end),
-                    )
-                    solved_operations.append(solved_operation)
-
-            # Create per machine output lines.
-            output = ""
-            for machine in self.machines:
-                # Sort by starting time.
-                assigned_jobs[str(machine)].sort()
-                sol_line_tasks = "Machine " + str(machine) + ": "
-                sol_line = "           "
-
-                for assigned_task in assigned_jobs[machine]:
-                    name = f"job_{assigned_task.job}_task_{assigned_task.index}"
-                    # Add spaces to output to align columns.
-                    sol_line_tasks += f"{name:15}"
-
-                    start = assigned_task.start
-                    duration = assigned_task.duration
-                    sol_tmp = f"[{start},{start + duration}]"
-                    # Add spaces to output to align columns.
-                    sol_line += f"{sol_tmp:15}"
-
-                sol_line += "\n"
-                sol_line_tasks += "\n"
-                output += sol_line_tasks
-                output += sol_line
-
-            # Finally print the solution found.
+            self.var_c_max = solver.ObjectiveValue()
+            # print the solution found.
             print(f"Optimal Schedule Length: {solver.ObjectiveValue()}")
-            print(output)
             # Statistics.
             print("\nStatistics")
             print(f"  - conflicts: {solver.NumConflicts()}")
