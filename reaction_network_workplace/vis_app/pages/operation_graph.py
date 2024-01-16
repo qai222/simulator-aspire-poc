@@ -5,7 +5,7 @@ import dash_cytoscape as cyto
 from dash import html, get_app, Input, Output
 from dash import register_page
 
-from reaction_network.schema.lv2 import BenchTopLv2
+from reaction_network.schema.lv2 import BenchTopLv2, OperationType
 from reaction_network.utils import drawing_url
 from reaction_network.utils import json_load
 from reaction_network.visualization import STYLESHEET
@@ -78,6 +78,7 @@ layout = html.Div(
                                 'nodeDimensionsIncludeLabels': True,
                                 'animate': True,
                                 'animationDuration': 1000,
+                                'rankDir': 'LR',
                                 'align': 'UL',
                             },
                             style={
@@ -144,23 +145,28 @@ def get_summary():
 def get_transform_table(data: dict):
     transform_id = data['id']
     precedent_ids = data['precedents']
-    transform_type = data['type'].replace("transform_", "")
+    operation_type = data['type']
 
-    produces_compounds = data['produces']['compounds']
-    produces_container = data['produces']['contained_by']
     if data['consumes'] is None:
-        consumes_container = "EXTERNAL"
+        consumes_container = None
     else:
         consumes_container = data['consumes']['contained_by']
-    produces_impure = data['produces']['impure']
+    if data['produces'] is None:
+        produces_container = None
+    else:
+        produces_container = data['produces']['contained_by']
+
+    # produces_impure = data['produces']['impure']
 
     row1 = html.Tr([html.Td("Operation ID"), html.Td(transform_id)])
-    row2 = html.Tr([html.Td("Type"), html.Td(transform_type)])
+    row2 = html.Tr([html.Td("Type"), html.Td(operation_type)])
     row3 = html.Tr([html.Td("# of Precedents"), html.Td(f"{len(precedent_ids)}")])
+    row4 = html.Tr([html.Td("can be realized by"), html.Td(f"{' OR '.join(data['can_be_realized_by'])}")])
 
-    rows = [row1, row2, row3]
+    rows = [row1, row2, row3, row4]
 
-    if transform_type in ["loading", "reloading", "solid_addition", "liquid_addition"]:
+    if operation_type in [OperationType.OPERATION_LOADING, OperationType.OPERATION_RELOADING, OperationType.OPERATION_ADDITION_SOLID, OperationType.OPERATION_ADDITION_LIQUID]:
+        produces_compounds = data['produces']['compounds']
         assert len(produces_compounds) == 1
         pc = produces_compounds[0]
         pc_smi = pc['compound_lv0']['smiles']

@@ -160,3 +160,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
+/reaction_network/licensetools11.0.0_linux64/

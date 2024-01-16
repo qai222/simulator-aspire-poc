@@ -291,8 +291,6 @@ class FJS1(_FJS):
 
         makespan = None
 
-        self.model.solution
-
         for v in self.model.getVars():
             if v.VarName.startswith("C") and v.VarName.endswith("]"):
                 i = get_gurobi_var_index(v.VarName, "C")
