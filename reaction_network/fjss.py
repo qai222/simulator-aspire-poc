@@ -937,12 +937,13 @@ class FJSS3(_FJS):
             solver.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
 
         for i, j in product(range(n_opt), range(n_opt)):
-            # eq. (6)
-            # minimum lag between the starting time of operation i and the ending time of operation j
-            solver.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
-            # eq. (7)
-            # maximum lag between the starting time of operation i and the ending time of operation j
-            solver.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
+            if i != j:
+                # eq. (6)
+                # minimum lag between the starting time of operation i and the ending time of operation j
+                solver.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
+                # eq. (7)
+                # maximum lag between the starting time of operation i and the ending time of operation j
+                solver.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
 
         for i, j in product(range(n_opt), range(n_opt)):
             # eq. (6)
@@ -966,8 +967,8 @@ class FJSS3(_FJS):
                 # setup time of machine m when processing operation i before j
                 solver.Add(
                     var_s[i]
-                    >= var_c[i]
-                    + self.para_a[i, j, m]
+                    >= var_c[j]
+                    + self.para_a[j, i, m]
                     - self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
                 )
 
@@ -1058,6 +1059,7 @@ class FJSS3(_FJS):
         # print out the solution
         if status == pywraplp.Solver.OPTIMAL:
             print(f"opt_obj = {self.solver.Objective().Value():.4f}")
+            self.var_c_max = self.solver.Objective().Value()
 
             return FjsOutput(
                 solved_operations=[],
