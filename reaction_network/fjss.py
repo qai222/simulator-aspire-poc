@@ -432,7 +432,7 @@ class FJSS2(_FJS):
         precedence: dict[str, list[str]],
         model_string: str | None = None,
         inf_cp: int = 1.0e10,
-        num_workers: int = 4,
+        num_workers: int = 16,
         verbose: bool = True,
     ):
         """
@@ -535,6 +535,10 @@ class FJSS2(_FJS):
         para_h[para_h == -np.inf] = -inf_cp
 
         self._model = None
+        self._solver = None
+        self.var_s = None
+        self.var_c = None
+        self.var_y = None
         self.verbose = verbose
         self.var_c_max = inf_cp
 
@@ -738,6 +742,9 @@ class FJSS2(_FJS):
         model.Minimize(var_c_max)
         self._model = model
         self.var_c_max = var_c_max
+        self.var_s = var_s
+        self.var_c = var_c
+        self.var_y = var_y
 
         return model
 
@@ -759,27 +766,46 @@ class FJSS2(_FJS):
             self.build_model_ortools()
 
         solver = cp_model.CpSolver()
+
+        self._solver = solver
+
         solver.parameters.num_search_workers = self.num_workers
         solver.parameters.log_search_progress = self.verbose
 
         # TODO: add call back function to pint out the solution
         status = solver.Solve(self._model)
-
-        solved_operations = []
         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
             self.var_c_max = solver.ObjectiveValue()
             # print the solution found.
             print(f"Optimal Schedule Length: {solver.ObjectiveValue()}")
             # Statistics.
-            print("\nStatistics")
-            print(f"  - conflicts: {solver.NumConflicts()}")
-            print(f"  - branches : {solver.NumBranches()}")
-            print(f"  - wall time: {solver.WallTime()}s")
+            # print("\nStatistics")
+            # print(f"  - conflicts: {solver.NumConflicts()}")
+            # print(f"  - branches : {solver.NumBranches()}")
+            # print(f"  - wall time: {solver.WallTime()}s")
+
+            assignments = dict()
+            start_times = dict()
+            end_times = dict()
+            solved_operations = []
+
+            for i, m in product(range(len(self.operations)), range(len(self.machines))):
+                if solver.Value(self.var_y[i, m]) == 1:
+                    assignments[self.operations[i]] = self.machines[m]
+                    start_times[self.operations[i]] = solver.Value(self.var_s[i])
+                    end_times[self.operations[i]] = solver.Value(self.var_c[i])
+                    solved_operation = SolvedOperation(
+                        id=self.operations[i],
+                        assigned_to=self.machines[m],
+                        start_time=solver.Value(self.var_s[i]),
+                        end_time=solver.Value(self.var_c[i]),
+                    )
+                    solved_operations.append(solved_operation)
 
             return FjsOutput(
                 solved_operations=solved_operations,
                 makespan=solver.ObjectiveValue(),
-            )
+                )
 
         else:
             print("No solution found.")
@@ -807,7 +833,7 @@ class FJSS3(_FJS):
         precedence: dict[str, list[str]],
         model_string: str | None = None,
         inf_milp: int = 1.0e7,
-        num_workers: int = 4,
+        num_workers: int = 16,
         verbose: bool = True,
     ):
         self.inf_milp = inf_milp
@@ -1021,7 +1047,7 @@ class FJSS3(_FJS):
         if self.solver is None:
             self.build_model_gurobi()
 
-        # self.solver.SetNumThreads(self.num_workers)
+        self.solver.SetNumThreads(self.num_workers)
         if self.verbose:
             self.solver.EnableOutput()
 
