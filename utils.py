@@ -38,7 +38,79 @@ def json_load(fn: FilePath):
     return o
 
 
-def get_m_value(para_p, para_h, para_lmin, para_a):
+def get_m_value_runzhong(para_p, para_h, para_lmin, para_a):
+    """Implementation after discussion with Runzhong."""
+    selected_idx = np.argwhere(para_p != np.inf)
+    # eq. (17)
+    para_p[para_p == np.inf] = 0
+    p_i = np.max(para_p + para_h, axis=1)
+
+    # eq. (18)
+    # print(f"para_min={para_lmin}")
+    para_lmin[para_lmin < 0] = 0
+    l_i = np.max(para_lmin, axis=1)
+
+    n_opt, n_mach = para_h.shape
+    if para_a.shape != (n_opt, n_opt, n_mach):
+        para_a = np.einsum("mij->ijm", para_a)
+    # eq. (19)
+    # para_a[selected_idx[:, 0], :, selected_idx[:, 1]] = 0
+    para_a[para_a == -np.inf] = 0
+    a_i = np.max(para_a, axis=(1, 2))
+    print(a_i)
+
+    # eq. (20)
+    l_a_max = [max(l_element, a_element) for l_element, a_element in zip(l_i, a_i)]
+    big_m = np.max(p_i + np.array(l_a_max))
+
+    return big_m
+
+
+def get_m_value_old(para_p, para_h, para_lmin, para_a):
+    selected_idx = np.argwhere(para_p != np.inf)
+    # eq. (17)
+    p_i = para_p[selected_idx] + para_h[selected_idx]
+    p_i = np.max(p_i[p_i != np.inf])
+    # eq. (18)
+    l_i = np.max(para_lmin, axis=1)
+    # setup time of machine m when processing operation i before j (aijm = -inf if there is no
+    # setups).
+    # eq. (19)
+    # TODO: check if this is correct
+    # para_a = np.einsum("mij->ijm", para_a)
+    n_opt, n_mach = para_h.shape
+    if para_a.shape != (n_opt, n_opt, n_mach):
+        para_a = np.einsum("mij->ijm", para_a)
+
+    selected_a = para_a[selected_idx, :]
+    a_i = selected_a[selected_a != np.inf]
+
+    # eq. (20) adapted
+    big_m = np.sum(p_i) + np.max([l_i.max(), a_i.max()])
+
+    return big_m
+
+# def get_m_value(para_p, para_h, para_lmin, para_a):
+#     selected_idx = np.argwhere(para_p != np.inf)
+#     # eq. (17)
+#     p_i = para_p[selected_idx] + para_h[selected_idx]
+#     p_i = np.max(p_i[p_i != np.inf])
+#     # eq. (18)
+#     l_i = np.max(para_lmin, axis=1)
+#     # setup time of machine m when processing operation i before j (aijm = -inf if there is no
+#     # setups).
+#     # eq. (19)
+#     # # TODO: check if this is correct
+#     # para_a = np.einsum("mij->ijm", para_a)
+#     selected_a = para_a[selected_idx[:, 0], :, selected_idx[:, 1]]
+#     a_i = selected_a[selected_a != np.inf]
+
+#     # eq. (20) adapted
+#     big_m = np.sum(p_i) + np.max([l_i.max(), a_i.max()])
+
+#     return big_m
+
+def get_m_value_new1(para_p, para_h, para_lmin, para_a):
     """Get the big number m using equation (17) - (20).
 
     Parameters
@@ -65,20 +137,26 @@ def get_m_value(para_p, para_h, para_lmin, para_a):
     -----
     The big M value is calculated using equation (17) - (20) in the paper. But we have to adapt the
     equations only taking non-infinite values into account.
+
     """
-    selected_idx = np.argwhere(para_p != np.inf)
+    # TODO: double check
+
     # eq. (17)
-    p_i = para_p[selected_idx] + para_h[selected_idx]
-    p_i = np.max(p_i[p_i != np.inf])
+    selected_idx = np.argwhere(para_p != np.inf)
+    para_p[para_p == np.inf] = 0
+    p_h_sum = para_p + para_h
+    # take the maximum
+    p_i = np.max(p_h_sum, axis=1)
+
     # eq. (18)
+    para_lmin[para_lmin == -np.inf] = 0
     l_i = np.max(para_lmin, axis=1)
     # setup time of machine m when processing operation i before j (aijm = -inf if there is no
     # setups).
     # eq. (19)
-    # TODO: check if this is correct
-    para_a = np.einsum("mij->ijm", para_a)
-    selected_a = para_a[selected_idx, :]
-    a_i = selected_a[selected_a != np.inf]
+    para_a[selected_idx[:, 0], :, selected_idx[:, 1]] = 0
+    # axes along which to operate
+    a_i = np.max(para_a, axis=(1, 2))
 
     # eq. (20) adapted
     big_m = np.sum(p_i) + np.max([l_i.max(), a_i.max()])

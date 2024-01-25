@@ -4,6 +4,7 @@ import collections
 import math
 import os
 import random
+import itertools as it
 from abc import ABC
 from collections import defaultdict
 from itertools import product, combinations
@@ -16,7 +17,7 @@ from monty.json import MSONable
 from pydantic import BaseModel
 from ortools.sat.python import cp_model
 from ortools.linear_solver import pywraplp
-from utils import get_m_value
+from utils import get_m_value_old, get_m_value_runzhong
 
 # from reaction_network.schema.lv2 import BenchTopLv2, OperationType
 
@@ -214,12 +215,12 @@ class FJS1(_FJS):
         # eq 9 and 10
         for i, operation_id in i_dict.items():
             available_ks = sorted(p_i_k[i].keys())
-            model.add_constraint(
+            model.addConstr(
                 sum([vars_y_i_k[(i, k)] for k in available_ks]) == 1,
                 ctname=f"eq 9: i={i}",
             )
             for j in pj[i]:
-                model.add_constraint(
+                model.addConstr(
                     vars_c_i[i]
                     >= vars_c_i[j]
                     + sum([vars_y_i_k[(i, k)] * p_i_k[i][k] for k in available_ks]),
@@ -233,7 +234,7 @@ class FJS1(_FJS):
                     continue
                 k_list = sorted(set(p_i_k[i].keys()).intersection(set(p_i_k[j].keys())))
                 for k in k_list:
-                    model.add_constraint(
+                    model.addConstr(
                         vars_c_i[i]
                         >= vars_c_i[j]
                         + p_i_k[i][k]
@@ -247,7 +248,7 @@ class FJS1(_FJS):
                         ctname=f"eq 11: i={i} j={j} k={k}",
                     )
 
-                    model.add_constraint(
+                    model.addConstr(
                         vars_c_i[j]
                         >= vars_c_i[i]
                         + p_i_k[j][k]
@@ -262,7 +263,7 @@ class FJS1(_FJS):
                     )
 
         # eq 14
-        model.add_constraints([var_c_max >= C_i for C_i in vars_c_i], names="eq 14")
+        model.addConstrs([var_c_max >= C_i for C_i in vars_c_i], names="eq 14")
         self.model_string = model.export_to_string()
         self._model = model
         return model
@@ -843,16 +844,25 @@ class FJSS3(_FJS):
         para_lmin: np.ndarray,
         para_lmax: np.ndarray,
         precedence: dict[str, list[str]],
-        model_string: str | None = None,
+        big_m: int|float = None,
+        model_string: str | float = None,
         inf_milp: int = 1.0e7,
         num_workers: int = 16,
         verbose: bool = True,
     ):
         self.inf_milp = inf_milp
         self.num_workers = num_workers
-        self.big_m = get_m_value(
-            para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
-        )
+
+        # if big_m is None:
+        #     self.big_m = get_m_value_runzhong(
+        #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        #     )
+        if big_m is None:
+            self.big_m = get_m_value_old(
+                para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+            )
+        else:
+            self.big_m = big_m
 
         super().__init__(
             operations=operations,
@@ -868,8 +878,8 @@ class FJSS3(_FJS):
         para_a[para_a == -np.inf] = -inf_milp
         para_w[para_w == np.inf] = inf_milp
         para_w[para_w == -np.inf] = -inf_milp
-        para_delta[para_delta == np.inf] = inf_milp
-        para_delta[para_delta == -np.inf] = -inf_milp
+        # para_delta[para_delta == np.inf] = inf_milp
+        # para_delta[para_delta == -np.inf] = -inf_milp
         para_lmin[para_lmin == np.inf] = inf_milp
         para_lmin[para_lmin == -np.inf] = -inf_milp
         para_lmax[para_lmax == np.inf] = inf_milp
@@ -985,7 +995,7 @@ class FJSS3(_FJS):
                 )
 
         # eq. (10) and (11)
-        for i, m in product(range(n_opt), range(n_mach)):
+        for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
             if i < j:
                 # eq. (10)
                 solver.Add(
@@ -1003,7 +1013,7 @@ class FJSS3(_FJS):
                 )
 
         # eq. (12) and (13)
-        for i, m in product(range(n_opt), range(n_mach)):
+        for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
             if i < j:
                 # eq. (12)
                 solver.Add(
@@ -1106,3 +1116,201 @@ class FJSS3(_FJS):
         n_mach = len(self.machines)
 
         return n_opt, n_mach
+
+# the reimplementation of the FJSS3 model
+class FJSS4(_FJS):
+    """
+    Implementation of the mixed integer programming formulation in:
+    Boyer, V., Vallikavungal, J., Rodríguez, X. C., & Salazar-Aguilar, M. A. (2021). The generalized flexible job shop scheduling problem. Computers & Industrial Engineering, 160, 107542.
+    """
+
+    def __init__(
+        self,
+        operations: list[str],
+        machines: list[str],
+        para_p: np.ndarray,
+        para_a: np.ndarray,
+        para_w: np.ndarray,
+        para_h: np.ndarray,
+        para_delta: np.ndarray,
+        para_mach_capacity: list[int] | np.ndarray,
+        para_lmin: np.ndarray,
+        para_lmax: np.ndarray,
+        precedence: dict[str, list[str]],
+        model_string: str | None = None,
+        num_workers: int = 16,
+        inf_milp: float = 1.e6,
+        verbose: bool = True,
+    ):
+        self.num_workers = num_workers
+        self.big_m = get_m_value(
+            para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        )
+        self.inf_milp = inf_milp
+
+        super().__init__(
+            operations=operations,
+            machines=machines,
+            precedence=precedence,
+            time_estimates=None,
+            model_string=model_string,
+        )
+
+        self.para_p = para_p
+        self.para_a = para_a
+        self.para_w = para_w
+        self.para_delta = para_delta
+        self.para_lmin = para_lmin
+        self.para_lmax = para_lmax
+        self.para_h = para_h
+        self.para_mach_capacity = para_mach_capacity
+
+        self.horizon = self.get_horizon()
+        self.solver = None
+        self.verbose = verbose
+        self.var_c_max = None
+        self.var_y = None
+        self.var_c = None
+        self.var_s = None
+        self.var_x = None
+        self.var_z = None
+        self.model = None
+
+    def build_model_gurobi(self):
+        """Build the mixed integer linear programming model with gurobi."""
+
+        model = gp.Model("fjss_mip")
+        n_opt, n_mach = self.get_params()
+
+        # create variables
+        # if operation i is processed by machine m
+        var_y = model.addVars(n_opt, n_mach, vtype=GRB.BINARY, name="var_y")
+        # if operation i is processed before operation j
+        var_x = model.addVars(n_opt, n_opt, vtype=GRB.BINARY, name="var_x")
+        # if operation i is processed before and overlapped operation j in machine m
+        var_z = model.addVars(n_opt, n_opt, n_mach, vtype=GRB.BINARY, name="var_z")
+        # starting time of operation i
+        var_s = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
+        # completion time of operation i
+        var_c = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
+
+        # objective
+        var_c_max = model.addVar(lb=1.e-5, ub=self.horizon + 1, vtype=GRB.CONTINUOUS, name="var_c_max")
+        # var_c_max = model.addVar(name="var_c_max", vtype=GRB.CONTINUOUS)
+
+        # var_c_max = model.addVar(
+        #     name="var_c_max", lb=1e-5, ub=float("inf"), vtype=GRB.CONTINUOUS
+        # )
+
+        # add constraints
+        for i in range(n_opt):
+            # eq. (2)
+            model.addConstr(var_c_max >= var_c[i], name="eq_2")
+            # eq. (3)
+            model.addConstr(var_c[i] >= var_s[i] + gp.quicksum(self.para_p[i, m] * var_y[i, m] for m in range(n_mach)), name="eq_3")
+            # eq. (4)
+            model.addConstr(var_c[i] <= var_s[i] + gp.quicksum(
+                (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m] for m in range(n_mach)
+            ),
+            name="eq_4"
+            )
+            # eq. (5)
+            model.addConstr(gp.quicksum(
+                var_y[i, m] for m in range(n_mach)
+            ) == 1,
+            name="eq_5"
+            )
+
+        for i, j in it.product(range(n_opt), range(n_opt)):
+            if i != j:
+                # eq. (6)
+                model.addConstr(var_s[j] >= var_c[i] + self.para_lmin[i, j], name="eq_6")
+                # eq. (7)
+                model.addConstr(var_s[j] <= var_c[i] + self.para_lmax[i, j], name="eq_7")
+
+        for i, j, m in it.product(range(n_opt), range(n_opt), range(n_mach)):
+            if i < j:
+                expr_0 = self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                # eq. (8)
+                model.addConstr(var_s[j] >= var_c[i] + self.para_a[i, j, m] - expr_0, name="eq_8")
+                # eq. (9)
+                expr_1 = self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(var_s[i] >= var_c[j] + self.para_a[j, i, m] - expr_1, name="eq_9")
+                # eq. (10)
+                model.addConstr(var_s[j] >= var_s[i] + self.para_delta[m] - expr_0, name="eq_10")
+                # eq. (11)
+                model.addConstr(var_s[i] >= var_s[j] + self.para_delta[m] - expr_1, name="eq_11")
+                # eq. (12)
+                model.addConstr(var_c[j] >= var_c[i] + self.para_delta[m] - expr_0, name="eq_12")
+                # eq. (13)
+                model.addConstr(var_c[i] >= var_c[j] + self.para_delta[m] - expr_1, name="eq_13")
+                # eq. (14)
+                expr_2 = self.big_m * (3 + var_z[i, j, m] - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(var_s[j] >= var_c[i] - expr_2, name="eq_14")
+                # eq. (15)
+                expr_3 = self.big_m * (2 + var_z[j, i, m] - var_x[i, j] - var_y[i,m] - var_y[j,m])
+                model.addConstr(var_s[i] >= var_c[j] - expr_3, name="eq_15")
+
+        # eq. (16)
+        for i, m in it.product(range(n_opt), range(n_mach)):
+            model.addConstr(gp.quicksum(self.para_w[j, m] * var_z[i, j, m] for j in range(n_opt) if i != j) <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m],
+                                 name="eq_16"
+                                 )
+
+        # set the objective
+        model.setObjective(var_c_max, GRB.MINIMIZE)
+
+        self.var_c_max = var_c_max
+        self.var_y = var_y
+        self.var_c = var_c
+        self.var_s = var_s
+        self.var_x = var_x
+        self.var_z = var_z
+        self.model = model
+
+    def solve_gurobi(self):
+        """Solve the mixed integer linear programming model with gurobi."""
+        # creates the solver and solve
+        if self.solver is None:
+            self.build_model_gurobi()
+
+        self.model.optimize()
+
+        if self.model.Status == GRB.OPTIMAL:
+            print(f"the solution is : {self.model.objVal}")
+
+            return FjsOutput(
+                solved_operations=[],
+                makespan=self.model.objVal,
+            )
+        else:
+            print("No solution found.")
+            return None
+
+
+    def get_params(self):
+        """Get parameters for the model."""
+        n_opt = len(self.operations)
+        n_mach = len(self.machines)
+
+        return n_opt, n_mach
+
+    def get_horizon(self):
+        """Get the horizon."""
+        # the horizon
+        para_p_horizon = np.copy(self.para_p)
+        para_p_horizon[para_p_horizon == self.inf_milp] = 0
+
+        para_h_horizon = np.copy(self.para_h)
+        para_h_horizon[para_h_horizon == self.inf_milp] = 0
+
+        para_lmax_horizon = np.copy(self.para_lmax)
+        para_lmax_horizon[para_lmax_horizon == self.inf_milp] = 0
+        horizon = (
+            np.sum(para_p_horizon, axis=1)
+            + np.sum(para_h_horizon, axis=1)
+            + np.sum(para_lmax_horizon, axis=1)
+        )
+        horizon = np.sum(horizon) + 1
+
+        return horizon
