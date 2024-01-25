@@ -844,7 +844,7 @@ class FJSS3(_FJS):
         para_lmin: np.ndarray,
         para_lmax: np.ndarray,
         precedence: dict[str, list[str]],
-        big_m: int|float = None,
+        big_m: int | float = None,
         model_string: str | float = None,
         inf_milp: int = 1.0e7,
         num_workers: int = 16,
@@ -853,16 +853,19 @@ class FJSS3(_FJS):
         self.inf_milp = inf_milp
         self.num_workers = num_workers
 
-        # if big_m is None:
-        #     self.big_m = get_m_value_runzhong(
-        #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
-        #     )
         if big_m is None:
-            self.big_m = get_m_value_old(
+            self.big_m = get_m_value_runzhong(
                 para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
             )
+        # if big_m is None:
+        #     self.big_m = get_m_value_old(
+        #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        #     )
         else:
             self.big_m = big_m
+
+        print(f"type of big_m: {type(self.big_m)}")
+        print(f"big_m={self.big_m}")
 
         super().__init__(
             operations=operations,
@@ -985,6 +988,7 @@ class FJSS3(_FJS):
                     + self.para_a[i, j, m]
                     - self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
                 )
+                # print(f"big_m in loop", type(self.big_m), self.big_m)
                 # eq. (9)
                 # setup time of machine m when processing operation i before j
                 solver.Add(

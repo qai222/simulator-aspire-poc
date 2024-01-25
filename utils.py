@@ -54,16 +54,18 @@ def get_m_value_runzhong(para_p, para_h, para_lmin, para_a):
     if para_a.shape != (n_opt, n_opt, n_mach):
         para_a = np.einsum("mij->ijm", para_a)
     # eq. (19)
-    # para_a[selected_idx[:, 0], :, selected_idx[:, 1]] = 0
-    para_a[para_a == -np.inf] = 0
+    para_a[selected_idx[:, 0], :, selected_idx[:, 1]] = 0
+    # para_a[para_a == -np.inf] = 0
     a_i = np.max(para_a, axis=(1, 2))
-    print(a_i)
 
     # eq. (20)
     l_a_max = [max(l_element, a_element) for l_element, a_element in zip(l_i, a_i)]
-    big_m = np.max(p_i + np.array(l_a_max))
+    # big_m = np.sum(p_i + np.array(l_a_max), axis=None)
+    # print(f"shape of p_i = {p_i.shape}")
+    # print(f"shape of l_a_max: {len(l_a_max)}")
+    big_m = np.sum(p_i + l_a_max)
 
-    return big_m
+    return float(big_m)
 
 
 def get_m_value_old(para_p, para_h, para_lmin, para_a):
