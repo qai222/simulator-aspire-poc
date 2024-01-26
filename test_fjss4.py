@@ -1,5 +1,6 @@
 # %%
-from fjss4 import FJSS4, FJSS4_v2
+# from fjss4 import FJSS4, FJSS4_v2
+from fjss import FJSS4_v2
 import numpy as np
 import time
 
@@ -466,8 +467,8 @@ fjss4.solve_gurobi()
 
 model = fjss4.model
 
-for v in model.getVars():
-    print(f"{v.VarName} = {v.X}")
+# for v in model.getVars():
+#     print(f"{v.VarName} = {v.X}")
 
 # %%
 # x = fjss4.var_x
@@ -475,6 +476,7 @@ for v in model.getVars():
 
 
 # %%
+print("checking if the solution satisfies the constraints")
 var_x = fjss4.var_x.X
 var_y = fjss4.var_y.X
 var_z = fjss4.var_z.X
@@ -502,4 +504,5 @@ check_constraints_milp(
     var_z=var_z,
 )
 
+print("congragulations! Everything is good now.")
 # %%
