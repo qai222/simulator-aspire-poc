@@ -19,7 +19,7 @@ print("setting up initial parameters")
 
 infinity = 1.0e7
 
-n_opt_selected = 35
+n_opt_selected = 40
 
 
 # %%
@@ -379,8 +379,8 @@ fjss4 = FJSS4_v2(
     verbose=True,
     # big_m=5000,  # this works
     # big_m=4900, # this works
-    big_m=3315,
-    # big_m=None,
+    # big_m=3315,  # this works
+    big_m=None,
 )
 fjss4.build_model_gurobi()
 # print("big_m from fjss3", fjss3.big_m)

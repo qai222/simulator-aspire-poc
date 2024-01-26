@@ -452,8 +452,8 @@ class FJSS4_v2:
         model_string: str | None = None,
         num_workers: int = 16,
         inf_milp: float = 1.0e7,
-        # big_m: float | int = None,
-        big_m=1.0e6,
+        big_m: float | int = None,
+        # big_m=1.0e6,
         verbose: bool = True,
     ):
         self.num_workers = num_workers
@@ -490,6 +490,8 @@ class FJSS4_v2:
         self.para_mach_capacity = para_mach_capacity
 
         if big_m is None:
+            # print(f"para_lmin={para_lmin}")
+            # print(f"non-negative elements of para_lmin: {para_lmin[para_lmin>=0]}")
             self.big_m = get_m_value_runzhong(
                 para_p=para_p,
                 para_h=para_h,
@@ -498,7 +500,6 @@ class FJSS4_v2:
                 infinity=inf_milp,
             )
             print(f"the inferred big_m value with Runzhong version is {self.big_m}")
-            # self.big_m = 8306
 
         # # this part works because the leak of infinity to big_m
         # if big_m is None:
@@ -678,6 +679,82 @@ class FJSS4_v2:
         n_mach = len(self.machines)
 
         return n_opt, n_mach
+
+    @staticmethod
+    def get_m_value_runzhong_old(para_p, para_h, para_lmin, para_a, infinity):
+        """Implementation after discussion with Runzhong."""
+        selected_idx = np.argwhere(para_p != infinity)
+        # eq. (17)
+        para_p[para_p == infinity] = 0
+        p_i = np.max(para_p + para_h, axis=1)
+
+        # eq. (18)
+        # print(f"para_min={para_lmin}")
+        para_lmin[para_lmin < 0] = 0
+        l_i = np.max(para_lmin, axis=1)
+
+        # check if needs to reformat the data
+        n_opt, n_mach = para_h.shape
+        if para_a.shape != (n_opt, n_opt, n_mach):
+            print("reformatting the shape of para_a")
+            para_a = np.einsum("mij->ijm", para_a)
+
+        # eq. (19)
+        para_a[selected_idx[:, 0], :, selected_idx[:, 1]] = 0
+        # para_a[para_a == -infinity] = 0
+        a_i = np.max(para_a, axis=(1, 2))
+
+        # eq. (20)
+        l_a_max = [max(l_element, a_element) for l_element, a_element in zip(l_i, a_i)]
+        # big_m = np.sum(p_i + np.array(l_a_max), axis=None)
+        # print(f"shape of p_i = {p_i.shape}")
+        # print(f"shape of l_a_max: {len(l_a_max)}")
+        big_m = np.sum(p_i + l_a_max)
+
+        return big_m
+
+    @staticmethod
+    def get_m_value_runzhong(para_p, para_h, para_lmin, para_a, infinity):
+        """Implementation after discussion with Runzhong."""
+        n_opt, n_mach = para_h.shape
+
+        # eq. (17)
+        p_i = []
+        for i in range(n_opt):
+            p_i_max = []
+            for m in range(n_mach):
+                if para_p[i, m] < infinity:
+                    p_i_max.append(para_p[i, m] + para_h[i, m])
+            p_i.append(max(p_i_max))
+
+        # eq. (18)
+        l_i = []
+        for i in range(n_opt):
+            l_i_max = []
+            for j in range(n_opt):
+                if para_lmin[i, j] >= 0:
+                    l_i_max.append(para_lmin[i, j])
+            # print(f"l_i_max={l_i_max}")
+            if len(l_i_max) == 0:
+                l_i_max.append(0)
+            else:
+                l_i.append(max(l_i_max))
+
+        # eq. (19)
+        a_i = []
+        for i in range(n_opt):
+            a_i_max = []
+            for j in range(n_opt):
+                for m in range(n_mach):
+                    if para_p[i, m] < infinity:
+                        a_i_max.append(para_a[i, j, m])
+            a_i.append(max(a_i_max))
+
+        # eq. (20)
+        l_a_max = [max(l_element, a_element) for l_element, a_element in zip(l_i, a_i)]
+        big_m = sum(p_i + l_a_max)
+
+        return big_m
 
     # def get_horizon(self):
     #     """Get the horizon."""
