@@ -38,11 +38,11 @@ def json_load(fn: FilePath):
     return o
 
 
-def get_m_value_runzhong(para_p, para_h, para_lmin, para_a):
+def get_m_value_runzhong(para_p, para_h, para_lmin, para_a, infinity):
     """Implementation after discussion with Runzhong."""
-    selected_idx = np.argwhere(para_p != np.inf)
+    selected_idx = np.argwhere(para_p != infinity)
     # eq. (17)
-    para_p[para_p == np.inf] = 0
+    para_p[para_p == infinity] = 0
     p_i = np.max(para_p + para_h, axis=1)
 
     # eq. (18)
@@ -52,10 +52,12 @@ def get_m_value_runzhong(para_p, para_h, para_lmin, para_a):
 
     n_opt, n_mach = para_h.shape
     if para_a.shape != (n_opt, n_opt, n_mach):
+        print("reformatting the shape of para_a")
         para_a = np.einsum("mij->ijm", para_a)
+
     # eq. (19)
     para_a[selected_idx[:, 0], :, selected_idx[:, 1]] = 0
-    # para_a[para_a == -np.inf] = 0
+    # para_a[para_a == -infinity] = 0
     a_i = np.max(para_a, axis=(1, 2))
 
     # eq. (20)
@@ -65,7 +67,7 @@ def get_m_value_runzhong(para_p, para_h, para_lmin, para_a):
     # print(f"shape of l_a_max: {len(l_a_max)}")
     big_m = np.sum(p_i + l_a_max)
 
-    return float(big_m)
+    return big_m
 
 
 def get_m_value_old(para_p, para_h, para_lmin, para_a):
@@ -92,6 +94,7 @@ def get_m_value_old(para_p, para_h, para_lmin, para_a):
 
     return big_m
 
+
 # def get_m_value(para_p, para_h, para_lmin, para_a):
 #     selected_idx = np.argwhere(para_p != np.inf)
 #     # eq. (17)
@@ -111,6 +114,7 @@ def get_m_value_old(para_p, para_h, para_lmin, para_a):
 #     big_m = np.sum(p_i) + np.max([l_i.max(), a_i.max()])
 
 #     return big_m
+
 
 def get_m_value_new1(para_p, para_h, para_lmin, para_a):
     """Get the big number m using equation (17) - (20).

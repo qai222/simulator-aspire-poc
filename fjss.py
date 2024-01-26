@@ -818,7 +818,7 @@ class FJSS2(_FJS):
             return FjsOutput(
                 solved_operations=solved_operations,
                 makespan=solver.ObjectiveValue(),
-                )
+            )
 
         else:
             print("No solution found.")
@@ -844,28 +844,14 @@ class FJSS3(_FJS):
         para_lmin: np.ndarray,
         para_lmax: np.ndarray,
         precedence: dict[str, list[str]],
-        big_m: int | float = None,
+        # big_m: int | float = None,
         model_string: str | float = None,
-        inf_milp: int = 1.0e7,
+        inf_milp: int = 1e7,
         num_workers: int = 16,
         verbose: bool = True,
     ):
         self.inf_milp = inf_milp
         self.num_workers = num_workers
-
-        if big_m is None:
-            self.big_m = get_m_value_runzhong(
-                para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
-            )
-        # if big_m is None:
-        #     self.big_m = get_m_value_old(
-        #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
-        #     )
-        else:
-            self.big_m = big_m
-
-        print(f"type of big_m: {type(self.big_m)}")
-        print(f"big_m={self.big_m}")
 
         super().__init__(
             operations=operations,
@@ -881,14 +867,38 @@ class FJSS3(_FJS):
         para_a[para_a == -np.inf] = -inf_milp
         para_w[para_w == np.inf] = inf_milp
         para_w[para_w == -np.inf] = -inf_milp
-        # para_delta[para_delta == np.inf] = inf_milp
-        # para_delta[para_delta == -np.inf] = -inf_milp
+        para_delta[para_delta == np.inf] = inf_milp
+        para_delta[para_delta == -np.inf] = -inf_milp
         para_lmin[para_lmin == np.inf] = inf_milp
         para_lmin[para_lmin == -np.inf] = -inf_milp
         para_lmax[para_lmax == np.inf] = inf_milp
         para_lmax[para_lmax == -np.inf] = -inf_milp
         para_h[para_h == np.inf] = inf_milp
         para_h[para_h == -np.inf] = -inf_milp
+
+        # if big_m is None:
+        #     self.big_m = get_m_value_runzhong(
+        #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a, infinity=inf_milp
+        #     )
+        # # if big_m is None:
+        # #     self.big_m = get_m_value_old(
+        # #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        # #     )
+        # else:
+        #     self.big_m = big_m
+
+        self.big_m = get_m_value_runzhong(
+                para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a, infinity=inf_milp
+            )
+
+        # from deepdiff import DeepDiff
+        # diff = DeepDiff(self.big_m, 3315.0)
+        # print("\nDifference:", diff, "\n")
+
+        # self.big_m = 3315
+
+        print(f"big_m within fjss3: {self.big_m}")
+        print(f"type of big_m within fjss3: {type(self.big_m)}")
 
         self.para_p = para_p
         self.para_a = para_a
@@ -907,6 +917,7 @@ class FJSS3(_FJS):
         self.var_s = None
         self.var_x = None
         self.var_z = None
+        self.status = None
 
     def build_model_gurobi(self):
         """Build the mixed integer linear programming model with gurobi."""
@@ -1017,7 +1028,7 @@ class FJSS3(_FJS):
                 )
 
         # eq. (12) and (13)
-        for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
+        for i, j, m in product(range(n_opt), range(n_opt), range(n_mach)):
             if i < j:
                 # eq. (12)
                 solver.Add(
@@ -1066,7 +1077,7 @@ class FJSS3(_FJS):
         #         )
         for i in range(n_opt):
             for m in range(n_mach):
-            # for j in range(n_opt):
+                # for j in range(n_opt):
                 expr = []
                 # for m in range(n_mach):
                 for j in range(n_opt):
@@ -1099,6 +1110,7 @@ class FJSS3(_FJS):
         self.solver.Minimize(self.var_c_max)
 
         status = self.solver.Solve()
+        self.status = status
 
         # print out the solution
         if status == pywraplp.Solver.OPTIMAL:
@@ -1113,13 +1125,13 @@ class FJSS3(_FJS):
             print("No solution found.")
             return None
 
-
     def get_params(self):
         """Get parameters for the model."""
         n_opt = len(self.operations)
         n_mach = len(self.machines)
 
         return n_opt, n_mach
+
 
 # the reimplementation of the FJSS3 model
 class FJSS4(_FJS):
@@ -1143,13 +1155,26 @@ class FJSS4(_FJS):
         precedence: dict[str, list[str]],
         model_string: str | None = None,
         num_workers: int = 16,
-        inf_milp: float = 1.e6,
+        inf_milp: float = 1.0e6,
+        big_m: float | int = None,
         verbose: bool = True,
     ):
         self.num_workers = num_workers
-        self.big_m = get_m_value(
-            para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
-        )
+        # self.big_m = get_m_value(
+        #     para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        # )
+
+        if big_m is None:
+            self.big_m = get_m_value_runzhong(
+                para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a, infinity=inf_milp
+            )
+        # if big_m is None:
+        #     self.big_m = get_m_value_old(
+        #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        #     )
+        else:
+            self.big_m = big_m
+
         self.inf_milp = inf_milp
 
         super().__init__(
@@ -1199,7 +1224,9 @@ class FJSS4(_FJS):
         var_c = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
 
         # objective
-        var_c_max = model.addVar(lb=1.e-5, ub=self.horizon + 1, vtype=GRB.CONTINUOUS, name="var_c_max")
+        var_c_max = model.addVar(
+            lb=1.0e-5, ub=self.horizon + 1, vtype=GRB.CONTINUOUS, name="var_c_max"
+        )
         # var_c_max = model.addVar(name="var_c_max", vtype=GRB.CONTINUOUS)
 
         # var_c_max = model.addVar(
@@ -1211,55 +1238,86 @@ class FJSS4(_FJS):
             # eq. (2)
             model.addConstr(var_c_max >= var_c[i], name="eq_2")
             # eq. (3)
-            model.addConstr(var_c[i] >= var_s[i] + gp.quicksum(self.para_p[i, m] * var_y[i, m] for m in range(n_mach)), name="eq_3")
+            model.addConstr(
+                var_c[i]
+                >= var_s[i]
+                + gp.quicksum(self.para_p[i, m] * var_y[i, m] for m in range(n_mach)),
+                name="eq_3",
+            )
             # eq. (4)
-            model.addConstr(var_c[i] <= var_s[i] + gp.quicksum(
-                (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m] for m in range(n_mach)
-            ),
-            name="eq_4"
+            model.addConstr(
+                var_c[i]
+                <= var_s[i]
+                + gp.quicksum(
+                    (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m]
+                    for m in range(n_mach)
+                ),
+                name="eq_4",
             )
             # eq. (5)
-            model.addConstr(gp.quicksum(
-                var_y[i, m] for m in range(n_mach)
-            ) == 1,
-            name="eq_5"
+            model.addConstr(
+                gp.quicksum(var_y[i, m] for m in range(n_mach)) == 1, name="eq_5"
             )
 
         for i, j in it.product(range(n_opt), range(n_opt)):
             if i != j:
                 # eq. (6)
-                model.addConstr(var_s[j] >= var_c[i] + self.para_lmin[i, j], name="eq_6")
+                model.addConstr(
+                    var_s[j] >= var_c[i] + self.para_lmin[i, j], name="eq_6"
+                )
                 # eq. (7)
-                model.addConstr(var_s[j] <= var_c[i] + self.para_lmax[i, j], name="eq_7")
+                model.addConstr(
+                    var_s[j] <= var_c[i] + self.para_lmax[i, j], name="eq_7"
+                )
 
         for i, j, m in it.product(range(n_opt), range(n_opt), range(n_mach)):
             if i < j:
                 expr_0 = self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
                 # eq. (8)
-                model.addConstr(var_s[j] >= var_c[i] + self.para_a[i, j, m] - expr_0, name="eq_8")
+                model.addConstr(
+                    var_s[j] >= var_c[i] + self.para_a[i, j, m] - expr_0, name="eq_8"
+                )
                 # eq. (9)
                 expr_1 = self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
-                model.addConstr(var_s[i] >= var_c[j] + self.para_a[j, i, m] - expr_1, name="eq_9")
+                model.addConstr(
+                    var_s[i] >= var_c[j] + self.para_a[j, i, m] - expr_1, name="eq_9"
+                )
                 # eq. (10)
-                model.addConstr(var_s[j] >= var_s[i] + self.para_delta[m] - expr_0, name="eq_10")
+                model.addConstr(
+                    var_s[j] >= var_s[i] + self.para_delta[m] - expr_0, name="eq_10"
+                )
                 # eq. (11)
-                model.addConstr(var_s[i] >= var_s[j] + self.para_delta[m] - expr_1, name="eq_11")
+                model.addConstr(
+                    var_s[i] >= var_s[j] + self.para_delta[m] - expr_1, name="eq_11"
+                )
                 # eq. (12)
-                model.addConstr(var_c[j] >= var_c[i] + self.para_delta[m] - expr_0, name="eq_12")
+                model.addConstr(
+                    var_c[j] >= var_c[i] + self.para_delta[m] - expr_0, name="eq_12"
+                )
                 # eq. (13)
-                model.addConstr(var_c[i] >= var_c[j] + self.para_delta[m] - expr_1, name="eq_13")
+                model.addConstr(
+                    var_c[i] >= var_c[j] + self.para_delta[m] - expr_1, name="eq_13"
+                )
                 # eq. (14)
-                expr_2 = self.big_m * (3 + var_z[i, j, m] - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                expr_2 = self.big_m * (
+                    3 + var_z[i, j, m] - var_x[i, j] - var_y[i, m] - var_y[j, m]
+                )
                 model.addConstr(var_s[j] >= var_c[i] - expr_2, name="eq_14")
                 # eq. (15)
-                expr_3 = self.big_m * (2 + var_z[j, i, m] - var_x[i, j] - var_y[i,m] - var_y[j,m])
+                expr_3 = self.big_m * (
+                    2 + var_z[j, i, m] - var_x[i, j] - var_y[i, m] - var_y[j, m]
+                )
                 model.addConstr(var_s[i] >= var_c[j] - expr_3, name="eq_15")
 
         # eq. (16)
         for i, m in it.product(range(n_opt), range(n_mach)):
-            model.addConstr(gp.quicksum(self.para_w[j, m] * var_z[i, j, m] for j in range(n_opt) if i != j) <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m],
-                                 name="eq_16"
-                                 )
+            model.addConstr(
+                gp.quicksum(
+                    self.para_w[j, m] * var_z[i, j, m] for j in range(n_opt) if i != j
+                )
+                <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m],
+                name="eq_16",
+            )
 
         # set the objective
         model.setObjective(var_c_max, GRB.MINIMIZE)
@@ -1275,7 +1333,7 @@ class FJSS4(_FJS):
     def solve_gurobi(self):
         """Solve the mixed integer linear programming model with gurobi."""
         # creates the solver and solve
-        if self.solver is None:
+        if self.model is None:
             self.build_model_gurobi()
 
         self.model.optimize()
@@ -1291,7 +1349,6 @@ class FJSS4(_FJS):
             print("No solution found.")
             return None
 
-
     def get_params(self):
         """Get parameters for the model."""
         n_opt = len(self.operations)
@@ -1303,13 +1360,13 @@ class FJSS4(_FJS):
         """Get the horizon."""
         # the horizon
         para_p_horizon = np.copy(self.para_p)
-        para_p_horizon[para_p_horizon == self.inf_milp] = 0
+        para_p_horizon[para_p_horizon == np.inf] = 0
 
         para_h_horizon = np.copy(self.para_h)
-        para_h_horizon[para_h_horizon == self.inf_milp] = 0
+        para_h_horizon[para_h_horizon == np.inf] = 0
 
         para_lmax_horizon = np.copy(self.para_lmax)
-        para_lmax_horizon[para_lmax_horizon == self.inf_milp] = 0
+        para_lmax_horizon[para_lmax_horizon == np.inf] = 0
         horizon = (
             np.sum(para_p_horizon, axis=1)
             + np.sum(para_h_horizon, axis=1)
