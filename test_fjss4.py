@@ -1,5 +1,5 @@
 # %%
-from fjss4 import FJSS4
+from fjss4 import FJSS4, FJSS4_v2
 import numpy as np
 import time
 
@@ -353,13 +353,15 @@ para_a = np.einsum("mij->ijm", para_a)
 # time the running time for the MILP model
 # start_time = time.time()
 
+# TODO: any run of get_m_value_runzhong before or in the FJSS4 results to the error: infeasible
 # big_m_fw = get_m_value_runzhong(
-#     para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+#     para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a, infinity=np.inf
 # )
 # print(f"big_m_fw={big_m_fw}")
 # print(f"type of big_m_fw is {type(big_m_fw)}")
 
-fjss4 = FJSS4(
+
+fjss4 = FJSS4_v2(
     operations=operations,
     machines=machines,
     para_p=para_p,
@@ -375,8 +377,10 @@ fjss4 = FJSS4(
     inf_milp=infinity,
     num_workers=4,
     verbose=True,
-    # big_m=50000,
-    big_m=None,
+    # big_m=5000,  # this works
+    # big_m=4900, # this works
+    big_m=3315,
+    # big_m=None,
 )
 fjss4.build_model_gurobi()
 # print("big_m from fjss3", fjss3.big_m)
