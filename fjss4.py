@@ -454,9 +454,11 @@ class FJSS4_v2:
         inf_milp: float = 1.0e7,
         big_m: float | int = None,
         # big_m=1.0e6,
+        matrix_variables=True,
         verbose: bool = True,
     ):
         self.num_workers = num_workers
+        self.matrix_variables = matrix_variables
         # self.big_m = get_m_value(
         #     para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
         # )
@@ -535,16 +537,30 @@ class FJSS4_v2:
         n_opt, n_mach = self.get_params()
 
         # create variables
-        # if operation i is processed by machine m
-        var_y = model.addVars(n_opt, n_mach, vtype=GRB.BINARY, name="var_y")
-        # if operation i is processed before operation j
-        var_x = model.addVars(n_opt, n_opt, vtype=GRB.BINARY, name="var_x")
-        # if operation i is processed before and overlapped operation j in machine m
-        var_z = model.addVars(n_opt, n_opt, n_mach, vtype=GRB.BINARY, name="var_z")
-        # starting time of operation i
-        var_s = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
-        # completion time of operation i
-        var_c = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
+        if self.matrix_variables:
+            # if operation i is processed by machine m
+            var_y = model.addMVar((n_opt, n_mach), vtype=GRB.BINARY, name="var_y")
+            # if operation i is processed before operation j
+            var_x = model.addMVar((n_opt, n_opt), vtype=GRB.BINARY, name="var_x")
+            # if operation i is processed before and overlapped operation j in machine m
+            var_z = model.addMVar(
+                (n_opt, n_opt, n_mach), vtype=GRB.BINARY, name="var_z"
+            )
+            # starting time of operation i
+            var_s = model.addMVar(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
+            # completion time of operation i
+            var_c = model.addMVar(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
+        else:
+            # if operation i is processed by machine m
+            var_y = model.addVars(n_opt, n_mach, vtype=GRB.BINARY, name="var_y")
+            # if operation i is processed before operation j
+            var_x = model.addVars(n_opt, n_opt, vtype=GRB.BINARY, name="var_x")
+            # if operation i is processed before and overlapped operation j in machine m
+            var_z = model.addVars(n_opt, n_opt, n_mach, vtype=GRB.BINARY, name="var_z")
+            # starting time of operation i
+            var_s = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
+            # completion time of operation i
+            var_c = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
 
         # objective
         # var_c_max = model.addVar(

@@ -171,6 +171,7 @@ n_opt_selected = 40
 #     return new_row
 
 
+# %%
 def load_data():
     n_opt, n_mach, operation_data, machine_data = parse_data("gfjsp_10_5_1.txt")
     operation_data["0"]["h"] = 0
@@ -381,6 +382,7 @@ fjss4 = FJSS4_v2(
     # big_m=4900, # this works
     # big_m=3315,  # this works
     big_m=None,
+    matrix_variables=True,
 )
 fjss4.build_model_gurobi()
 # print("big_m from fjss3", fjss3.big_m)
@@ -457,3 +459,47 @@ fjss4.solve_gurobi()
 
 # else:
 #     print("no optimal solution found")
+
+
+# %%
+# get the solution
+
+model = fjss4.model
+
+for v in model.getVars():
+    print(f"{v.VarName} = {v.X}")
+
+# %%
+# x = fjss4.var_x
+# print(x.X)
+
+
+# %%
+var_x = fjss4.var_x.X
+var_y = fjss4.var_y.X
+var_z = fjss4.var_z.X
+var_s = fjss4.var_s.X
+var_c = fjss4.var_c.X
+var_c_max = fjss4.var_c_max.X
+
+check_constraints_milp(
+    var_y=var_y,
+    var_s=var_s,
+    var_c=var_c,
+    var_c_max=var_c_max,
+    operations=operations,
+    machines=machines,
+    para_p=fjss4.para_p,
+    para_a=fjss4.para_a,
+    para_w=fjss4.para_w,
+    para_h=fjss4.para_h,
+    para_delta=fjss4.para_delta,
+    para_mach_capacity=fjss4.para_mach_capacity,
+    para_lmin=fjss4.para_lmin,
+    para_lmax=fjss4.para_lmax,
+    big_m=fjss4.big_m,
+    var_x=var_x,
+    var_z=var_z,
+)
+
+# %%
