@@ -492,3 +492,7 @@ print("the solution satisfies the constraints of CP formulation.")
 
 # %%
 print("congragulations! Everything is good now.")
+
+
+# number of variables
+# model.NumVars

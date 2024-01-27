@@ -905,7 +905,7 @@ class FJSS4_v2:
         # self.horizon = self.get_horizon()
         # self.big_m = self.horizon
 
-        print(f"big_m: {self.big_m}")
+        # print(f"big_m: {self.big_m}")
 
         self.verbose = verbose
         self.var_c_max = None
