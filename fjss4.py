@@ -150,6 +150,7 @@ class _FJS(MSONable, ABC):
 
 
 # the reimplementation of the FJSS3 model
+# fixed version that works and pass the constraints checks
 class FJSS4(_FJS):
     """
     Implementation of the mixed integer programming formulation in:

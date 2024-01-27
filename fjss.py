@@ -507,6 +507,19 @@ class FJSS2(_FJS):
             model_string=model_string,
         )
 
+        para_a[para_a == np.inf] = inf_cp
+        para_a[para_a == -np.inf] = -inf_cp
+        para_w[para_w == np.inf] = inf_cp
+        para_w[para_w == -np.inf] = -inf_cp
+        para_delta[para_delta == np.inf] = inf_cp
+        para_delta[para_delta == -np.inf] = -inf_cp
+        para_lmin[para_lmin == np.inf] = inf_cp
+        para_lmin[para_lmin == -np.inf] = -inf_cp
+        para_lmax[para_lmax == np.inf] = inf_cp
+        para_lmax[para_lmax == -np.inf] = -inf_cp
+        para_h[para_h == np.inf] = inf_cp
+        para_h[para_h == -np.inf] = -inf_cp
+
         self.para_a = para_a.astype(int)
         self.para_w = para_w.astype(int)
         self.para_mach_capacity = para_mach_capacity.astype(int)
@@ -516,24 +529,6 @@ class FJSS2(_FJS):
         self.para_h = para_h.astype(int)
 
         self.horizon = self.get_horizon()
-
-        para_a[para_a == np.inf] = inf_cp
-        para_a[para_a == -np.inf] = -inf_cp
-
-        para_w[para_w == np.inf] = inf_cp
-        para_w[para_w == -np.inf] = -inf_cp
-
-        para_delta[para_delta == np.inf] = inf_cp
-        para_delta[para_delta == -np.inf] = -inf_cp
-
-        para_lmin[para_lmin == np.inf] = inf_cp
-        para_lmin[para_lmin == -np.inf] = -inf_cp
-
-        para_lmax[para_lmax == np.inf] = inf_cp
-        para_lmax[para_lmax == -np.inf] = -inf_cp
-
-        para_h[para_h == np.inf] = inf_cp
-        para_h[para_h == -np.inf] = -inf_cp
 
         self._model = None
         self._solver = None
@@ -758,6 +753,7 @@ class FJSS2(_FJS):
         self.var_y = var_y
         self.var_u = var_u
         self.yu_list = yu_list
+        self.num_t = num_t
 
         return model
 
