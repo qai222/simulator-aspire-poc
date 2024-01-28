@@ -225,7 +225,8 @@ fjss2 = FJSS2(
     precedence=None,
     model_string=None,
     inf_cp=infinity,
-    num_workers=4,
+    # num_workers=4,
+    num_workers=6,
     verbose=True,
 )
 fjss2.build_model_ortools()
@@ -429,6 +430,7 @@ check_constraints_cp(
     para_lmax=fjss2.para_lmax,
     num_t=num_t,
     var_u=var_u,
+    horizion=fjss2.horizon,
 )
 print("the solution satisfies the constraints of CP formulation.")
 
@@ -460,8 +462,20 @@ check_constraints_milp(
     para_mach_capacity=fjss2.para_mach_capacity,
     para_lmin=fjss2.para_lmin,
     para_lmax=fjss2.para_lmax,
-    big_m=3248.0,
+    # big_m=3248.0,
+    big_m=big_m,
     var_x=var_x,
     var_z=var_z,
 )
 print("the solution satisfies the constraints of MILP formulation.")
+
+# %%
+
+# constraints1 = model.Proto().constraints
+# print(f"type of constraints1: {type(constraints1)}")
+# print(f"length of constraints1: {len(constraints1)}")
+
+# %%
+# the number of variables
+variables = model.Proto().variables
+print(f"number of variables: {len(variables)}")

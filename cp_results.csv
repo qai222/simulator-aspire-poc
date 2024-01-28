@@ -1,0 +1,4 @@
+method,n_opt,n_mach,running_time_seconds,num_constraints,num_variables,makespan,feasible_MILP,feasible_CP
+CP,10,6,35.18113327026367,1172920,643941,518.0,yes,yes
+CP,15,6,94.45557618141174,3232488,1781311,528.0,yes,yes
+CP,20,6,148.89238810539246,5237304,2891081,698.0,yes,yes

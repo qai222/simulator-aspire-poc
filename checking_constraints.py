@@ -119,9 +119,9 @@ def check_constraints_cp(
     para_mach_capacity: list[int] | np.ndarray,
     para_lmin: np.ndarray,
     para_lmax: np.ndarray,
+    horizion: int|float,
     num_t: int = None,
     var_u: np.array = None,
-    horizion: int = None
 ):
     """Check the constraints of the CP problem."""
     n_opt = len(operations)
