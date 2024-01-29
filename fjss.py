@@ -841,7 +841,7 @@ class FJSS4_v2:
         para_lmax: np.ndarray,
         precedence: dict[str, list[str]],
         model_string: str | None = None,
-        num_workers: int = 16,
+        num_workers: int = None,
         inf_milp: float = 1.0e7,
         big_m: float | int = None,
         # big_m=1.0e6,
@@ -1066,6 +1066,17 @@ class FJSS4_v2:
         # creates the solver and solve
         if self.model is None:
             self.build_model_gurobi()
+
+        # add the threads
+        if self.num_workers is None:
+            # https://www.gurobi.com/documentation/current/refman/threads.html
+            # The default value of 0 is an automatic setting.
+            # It will generally use as many threads as there are virtual processors
+            # We've made the pragmatic choice to impose a soft limit of 32 threads for the automatic setting (0)
+            self.model.Params.Threads = 0
+        # this is not recommended
+        if self.num_workers is not None:
+            self.model.Params.Threads = self.num_workers
 
         self.model.optimize()
 
