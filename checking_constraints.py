@@ -29,23 +29,25 @@ def check_constraints_milp(
     n_opt = len(operations)
     n_mach = len(machines)
 
+    print(f"shape of para_a = {para_a.shape}")
+
     # eq. (2)
-    for i in np.arange(n_opt):
+    for i in range(n_opt):
         assert var_c_max >= var_c[i]
 
-    for i in np.arange(n_opt):
+    for i in range(n_opt):
         # eq. (3)
         assert var_c[i] + eps >= var_s[i] + sum(
-            [para_p[i, m] * var_y[i, m] for m in np.arange(n_mach)]
-        )  # , f"var_c[i]={var_c[i]}, var_s[i]={var_s[i]}, i={i}, sum={sum([para_p[i, m] * var_y[i, m] for m in np.arange(n_mach)])}"
+            [para_p[i, m] * var_y[i, m] for m in range(n_mach)]
+        )  # , f"var_c[i]={var_c[i]}, var_s[i]={var_s[i]}, i={i}, sum={sum([para_p[i, m] * var_y[i, m] for m in range(n_mach)])}"
         # eq. (4)
         assert var_c[i] - eps <= var_s[i] + sum(
-            [(para_p[i, m] + para_h[i, m]) * var_y[i, m] for m in np.arange(n_mach)]
+            [(para_p[i, m] + para_h[i, m]) * var_y[i, m] for m in range(n_mach)]
         )
         # eq. (5)
-        assert sum([var_y[i, m] for m in np.arange(n_mach)]) == 1
+        assert sum([var_y[i, m] for m in range(n_mach)]) == 1
 
-    for i, j in it.product(np.arange(n_opt), np.arange(n_opt)):
+    for i, j in it.product(range(n_opt), range(n_opt)):
         if i != j:
             # eq. (6)
             assert var_s[j] + eps >= var_c[i] + para_lmin[i, j]
@@ -53,9 +55,7 @@ def check_constraints_milp(
             assert var_s[j] - eps <= var_c[i] + para_lmax[i, j]
 
     if var_x is not None:
-        for i, j, m in it.product(
-            np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)
-        ):
+        for i, j, m in it.product(range(n_opt), range(n_opt), range(n_mach)):
             if i < j:
                 # eq. (8)
                 assert var_s[j] + eps >= var_c[i] + para_a[i, j, m] - big_m * (
@@ -64,7 +64,7 @@ def check_constraints_milp(
                 # eq. (9)
                 assert var_s[i] + eps >= var_c[j] + para_a[j, i, m] - big_m * (
                     2 + var_x[i, j] - var_y[i, m] - var_y[j, m]
-                )  # , f"var_s[i]={var_s[i]} \n var_c[j]={var_c[j]}\n para[j, i, m]={para_a[j, i, m]} \n big_m={big_m} \n var_x[i, j]={var_x[i, j]} \n var_y[i, m]={var_y[i, m]} \n var_y[j, m]={var_y[j, m]} \n difference={var_s[i] - var_c[j] - para_a[j, i, m] + big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])}"
+                ), f"var_s[i]={var_s[i]} \n var_c[j]={var_c[j]}\n para[j, i, m]={para_a[j, i, m]} \n big_m={big_m} \n var_x[i, j]={var_x[i, j]} \n var_y[i, m]={var_y[i, m]} \n var_y[j, m]={var_y[j, m]} \n difference={var_s[i] - var_c[j] - para_a[j, i, m] + big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])}"
                 # eq. (10)
                 assert var_s[j] + eps >= var_s[i] + para_delta[m] - big_m * (
                     3 - var_x[i, j] - var_y[i, m] - var_y[j, m]
@@ -88,20 +88,32 @@ def check_constraints_milp(
                 )
                 # eq. (15)
                 assert var_s[i] + eps >= var_c[j] - big_m * (
-                    2 + var_z[i, j, m] + var_x[i, j] - var_y[i, m] - var_y[j, m]
-                )
+                    2 + var_z[j, i, m] + var_x[i, j] - var_y[i, m] - var_y[j, m]
+                ), # f"var_s[i]={var_s[i]}, var_c[j]={var_c[j]}, big_m={big_m}, var_z[i, j, m]={var_z[j,i, m]}, var_x[i, j]={var_x[i, j]}, var_y[i, m]={var_y[i, m]}, var_y[j, m]={var_y[j, m]}, difference={var_s[i] - var_c[j] + big_m * (2 + var_z[j,i,m] + var_x[i, j] - var_y[i, m] - var_y[j, m])}"
 
     # eq. (16)
     if var_z is not None:
-        for i, m in it.product(np.arange(n_opt), np.arange(n_mach)):
-            for j in np.arange(n_opt):
-                expr_constraint = []
-                if i != j:
-                    expr_constraint.append(para_w[j, m] * var_z[i, j, m])
+        # for i, m in it.product(range(n_opt), range(n_mach)):
+        #     expr_constraint = []
+        #     for j in range(n_opt):
+        #         if i != j:
+        #             expr_constraint.append(para_w[j, m] * var_z[i, j, m])
+        #     assert (
+        #         sum(expr_constraint)
+        #         <= (para_mach_capacity[m] - para_w[i, m]) * var_y[i, m]
+        #     ), f"sum(expr_constraint)={sum(expr_constraint)},
+        #     para_mach_capacity[m]={para_mach_capacity[m]}, para_w[i, m]={para_w[i, m]}, var_y[i,
+        #     m]={var_y[i, m]}, difference={sum(expr_constraint) - (para_mach_capacity[m] -
+        #     para_w[i, m]) * var_y[i, m]}"
+
+        for i, m in it.product(range(n_opt), range(n_mach)):
+            expr_constraint_left = [
+                para_w[j, m] * var_z[i, j, m] for j in range(n_opt) if i != j
+            ]
+            expr_constraint_right = (para_mach_capacity[m] - para_w[i, m]) * var_y[i, m]
             assert (
-                sum(expr_constraint)
-                <= (para_mach_capacity[m] - para_w[i, m]) * var_y[i, m]
-            )
+                sum(expr_constraint_left) <= expr_constraint_right
+            ), f"sum(expr_constraint_left)={sum(expr_constraint_left)}, expr_constraint_right={expr_constraint_right}, difference={sum(expr_constraint_left) - expr_constraint_right}, C_m = {para_mach_capacity[m]}, w_i = {para_w[i, m]}, y_i = {var_y[i, m]}"
 
 
 def check_constraints_cp(
@@ -119,7 +131,7 @@ def check_constraints_cp(
     para_mach_capacity: list[int] | np.ndarray,
     para_lmin: np.ndarray,
     para_lmax: np.ndarray,
-    horizion: int|float,
+    horizion: int | float,
     num_t: int = None,
     var_u: np.array = None,
 ):
@@ -127,19 +139,19 @@ def check_constraints_cp(
     n_opt = len(operations)
     n_mach = len(machines)
 
-    for i, m in it.product(np.arange(n_opt), np.arange(n_mach)):
+    for i, m in it.product(range(n_opt), range(n_mach)):
         # eq. (3)
         assert var_c[i] >= var_s[i] + sum(
-            [para_p[i, m] * var_y[i, m] for m in np.arange(n_mach)]
+            [para_p[i, m] * var_y[i, m] for m in range(n_mach)]
         )
         # eq. (4)
         assert var_c[i] <= var_s[i] + sum(
-            [(para_p[i, m] + para_h[i, m]) * var_y[i, m] for m in np.arange(n_mach)]
+            [(para_p[i, m] + para_h[i, m]) * var_y[i, m] for m in range(n_mach)]
         )
         # eq. (5)
-        assert sum([var_y[i, m] for m in np.arange(n_mach)]) == 1
+        assert sum([var_y[i, m] for m in range(n_mach)]) == 1
 
-    for i, j in it.product(np.arange(n_opt), np.arange(n_opt)):
+    for i, j in it.product(range(n_opt), range(n_opt)):
         if i != j:
             # eq. (6)
             assert var_s[j] >= var_c[i] + para_lmin[i, j]
@@ -201,7 +213,7 @@ def check_constraints_cp(
     for m in range(n_mach):
         yu_list = []
         for t in range(num_t):
-            for i in np.arange(n_opt):
+            for i in range(n_opt):
                 yu_list.append(var_y[i, m] * var_u[i, m, t])
         yu_max = max(yu_list)
         assert yu_max <= para_mach_capacity[m]
@@ -224,7 +236,7 @@ def infer_var_x(var_s: np.ndarray):
     n_opt = var_s.shape[0]
     var_x = np.zeros((n_opt, n_opt))
 
-    for i, j in it.product(np.arange(n_opt), np.arange(n_opt)):
+    for i, j in it.product(range(n_opt), range(n_opt)):
         if i != j:
             if var_s[i] < var_s[j]:
                 var_x[i, j] = 1
@@ -257,10 +269,10 @@ def infer_var_z(var_s: np.ndarray, var_y: np.ndarray, var_c: np.ndarray):
 
     var_z = np.zeros((n_opt, n_opt, n_mach))
 
-    for i, j, m in it.product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
+    for i, j, m in it.product(range(n_opt), range(n_opt), range(n_mach)):
         if i != j:
             if var_y[i, m] == 1 and var_y[j, m] == 1:
-                if var_s[j] <= var_c[i]:
+                if var_s[j] < var_c[i]:
                     var_z[i, j, m] = 1
                 else:
                     var_z[i, j, m] = 0
