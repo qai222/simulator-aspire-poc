@@ -18,8 +18,8 @@ def multiple_milp_runs():
             "method,n_opt,n_mach,running_time_seconds,num_constraints,num_variables,makespan,feasible_MILP,feasible_CP\n"
         )
 
-        # for n_opt_selected in np.arange(10, 94, 5):
-        for n_opt_selected in np.arange(10, 21, 5):
+        for n_opt_selected in np.arange(10, 94, 5):
+        # for n_opt_selected in np.arange(10, 21, 5):
             new_row = run_single_milp(
                 input_fname="gfjsp_10_5_1.txt",
                 infinity=1.0e7,
@@ -35,3 +35,4 @@ def multiple_milp_runs():
 # the main script
 if __name__ == "__main__":
     multiple_milp_runs()
+

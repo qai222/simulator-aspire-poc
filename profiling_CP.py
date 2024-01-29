@@ -19,13 +19,13 @@ def multiple_cp_runs():
             "method,n_opt,n_mach,running_time_seconds,num_constraints,num_variables,makespan,feasible_MILP,feasible_CP\n"
         )
 
-        # for n_opt_selected in np.arange(10, 94, 5):
-        for n_opt_selected in np.arange(10, 21, 5):
+        for n_opt_selected in np.arange(10, 94, 5):
+        # for n_opt_selected in np.arange(10, 17, 5):
             new_row = run_single_cp(
                 input_fname="gfjsp_10_5_1.txt",
                 infinity=1.0e7,
                 n_opt_selected=n_opt_selected,
-                num_workers=6,
+                num_workers=16,
                 verbose=False,
             )
             # contact all the values into a string with comma separated
@@ -36,3 +36,4 @@ def multiple_cp_runs():
 # the main script
 if __name__ == "__main__":
     multiple_cp_runs()
+

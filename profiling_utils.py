@@ -178,7 +178,8 @@ def prepare_input(method, n_opt_selected, input_fname="gfjsp_10_5_1.txt"):
     para_p = para_p[:n_opt_selected, :]
     para_h = para_h[:n_opt_selected, :]
     para_w = para_w[:n_opt_selected, :]
-    para_a = para_a[:n_opt_selected, :n_opt_selected, :]
+    # the shape of parsed para_a is (n_mach, n_opt, n_opt)
+    para_a = para_a[:, :n_opt_selected, :n_opt_selected]
     # machines
     machines = [str(i) for i in range(n_mach)]
     # operations

@@ -89,7 +89,7 @@ def check_constraints_milp(
                 # eq. (15)
                 assert var_s[i] + eps >= var_c[j] - big_m * (
                     2 + var_z[j, i, m] + var_x[i, j] - var_y[i, m] - var_y[j, m]
-                ), # f"var_s[i]={var_s[i]}, var_c[j]={var_c[j]}, big_m={big_m}, var_z[i, j, m]={var_z[j,i, m]}, var_x[i, j]={var_x[i, j]}, var_y[i, m]={var_y[i, m]}, var_y[j, m]={var_y[j, m]}, difference={var_s[i] - var_c[j] + big_m * (2 + var_z[j,i,m] + var_x[i, j] - var_y[i, m] - var_y[j, m])}"
+                )# f"var_s[i]={var_s[i]}, var_c[j]={var_c[j]}, big_m={big_m}, var_z[i, j, m]={var_z[j,i, m]}, var_x[i, j]={var_x[i, j]}, var_y[i, m]={var_y[i, m]}, var_y[j, m]={var_y[j, m]}, difference={var_s[i] - var_c[j] + big_m * (2 + var_z[j,i,m] + var_x[i, j] - var_y[i, m] - var_y[j, m])}"
 
     # eq. (16)
     if var_z is not None:
