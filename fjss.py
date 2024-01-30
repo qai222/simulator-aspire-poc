@@ -865,7 +865,9 @@ class FJSS4_v2:
         model_string: str | None = None,
         num_workers: int = None,
         inf_milp: float = 1.0e7,
+        num_workshifts: int = None,
         shift_durations: float|int = None,
+        operations_subset_indices: list[int] = None,
         big_m: float | int = None,
         # big_m=1.0e6,
         matrix_variables=True,
@@ -925,12 +927,14 @@ class FJSS4_v2:
         else:
             self.big_m = big_m
 
-        # self.horizon = self.get_horizon()
+        self.horizon = self.get_horizon(infinity=inf_milp)
         # self.big_m = self.horizon
 
         # print(f"big_m: {self.big_m}")
 
         self.shift_durations = shift_durations
+        self.operations_subset_indices = operations_subset_indices
+        self.num_workshifts = num_workshifts
         self.verbose = verbose
         self.var_c_max = None
         self.var_y = None
@@ -939,7 +943,7 @@ class FJSS4_v2:
         self.var_x = None
         self.var_z = None
         self.model = None
-        self.var_ws = None
+        self.var_ws_assignments = None
 
     def build_model_gurobi(self):
         """Build the mixed integer linear programming model with gurobi."""
@@ -968,15 +972,15 @@ class FJSS4_v2:
             var_c = model.addMVar(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
         else:
             # if operation i is processed by machine m
-            var_y = model.addVars(n_opt, n_mach, vtype=GRB.BINARY, name="var_y")
+            var_y = model.addMVars(n_opt, n_mach, vtype=GRB.BINARY, name="var_y")
             # if operation i is processed before operation j
-            var_x = model.addVars(n_opt, n_opt, vtype=GRB.BINARY, name="var_x")
+            var_x = model.addMVars(n_opt, n_opt, vtype=GRB.BINARY, name="var_x")
             # if operation i is processed before and overlapped operation j in machine m
-            var_z = model.addVars(n_opt, n_opt, n_mach, vtype=GRB.BINARY, name="var_z")
+            var_z = model.addMVars(n_opt, n_opt, n_mach, vtype=GRB.BINARY, name="var_z")
             # starting time of operation i
-            var_s = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
+            var_s = model.addMVars(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
             # completion time of operation i
-            var_c = model.addVars(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
+            var_c = model.addMVars(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
 
         # objective
         # var_c_max = model.addVar(
@@ -1079,20 +1083,49 @@ class FJSS4_v2:
         # say ws_k represents the start time of kth (let a shift be 8hrs)
         # and the first shift starts at t=0, add a bool var ws_ki for shift assignment (with constraint \Sum_k ws_ki = 1)
         # and ws_ki=1 -> (ws_k < s_i) ^ (ws_k + 8hrs > c_i)
-        if self.shift_durations:
-            var_ws = model.addVar(n_opt, vtype=GRB.BINARY, name="var_ws")
-            # add constraints
-            model.addConstr(
-                    gp.quicksum(var_ws[i] for i in range(n_opt)) == 1, name="work_shifts_constr_1"
+        if self.shift_durations is not None or self.num_workshifts is not None:
+            if self.num_workshifts:
+                # number of prospective work shifts
+                n_workshifts = int(self.horizon / self.shift_durations) + 1
+
+            # not all the operations will need the work shift constraints
+            operations_subset = self.operations[self.operations_subset_indices]
+            n_opt_subset = len(operations_subset)
+
+            # starting time of work shift k
+            var_ws_starting_time = model.addMVar(
+                n_workshifts, vtype=GRB.CONTINUOUS, name="var_ws_starting_time"
+            )
+            # assignments of work shifts k for job i
+            var_ws_assignments = model.addMVar(
+                (n_opt_subset, n_workshifts),
+                vtype=GRB.BINARY,
+                name="var_ws_assignments",
+            )
+
+            for i in range(n_opt_subset):
+                # add constraints that one operation can be assigned to only one work shift
+                model.addConstr(
+                    gp.quicksum(var_ws_assignments[i, k] for k in range(n_workshifts)) == 1,
                 )
-            # add indicator constraints
-            for i in range(n_opt):
-                # https://support.gurobi.com/hc/en-us/articles/4414392016529-How-do-I-model-conditional-statements-in-Gurobi
-                # https://www.gurobi.com/documentation/current/refman/py_model_agc_indicator.html
-                model.addConstr((var_ws[i] == 1) >> gp.quicksum(
-                    [var_ws[i] <= var_s[i], var_ws[i] + self.shift_durations >= var_c[i]]) == 2,
-                                name=f"work_shifts_constr_2_{i}")
-            self.var_ws = var_ws
+
+            #
+
+            # var_ws_assignments = model.addMVar((n_opt, n_opt), vtype=GRB.BINARY, lb=0, name="var_ws")
+            # # add constraints
+            # model.addConstr(
+            #         gp.quicksum(var_ws[i, :] for i in range(n_opt)) == 1, name="work_shifts_constr_1"
+            #     )
+            # # add indicator constraints
+            # for i, k in it.product(range(n_opt), range(n_opt)):
+            #     # https://support.gurobi.com/hc/en-us/articles/4414392016529-How-do-I-model-conditional-statements-in-Gurobi
+            #     # https://www.gurobi.com/documentation/current/refman/py_model_agc_indicator.html
+            #     # model.addConstr((var_ws_assignments[i, k] == 1) >> gp.quicksum(
+            #     #     [var_ws[i] <= var_s[i], var_ws[i] + self.shift_durations >= var_c[i]]) == 2,
+            #     #                 name=f"work_shifts_constr_2_{i}")
+            #     model.addConstr((var_ws_assignments[i, k] == 1) >> var_s[i] + self.shift_durations >= var_c[i],
+            #                     name=f"work_shifts_constr_2_{i}")
+            # self.var_ws_assignments = var_ws_assignments
 
         # set the objective
         model.setObjective(var_c_max, GRB.MINIMIZE)
@@ -1146,30 +1179,31 @@ class FJSS4_v2:
 
         return n_opt, n_mach
 
-    # def get_horizon(self):
-    #     """Get the horizon."""
-    #     # the horizon
-    #     para_p_horizon = np.copy(self.para_p)
-    #     para_p_horizon[para_p_horizon == self.inf_milp] = 0
+    @staticmethod
+    def get_horizon(self, infinity):
+        """Get the horizon."""
+        # the horizon
+        para_p_horizon = np.copy(self.para_p)
+        para_p_horizon[para_p_horizon == infinity] = 0
 
-    #     para_h_horizon = np.copy(self.para_h)
-    #     para_h_horizon[para_h_horizon == self.inf_milp] = 0
+        para_h_horizon = np.copy(self.para_h)
+        para_h_horizon[para_h_horizon == infinity] = 0
 
-    #     para_lmax_horizon = np.copy(self.para_lmax)
-    #     para_lmax_horizon[para_lmax_horizon == self.inf_milp] = 0
-    #     horizon = (
-    #         np.max(para_p_horizon, axis=1)
-    #         + np.max(para_h_horizon, axis=1)
-    #         + np.max(para_lmax_horizon, axis=1)
-    #     )
+        para_lmax_horizon = np.copy(self.para_lmax)
+        para_lmax_horizon[para_lmax_horizon == infinity] = 0
+        horizon = (
+            np.max(para_p_horizon, axis=1)
+            + np.max(para_h_horizon, axis=1)
+            + np.max(para_lmax_horizon, axis=1)
+        )
 
-    #     # print("")
-    #     # # print(f"para_p_horizon = {para_p_horizon}")
-    #     # # print(f"para_h_horizon = {para_h_horizon}")
-    #     # print(f"para_lmax_horizon = {para_lmax_horizon}")
-    #     # print(f"para_lmax_horizon max is {np.max(para_lmax_horizon)}")
+        # print("")
+        # # print(f"para_p_horizon = {para_p_horizon}")
+        # # print(f"para_h_horizon = {para_h_horizon}")
+        # print(f"para_lmax_horizon = {para_lmax_horizon}")
+        # print(f"para_lmax_horizon max is {np.max(para_lmax_horizon)}")
 
-    #     horizon = np.sum(horizon) + 1
-    #     # print(f"\nhorizon={horizon}")
+        horizon = np.sum(horizon)
+        # print(f"\nhorizon={horizon}")
 
-    #     return horizon
+        return horizon
