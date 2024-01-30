@@ -927,7 +927,12 @@ class FJSS4_v2:
         else:
             self.big_m = big_m
 
-        self.horizon = self.get_horizon(infinity=inf_milp)
+        self.horizon = self.__class__.get_horizon(
+            infinity=inf_milp,
+            para_p=para_p,
+            para_h=para_h,
+            para_lmax=para_lmax,
+            )
         # self.big_m = self.horizon
 
         # print(f"big_m: {self.big_m}")
@@ -944,6 +949,7 @@ class FJSS4_v2:
         self.var_z = None
         self.model = None
         self.var_ws_assignments = None
+        self.var_ws_starting_times = None
 
     def build_model_gurobi(self):
         """Build the mixed integer linear programming model with gurobi."""
@@ -1089,8 +1095,11 @@ class FJSS4_v2:
                 n_workshifts = int(self.horizon / self.shift_durations) + 1
 
             # not all the operations will need the work shift constraints
-            operations_subset = self.operations[self.operations_subset_indices]
-            n_opt_subset = len(operations_subset)
+            if self.operations_subset_indices:
+                operations_subset = self.operations[self.operations_subset_indices]
+                n_opt_subset = len(operations_subset)
+            else:
+                n_opt_subset = n_opt
 
             # starting time of work shift k
             var_ws_starting_time = model.addMVar(
@@ -1109,23 +1118,19 @@ class FJSS4_v2:
                     gp.quicksum(var_ws_assignments[i, k] for k in range(n_workshifts)) == 1,
                 )
 
-            #
-
-            # var_ws_assignments = model.addMVar((n_opt, n_opt), vtype=GRB.BINARY, lb=0, name="var_ws")
-            # # add constraints
-            # model.addConstr(
-            #         gp.quicksum(var_ws[i, :] for i in range(n_opt)) == 1, name="work_shifts_constr_1"
-            #     )
-            # # add indicator constraints
-            # for i, k in it.product(range(n_opt), range(n_opt)):
-            #     # https://support.gurobi.com/hc/en-us/articles/4414392016529-How-do-I-model-conditional-statements-in-Gurobi
-            #     # https://www.gurobi.com/documentation/current/refman/py_model_agc_indicator.html
-            #     # model.addConstr((var_ws_assignments[i, k] == 1) >> gp.quicksum(
-            #     #     [var_ws[i] <= var_s[i], var_ws[i] + self.shift_durations >= var_c[i]]) == 2,
-            #     #                 name=f"work_shifts_constr_2_{i}")
-            #     model.addConstr((var_ws_assignments[i, k] == 1) >> var_s[i] + self.shift_durations >= var_c[i],
-            #                     name=f"work_shifts_constr_2_{i}")
-            # self.var_ws_assignments = var_ws_assignments
+            for i, k in it.product(range(n_opt_subset), range(n_workshifts)):
+                # add constraints that if an operation is assigned to a work shift, it must fall in
+                # the work shift
+                # https://support.gurobi.com/hc/en-us/articles/4414392016529-How-do-I-model-conditional-statements-in-Gurobi
+                # https://www.gurobi.com/documentation/current/refman/py_model_agc_indicator.html
+                model.addConstr(
+                    var_ws_assignments[i, k] == 1 >> gp.quicksum(
+                        [
+                            var_ws_starting_time[k] <= var_s[i],
+                            var_ws_starting_time[k] + self.shift_durations >= var_c[i],
+                        ]
+                    ) == 2
+                )
 
         # set the objective
         model.setObjective(var_c_max, GRB.MINIMIZE)
@@ -1180,16 +1185,16 @@ class FJSS4_v2:
         return n_opt, n_mach
 
     @staticmethod
-    def get_horizon(self, infinity):
+    def get_horizon(infinity, para_p, para_h, para_lmax):
         """Get the horizon."""
         # the horizon
-        para_p_horizon = np.copy(self.para_p)
+        para_p_horizon = np.copy(para_p)
         para_p_horizon[para_p_horizon == infinity] = 0
 
-        para_h_horizon = np.copy(self.para_h)
+        para_h_horizon = np.copy(para_h)
         para_h_horizon[para_h_horizon == infinity] = 0
 
-        para_lmax_horizon = np.copy(self.para_lmax)
+        para_lmax_horizon = np.copy(para_lmax)
         para_lmax_horizon[para_lmax_horizon == infinity] = 0
         horizon = (
             np.max(para_p_horizon, axis=1)
