@@ -412,6 +412,28 @@ class FJS1(_FJS):
         )
 
 
+class VarArraySolutionPrinterWithLimit(cp_model.CpSolverSolutionCallback):
+    """Print intermediate solutions."""
+
+    def __init__(self, variables, limit):
+        cp_model.CpSolverSolutionCallback.__init__(self)
+        self.__variables = variables
+        self.__solution_count = 0
+        self.__solution_limit = limit
+
+    def on_solution_callback(self):
+        self.__solution_count += 1
+        for v in self.__variables:
+            print(f"{v}={self.Value(v)}", end=" ")
+        print()
+        if self.__solution_count >= self.__solution_limit:
+            print(f"Stop search after {self.__solution_limit} solutions")
+            self.StopSearch()
+
+    def solution_count(self):
+        return self.__solution_count
+
+
 class FJSS2(_FJS):
     """
     Implementation of the constraint programming formulation in:
@@ -843,6 +865,7 @@ class FJSS4_v2:
         model_string: str | None = None,
         num_workers: int = None,
         inf_milp: float = 1.0e7,
+        shift_durations: float|int = None,
         big_m: float | int = None,
         # big_m=1.0e6,
         matrix_variables=True,
@@ -907,6 +930,7 @@ class FJSS4_v2:
 
         # print(f"big_m: {self.big_m}")
 
+        self.shift_durations = shift_durations
         self.verbose = verbose
         self.var_c_max = None
         self.var_y = None
@@ -915,6 +939,7 @@ class FJSS4_v2:
         self.var_x = None
         self.var_z = None
         self.model = None
+        self.var_ws = None
 
     def build_model_gurobi(self):
         """Build the mixed integer linear programming model with gurobi."""
@@ -1049,6 +1074,26 @@ class FJSS4_v2:
                 name="eq_16",
             )
 
+        # work shifts, formulation by Qianxiang
+        # we can add constraints to make sure s_i and c_i falls in one shift:
+        # say ws_k represents the start time of kth (let a shift be 8hrs)
+        # and the first shift starts at t=0, add a bool var ws_ki for shift assignment (with constraint \Sum_k ws_ki = 1)
+        # and ws_ki=1 -> (ws_k < s_i) ^ (ws_k + 8hrs > c_i)
+        if self.shift_durations:
+            var_ws = model.addVar(n_opt, vtype=GRB.BINARY, name="var_ws")
+            # add constraints
+            model.addConstr(
+                    gp.quicksum(var_ws[i] for i in range(n_opt)) == 1, name="work_shifts_constr_1"
+                )
+            # add indicator constraints
+            for i in range(n_opt):
+                # https://support.gurobi.com/hc/en-us/articles/4414392016529-How-do-I-model-conditional-statements-in-Gurobi
+                # https://www.gurobi.com/documentation/current/refman/py_model_agc_indicator.html
+                model.addConstr((var_ws[i] == 1) >> gp.quicksum(
+                    [var_ws[i] <= var_s[i], var_ws[i] + self.shift_durations >= var_c[i]]) == 2,
+                                name=f"work_shifts_constr_2_{i}")
+            self.var_ws = var_ws
+
         # set the objective
         model.setObjective(var_c_max, GRB.MINIMIZE)
 
@@ -1077,6 +1122,9 @@ class FJSS4_v2:
         # this is not recommended
         if self.num_workers is not None:
             self.model.Params.Threads = self.num_workers
+
+        # set the number of solutions to be found
+        # self.model.Params.PoolSolutions = 20
 
         self.model.optimize()
 
