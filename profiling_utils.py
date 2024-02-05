@@ -377,7 +377,7 @@ def run_single_milp(
         new_row["feasible_CP"] = "no"
 
     if new_row["feasible_MILP"] == "yes" and new_row["feasible_CP"] == "yes":
-        print("congragulations! Everything is good now.")
+        print("congragulations! Everything is good now.\n\n")
 
     return new_row
 

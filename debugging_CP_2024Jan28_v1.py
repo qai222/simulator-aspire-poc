@@ -26,7 +26,7 @@ input_fname = "gfjsp_10_5_1.txt"
 infinity = 1.0e7
 n_opt_selected = 25
 num_workers = 6
-verbose = False
+verbose = True
 # %%
 
 new_row = OrderedDict()

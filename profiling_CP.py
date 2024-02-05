@@ -21,11 +21,12 @@ def multiple_cp_runs():
 
         for n_opt_selected in np.arange(10, 94, 5):
         # for n_opt_selected in np.arange(10, 17, 5):
+        # for n_opt_selected in [60]:
             new_row = run_single_cp(
                 input_fname="gfjsp_10_5_1.txt",
                 infinity=1.0e7,
                 n_opt_selected=n_opt_selected,
-                num_workers=16,
+                num_workers=32,
                 verbose=False,
             )
             # contact all the values into a string with comma separated

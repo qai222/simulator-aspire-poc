@@ -53,6 +53,13 @@ para_a = check_fix_shape_of_para_a(para_p, para_a, intended_for="milp")
 new_row["n_opt"] = n_opt
 new_row["n_mach"] = n_mach
 
+# print(f"symmstric of para_lmin: {para_lmin == para_lmin.T}")
+
+#
+para_lmin_new = np.triu(np.full_like(para_lmin, 1))
+para_lmin_new[np.diag_indices(para_lmin_new.shape[0])] = 0
+para_lmin_new[para_lmin_new == 0] = -np.inf
+
 print("solve the MILP problem with FJSS4_v2")
 # check the running time
 start_time = time.time()
@@ -65,11 +72,18 @@ fjss4 = FJSS4_v2(
     para_h=para_h,
     para_delta=para_delta,
     para_mach_capacity=para_mach_capacity,
-    para_lmin=para_lmin,
-    para_lmax=para_lmax,
+    para_lmin=para_lmin_new,
+    para_lmax=np.full_like(para_lmax, np.inf),
     precedence=None,
     model_string=None,
     inf_milp=infinity,
+    # num_workshifts=None,
+    num_workshifts=None,
+    # shift_durations=200,
+    # shift_durations=2000, # works
+    # when 1600, objective is 1602
+    shift_durations=1650,
+    operations_subset_indices=None,
     num_workers=num_workers,
     verbose=verbose,
     big_m=None,
