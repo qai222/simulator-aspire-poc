@@ -1094,7 +1094,8 @@ class FJSS4_v2:
 
         # work shifts
         if self.shift_durations is not None:
-            print("\n\nworking on work shifts related constraints\n\n")
+            print("\nworking on work shifts related constraints\n")
+
             # if self.shift_durations:
             #     # number of prospective work shifts
             #     # n_workshifts = int(self.horizon / self.shift_durations) + 1
@@ -1120,19 +1121,13 @@ class FJSS4_v2:
             value_m = self.horizon*10
 
             for i, _ in operations_subset.items():
+                # TODO: check if this is necessary
+                # the i-th operation should be processed in the i-th work shift, c_i - s_i <= shift_durations
+                model.addConstr(
+                var_c[i] - var_s[i] <= self.shift_durations, name="workshift_duration_limit_{i}"
+                )
+
                 # s_i <= (i+1)*shift_duration and c_i <= (i+1)*shift_duration
-                var_auxiliary_1 = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_1_{i}"
-                )
-                var_auxiliary_2 = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_2_{i}"
-                )
-                var_auxiliary_3 = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_3_{i}"
-                )
-                var_auxiliary_4 = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_4_{i}"
-                )
                 var_auxiliary_a = model.addVar(
                     vtype=GRB.BINARY, name=f"var_auxiliary_a_{i}"
                 )
@@ -1140,38 +1135,38 @@ class FJSS4_v2:
                     vtype=GRB.BINARY, name=f"var_auxiliary_b_{i}"
                 )
 
-                # var_auxiliary_1 indicates (i+1)*shift_duration >= s_i
+                # var_auxiliary_a indicates (i+1)*shift_duration >= s_i
                 model.addConstr(
-                    (i + 1) * self.shift_durations >= var_s[i] + eps - value_m * ( 1- var_auxiliary_1)
+                    (i + 1) * self.shift_durations >= var_s[i] + eps - value_m * ( 1- var_auxiliary_a)
                 )
                 model.addConstr(
-                    (i + 1) * self.shift_durations <= var_s[i] + value_m * var_auxiliary_1
+                    (i + 1) * self.shift_durations <= var_s[i] + value_m * var_auxiliary_a
                 )
-                # var_auxiliary_2 indicates (i+1)*shift_duration >= c_i
+                # var_auxiliary_a indicates (i+1)*shift_duration >= c_i
                 model.addConstr(
-                    (i + 1) * self.shift_durations >= var_c[i] + eps - value_m * ( 1- var_auxiliary_2)
-                )
-                model.addConstr(
-                    (i + 1) * self.shift_durations <= var_c[i] + value_m * var_auxiliary_2
-                )
-                # var_auxiliary_3 indicates s_i > = (i+1)*shift_duration
-                model.addConstr(
-                    var_s[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_3)
+                    (i + 1) * self.shift_durations >= var_c[i] + eps - value_m * ( 1- var_auxiliary_a)
                 )
                 model.addConstr(
-                    var_s[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_3
+                    (i + 1) * self.shift_durations <= var_c[i] + value_m * var_auxiliary_a
                 )
-                # var_auxiliary_4 indicates c_i > = (i+1)*shift_duration
+                # var_auxiliary_b indicates s_i > = (i+1)*shift_duration
                 model.addConstr(
-                    var_c[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_4)
+                    var_s[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
                 )
                 model.addConstr(
-                    var_c[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_4
+                    var_s[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_b
+                )
+                # var_auxiliary_b indicates c_i > = (i+1)*shift_duration
+                model.addConstr(
+                    var_c[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
+                )
+                model.addConstr(
+                    var_c[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_b
                 )
                 # var_auxiliary_a indicates that var_auxiliary_1 and var_auxiliary_2 should be satisfied at the same time
-                model.addConstr(
-                    var_auxiliary_a == gp.and_(var_auxiliary_1, var_auxiliary_2)
-                )
+                # model.addConstr(
+                #     var_auxiliary_a == gp.and_(var_auxiliary_1, var_auxiliary_2)
+                # )
                 # model.addConstr(
                 #     (var_auxiliary_a == 1) >> (var_auxiliary_1 + var_auxiliary_2 == 2)
                 # )
@@ -1181,9 +1176,9 @@ class FJSS4_v2:
 
                 # var_auxiliary_b indicates that var_auxiliary_1 and var_auxiliary_2 should be
                 # satisfied at the same time
-                model.addConstr(
-                    var_auxiliary_b == gp.and_(var_auxiliary_3, var_auxiliary_4)
-                )
+                # model.addConstr(
+                #     var_auxiliary_b == gp.and_(var_auxiliary_3, var_auxiliary_4)
+                # )
                 # model.addConstr(
                 #     (var_auxiliary_b == 1) >> (var_auxiliary_3 + var_auxiliary_4 == 2)
                 # )
@@ -1191,7 +1186,8 @@ class FJSS4_v2:
                 #     (var_auxiliary_3 + var_auxiliary_4 <= 1) >> (var_auxiliary_b == 0)
                 # )
 
-                # var_auxiliary_a and var_auxiliary_b should not be satisfied at the same time
+                # var_auxiliary_a and var_auxiliary_b should not be satisfied at the same time, but
+                # at least one of them should be satisfied
                 model.addConstr(var_auxiliary_a + var_auxiliary_b == 1)
 
         # set the objective
