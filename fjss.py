@@ -865,7 +865,6 @@ class FJSS4_v2:
         model_string: str | None = None,
         num_workers: int = None,
         inf_milp: float = 1.0e7,
-        num_workshifts: int = None,
         shift_durations: float|int = None,
         operations_subset_indices: list[int] = None,
         big_m: float | int = None,
@@ -892,8 +891,17 @@ class FJSS4_v2:
 
         self.inf_milp = inf_milp
 
+        # self.operations = operations
+        # self.machines = machines
+        # if operations is a list, turn it into a dictionary
+        if isinstance(operations, list):
+            operations = {i: operations[i] for i in range(len(operations))}
+        if isinstance(machines, list):
+            machines = {i: machines[i] for i in range(len(machines))}
+
         self.operations = operations
         self.machines = machines
+
         self.precedence = precedence
         # self.time_estimates = None
         self.model_string = model_string
@@ -939,7 +947,7 @@ class FJSS4_v2:
 
         self.shift_durations = shift_durations
         self.operations_subset_indices = operations_subset_indices
-        self.num_workshifts = num_workshifts
+        # self.num_workshifts = num_workshifts
         self.verbose = verbose
         self.var_c_max = None
         self.var_y = None
@@ -1084,104 +1092,107 @@ class FJSS4_v2:
                 name="eq_16",
             )
 
-        # work shifts, formulation by Qianxiang
-        # we can add constraints to make sure s_i and c_i falls in one shift:
-        # say ws_k represents the start time of kth (let a shift be 8hrs)
-        # and the first shift starts at t=0, add a bool var ws_ki for shift assignment (with constraint \Sum_k ws_ki = 1)
-        # and ws_ki=1 -> (ws_k <= s_i) ^ (ws_k + 8hrs >= c_i)
-        if self.shift_durations is not None or self.num_workshifts is not None:
-            if self.shift_durations:
-                # number of prospective work shifts
-                # n_workshifts = int(self.horizon / self.shift_durations) + 1
-                n_workshifts = int(self.horizon * 10 / self.shift_durations)
-                self.num_workshifts = n_workshifts
-            else:
-                n_workshifts = self.num_workshifts
+        # work shifts
+        if self.shift_durations is not None:
+            print("\n\nworking on work shifts related constraints\n\n")
+            # if self.shift_durations:
+            #     # number of prospective work shifts
+            #     # n_workshifts = int(self.horizon / self.shift_durations) + 1
+            #     n_workshifts = int(self.horizon / self.shift_durations)
+            #     self.num_workshifts = n_workshifts
+            # else:
+            #     n_workshifts = self.num_workshifts
 
-            if n_workshifts is None:
-                raise ValueError(
-                    "At least one of the shift_durations and num_workshifts must be specified."
-                )
+            # if n_workshifts is None:
+            #     raise ValueError(
+            #         "At least one of the shift_durations and num_workshifts must be specified."
+            #     )
 
             # not all the operations will need the work shift constraints
             if self.operations_subset_indices:
-                operations_subset = self.operations[self.operations_subset_indices]
-                n_opt_subset = len(operations_subset)
+                operations_subset = {i: self.operations[i] for i in self.operations_subset_indices}
+                # n_opt_subset = len(operations_subset)
             else:
-                n_opt_subset = n_opt
-
-            # starting time of work shift k
-            # var_ws_starting_time = model.addMVar(
-            #     n_workshifts, vtype=GRB.CONTINUOUS, name="var_ws_starting_time"
-            # )
-            var_ws_starting_time = np.arange(0, self.horizon, n_workshifts)
-
-            # assignments of work shifts k for job i
-            var_ws_assignments = model.addMVar(
-                (n_opt_subset, n_workshifts),
-                vtype=GRB.BINARY,
-                name="var_ws_assignments",
-            )
-
-            for i in range(n_opt_subset):
-                # add constraints that one operation can be assigned to only one work shift
-                model.addConstr(
-                    gp.quicksum(var_ws_assignments[i, k] for k in range(n_workshifts)) == 1,
-                )
-            # for k in range(n_workshifts):
-            #     # add constraints that one operation can be assigned to only one work shift
-            #     model.addConstr(
-            #         gp.quicksum(var_ws_assignments[i, k] for i in range(n_opt_subset)) == 1,
-            #     )
+                # n_opt_subset = n_opt
+                operations_subset = self.operations
 
             eps = 1e-5
             value_m = self.horizon*10
 
-            for i, k in it.product(range(n_opt_subset), range(n_workshifts)):
-                # add constraints that if an operation is assigned to a work shift, it must fall in
-                # the work shift
-                # https://support.gurobi.com/hc/en-us/articles/4414392016529-How-do-I-model-conditional-statements-in-Gurobi
-                # https://www.gurobi.com/documentation/current/refman/py_model_agc_indicator.html
-                # https://support.gurobi.com/hc/en-us/articles/4414392016529-How-do-I-model-conditional-statements-in-Gurobi-
+            for i, _ in operations_subset.items():
+                # s_i <= (i+1)*shift_duration and c_i <= (i+1)*shift_duration
                 var_auxiliary_1 = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_1_{i}_{k}"
+                    vtype=GRB.BINARY, name=f"var_auxiliary_1_{i}"
                 )
                 var_auxiliary_2 = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_2_{i}_{k}"
+                    vtype=GRB.BINARY, name=f"var_auxiliary_2_{i}"
+                )
+                var_auxiliary_3 = model.addVar(
+                    vtype=GRB.BINARY, name=f"var_auxiliary_3_{i}"
+                )
+                var_auxiliary_4 = model.addVar(
+                    vtype=GRB.BINARY, name=f"var_auxiliary_4_{i}"
+                )
+                var_auxiliary_a = model.addVar(
+                    vtype=GRB.BINARY, name=f"var_auxiliary_a_{i}"
+                )
+                var_auxiliary_b = model.addVar(
+                    vtype=GRB.BINARY, name=f"var_auxiliary_b_{i}"
                 )
 
-                # var_auxiliary_1 = 1 indicates that ws_k < s_i
+                # var_auxiliary_1 indicates (i+1)*shift_duration >= s_i
                 model.addConstr(
-                    var_ws_starting_time[k] <= var_s[i] + value_m*(1 - var_auxiliary_1)
+                    (i + 1) * self.shift_durations >= var_s[i] + eps - value_m * ( 1- var_auxiliary_1)
                 )
                 model.addConstr(
-                    var_ws_starting_time[k] >= var_s[i] - value_m*var_auxiliary_1 + eps
+                    (i + 1) * self.shift_durations <= var_s[i] + value_m * var_auxiliary_1
                 )
-                # var_auxiliary_2 = 1 indicates that ws_k + 8hrs > c_i
+                # var_auxiliary_2 indicates (i+1)*shift_duration >= c_i
                 model.addConstr(
-                    var_ws_starting_time[k] + self.shift_durations >= var_c[i] -value_m*(1 - var_auxiliary_2) + eps
+                    (i + 1) * self.shift_durations >= var_c[i] + eps - value_m * ( 1- var_auxiliary_2)
                 )
                 model.addConstr(
-                    var_ws_starting_time[k] + self.shift_durations <= var_c[i] + value_m*var_auxiliary_2
+                    (i + 1) * self.shift_durations <= var_c[i] + value_m * var_auxiliary_2
                 )
-
-                # add the real constraints
-                # TODO: this can be wrong?
-                # ws_ki=1 -> (ws_k < s_i) ^ (ws_k + 8hrs > c_i)
+                # var_auxiliary_3 indicates s_i > = (i+1)*shift_duration
                 model.addConstr(
-                    (var_ws_assignments[i, k] == 1) >> (var_auxiliary_1 + var_auxiliary_2 == 2)
+                    var_s[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_3)
                 )
-
-                # model.addConstr(var_auxiliary_1 == (var_ws_starting_time[k] <= var_s[i]))
+                model.addConstr(
+                    var_s[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_3
+                )
+                # var_auxiliary_4 indicates c_i > = (i+1)*shift_duration
+                model.addConstr(
+                    var_c[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_4)
+                )
+                model.addConstr(
+                    var_c[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_4
+                )
+                # var_auxiliary_a indicates that var_auxiliary_1 and var_auxiliary_2 should be satisfied at the same time
+                model.addConstr(
+                    var_auxiliary_a == gp.and_(var_auxiliary_1, var_auxiliary_2)
+                )
                 # model.addConstr(
-                #     var_auxiliary_2 == (var_ws_starting_time[k] + self.shift_durations >= var_c[i])
+                #     (var_auxiliary_a == 1) >> (var_auxiliary_1 + var_auxiliary_2 == 2)
+                # )
+                # model.addConstr(
+                #     (var_auxiliary_1 + var_auxiliary_2 <= 1) >> (var_auxiliary_a == 0)
                 # )
 
+                # var_auxiliary_b indicates that var_auxiliary_1 and var_auxiliary_2 should be
+                # satisfied at the same time
+                model.addConstr(
+                    var_auxiliary_b == gp.and_(var_auxiliary_3, var_auxiliary_4)
+                )
                 # model.addConstr(
-                #     var_ws_assignments[i, k] == 1 >> gp.and_(var_auxiliary_1, var_auxiliary_2)
+                #     (var_auxiliary_b == 1) >> (var_auxiliary_3 + var_auxiliary_4 == 2)
+                # )
+                # model.addConstr(
+                #     (var_auxiliary_3 + var_auxiliary_4 <= 1) >> (var_auxiliary_b == 0)
                 # )
 
-
+                # var_auxiliary_a and var_auxiliary_b should not be satisfied at the same time
+                model.addConstr(var_auxiliary_a + var_auxiliary_b == 1)
 
         # set the objective
         model.setObjective(var_c_max, GRB.MINIMIZE)
