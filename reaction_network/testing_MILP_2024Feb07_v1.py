@@ -94,7 +94,6 @@ fjss2 = FJS2(
     num_workers=num_workers,
     verbose=verbose,
     big_m=None,
-    matrix_variables=True,
 )
 fjss2.build_model_gurobi()
 fjss4_output = fjss2.solve_gurobi()
