@@ -1,0 +1,2 @@
+method,n_opt,n_mach,running_time_seconds,num_constraints,makespan
+CP,50,6,4690.434481143951,0,707.0

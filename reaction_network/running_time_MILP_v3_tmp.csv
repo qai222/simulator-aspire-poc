@@ -1,0 +1,2 @@
+method,n_opt,n_mach,running_time_seconds,num_constraints,makespan
+MILP,45,6,30.205952167510986,34941,783.0

@@ -4,6 +4,7 @@ import collections
 import math
 import os
 import random
+import itertools as it
 from abc import ABC
 from collections import defaultdict
 from itertools import product, combinations
@@ -16,7 +17,7 @@ from monty.json import MSONable
 from pydantic import BaseModel
 from ortools.sat.python import cp_model
 from ortools.linear_solver import pywraplp
-from utils import get_m_value
+from utils import get_big_m_value
 
 # from reaction_network.schema.lv2 import BenchTopLv2, OperationType
 
@@ -411,420 +412,7 @@ class FJS1(_FJS):
         )
 
 
-class FJSS2(_FJS):
-    """
-    Implementation of the constraint programming formulation in:
-    Boyer, V., Vallikavungal, J., Rodríguez, X. C., & Salazar-Aguilar, M. A. (2021). The generalized flexible job shop scheduling problem. Computers & Industrial Engineering, 160, 107542.
-    """
-
-    def __init__(
-        self,
-        operations: list[str],
-        machines: list[str],
-        para_p: np.ndarray,
-        para_a: np.ndarray,
-        para_w: np.ndarray,
-        para_h: np.ndarray,
-        para_delta: np.ndarray,
-        para_mach_capacity: list[int] | np.ndarray,
-        para_lmin: np.ndarray,
-        para_lmax: np.ndarray,
-        precedence: dict[str, list[str]],
-        model_string: str | None = None,
-        inf_cp: int = 1.0e10,
-        num_workers: int = 16,
-        verbose: bool = True,
-    ):
-        """
-        _summary_
-
-        Parameters
-        ----------
-        operations : list[str]
-            _description_
-        machines : list[str]
-            _description_
-        precedence : dict[str, list[str]]
-            _description_
-        time_estimates : np.ndarray
-            _description_
-        para_a : np.ndarray
-            Setup time of machine m when processing operation i before j and para_a =
-            np.full((n_mach, n_opt, n_opt), dtype=object, fill_value=infinity).
-        para_w : np.ndarray
-            Weight of operation i in machine m and para_w = np.empty((n_opt, n_mach), dtype=object).
-        para_mach_capacity : list[int]|np.ndarray
-            A list of machine capacity or a numpy array of machine capacity.
-        para_lmin : np.ndarray
-            Minimum lag between the starting time of operation i and the ending time of operation j.
-            Shape=(n_opt, n_opt).
-        para_lmax : np.ndarray
-            Maximum lag between the starting time of operation i and the ending time of operation j.
-            Shape=(n_opt, n_opt).
-        job_data : list[list[tuple[int, int]]]
-            The list of jobs. Each job is a list of tuples (machine_id, processing_time).
-        co_exist_set : list[str], optional
-            The list of operation pairs that can overlap, by default None. For example, co_exist_set
-            = ["0,1", "3,4"], that means operation 0 can overlap with operation 1 and operation 3
-            can overlap with operation 4.
-        allowed_overlapping_machine : list[int], optional
-            The machine ids for the machines that allow overlapping. Default=None. For example,
-            allowed_overlapping_machine = [0, 1, 5] means machine 0, 1, 5 allow overlapping.
-        model_string : str | None, optional
-            _description_, by default None
-        inf_cp : int, optional
-            _description_, by default 1.0e10
-        verbose : bool, optional
-            If print out the solution explicitly, by default True.
-
-        Returns
-        -------
-        FjsOutput
-            The output of the FJS solver.
-
-        Notes
-        -----
-        Please note that for the constraint programming solver, all the inputs have to be
-        integers. If you have float numbers in the input, please multiply a large number to make
-        it a large integer. For example, if you have a float number 0.5, you can multiply 1e6 to
-        feed into this model. The model will get you solution with 6 decimal points, which is
-        from 1e6.
-
-        """
-        self.inf_cp = inf_cp
-        self.num_workers = num_workers
-
-        para_p[para_p == np.inf] = inf_cp
-        para_p[para_p == -np.inf] = -inf_cp
-        self.para_p = para_p.astype(int)
-
-        super().__init__(
-            operations=operations,
-            machines=machines,
-            precedence=precedence,
-            time_estimates=None,
-            model_string=model_string,
-        )
-
-        self.para_a = para_a.astype(int)
-        self.para_w = para_w.astype(int)
-        self.para_mach_capacity = para_mach_capacity.astype(int)
-        self.para_delta = para_delta.astype(int)
-        self.para_lmin = para_lmin.astype(int)
-        self.para_lmax = para_lmax.astype(int)
-        self.para_h = para_h.astype(int)
-
-        self.horizon = self.get_horizon()
-
-        para_a[para_a == np.inf] = inf_cp
-        para_a[para_a == -np.inf] = -inf_cp
-
-        para_w[para_w == np.inf] = inf_cp
-        para_w[para_w == -np.inf] = -inf_cp
-
-        para_delta[para_delta == np.inf] = inf_cp
-        para_delta[para_delta == -np.inf] = -inf_cp
-
-        para_lmin[para_lmin == np.inf] = inf_cp
-        para_lmin[para_lmin == -np.inf] = -inf_cp
-
-        para_lmax[para_lmax == np.inf] = inf_cp
-        para_lmax[para_lmax == -np.inf] = -inf_cp
-
-        para_h[para_h == np.inf] = inf_cp
-        para_h[para_h == -np.inf] = -inf_cp
-
-        self._model = None
-        self._solver = None
-        self.var_s = None
-        self.var_c = None
-        self.var_y = None
-        self.verbose = verbose
-        self.var_c_max = inf_cp
-        self.var_u = None
-        self.yu_list = None
-        self.num_t = None
-
-    def get_horizon(self):
-        """Get the horizon."""
-        # the horizon
-        para_p_horizon = np.copy(self.para_p)
-        para_p_horizon[para_p_horizon == self.inf_cp] = 0
-
-        para_h_horizon = np.copy(self.para_h)
-        para_h_horizon[para_h_horizon == self.inf_cp] = 0
-
-        para_lmax_horizon = np.copy(self.para_lmax)
-        para_lmax_horizon[para_lmax_horizon == self.inf_cp] = 0
-        horizon = (
-            np.sum(para_p_horizon, axis=1)
-            + np.sum(para_h_horizon, axis=1)
-            + np.sum(para_lmax_horizon, axis=1)
-        )
-        horizon = int(np.sum(horizon)) + 1
-
-        return horizon
-
-    def build_model_ortools(self):
-        """Build the model."""
-        n_opt, n_mach = self.get_params()
-
-        model = cp_model.CpModel()
-
-        horizon = self.horizon
-        # make span
-        var_c_max = model.NewIntVar(0, horizon, "C_max")
-
-        # define the variables
-        # if operation i is processed by machine m
-        var_y = np.empty((n_opt, n_mach), dtype=object)
-        for i, m in product(range(n_opt), range(n_mach)):
-            var_y[i, m] = model.NewBoolVar(f"y_{i}_{m}")
-
-        # starting time of operation i
-        var_s = np.empty((n_opt), dtype=object)
-        for i in range(n_opt):
-            var_s[i] = model.NewIntVar(0, horizon, f"s_{i}")
-
-        # completion time of operation i
-        var_c = np.empty((n_opt), dtype=object)
-        for i in range(n_opt):
-            var_c[i] = model.NewIntVar(0, horizon, f"c_{i}")
-
-        # add constraints
-        for i in range(n_opt):
-            # eq. (2)
-            model.Add(var_c_max >= var_c[i])
-
-            # eq. (3)
-            expr = [self.para_p[i, m] * var_y[i, m] for m in range(n_mach)]
-            model.Add(var_c[i] >= var_s[i] + sum(expr))
-
-            # eq. (4)
-            expr = [
-                (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m]
-                for m in range(n_mach)
-            ]
-            model.Add(var_c[i] <= var_s[i] + sum(expr))
-
-        # eq. (5)
-        for i in range(n_opt):
-            # sum of y_im = 1
-            model.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
-
-        for i, j in product(range(n_opt), range(n_opt)):
-            if i != j:
-                # eq. (6)
-                # minimum lag between the starting time of operation i and the ending time of operation j
-                model.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
-                # eq. (7)
-                # maximum lag between the starting time of operation i and the ending time of operation j
-                model.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
-
-        # https://developers.google.com/optimization/cp/channeling
-        for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
-            if i != j:
-                # https://github.com/d-krupke/cpsat-primer
-
-                # eq. (22)
-                # left part of the implication
-                bool_b1 = model.NewBoolVar(f"bool_b1_{i}_{j}_{m}")
-                model.Add(var_y[i, m] + var_y[j, m] == 2).OnlyEnforceIf(bool_b1)
-                model.Add(var_y[i, m] + var_y[j, m] != 2).OnlyEnforceIf(bool_b1.Not())
-
-                # right part of the implication
-                bool_b2 = model.NewBoolVar(f"bool_b2_{i}_{j}_{m}")
-                bool_a1 = model.NewBoolVar(f"bool_a1_{i}_{j}_{m}")
-                bool_a2 = model.NewBoolVar(f"bool_a2_{i}_{j}_{m}")
-                model.Add(var_s[j] >= var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(
-                    bool_a1
-                )
-                model.Add(var_s[j] < var_c[i] + self.para_a[m, i, j]).OnlyEnforceIf(
-                    bool_a1.Not()
-                )
-                model.Add(var_s[i] >= var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(
-                    bool_a2
-                )
-                model.Add(var_s[i] < var_c[j] + self.para_a[m, j, i]).OnlyEnforceIf(
-                    bool_a2.Not()
-                )
-
-                model.Add(bool_a1 + bool_a2 >= 1).OnlyEnforceIf(bool_b2)
-                model.Add(bool_a1 + bool_a2 < 1).OnlyEnforceIf(bool_b2.Not())
-
-                # the implication
-                model.AddImplication(bool_b1, bool_b2)
-
-                # eq. (23)
-                # left part of the implication is the same as eq. (22), so we can reuse bool_b1
-                # right part of the implication
-                bool_b3 = model.NewBoolVar(f"bool_b3_{i}_{j}_{m}")
-                max_eq23_first = model.NewIntVar(
-                    0, horizon, f"max_eq23_{i}_{j}_{m}_first"
-                )
-                model.AddMaxEquality(
-                    max_eq23_first, [0, var_c[i] - var_s[i] - var_c[j] + var_s[j]]
-                )
-
-                max_eq23_second = model.NewIntVar(
-                    0, horizon, f"max_eq23_{i}_{j}_{m}_second"
-                )
-                model.AddMaxEquality(
-                    max_eq23_second, [0, var_c[j] - var_s[j] - var_c[i] + var_s[i]]
-                )
-
-                # define the intermediate variable for var_s[j] >= var_s[i] + max_eq23_first + para_delta       [m]
-                bool_a3 = model.NewBoolVar(f"bool_a3_{i}_{j}_{m}")
-                model.Add(
-                    var_s[j] >= var_s[i] + max_eq23_first + self.para_delta[m]
-                ).OnlyEnforceIf(bool_a3)
-                model.Add(
-                    var_s[j] < var_s[i] + max_eq23_first + self.para_delta[m]
-                ).OnlyEnforceIf(bool_a3.Not())
-                # define the intermediate variable for var_s[i] >= var_s[j] + max_eq23_second + para_delta      [m]
-                bool_a4 = model.NewBoolVar(f"bool_a4_{i}_{j}_{m}")
-                model.Add(
-                    var_s[i] >= var_s[j] + max_eq23_second + self.para_delta[m]
-                ).OnlyEnforceIf(bool_a4)
-                model.Add(
-                    var_s[i] < var_s[j] + max_eq23_second + self.para_delta[m]
-                ).OnlyEnforceIf(bool_a4.Not())
-
-                model.AddBoolOr(bool_a3, bool_a4).OnlyEnforceIf(bool_b3)
-                model.AddBoolAnd(bool_a3.Not(), bool_a4.Not()).OnlyEnforceIf(
-                    bool_b3.Not()
-                )
-
-                # the implication
-                model.AddImplication(bool_b1, bool_b3)
-
-        sum_time = horizon
-        num_t = int(sum_time / 1.0e0)
-        var_u = np.empty((n_opt, n_mach, num_t), dtype=object)
-        for i, m, t in product(range(n_opt), range(n_mach), range(num_t)):
-            var_u[i, m, t] = model.NewIntVar(0, np.max(self.para_w), f"u_{i}_{m}_{t}")
-
-        # eq. (25)
-        yu_list = []
-        for idx_m, m in enumerate(np.arange(n_mach)):
-            for idx_t, t in enumerate(np.arange(num_t)):
-                constr_25 = 0
-                for idx_i, i in enumerate(np.arange(n_opt)):
-                    yu = model.NewIntVar(
-                        0, np.max(self.para_w), f"yu_{idx_i}_{idx_m}_{idx_t}"
-                    )
-                    model.AddMultiplicationEquality(
-                        yu, [var_y[idx_i, idx_m], var_u[idx_i, idx_m, idx_t]]
-                    )
-                    constr_25 += yu
-                    yu_list.append(yu)
-                model.Add(constr_25 <= self.para_mach_capacity[idx_m])
-
-        # eq. (24)
-        for idx_m, m in enumerate(np.arange(n_mach)):
-            for idx_i, i in enumerate(np.arange(n_opt)):
-                for idx_t, t in enumerate(np.arange(num_t)):
-                    bool_list = []
-
-                    bool_x7 = model.NewBoolVar(f"bool_x7_{i}_{idx_t}")
-                    model.Add(var_s[i] <= t).OnlyEnforceIf(bool_x7)
-                    model.Add(var_s[i] > t).OnlyEnforceIf(bool_x7.Not())
-                    bool_list.append(bool_x7)
-
-                    bool_x8 = model.NewBoolVar(f"bool_x8_{i}_{idx_t}")
-                    model.Add(var_c[i] >= t).OnlyEnforceIf(bool_x8)
-                    model.Add(var_c[i] < t).OnlyEnforceIf(bool_x8.Not())
-                    bool_list.append(bool_x8)
-
-                    bool_x9_and = model.NewBoolVar(f"bool_x9_{i}_{idx_t}")
-                    model.Add(bool_x7 + bool_x8 == 2).OnlyEnforceIf(bool_x9_and)
-                    model.Add(bool_x7 + bool_x8 < 2).OnlyEnforceIf(bool_x9_and.Not())
-
-                    # when bool_x7 and bool_x8 are both true, var_u is is w_im
-                    model.Add(
-                        var_u[idx_i, idx_m, idx_t] == self.para_w[idx_i, idx_m]
-                    ).OnlyEnforceIf(bool_x9_and)
-
-                    model.Add(var_u[idx_i, idx_m, idx_t] == 0).OnlyEnforceIf(
-                        bool_x9_and.Not()
-                    )
-
-        model.Minimize(var_c_max)
-        self._model = model
-        self.var_c_max = var_c_max
-        self.var_s = var_s
-        self.var_c = var_c
-        self.var_y = var_y
-        self.var_u = var_u
-        self.yu_list = yu_list
-
-        return model
-
-    @property
-    def model(self) -> Model | gp.Model | None:
-        return self._model
-
-    def get_params(self):
-        """Get parameters for the model."""
-        n_opt = len(self.operations)
-        n_mach = len(self.machines)
-
-        return n_opt, n_mach
-
-    def solve_ortools(self):
-        # creates the solver and solve.
-
-        if self._model is None:
-            self.build_model_ortools()
-
-        solver = cp_model.CpSolver()
-
-        self._solver = solver
-
-        solver.parameters.num_search_workers = self.num_workers
-        solver.parameters.log_search_progress = self.verbose
-
-        # TODO: add call back function to pint out the solution
-        status = solver.Solve(self._model)
-        if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-            self.var_c_max = solver.ObjectiveValue()
-            # print the solution found.
-            print(f"Optimal Schedule Length: {solver.ObjectiveValue()}")
-            # Statistics.
-            # print("\nStatistics")
-            # print(f"  - conflicts: {solver.NumConflicts()}")
-            # print(f"  - branches : {solver.NumBranches()}")
-            # print(f"  - wall time: {solver.WallTime()}s")
-
-            assignments = dict()
-            start_times = dict()
-            end_times = dict()
-            solved_operations = []
-
-            for i, m in product(range(len(self.operations)), range(len(self.machines))):
-                if solver.Value(self.var_y[i, m]) == 1:
-                    assignments[self.operations[i]] = self.machines[m]
-                    start_times[self.operations[i]] = solver.Value(self.var_s[i])
-                    end_times[self.operations[i]] = solver.Value(self.var_c[i])
-                    solved_operation = SolvedOperation(
-                        id=self.operations[i],
-                        assigned_to=self.machines[m],
-                        start_time=solver.Value(self.var_s[i]),
-                        end_time=solver.Value(self.var_c[i]),
-                    )
-                    solved_operations.append(solved_operation)
-
-            return FjsOutput(
-                solved_operations=solved_operations,
-                makespan=solver.ObjectiveValue(),
-                )
-
-        else:
-            print("No solution found.")
-            return None
-
-
-class FJSS3(_FJS):
+class FJS2:
     """
     Implementation of the mixed integer programming formulation in:
     Boyer, V., Vallikavungal, J., Rodríguez, X. C., & Salazar-Aguilar, M. A. (2021). The generalized flexible job shop scheduling problem. Computers & Industrial Engineering, 160, 107542.
@@ -844,38 +432,48 @@ class FJSS3(_FJS):
         para_lmax: np.ndarray,
         precedence: dict[str, list[str]],
         model_string: str | None = None,
-        inf_milp: int = 1.0e7,
-        num_workers: int = 16,
+        num_workers: int = None,
+        inf_milp: float = 1.0e7,
+        shift_durations: float|int = None,
+        operations_subset_indices: list[int] = None,
+        big_m: float | int = None,
+        # big_m=1.0e6,
+        matrix_variables=True,
         verbose: bool = True,
     ):
-        self.inf_milp = inf_milp
         self.num_workers = num_workers
-        self.big_m = get_m_value(
-            para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
-        )
+        self.matrix_variables = matrix_variables
+        # self.big_m = get_m_value(
+        #     para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        # )
 
-        super().__init__(
-            operations=operations,
-            machines=machines,
-            precedence=precedence,
-            time_estimates=None,
-            model_string=model_string,
-        )
-
-        para_p[para_p == np.inf] = inf_milp
-        para_p[para_p == -np.inf] = -inf_milp
-        para_a[para_a == np.inf] = inf_milp
-        para_a[para_a == -np.inf] = -inf_milp
-        para_w[para_w == np.inf] = inf_milp
-        para_w[para_w == -np.inf] = -inf_milp
-        para_delta[para_delta == np.inf] = inf_milp
-        para_delta[para_delta == -np.inf] = -inf_milp
-        para_lmin[para_lmin == np.inf] = inf_milp
         para_lmin[para_lmin == -np.inf] = -inf_milp
+        para_lmin[para_lmin == np.inf] = inf_milp
         para_lmax[para_lmax == np.inf] = inf_milp
         para_lmax[para_lmax == -np.inf] = -inf_milp
-        para_h[para_h == np.inf] = inf_milp
-        para_h[para_h == -np.inf] = -inf_milp
+        para_p[para_p == np.inf] = inf_milp
+        para_p[para_p == -np.inf] = -inf_milp
+        para_w[para_w == np.inf] = inf_milp
+        para_w[para_w == -np.inf] = -inf_milp
+        para_a[para_a == np.inf] = inf_milp
+        para_a[para_a == -np.inf] = -inf_milp
+
+        self.inf_milp = inf_milp
+
+        # self.operations = operations
+        # self.machines = machines
+        # if operations is a list, turn it into a dictionary
+        if isinstance(operations, list):
+            operations = {i: operations[i] for i in range(len(operations))}
+        if isinstance(machines, list):
+            machines = {i: machines[i] for i in range(len(machines))}
+
+        self.operations = operations
+        self.machines = machines
+
+        self.precedence = precedence
+        # self.time_estimates = None
+        self.model_string = model_string
 
         self.para_p = para_p
         self.para_a = para_a
@@ -886,219 +484,338 @@ class FJSS3(_FJS):
         self.para_h = para_h
         self.para_mach_capacity = para_mach_capacity
 
-        self.solver = None
+        if big_m is None:
+            # print(f"para_lmin={para_lmin}")
+            # print(f"non-negative elements of para_lmin: {para_lmin[para_lmin>=0]}")
+            self.big_m = get_big_m_value(
+                para_p=para_p,
+                para_h=para_h,
+                para_lmin=para_lmin,
+                para_a=para_a,
+                infinity=inf_milp,
+            )
+            print(f"the inferred big_m value with Runzhong version is {self.big_m}")
+
+        # # this part works because the leak of infinity to big_m
+        # if big_m is None:
+        #     self.big_m = get_m_value_old(
+        #         para_p=para_p, para_h=para_h, para_lmin=para_lmin, para_a=para_a
+        #     )
+        else:
+            self.big_m = big_m
+
+        self.horizon = self.__class__.get_horizon(
+            infinity=inf_milp,
+            para_p=para_p,
+            para_h=para_h,
+            para_lmax=para_lmax,
+            )
+        # self.big_m = self.horizon
+
+        # print(f"big_m: {self.big_m}")
+
+        self.shift_durations = shift_durations
+        self.operations_subset_indices = operations_subset_indices
+        # self.num_workshifts = num_workshifts
         self.verbose = verbose
-        self.var_c_max = inf_milp
+        self.var_c_max = None
         self.var_y = None
         self.var_c = None
         self.var_s = None
         self.var_x = None
         self.var_z = None
+        self.model = None
+        self.var_ws_assignments = None
+        self.var_ws_starting_times = None
 
     def build_model_gurobi(self):
         """Build the mixed integer linear programming model with gurobi."""
-        # create variables
-        solver = pywraplp.Solver(
-            "SolveIntegerProblem", pywraplp.Solver.GUROBI_MIXED_INTEGER_PROGRAMMING
-        )
-        ort_infinity = solver.infinity()
 
+        env = gp.Env(empty=True)
+        env.setParam("OutputFlag", 0)
+        env.setParam("LogToConsole", 0)
+        env.start()
+
+        model = gp.Model("fjss_mip")
         n_opt, n_mach = self.get_params()
-        # if operation i is processed by machine m
-        var_y = np.empty((n_opt, n_mach), dtype=object)
-        for i, m in product(range(n_opt), range(n_mach)):
-            var_y[i, m] = solver.BoolVar(f"y_{i}_{m}")
 
-        # if operation i is processed before operation j
-        var_x = np.empty((n_opt, n_opt), dtype=object)
-        for i, j in product(range(n_opt), range(n_opt)):
-            var_x[i, j] = solver.BoolVar(f"x_{i}_{j}")
+        # create variables
+        if self.matrix_variables:
+            # if operation i is processed by machine m
+            var_y = model.addMVar((n_opt, n_mach), vtype=GRB.BINARY, name="var_y")
+            # if operation i is processed before operation j
+            var_x = model.addMVar((n_opt, n_opt), vtype=GRB.BINARY, name="var_x")
+            # if operation i is processed before and overlapped operation j in machine m
+            var_z = model.addMVar(
+                (n_opt, n_opt, n_mach), vtype=GRB.BINARY, name="var_z"
+            )
+            # starting time of operation i
+            var_s = model.addMVar(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
+            # completion time of operation i
+            var_c = model.addMVar(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
+        else:
+            # if operation i is processed by machine m
+            var_y = model.addMVars(n_opt, n_mach, vtype=GRB.BINARY, name="var_y")
+            # if operation i is processed before operation j
+            var_x = model.addMVars(n_opt, n_opt, vtype=GRB.BINARY, name="var_x")
+            # if operation i is processed before and overlapped operation j in machine m
+            var_z = model.addMVars(n_opt, n_opt, n_mach, vtype=GRB.BINARY, name="var_z")
+            # starting time of operation i
+            var_s = model.addMVars(n_opt, vtype=GRB.CONTINUOUS, name="var_s")
+            # completion time of operation i
+            var_c = model.addMVars(n_opt, vtype=GRB.CONTINUOUS, name="var_c")
 
-        # if operation i is processed before operation j on machine m
-        var_z = np.empty((n_opt, n_opt, n_mach), dtype=object)
-        for i, j, m in product(range(n_opt), range(n_opt), range(n_mach)):
-            var_z[i, j, m] = solver.BoolVar(f"z_{i}_{j}_{m}")
+        # objective
+        # var_c_max = model.addVar(
+        #     lb=1.0e-5, ub=self.horizon + 1, vtype=GRB.CONTINUOUS, name="var_c_max"
+        # )
+        var_c_max = model.addVar(lb=1.0e-5, name="var_c_max", vtype=GRB.CONTINUOUS)
 
-        # starting time of operation i
-        var_s = np.empty((n_opt), dtype=object)
-        for i in range(n_opt):
-            var_s[i] = solver.NumVar(0, ort_infinity, f"s_{i}")
-
-        # completion time of operation i
-        var_c = np.empty((n_opt), dtype=object)
-        for i in range(n_opt):
-            var_c[i] = solver.NumVar(0, ort_infinity, f"c_{i}")
-
-        # make span
-        var_c_max = solver.NumVar(0, ort_infinity, "C_max")
+        # var_c_max = model.addVar(
+        #     name="var_c_max", lb=1e-5, ub=float("inf"), vtype=GRB.CONTINUOUS
+        # )
 
         # add constraints
         for i in range(n_opt):
             # eq. (2)
-            solver.Add(var_c_max >= var_c[i])
-
+            model.addConstr(var_c_max >= var_c[i], name="eq_2")
             # eq. (3)
-            expr = [self.para_p[i, m] * var_y[i, m] for m in range(n_mach)]
-            # solver.Add(var_c[i] >= var_s[i] + sum(expr))
-            solver.Add(var_c[i] >= var_s[i] + solver.Sum(expr))
-
+            model.addConstr(
+                var_c[i]
+                >= var_s[i]
+                + gp.quicksum(self.para_p[i, m] * var_y[i, m] for m in range(n_mach)),
+                name="eq_3",
+            )
             # eq. (4)
-            expr = [
-                (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m]
-                for m in range(n_mach)
-            ]
-            # solver.Add(var_c[i] <= var_s[i] + sum(expr))
-            solver.Add(var_c[i] <= var_s[i] + solver.Sum(expr))
+            model.addConstr(
+                var_c[i]
+                <= var_s[i]
+                + gp.quicksum(
+                    (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m]
+                    for m in range(n_mach)
+                ),
+                name="eq_4",
+            )
+            # eq. (5)
+            model.addConstr(
+                gp.quicksum(var_y[i, m] for m in range(n_mach)) == 1, name="eq_5"
+            )
 
-        # eq. (5)
-        for i in range(n_opt):
-            # sum of y_im = 1
-            # solver.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
-            solver.Add(solver.Sum([var_y[i, m] for m in range(n_mach)]) == 1)
-
-        for i, j in product(range(n_opt), range(n_opt)):
+        for i, j in it.product(range(n_opt), range(n_opt)):
             if i != j:
                 # eq. (6)
-                # minimum lag between the starting time of operation i and the ending time of operation j
-                solver.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
+                model.addConstr(
+                    var_s[j] >= var_c[i] + self.para_lmin[i, j], name="eq_6"
+                )
                 # eq. (7)
-                # maximum lag between the starting time of operation i and the ending time of operation j
-                solver.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
+                model.addConstr(
+                    var_s[j] <= var_c[i] + self.para_lmax[i, j], name="eq_7"
+                )
 
-        for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
+        for i, j, m in it.product(range(n_opt), range(n_opt), range(n_mach)):
             if i < j:
+                expr_0 = self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
                 # eq. (8)
-                # setup time of machine m when processing operation i before j
-                solver.Add(
-                    var_s[j]
-                    >= var_c[i]
-                    + self.para_a[i, j, m]
-                    - self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(
+                    var_s[j] >= var_c[i] + self.para_a[i, j, m] - expr_0, name="eq_8"
                 )
                 # eq. (9)
-                # setup time of machine m when processing operation i before j
-                solver.Add(
-                    var_s[i]
-                    >= var_c[j]
-                    + self.para_a[j, i, m]
-                    - self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                expr_1 = self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(
+                    var_s[i] >= var_c[j] + self.para_a[j, i, m] - expr_1, name="eq_9"
                 )
-
-        # eq. (10) and (11)
-        for i, m in product(range(n_opt), range(n_mach)):
-            if i < j:
                 # eq. (10)
-                solver.Add(
-                    var_s[j]
-                    >= var_s[i]
-                    + self.para_delta[m]
-                    - self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(
+                    var_s[j] >= var_s[i] + self.para_delta[m] - expr_0, name="eq_10"
                 )
                 # eq. (11)
-                solver.Add(
-                    var_s[i]
-                    >= var_s[j]
-                    + self.para_delta[m]
-                    - self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(
+                    var_s[i] >= var_s[j] + self.para_delta[m] - expr_1, name="eq_11"
                 )
-
-        # eq. (12) and (13)
-        for i, m in product(range(n_opt), range(n_mach)):
-            if i < j:
                 # eq. (12)
-                solver.Add(
-                    var_c[j]
-                    >= var_c[i]
-                    + self.para_delta[m]
-                    - self.big_m * (3 - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(
+                    var_c[j] >= var_c[i] + self.para_delta[m] - expr_0, name="eq_12"
                 )
                 # eq. (13)
-                solver.Add(
-                    var_c[i]
-                    >= var_c[j]
-                    + self.para_delta[m]
-                    - self.big_m * (2 + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                model.addConstr(
+                    var_c[i] >= var_c[j] + self.para_delta[m] - expr_1, name="eq_13"
                 )
-
-        # eq. (14) and (15)
-        for i, j, m in product(range(n_opt), range(n_opt), range(n_mach)):
-            if i < j:
                 # eq. (14)
-                solver.Add(
-                    var_s[j]
-                    >= var_c[i]
-                    - self.big_m
-                    * (3 + var_z[i, j, m] - var_x[i, j] - var_y[i, m] - var_y[j, m])
+                expr_2 = self.big_m * (
+                    3 + var_z[i, j, m] - var_x[i, j] - var_y[i, m] - var_y[j, m]
                 )
+                model.addConstr(var_s[j] >= var_c[i] - expr_2, name="eq_14")
                 # eq. (15)
-                solver.Add(
-                    var_s[i]
-                    >= var_c[j]
-                    - self.big_m
-                    * (2 + var_z[i, j, m] + var_x[i, j] - var_y[i, m] - var_y[j, m])
+                expr_3 = self.big_m * (
+                    2 + var_z[j, i, m] + var_x[i, j] - var_y[i, m] - var_y[j, m]
                 )
+                model.addConstr(var_s[i] >= var_c[j] - expr_3, name="eq_15")
 
         # eq. (16)
-        # for i in range(n_opt):
-        #     for j in range(n_opt):
-        #         expr = []
-        #         for m in range(n_mach):
-        #             if i != j:
-        #                 # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
-        #                 expr.append(self.para_w[j, m] * var_z[i, j, m])
-        #         solver.Add(
-        #             solver.Sum(expr)
-        #             <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m]
-        #         )
-        for i in range(n_opt):
-            for m in range(n_mach):
-            # for j in range(n_opt):
-                expr = []
-                # for m in range(n_mach):
-                for j in range(n_opt):
-                    if i != j:
-                        # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
-                        expr.append(self.para_w[j, m] * var_z[i, j, m])
-                solver.Add(
-                    solver.Sum(expr)
-                    <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m]
+        for i, m in it.product(range(n_opt), range(n_mach)):
+            model.addConstr(
+                gp.quicksum(
+                    self.para_w[j, m] * var_z[i, j, m] for j in range(n_opt) if i != j
+                )
+                <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m],
+                name="eq_16",
+            )
+
+        # work shifts
+        if self.shift_durations is not None:
+            print("\nworking on work shifts related constraints\n")
+
+            # not all the operations will need the work shift constraints
+            if self.operations_subset_indices:
+                operations_subset = {i: self.operations[i] for i in self.operations_subset_indices}
+                # n_opt_subset = len(operations_subset)
+            else:
+                # n_opt_subset = n_opt
+                operations_subset = self.operations
+
+            eps = 1e-5
+            value_m = self.horizon*10
+
+            for i, _ in operations_subset.items():
+                # TODO: check if this is necessary
+                # the i-th operation should be processed in the i-th work shift, c_i - s_i <= shift_durations
+                model.addConstr(
+                var_c[i] - var_s[i] <= self.shift_durations, name="workshift_duration_limit_{i}"
                 )
 
+                # s_i <= (i+1)*shift_duration and c_i <= (i+1)*shift_duration
+                var_auxiliary_a = model.addVar(
+                    vtype=GRB.BINARY, name=f"var_auxiliary_a_{i}"
+                )
+                var_auxiliary_b = model.addVar(
+                    vtype=GRB.BINARY, name=f"var_auxiliary_b_{i}"
+                )
+
+                # var_auxiliary_a indicates (i+1)*shift_duration >= s_i
+                model.addConstr(
+                    (i + 1) * self.shift_durations >= var_s[i] + eps - value_m * ( 1- var_auxiliary_a)
+                )
+                model.addConstr(
+                    (i + 1) * self.shift_durations <= var_s[i] + value_m * var_auxiliary_a
+                )
+                # var_auxiliary_a indicates (i+1)*shift_duration >= c_i
+                model.addConstr(
+                    (i + 1) * self.shift_durations >= var_c[i] + eps - value_m * ( 1- var_auxiliary_a)
+                )
+                model.addConstr(
+                    (i + 1) * self.shift_durations <= var_c[i] + value_m * var_auxiliary_a
+                )
+                # var_auxiliary_b indicates s_i > = (i+1)*shift_duration
+                model.addConstr(
+                    var_s[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
+                )
+                model.addConstr(
+                    var_s[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_b
+                )
+                # var_auxiliary_b indicates c_i > = (i+1)*shift_duration
+                model.addConstr(
+                    var_c[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
+                )
+                model.addConstr(
+                    var_c[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_b
+                )
+                # var_auxiliary_a indicates that var_auxiliary_1 and var_auxiliary_2 should be satisfied at the same time
+                # model.addConstr(
+                #     var_auxiliary_a == gp.and_(var_auxiliary_1, var_auxiliary_2)
+                # )
+                # model.addConstr(
+                #     (var_auxiliary_a == 1) >> (var_auxiliary_1 + var_auxiliary_2 == 2)
+                # )
+                # model.addConstr(
+                #     (var_auxiliary_1 + var_auxiliary_2 <= 1) >> (var_auxiliary_a == 0)
+                # )
+
+                # var_auxiliary_b indicates that var_auxiliary_1 and var_auxiliary_2 should be
+                # satisfied at the same time
+                # model.addConstr(
+                #     var_auxiliary_b == gp.and_(var_auxiliary_3, var_auxiliary_4)
+                # )
+                # model.addConstr(
+                #     (var_auxiliary_b == 1) >> (var_auxiliary_3 + var_auxiliary_4 == 2)
+                # )
+                # model.addConstr(
+                #     (var_auxiliary_3 + var_auxiliary_4 <= 1) >> (var_auxiliary_b == 0)
+                # )
+
+                # var_auxiliary_a and var_auxiliary_b should not be satisfied at the same time, but
+                # at least one of them should be satisfied
+                model.addConstr(var_auxiliary_a + var_auxiliary_b == 1)
+
+        # set the objective
+        model.setObjective(var_c_max, GRB.MINIMIZE)
+
         self.var_c_max = var_c_max
-        self.solver = solver
         self.var_y = var_y
         self.var_c = var_c
         self.var_s = var_s
         self.var_x = var_x
         self.var_z = var_z
+        self.model = model
+        env.close()
 
     def solve_gurobi(self):
         """Solve the mixed integer linear programming model with gurobi."""
         # creates the solver and solve
-        if self.solver is None:
+        if self.model is None:
             self.build_model_gurobi()
 
-        self.solver.SetNumThreads(self.num_workers)
-        if self.verbose:
-            self.solver.EnableOutput()
+        # add the threads
+        if self.num_workers is None:
+            # https://www.gurobi.com/documentation/current/refman/threads.html
+            # The default value of 0 is an automatic setting.
+            # It will generally use as many threads as there are virtual processors
+            # We've made the pragmatic choice to impose a soft limit of 32 threads for the automatic setting (0)
+            self.model.Params.Threads = 0
+        # this is not recommended
+        if self.num_workers is not None:
+            self.model.Params.Threads = self.num_workers
 
-        self.solver.Minimize(self.var_c_max)
+        # set the number of solutions to be found
+        # self.model.Params.PoolSolutions = 20
 
-        status = self.solver.Solve()
+        self.model.optimize()
 
-        # print out the solution
-        if status == pywraplp.Solver.OPTIMAL:
-            print(f"opt_obj = {self.solver.Objective().Value():.4f}")
-            self.var_c_max = self.solver.Objective().Value()
+        if self.model.Status == GRB.OPTIMAL:
+            print(f"the solution is : {self.model.objVal}")
+
+            # assignments = dict()
+            # start_times = dict()
+            # end_times = dict()
+            solved_operations = []
+
+            var_y_solution = self.var_y.X
+            var_s_solution = self.var_s.X
+            var_c_solution = self.var_c.X
+
+            # print(f"self.operations={self.operations}")
+            # operation_names = list(self.operations.values())
+            operation_ids = list(self.operations.values())
+
+            for i, m in it.product(range(len(self.operations)), range(len(self.machines))):
+                if var_y_solution[i, m] == 1:
+                    # assignments[operation_ids[i]] = self.machines[m]
+                    # start_times[operation_ids[i]] = var_s_solution[i]
+                    # end_times[operation_ids[i]] = var_c_solution[i]
+                    solved_operation = SolvedOperation(
+                        id=operation_ids[i],
+                        assigned_to=self.machines[m],
+                        start_time=var_s_solution[i],
+                        end_time=var_c_solution[i],
+                    )
+                    solved_operations.append(solved_operation)
 
             return FjsOutput(
-                solved_operations=[],
-                makespan=self.solver.Objective().Value(),
+                solved_operations=solved_operations,
+                makespan=self.model.objVal,
             )
         else:
             print("No solution found.")
             return None
-
 
     def get_params(self):
         """Get parameters for the model."""
@@ -1106,3 +823,32 @@ class FJSS3(_FJS):
         n_mach = len(self.machines)
 
         return n_opt, n_mach
+
+    @staticmethod
+    def get_horizon(infinity, para_p, para_h, para_lmax):
+        """Get the horizon."""
+        # the horizon
+        para_p_horizon = np.copy(para_p)
+        para_p_horizon[para_p_horizon == infinity] = 0
+
+        para_h_horizon = np.copy(para_h)
+        para_h_horizon[para_h_horizon == infinity] = 0
+
+        para_lmax_horizon = np.copy(para_lmax)
+        para_lmax_horizon[para_lmax_horizon == infinity] = 0
+        horizon = (
+            np.max(para_p_horizon, axis=1)
+            + np.max(para_h_horizon, axis=1)
+            + np.max(para_lmax_horizon, axis=1)
+        )
+
+        # print("")
+        # # print(f"para_p_horizon = {para_p_horizon}")
+        # # print(f"para_h_horizon = {para_h_horizon}")
+        # print(f"para_lmax_horizon = {para_lmax_horizon}")
+        # print(f"para_lmax_horizon max is {np.max(para_lmax_horizon)}")
+
+        horizon = np.sum(horizon)
+        # print(f"\nhorizon={horizon}")
+
+        return horizon

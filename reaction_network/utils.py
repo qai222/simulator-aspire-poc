@@ -38,54 +38,6 @@ def json_load(fn: FilePath):
     return o
 
 
-def get_m_value(para_p, para_h, para_lmin, para_a):
-    """Get the big number m using equation (17) - (20).
-
-    Parameters
-    ----------
-    para_p: numpy.ndarray
-        processing time of operation i in machine m (pim =+∞ if machine m cannot process operation
-        i). shape: (number of operations, number of machines).
-    para_h: numpy.ndarray
-        maximum holding time of operation i in machine m. shape: (number of operations, number of
-        machines).
-    para_lmin: numpy.ndarray
-        minumum lag between the starting time of operation i and the ending time of operation j.
-        shape: (number of operations, number of operations).
-    para_a: numpy.ndarray
-        setup time of machine m when processing operation i before j (aijm = -inf if there is no
-        setups). shape: (number of operations, number of operations, number of machines).
-
-    Returns
-    -------
-    big_m: float
-        Value for big M.
-
-    Notes
-    -----
-    The big M value is calculated using equation (17) - (20) in the paper. But we have to adapt the
-    equations only taking non-infinite values into account.
-    """
-    selected_idx = np.argwhere(para_p != np.inf)
-    # eq. (17)
-    p_i = para_p[selected_idx] + para_h[selected_idx]
-    p_i = np.max(p_i[p_i != np.inf])
-    # eq. (18)
-    l_i = np.max(para_lmin, axis=1)
-    # setup time of machine m when processing operation i before j (aijm = -inf if there is no
-    # setups).
-    # eq. (19)
-    # TODO: check if this is correct
-    para_a = np.einsum("mij->ijm", para_a)
-    selected_a = para_a[selected_idx, :]
-    a_i = selected_a[selected_a != np.inf]
-
-    # eq. (20) adapted
-    big_m = np.sum(p_i) + np.max([l_i.max(), a_i.max()])
-
-    return big_m
-
-
 def parse_data(input_fname):
     section_breaker = False
     operation_data = OrderedDict()
@@ -217,3 +169,45 @@ def parse_data(input_fname):
                     }
 
     return n_opt, n_mach, operation_data, machine_data  # pylint: disable=E0601
+
+
+def get_big_m_value(para_p, para_h, para_lmin, para_a, infinity):
+    """Implementation after discussion with Runzhong."""
+    n_opt, n_mach = para_h.shape
+
+    # eq. (17)
+    p_i = []
+    for i in range(n_opt):
+        p_i_max = []
+        for m in range(n_mach):
+            if para_p[i, m] < infinity:
+                p_i_max.append(para_p[i, m] + para_h[i, m])
+        p_i.append(max(p_i_max))
+
+    # eq. (18)
+    l_i = []
+    for i in range(n_opt):
+        l_i_max = []
+        for j in range(n_opt):
+            if para_lmin[i, j] >= 0:
+                l_i_max.append(para_lmin[i, j])
+        # print(f"l_i_max={l_i_max}")
+        if len(l_i_max) == 0:
+            l_i_max.append(0)
+        else:
+            l_i.append(max(l_i_max))
+
+    # eq. (19)
+    a_i = []
+    for i in range(n_opt):
+        a_i_max = []
+        for j in range(n_opt):
+            for m in range(n_mach):
+                if para_p[i, m] < infinity:
+                    a_i_max.append(para_a[i, j, m])
+        a_i.append(max(a_i_max))
+
+    # eq. (20)
+    l_a_max = [max(l_element, a_element) for l_element, a_element in zip(l_i, a_i)]
+    big_m = sum(p_i + l_a_max)
+    return big_m
