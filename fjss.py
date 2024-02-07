@@ -1214,8 +1214,34 @@ class FJSS4_v2:
         if self.model.Status == GRB.OPTIMAL:
             print(f"the solution is : {self.model.objVal}")
 
+            # assignments = dict()
+            # start_times = dict()
+            # end_times = dict()
+            solved_operations = []
+
+            var_y_solution = self.var_y.X
+            var_s_solution = self.var_s.X
+            var_c_solution = self.var_c.X
+
+            # print(f"self.operations={self.operations}")
+            # operation_names = list(self.operations.values())
+            operation_ids = list(self.operations.values())
+
+            for i, m in it.product(range(len(self.operations)), range(len(self.machines))):
+                if var_y_solution[i, m] == 1:
+                    # assignments[operation_ids[i]] = self.machines[m]
+                    # start_times[operation_ids[i]] = var_s_solution[i]
+                    # end_times[operation_ids[i]] = var_c_solution[i]
+                    solved_operation = SolvedOperation(
+                        id=operation_ids[i],
+                        assigned_to=self.machines[m],
+                        start_time=var_s_solution[i],
+                        end_time=var_c_solution[i],
+                    )
+                    solved_operations.append(solved_operation)
+
             return FjsOutput(
-                solved_operations=[],
+                solved_operations=solved_operations,
                 makespan=self.model.objVal,
             )
         else:

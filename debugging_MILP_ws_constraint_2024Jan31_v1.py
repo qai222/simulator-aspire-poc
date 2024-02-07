@@ -80,9 +80,9 @@ fjss4 = FJSS4_v2(
     model_string=None,
     inf_milp=infinity,
     # num_workshifts=None, # not used
-    # shift_durations=None,
+    shift_durations=None,
     # shift_durations=400, # works
-    shift_durations=1000, # sees the effect of the constraint
+    # shift_durations=1000, # sees the effect of the constraint
     # shift_durations=374, # 324 is the limit
     # shift_durations=375,
     # shift_durations=323,
@@ -97,7 +97,7 @@ fjss4 = FJSS4_v2(
     matrix_variables=True,
 )
 fjss4.build_model_gurobi()
-fjss4.solve_gurobi()
+fjss4_output = fjss4.solve_gurobi()
 end_time = time.time()
 running_time_seconds = end_time - start_time
 new_row["running_time_seconds"] = running_time_seconds
