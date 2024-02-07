@@ -19,9 +19,9 @@ def multiple_milp_runs(input_fname="gfjsp_10_5_1.txt",
             "method,n_opt,n_mach,running_time_seconds,num_constraints,num_variables,makespan,feasible_MILP,feasible_CP\n"
         )
 
-        # for n_opt_selected in np.arange(10, 94, 5):
+        for n_opt_selected in np.arange(10, 94, 5):
         # for n_opt_selected in np.arange(10, 21, 5):
-        for n_opt_selected in [25]:
+        # for n_opt_selected in [25]:
             new_row = run_single_milp(
                 input_fname=input_fname,
                 infinity=1.0e7,
@@ -39,5 +39,5 @@ def multiple_milp_runs(input_fname="gfjsp_10_5_1.txt",
 if __name__ == "__main__":
     multiple_milp_runs(
         input_fname="gfjsp_10_5_1.txt",
-        output_fname="milp_results_2024Feb07_v1.csv"
+        output_fname="milp_results_2024Feb07_v3.csv"
     )
