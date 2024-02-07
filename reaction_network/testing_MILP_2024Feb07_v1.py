@@ -10,15 +10,10 @@ import pandas as pd
 from ortools.linear_solver import pywraplp
 from ortools.sat.python import cp_model
 
-from checking_constraints import (
-    check_constraints_cp,
-    check_constraints_milp,
-    infer_var_x,
-    infer_var_z,
-)
+from checking_constraints import check_constraints_cp
+
 from fjss import FJS2
 from utils import *  # get_m_value, parse_data
-from utils import parse_data
 from profiling_utils import *
 
 # %%
