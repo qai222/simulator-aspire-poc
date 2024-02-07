@@ -450,7 +450,7 @@ class FJSS2(_FJS):
             _description_
         para_a : np.ndarray
             Setup time of machine m when processing operation i before j and para_a =
-            np.full((n_opt, n_opt, n_mach), dtype=object, fill_value=infinity).
+            np.full((n_mach, n_opt, n_opt), dtype=object, fill_value=infinity).
         para_w : np.ndarray
             Weight of operation i in machine m and para_w = np.empty((n_opt, n_mach), dtype=object).
         para_mach_capacity : list[int]|np.ndarray
@@ -541,6 +541,9 @@ class FJSS2(_FJS):
         self.var_y = None
         self.verbose = verbose
         self.var_c_max = inf_cp
+        self.var_u = None
+        self.yu_list = None
+        self.num_t = None
 
     def get_horizon(self):
         """Get the horizon."""
@@ -610,12 +613,13 @@ class FJSS2(_FJS):
             model.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
 
         for i, j in product(range(n_opt), range(n_opt)):
-            # eq. (6)
-            # minimum lag between the starting time of operation i and the ending time of operation j
-            model.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
-            # eq. (7)
-            # maximum lag between the starting time of operation i and the ending time of operation j
-            model.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
+            if i != j:
+                # eq. (6)
+                # minimum lag between the starting time of operation i and the ending time of operation j
+                model.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
+                # eq. (7)
+                # maximum lag between the starting time of operation i and the ending time of operation j
+                model.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
 
         # https://developers.google.com/optimization/cp/channeling
         for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
@@ -701,6 +705,7 @@ class FJSS2(_FJS):
             var_u[i, m, t] = model.NewIntVar(0, np.max(self.para_w), f"u_{i}_{m}_{t}")
 
         # eq. (25)
+        yu_list = []
         for idx_m, m in enumerate(np.arange(n_mach)):
             for idx_t, t in enumerate(np.arange(num_t)):
                 constr_25 = 0
@@ -712,6 +717,7 @@ class FJSS2(_FJS):
                         yu, [var_y[idx_i, idx_m], var_u[idx_i, idx_m, idx_t]]
                     )
                     constr_25 += yu
+                    yu_list.append(yu)
                 model.Add(constr_25 <= self.para_mach_capacity[idx_m])
 
         # eq. (24)
@@ -722,13 +728,17 @@ class FJSS2(_FJS):
 
                     bool_x7 = model.NewBoolVar(f"bool_x7_{i}_{idx_t}")
                     model.Add(var_s[i] <= t).OnlyEnforceIf(bool_x7)
+                    model.Add(var_s[i] > t).OnlyEnforceIf(bool_x7.Not())
                     bool_list.append(bool_x7)
 
                     bool_x8 = model.NewBoolVar(f"bool_x8_{i}_{idx_t}")
                     model.Add(var_c[i] >= t).OnlyEnforceIf(bool_x8)
+                    model.Add(var_c[i] < t).OnlyEnforceIf(bool_x8.Not())
                     bool_list.append(bool_x8)
 
                     bool_x9_and = model.NewBoolVar(f"bool_x9_{i}_{idx_t}")
+                    model.Add(bool_x7 + bool_x8 == 2).OnlyEnforceIf(bool_x9_and)
+                    model.Add(bool_x7 + bool_x8 < 2).OnlyEnforceIf(bool_x9_and.Not())
 
                     # when bool_x7 and bool_x8 are both true, var_u is is w_im
                     model.Add(
@@ -745,6 +755,8 @@ class FJSS2(_FJS):
         self.var_s = var_s
         self.var_c = var_c
         self.var_y = var_y
+        self.var_u = var_u
+        self.yu_list = yu_list
 
         return model
 
@@ -877,6 +889,11 @@ class FJSS3(_FJS):
         self.solver = None
         self.verbose = verbose
         self.var_c_max = inf_milp
+        self.var_y = None
+        self.var_c = None
+        self.var_s = None
+        self.var_x = None
+        self.var_z = None
 
     def build_model_gurobi(self):
         """Build the mixed integer linear programming model with gurobi."""
@@ -922,19 +939,22 @@ class FJSS3(_FJS):
 
             # eq. (3)
             expr = [self.para_p[i, m] * var_y[i, m] for m in range(n_mach)]
-            solver.Add(var_c[i] >= var_s[i] + sum(expr))
+            # solver.Add(var_c[i] >= var_s[i] + sum(expr))
+            solver.Add(var_c[i] >= var_s[i] + solver.Sum(expr))
 
             # eq. (4)
             expr = [
                 (self.para_p[i, m] + self.para_h[i, m]) * var_y[i, m]
                 for m in range(n_mach)
             ]
-            solver.Add(var_c[i] <= var_s[i] + sum(expr))
+            # solver.Add(var_c[i] <= var_s[i] + sum(expr))
+            solver.Add(var_c[i] <= var_s[i] + solver.Sum(expr))
 
         # eq. (5)
         for i in range(n_opt):
             # sum of y_im = 1
-            solver.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
+            # solver.Add(sum([var_y[i, m] for m in range(n_mach)]) == 1)
+            solver.Add(solver.Sum([var_y[i, m] for m in range(n_mach)]) == 1)
 
         for i, j in product(range(n_opt), range(n_opt)):
             if i != j:
@@ -944,14 +964,6 @@ class FJSS3(_FJS):
                 # eq. (7)
                 # maximum lag between the starting time of operation i and the ending time of operation j
                 solver.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
-
-        for i, j in product(range(n_opt), range(n_opt)):
-            # eq. (6)
-            # minimum lag between the starting time of operation i and the ending time of operation j
-            solver.Add(var_s[j] >= var_c[i] + self.para_lmin[i, j])
-            # eq. (7)
-            # maximum lag between the starting time of operation i and the ending time of operation j
-            solver.Add(var_s[j] <= var_c[i] + self.para_lmax[i, j])
 
         for i, j, m in product(np.arange(n_opt), np.arange(n_opt), np.arange(n_mach)):
             if i < j:
@@ -1027,10 +1039,23 @@ class FJSS3(_FJS):
                 )
 
         # eq. (16)
+        # for i in range(n_opt):
+        #     for j in range(n_opt):
+        #         expr = []
+        #         for m in range(n_mach):
+        #             if i != j:
+        #                 # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
+        #                 expr.append(self.para_w[j, m] * var_z[i, j, m])
+        #         solver.Add(
+        #             solver.Sum(expr)
+        #             <= (self.para_mach_capacity[m] - self.para_w[i, m]) * var_y[i, m]
+        #         )
         for i in range(n_opt):
-            for j in range(n_opt):
+            for m in range(n_mach):
+            # for j in range(n_opt):
                 expr = []
-                for m in range(n_mach):
+                # for m in range(n_mach):
+                for j in range(n_opt):
                     if i != j:
                         # solver.Add(var_w[j, m] * var_z[i, j, m] >= var_w[i, m])
                         expr.append(self.para_w[j, m] * var_z[i, j, m])
@@ -1041,6 +1066,11 @@ class FJSS3(_FJS):
 
         self.var_c_max = var_c_max
         self.solver = solver
+        self.var_y = var_y
+        self.var_c = var_c
+        self.var_s = var_s
+        self.var_x = var_x
+        self.var_z = var_z
 
     def solve_gurobi(self):
         """Solve the mixed integer linear programming model with gurobi."""
