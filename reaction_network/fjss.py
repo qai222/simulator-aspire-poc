@@ -654,7 +654,6 @@ class FJS2:
             value_m = self.horizon*10
 
             for i, _ in operations_subset.items():
-                # TODO: check if this is necessary
                 # the i-th operation should be processed in the i-th work shift, c_i - s_i <= shift_durations
                 model.addConstr(
                 var_c[i] - var_s[i] <= self.shift_durations, name="workshift_duration_limit_{i}"
