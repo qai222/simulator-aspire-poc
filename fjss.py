@@ -1096,19 +1096,6 @@ class FJSS4_v2:
         if self.shift_durations is not None:
             print("\nworking on work shifts related constraints\n")
 
-            # if self.shift_durations:
-            #     # number of prospective work shifts
-            #     # n_workshifts = int(self.horizon / self.shift_durations) + 1
-            #     n_workshifts = int(self.horizon / self.shift_durations)
-            #     self.num_workshifts = n_workshifts
-            # else:
-            #     n_workshifts = self.num_workshifts
-
-            # if n_workshifts is None:
-            #     raise ValueError(
-            #         "At least one of the shift_durations and num_workshifts must be specified."
-            #     )
-
             # not all the operations will need the work shift constraints
             if self.operations_subset_indices:
                 operations_subset = {i: self.operations[i] for i in self.operations_subset_indices}
