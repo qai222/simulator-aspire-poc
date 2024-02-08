@@ -7,8 +7,6 @@ import itertools as it
 
 import numpy as np
 import pandas as pd
-from ortools.linear_solver import pywraplp
-from ortools.sat.python import cp_model
 
 from checking_constraints import (
     check_constraints_cp,
