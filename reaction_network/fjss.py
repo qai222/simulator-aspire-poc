@@ -406,11 +406,6 @@ class FJS1(_FJS):
 
 
 class FJS2:
-    """
-    Implementation of the mixed integer programming formulation in:
-    Boyer, V., Vallikavungal, J., Rodríguez, X. C., & Salazar-Aguilar, M. A. (2021). The generalized flexible job shop scheduling problem. Computers & Industrial Engineering, 160, 107542.
-    """
-
     def __init__(
         self,
         operations: list[str],
@@ -432,6 +427,57 @@ class FJS2:
         big_m: float | int = None,
         verbose: bool = True,
     ):
+        """
+        Flexible job shop scheduling problem with time lags, machine capacity and workshift constraints.
+
+        Parameters
+        ----------
+        operations : list[str]
+            A list of operation ids.
+        machines : list[str]
+            A list of machine ids.
+        para_p : np.ndarray
+            The processing time of operation i on machine k, with shape (n_opt, n_mach).
+        para_a : np.ndarray
+            The setup time of operation i before operation j on machine k, with shape (n_opt, n_opt, n_mach).
+        para_w : np.ndarray
+            The weight of operation i on machine k, with shape (n_opt, n_mach).
+        para_h : np.ndarray
+            The time lag of operation i on machine k, with shape (n_opt, n_mach).
+        para_delta : np.ndarray
+            The input/output delay time between two consecutive operations in machine
+            m, with shape (n_mach).
+        para_mach_capacity : list[int] | np.ndarray
+            The capacity of each machine.
+        para_lmin : np.ndarray
+            The minimum lag between the starting time of operation j and the ending time of
+            operation i (l_ij=-inf if there is no precedence relationship between operations i and j).
+        para_lmax : np.ndarray
+            The maximum lag time between the starting time of operation j and the ending time of
+            operation i (lij=+inf if there is no precedence relationship between operations i and j)
+        model_string : str | None, optional
+            The model string, by default None.
+        num_workers : int, optional
+            The number of workers to run the solver in parallel, by default None.
+        inf_milp : float, optional
+            The big value to denote infinity, by default 1.0e7
+        shift_durations : float | int, optional
+            The shift duration, by default None.
+        operations_subset_indices : list[int], optional
+            A list of selected indices to indicate operations that are subject to workshift
+            constaint, by default None. If None, all the operations are subject to workshift.
+        big_m : float | int, optional
+            The big M value, by default None. If None, the big M value will be inferred.
+        verbose : bool, optional
+            If the program to print out solving progress, by default True.
+
+        Notes
+        -----
+        Implementation of the mixed integer programming formulation in:
+        Boyer, V., Vallikavungal, J., Rodríguez, X. C., & Salazar-Aguilar, M. A. (2021).
+        The generalized flexible job shop scheduling problem. Computers & Industrial Engineering, 160, 107542.
+
+        """
         self.num_workers = num_workers
 
         para_lmin[para_lmin == -np.inf] = -inf_milp
