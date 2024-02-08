@@ -4,6 +4,7 @@ import networkx as nx
 from loguru import logger
 from pydantic import BaseModel, Field
 
+from enum import Enum
 from hardware_pydantic.utils import str_uuid
 from reaction_network.schema.lv1 import CompoundLv1, ReactionLv1, NetworkLv1
 from reaction_network.visualization import CytoNodeData, CytoEdge, CytoNode, CytoEdgeData
@@ -14,14 +15,6 @@ lv2 specifications, given a lv1 reaction
 - abstract bench top
 - contained materials
 """
-
-
-# class ReactionLv2(BaseModel):
-#
-#     reaction_lv1: ReactionLv1
-#
-#     # TODO assuming each unique chemical is assigned exactly one container
-#     storage_vessel_dict: dict[str, ContainerLv2]
 
 
 class ContainerLv2(BaseModel):
@@ -75,7 +68,22 @@ class MaterialLv2(BaseModel):
         return hash(self.id)
 
 
-class MaterialTransform(BaseModel):
+class OperationType(str, Enum):
+    OPERATION_ADDITION_SOLID = "OPERATION_ADDITION_SOLID"
+    OPERATION_ADDITION_LIQUID = "OPERATION_ADDITION_LIQUID"
+
+    OPERATION_HEATING = "OPERATION_HEATING"
+
+    OPERATION_PURIFICATION = "OPERATION_PURIFICATION"
+
+    OPERATION_LOADING = "OPERATION_LOADING"
+    OPERATION_RELOADING = "OPERATION_RELOADING"
+    OPERATION_UNLOADING = "OPERATION_UNLOADING"
+
+    OPERATION_UNDEFINED = "OPERATION_UNDEFINED"
+
+
+class Operation(BaseModel):
     id: str = Field(default_factory=str_uuid)
     description: str = ""
 
@@ -84,9 +92,9 @@ class MaterialTransform(BaseModel):
 
     precedents: list[str] = []
 
-    type: str = ""
+    type: OperationType = OperationType.OPERATION_UNDEFINED
 
-    # can_be_realized_by: list[str] = []
+    can_be_realized_by: list[str] = []
 
     def cyto_dump(self):
         # what I would call a semantic dump...
@@ -98,22 +106,23 @@ class MaterialTransform(BaseModel):
         return d
 
     @staticmethod
-    def find_root_transforms(transform_list: list[MaterialTransform]) -> list[MaterialTransform]:
-        transform_dict = {t.id: t for t in transform_list}
-        g = MaterialTransform.get_transform_graph(transform_list)
-        return [transform_dict[n] for n in g.nodes if g.in_degree(n) == 0 and n in transform_dict]
+    def find_root_operations(operation_list: list[Operation]) -> list[Operation]:
+        operation_dict = {t.id: t for t in operation_list}
+        g = Operation.get_operation_graph(operation_list)
+        return [operation_dict[n] for n in g.nodes if g.in_degree(n) == 0 and n in operation_dict]
 
     @staticmethod
-    def get_transform_graph(transform_list: list[MaterialTransform]):
+    def get_operation_graph(operation_list: list[Operation]):
+        # TODO contraction based on mapped device so we have fewer vars/consts in mip
         g = nx.DiGraph()
-        for t in transform_list:
+        for t in operation_list:
             for precedent in t.precedents:
                 g.add_edge(precedent, t.id)
         return g
 
     def model_post_init(self, *args) -> None:
-        assert self.id not in BENCH_TOP_LV2.transform_dict
-        BENCH_TOP_LV2.transform_dict[self.id] = self
+        assert self.id not in BENCH_TOP_LV2.operation_dict
+        BENCH_TOP_LV2.operation_dict[self.id] = self
 
     @property
     def associated_container_ids(self) -> list[str]:
@@ -125,29 +134,29 @@ class MaterialTransform(BaseModel):
         return ids
 
     @staticmethod
-    def chain_transforms(transforms: list[MaterialTransform]):
-        if len(transforms) < 2:
+    def chain_operations(operations: list[Operation]):
+        if len(operations) < 2:
             return
-        for i in range(1, len(transforms)):
-            p = transforms[i - 1]
-            s = transforms[i]
+        for i in range(1, len(operations)):
+            p = operations[i - 1]
+            s = operations[i]
             s.precedents.append(p.id)
 
     @staticmethod
-    def build_addition_transform(compounds: list[CompoundLv1], from_container: ContainerLv2,
+    def build_addition_operation(compounds: list[CompoundLv1], from_container: ContainerLv2,
                                  to_container: ContainerLv2):
         mat_from = MaterialLv2(compounds=compounds, contained_by=from_container.id)
         mat_to = MaterialLv2(compounds=compounds, contained_by=to_container.id)
         if all(c.compound_lv0.state_of_matter == "SOLID" for c in compounds):
-            t = "transform_solid_addition"
+            t = OperationType.OPERATION_ADDITION_SOLID
         else:
-            t = "transform_liquid_addition"
-        return MaterialTransform(consumes=mat_from.id, produces=mat_to.id, type=t)
+            t = OperationType.OPERATION_ADDITION_LIQUID
+        return Operation(consumes=mat_from.id, produces=mat_to.id, type=t)
 
     @staticmethod
     def build_transforms_from_reaction(reaction_lv1: ReactionLv1,
-                                       loading_starting_materials_transform_dict: dict[str, MaterialTransform],
-                                       is_intermediate: bool) -> list[MaterialTransform]:
+                                       loading_starting_materials_transform_dict: dict[str, Operation],
+                                       is_intermediate: bool) -> list[Operation]:
         # TODO we made the following assumptions:
         #  1. materials transfer happens at 100% efficiency (no lost, no dead volume)
         #  2. all vials are 50 mL mrv (so we don't need to switch plates and balance nests)
@@ -163,8 +172,8 @@ class MaterialTransform(BaseModel):
             stored_material = BENCH_TOP_LV2.material_dict[loading_storage.produces]
             storage_container_id = stored_material.contained_by
             storage_container = BENCH_TOP_LV2.container_dict[storage_container_id]
-            addition = MaterialTransform.build_addition_transform([solid_compound], from_container=storage_container,
-                                                                  to_container=reactor)
+            addition = Operation.build_addition_operation([solid_compound], from_container=storage_container,
+                                                          to_container=reactor)
             addition.precedents.append(loading_storage.id)
             solid_additions.append(addition)
 
@@ -175,11 +184,11 @@ class MaterialTransform(BaseModel):
             stored_material = BENCH_TOP_LV2.material_dict[loading_storage.produces]
             storage_container_id = stored_material.contained_by
             storage_container = BENCH_TOP_LV2.container_dict[storage_container_id]
-            addition = MaterialTransform.build_addition_transform([liquid_compound], from_container=storage_container,
-                                                                  to_container=reactor)
+            addition = Operation.build_addition_operation([liquid_compound], from_container=storage_container,
+                                                          to_container=reactor)
             addition.precedents.append(loading_storage.id)
             liquid_additions.append(addition)
-        MaterialTransform.chain_transforms(solid_additions + liquid_additions)
+        Operation.chain_operations(solid_additions + liquid_additions)
 
         # TODO there should be a vessel transport operation between these
 
@@ -187,11 +196,16 @@ class MaterialTransform(BaseModel):
         reaction_mixture = MaterialLv2(compounds=reaction_lv1.reactants + reaction_lv1.reagents,
                                        contained_by=reactor.id)
         raw_product = MaterialLv2(compounds=[reaction_lv1.product, ], contained_by=reactor.id, impure=True)
-        transform_reaction = MaterialTransform(
+        operation_reaction = Operation(
             consumes=reaction_mixture.id,
             produces=raw_product.id,
             precedents=[liquid_additions[-1].id],
-            type="transform_reaction",
+            type=OperationType.OPERATION_HEATING,
+        )
+
+        operation_unloading = Operation(
+            precedents=[operation_reaction.id],
+            type=OperationType.OPERATION_UNLOADING,
         )
 
         # purification
@@ -199,11 +213,11 @@ class MaterialTransform(BaseModel):
         pure_product = raw_product.duplicate()
         pure_product.impure = False
         pure_product.contained_by = purification_container.id
-        transform_purification = MaterialTransform(
+        operation_purification = Operation(
             consumes=raw_product.duplicate().id,
             produces=pure_product.id,
-            precedents=[transform_reaction.id],
-            type="transform_purification",
+            precedents=[operation_unloading.id],
+            type=OperationType.OPERATION_PURIFICATION,
         )
 
         # if this product will be used for another reaction, select a new container
@@ -211,18 +225,18 @@ class MaterialTransform(BaseModel):
             storage_container = ContainerLv2()
             pure_product_loaded = pure_product.duplicate()
             pure_product_loaded.contained_by = storage_container.id
-            reloading_transform = MaterialTransform(
+            operation_reloading = Operation(
                 consumes=pure_product.duplicate().id,
                 produces=pure_product_loaded.id,
-                precedents=[transform_purification.id],
-                type="transform_reloading"
+                precedents=[operation_purification.id],
+                type=OperationType.OPERATION_RELOADING
             )
             loading_starting_materials_transform_dict[
-                pure_product.compounds[0].compound_lv0.smiles] = reloading_transform
-            return solid_additions + liquid_additions + [transform_reaction, transform_purification,
-                                                         reloading_transform]
+                pure_product.compounds[0].compound_lv0.smiles] = operation_reloading
+            return solid_additions + liquid_additions + [operation_reaction, operation_purification,
+                                                         operation_reloading]
         else:
-            return solid_additions + liquid_additions + [transform_reaction, transform_purification]
+            return solid_additions + liquid_additions + [operation_reaction, operation_purification]
 
     @staticmethod
     def build_transforms_from_network(network_lv1: NetworkLv1):
@@ -237,10 +251,10 @@ class MaterialTransform(BaseModel):
         loading_starting_materials_transform_dict = dict()
         for compound_smi in network_lv1.network_lv0.starting_smis:
             compound = network_lv1.compound_dict[compound_smi]
-            loading_transform = MaterialTransform(
+            loading_transform = Operation(
                 consumes=None,
                 produces=MaterialLv2(compounds=[compound, ], contained_by=storage_dict[compound_smi].id).id,
-                type="transform_loading"
+                type=OperationType.OPERATION_LOADING
             )
             loading_starting_materials_transform_dict[compound_smi] = loading_transform
             # logger.info(f"added transform: {loading_transform}")
@@ -253,7 +267,7 @@ class MaterialTransform(BaseModel):
             logger.info(
                 f"create transforms for: {this_reaction.reaction_lv0.reaction_smiles}\n it has n_precedence: {len(reaction_precedence[this_reaction.reaction_lv0.reaction_smiles])}")
 
-            transforms_of_this_reaction = MaterialTransform.build_transforms_from_reaction(
+            transforms_of_this_reaction = Operation.build_transforms_from_reaction(
                 this_reaction, loading_starting_materials_transform_dict,
                 is_intermediate=this_reaction.reaction_lv0.product_smi in network_lv1.network_lv0.intermediate_product_smis
             )
@@ -261,7 +275,7 @@ class MaterialTransform(BaseModel):
 
         for reaction_smi, preceding_reaction_smis in reaction_precedence.items():
             transforms_of_this_reaction = transform_list_by_reaction[reaction_smi]
-            root_transforms = MaterialTransform.find_root_transforms(transforms_of_this_reaction)
+            root_transforms = Operation.find_root_operations(transforms_of_this_reaction)
             for preceding_smi in preceding_reaction_smis:
                 transforms_of_preceding_reaction = transform_list_by_reaction[preceding_smi]
 
@@ -276,27 +290,45 @@ class MaterialTransform(BaseModel):
 class BenchTopLv2(BaseModel):
     container_dict: dict[str, ContainerLv2] = dict()
     material_dict: dict[str, MaterialLv2] = dict()
-    transform_dict: dict[str, MaterialTransform] = dict()
+    operation_dict: dict[str, Operation] = dict()
 
     devices: list[str] = ["SOLID_DISPENSER", "LIQUID_DISPENSER", "HEATING_BLOCK_1", "HEATING_BLOCK_2",
                           "HEATING_BLOCK_3", "ROTAVAP_1", "ROTAVAP_2"]
 
+    operation_type_device_mapping: dict[OperationType, list[str]] = {
+        OperationType.OPERATION_HEATING: ["HEATER-1", "HEATER-2", "HEATER-3"],
+        OperationType.OPERATION_LOADING: ["WORKER-1", "WORKER-2", "WORKER-3"],
+        OperationType.OPERATION_UNLOADING: ["WORKER-1", "WORKER-2"],
+        OperationType.OPERATION_RELOADING: ["WORKER-1", "WORKER-2", "WORKER-3"],
+        OperationType.OPERATION_PURIFICATION: ["ACC-1", "ACC-2"],
+        OperationType.OPERATION_ADDITION_SOLID: ["PREPARATION PLATFORM",],
+        OperationType.OPERATION_ADDITION_LIQUID: ["PREPARATION PLATFORM",],
+    }
+
+    def add_operation_can_be_realized_by(self):
+        for operation_id, operation in self.operation_dict.items():
+            try:
+                machines = self.operation_type_device_mapping[operation.type]
+            except KeyError:
+                machines = []
+            operation.can_be_realized_by = machines
+
     @property
     def summary(self):
         return {
-            "unique transforms": len(self.transform_dict),
+            "unique operations": len(self.operation_dict),
             "unique materials": len(self.material_dict),
         }
 
     def to_cyto_elements(self) -> list[CytoNode | CytoEdge]:
 
-        g = MaterialTransform.get_transform_graph(list(self.transform_dict.values()))
+        g = Operation.get_operation_graph(list(self.operation_dict.values()))
         cyto_nodes = []
         cyto_edges = []
         for n in g.nodes:
-            transform = self.transform_dict[n]
-            classes = transform.type
-            data = transform.cyto_dump()
+            operation = self.operation_dict[n]
+            classes = operation.type.value
+            data = operation.cyto_dump()
             cnd = CytoNodeData(id=n, label=n, url="", data=data)
             cn = CytoNode(data=cnd, classes=classes, group="nodes")
             cyto_nodes.append(cn)

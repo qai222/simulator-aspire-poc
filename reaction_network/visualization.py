@@ -109,42 +109,49 @@ STYLESHEET = [
         }
     },
     {
-        'selector': '.transform_reaction',
+        'selector': '.OPERATION_HEATING',
         'style': {
             'shape': 'rectangle',
             "background-color": "#FF0000",
         }
     },
     {
-        'selector': '.transform_liquid_addition',
+        'selector': '.OPERATION_ADDITION_LIQUID',
         'style': {
             'shape': 'rectangle',
             "background-color": "#808080",
         }
     },
     {
-        'selector': '.transform_solid_addition',
+        'selector': '.OPERATION_ADDITION_SOLID',
         'style': {
             'shape': 'rectangle',
             "background-color": "#000000",
         }
     },
     {
-        'selector': '.transform_purification',
+        'selector': '.OPERATION_PURIFICATION',
         'style': {
             'shape': 'rectangle',
             "background-color": "#0000FF",
         }
     },
     {
-        'selector': '.transform_loading',
+        'selector': '.OPERATION_LOADING',
         'style': {
             'shape': 'rectangle',
             "background-color": "#800020",
         }
     },
     {
-        'selector': '.transform_reloading',
+        'selector': '.OPERATION_RELOADING',
+        'style': {
+            'shape': 'rectangle',
+            "background-color": "#800020",
+        }
+    },
+    {
+        'selector': '.OPERATION_UNLOADING',
         'style': {
             'shape': 'rectangle',
             "background-color": "#800020",

@@ -24,7 +24,7 @@ def get_navbar():
             ) for nl in nav_links
         ],
         brand="ASPIRE EPV",
-        brand_href="#",
+        brand_href="/",
         color="#6f42c1",
         dark=True,
         sticky="top",
@@ -74,5 +74,5 @@ def create_dashapp(prefix="/"):
 
 if __name__ == '__main__':
     APP = create_dashapp()
-    APP.run(host="0.0.0.0", port=8070, debug=True)
-    # APP.run(host="0.0.0.0", port=8070, debug=False)
+    # APP.run(host="0.0.0.0", port=8070, debug=True)
+    APP.run(host="0.0.0.0", port=8070, debug=False)

@@ -12,8 +12,19 @@ from .instruction_job import InstructionJob
 
 class Sink(Block):
     def __init__(self, env: Environment, lab: Lab, wdir: str | os.PathLike, model_name: str):
-        """
-        conceptual block used for sending jobs to actual devices
+        """Conceptual block used for sending jobs to actual devices.
+
+        Parameters
+        ----------
+        env : Environment
+            The `simpy` environment.
+        lab : Lab
+            The lab object.
+        wdir : str | os.PathLike
+            The working directory.
+        model_name : str
+            The name of the model.
+
         """
         super().__init__(env, name="SINK", block_capacity=float('inf'))
         self.model_name = model_name
@@ -45,10 +56,12 @@ class Sink(Block):
         }
         self.sink_log.append(sink_log)
         print(sink_log['last_entry'], sink_log['finished'], sink_log['instruction'].description)
-        # TODO pydantic is ignoring subclasses when reconstructing (not like in monty the class meta info is kept), have to use pkl fn...
+        # TODO pydantic is ignoring subclasses when reconstructing
+        #  (not like in monty the class meta info is kept), have to use pkl fn...
         # TODO use dedicate logger
         with open(os.path.join(f"{self.wdir}", f"sim_{self.model_name}.pkl"), "wb") as f:
-            # output = {"simulation_time": self.env.now, "lab": self.lab, "instruction": job.instruction, "last_entry": last_entry, "log": self.sink_log}
+            # output = {"simulation_time": self.env.now, "lab": self.lab, "instruction":
+            # job.instruction, "last_entry": last_entry, "log": self.sink_log}
             pickle.dump(self.sink_log, f)
 
     def do_on_enter(self, job: InstructionJob, previous, current):

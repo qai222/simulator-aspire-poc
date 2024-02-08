@@ -35,6 +35,7 @@ layout = html.Div(
                                 'nodeDimensionsIncludeLabels': True,
                                 'animate': True,
                                 'animationDuration': 1000,
+                                'rankDir': 'LR',
                                 'align': 'UL',
                             },
                             style={
@@ -47,7 +48,7 @@ layout = html.Div(
                             responsive=True,
                         )
                     ],
-                    className="col-lg-8 px-4",
+                    className="col-lg-12 px-4",
                     style={'height': 'calc(100vh - 100px)'},  # minus header bar height
                     # style={'height': '100%'},  # minus header bar height
                 ),

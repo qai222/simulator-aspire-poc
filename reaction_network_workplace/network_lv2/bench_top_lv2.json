@@ -1,163 +1,163 @@
 {
   "container_dict": {
-    "e8a7eee4-9325-4538-97e5-861ebb615b9d": {
-      "id": "e8a7eee4-9325-4538-97e5-861ebb615b9d",
+    "6c862bf3-bff2-4f02-9d69-1f1ba2486ace": {
+      "id": "6c862bf3-bff2-4f02-9d69-1f1ba2486ace",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "d0928870-2789-4770-932c-a5e76aa90d9e": {
-      "id": "d0928870-2789-4770-932c-a5e76aa90d9e",
+    "634fa2cf-5c87-463e-acbd-0a0f3dbcecf8": {
+      "id": "634fa2cf-5c87-463e-acbd-0a0f3dbcecf8",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "a0a3dd35-c6c3-4fa7-b608-038235371f8f": {
-      "id": "a0a3dd35-c6c3-4fa7-b608-038235371f8f",
+    "659e3b20-38b4-4015-8844-418d045d2460": {
+      "id": "659e3b20-38b4-4015-8844-418d045d2460",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "4f554c04-0b79-4787-842a-383002ece623": {
-      "id": "4f554c04-0b79-4787-842a-383002ece623",
+    "68d27b0e-42fd-4276-8aac-817aa2ec0c08": {
+      "id": "68d27b0e-42fd-4276-8aac-817aa2ec0c08",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "d5a27898-2f76-4232-a27f-4f194bc3c963": {
-      "id": "d5a27898-2f76-4232-a27f-4f194bc3c963",
+    "c6664775-29fd-4725-9fa1-1d7a751bfc13": {
+      "id": "c6664775-29fd-4725-9fa1-1d7a751bfc13",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "6791441b-7609-49e1-80df-d1afbf914b64": {
-      "id": "6791441b-7609-49e1-80df-d1afbf914b64",
+    "3156aafb-df17-4213-bbd1-6da7bc64aa32": {
+      "id": "3156aafb-df17-4213-bbd1-6da7bc64aa32",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "6983eaa4-1320-4d1b-a92a-af47fe730c38": {
-      "id": "6983eaa4-1320-4d1b-a92a-af47fe730c38",
+    "7d976f42-f6cb-4c88-9d90-44510768e886": {
+      "id": "7d976f42-f6cb-4c88-9d90-44510768e886",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "3378179d-90e8-44d4-bfa9-4dbf49a4acac": {
-      "id": "3378179d-90e8-44d4-bfa9-4dbf49a4acac",
+    "0b33bca2-77f3-412e-8ab3-1a161a07d487": {
+      "id": "0b33bca2-77f3-412e-8ab3-1a161a07d487",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "aad49c75-0867-4afb-9707-577ef64f8355": {
-      "id": "aad49c75-0867-4afb-9707-577ef64f8355",
+    "d0e17f55-75b0-46e0-aa8c-40fc9e7a75b7": {
+      "id": "d0e17f55-75b0-46e0-aa8c-40fc9e7a75b7",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "0e818912-9063-4dce-8075-44ceffcc7c09": {
-      "id": "0e818912-9063-4dce-8075-44ceffcc7c09",
+    "a12b4d73-9fd7-4bd1-a9e2-19f1c4219f1b": {
+      "id": "a12b4d73-9fd7-4bd1-a9e2-19f1c4219f1b",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "ac972430-afa2-429a-bffb-407018f5238f": {
-      "id": "ac972430-afa2-429a-bffb-407018f5238f",
+    "6eb41830-243e-44be-a606-f3ecc6748529": {
+      "id": "6eb41830-243e-44be-a606-f3ecc6748529",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "b610a318-c1e5-4c51-9914-f710dc69c404": {
-      "id": "b610a318-c1e5-4c51-9914-f710dc69c404",
+    "882eb175-17f2-4f6f-9fa5-0d3b83ba3e42": {
+      "id": "882eb175-17f2-4f6f-9fa5-0d3b83ba3e42",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "b01d82ec-1b4d-4a02-8469-41a93c7b72f7": {
-      "id": "b01d82ec-1b4d-4a02-8469-41a93c7b72f7",
+    "9c83f419-002c-415c-9c5f-bd7981e0734e": {
+      "id": "9c83f419-002c-415c-9c5f-bd7981e0734e",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "66cdc38d-7db4-4244-8d0a-dbd265e1585f": {
-      "id": "66cdc38d-7db4-4244-8d0a-dbd265e1585f",
+    "843d2a18-4205-491b-b79b-35de17f49602": {
+      "id": "843d2a18-4205-491b-b79b-35de17f49602",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "b37e1214-dd23-441e-a0ea-52b813de3fb6": {
-      "id": "b37e1214-dd23-441e-a0ea-52b813de3fb6",
+    "d98863d5-f2ef-492b-8a2e-42440c471aeb": {
+      "id": "d98863d5-f2ef-492b-8a2e-42440c471aeb",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "878bcf6c-9ba3-4a5c-929e-608d25f77b84": {
-      "id": "878bcf6c-9ba3-4a5c-929e-608d25f77b84",
+    "56232651-abe1-4983-9b36-7f10e281fde7": {
+      "id": "56232651-abe1-4983-9b36-7f10e281fde7",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "aff05af0-1bc1-4d07-b092-51e451e69f81": {
-      "id": "aff05af0-1bc1-4d07-b092-51e451e69f81",
+    "13831721-72b2-4a05-9888-f9a352127d33": {
+      "id": "13831721-72b2-4a05-9888-f9a352127d33",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "448f3157-2a88-4b50-9fbe-bcc3dd22fce3": {
-      "id": "448f3157-2a88-4b50-9fbe-bcc3dd22fce3",
+    "85aaab30-7e49-4fed-839b-2778baeda996": {
+      "id": "85aaab30-7e49-4fed-839b-2778baeda996",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "50f86f2f-c752-4152-abc5-84c72fe449b7": {
-      "id": "50f86f2f-c752-4152-abc5-84c72fe449b7",
+    "ebb534d1-2ffe-47ee-9e41-ac6b16095e36": {
+      "id": "ebb534d1-2ffe-47ee-9e41-ac6b16095e36",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "120519e1-9f7a-472d-aaaf-1bdbddcb00fa": {
-      "id": "120519e1-9f7a-472d-aaaf-1bdbddcb00fa",
+    "38fff092-4e18-4468-9712-ebfb4c553e56": {
+      "id": "38fff092-4e18-4468-9712-ebfb4c553e56",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "8551f8f0-b467-474c-908d-84e5a980ba88": {
-      "id": "8551f8f0-b467-474c-908d-84e5a980ba88",
+    "ab72d88e-2e33-428b-a175-5199655a40fc": {
+      "id": "ab72d88e-2e33-428b-a175-5199655a40fc",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "10856bf8-ec51-4627-9eae-ef8d26b4e94e": {
-      "id": "10856bf8-ec51-4627-9eae-ef8d26b4e94e",
+    "91ab3e5b-dcc3-47ee-8b82-1448c8a20f3a": {
+      "id": "91ab3e5b-dcc3-47ee-8b82-1448c8a20f3a",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "8fcdb0c8-d293-4b68-a1f6-00bf013d8d22": {
-      "id": "8fcdb0c8-d293-4b68-a1f6-00bf013d8d22",
+    "91605e12-e5d8-49db-8023-41c2cd6f4384": {
+      "id": "91605e12-e5d8-49db-8023-41c2cd6f4384",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "ed6b657e-34a5-4561-aca7-afb671e257be": {
-      "id": "ed6b657e-34a5-4561-aca7-afb671e257be",
+    "376bc807-bad0-43aa-b552-c41c151850fa": {
+      "id": "376bc807-bad0-43aa-b552-c41c151850fa",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "38afe00b-0581-4766-a2d4-24fe4465d7d3": {
-      "id": "38afe00b-0581-4766-a2d4-24fe4465d7d3",
+    "539ada3a-fd30-40e9-992e-74c85e09fbe1": {
+      "id": "539ada3a-fd30-40e9-992e-74c85e09fbe1",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "d1cfbf75-1d3f-42fd-8edd-2ae4e8603f74": {
-      "id": "d1cfbf75-1d3f-42fd-8edd-2ae4e8603f74",
+    "9f4bb962-ace7-4bdf-9d94-192ba720ad74": {
+      "id": "9f4bb962-ace7-4bdf-9d94-192ba720ad74",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
     },
-    "692bdfbd-f23f-4a26-9587-6a2238d1467f": {
-      "id": "692bdfbd-f23f-4a26-9587-6a2238d1467f",
+    "6fb2a250-dc42-49f2-b796-e36873e0fe81": {
+      "id": "6fb2a250-dc42-49f2-b796-e36873e0fe81",
       "made_of": "GLASS",
       "type": "on_platform_storage",
       "volume_capacity": 50.0
@@ -168,8 +168,8 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "eee15605-e1cd-49df-8d16-2607550327be": {
-      "id": "eee15605-e1cd-49df-8d16-2607550327be",
+    "9bbfe150-f792-4ad4-9111-42971ba2bfb0": {
+      "id": "9bbfe150-f792-4ad4-9111-42971ba2bfb0",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
@@ -180,8 +180,8 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "2678457b-b908-4294-959f-ebfa970c8310": {
-      "id": "2678457b-b908-4294-959f-ebfa970c8310",
+    "4b1a343a-4990-45b2-933b-128bbc09e9b7": {
+      "id": "4b1a343a-4990-45b2-933b-128bbc09e9b7",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
@@ -192,14 +192,14 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "d674eff3-a5cb-4b09-a0df-e6b210a23218": {
-      "id": "d674eff3-a5cb-4b09-a0df-e6b210a23218",
+    "89b2fcd8-5db7-4595-a990-20f53c96d2d9": {
+      "id": "89b2fcd8-5db7-4595-a990-20f53c96d2d9",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "24a66749-c4b2-4caf-adfb-57bc247c54a0": {
-      "id": "24a66749-c4b2-4caf-adfb-57bc247c54a0",
+    "e1568e73-7359-478e-972b-4007907376df": {
+      "id": "e1568e73-7359-478e-972b-4007907376df",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
@@ -210,14 +210,14 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "a96e8b20-8e47-4908-bf24-6550080f42e2": {
-      "id": "a96e8b20-8e47-4908-bf24-6550080f42e2",
+    "33e45c9d-7d8a-4c28-a164-884300737ec4": {
+      "id": "33e45c9d-7d8a-4c28-a164-884300737ec4",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "14fd9c95-1bb0-4188-8ded-ecf73beca2d8": {
-      "id": "14fd9c95-1bb0-4188-8ded-ecf73beca2d8",
+    "42c43049-a002-4ec8-adf2-bdb26c155d80": {
+      "id": "42c43049-a002-4ec8-adf2-bdb26c155d80",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
@@ -228,8 +228,8 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "39470a08-e817-410c-a5e7-48ee2d20c7de": {
-      "id": "39470a08-e817-410c-a5e7-48ee2d20c7de",
+    "4ecc996c-a14b-4876-b13f-cb8555a4a447": {
+      "id": "4ecc996c-a14b-4876-b13f-cb8555a4a447",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
@@ -240,14 +240,14 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "3c84a456-12f2-4029-b89d-8bd28d1187b1": {
-      "id": "3c84a456-12f2-4029-b89d-8bd28d1187b1",
+    "9f08fe14-6da4-424e-b947-7236c2cd90f2": {
+      "id": "9f08fe14-6da4-424e-b947-7236c2cd90f2",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "4ffc5f77-67f9-4f12-82c5-dd00275fc758": {
-      "id": "4ffc5f77-67f9-4f12-82c5-dd00275fc758",
+    "fd689511-8c33-414f-8cf3-f05af119325f": {
+      "id": "fd689511-8c33-414f-8cf3-f05af119325f",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
@@ -258,8 +258,8 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "87216cdf-86d4-4bc6-8d08-dc7effd06930": {
-      "id": "87216cdf-86d4-4bc6-8d08-dc7effd06930",
+    "2ac69062-33cc-4b8d-b967-491e764cf837": {
+      "id": "2ac69062-33cc-4b8d-b967-491e764cf837",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
@@ -270,16 +270,16 @@
       "type": "VIAL",
       "volume_capacity": 50.0
     },
-    "53431f38-388b-4d86-a1fa-2acaf60e1503": {
-      "id": "53431f38-388b-4d86-a1fa-2acaf60e1503",
+    "c760db36-4daa-4c08-9ad3-adc589666963": {
+      "id": "c760db36-4daa-4c08-9ad3-adc589666963",
       "made_of": "GLASS",
       "type": "VIAL",
       "volume_capacity": 50.0
     }
   },
   "material_dict": {
-    "ef270fbf-85f3-4804-b733-dc6f0f809e72": {
-      "id": "ef270fbf-85f3-4804-b733-dc6f0f809e72",
+    "72686675-0b2a-45a5-9c4b-cdf70bad7693": {
+      "id": "72686675-0b2a-45a5-9c4b-cdf70bad7693",
       "compounds": [
         {
           "amount": 0.17235747130684098,
@@ -289,15 +289,19 @@
             "smiles": "CC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 78.498,
-            "density": 1.104
+            "density": 1.104,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "d0928870-2789-4770-932c-a5e76aa90d9e",
+      "contained_by": "634fa2cf-5c87-463e-acbd-0a0f3dbcecf8",
       "impure": false
     },
-    "1a5598b1-0cf5-4a12-b5bb-1dec1a4f511b": {
-      "id": "1a5598b1-0cf5-4a12-b5bb-1dec1a4f511b",
+    "7dce8c94-810e-4177-906c-0f9204cf0789": {
+      "id": "7dce8c94-810e-4177-906c-0f9204cf0789",
       "compounds": [
         {
           "amount": 0.3048735578379678,
@@ -307,15 +311,19 @@
             "smiles": "CNc1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 143.57700000000003,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "b37e1214-dd23-441e-a0ea-52b813de3fb6",
+      "contained_by": "d98863d5-f2ef-492b-8a2e-42440c471aeb",
       "impure": false
     },
-    "bf2a5cad-7005-4b29-aff3-888b4990fd03": {
-      "id": "bf2a5cad-7005-4b29-aff3-888b4990fd03",
+    "0c9ee18b-dc5f-46ce-8395-38ef7f61bafd": {
+      "id": "0c9ee18b-dc5f-46ce-8395-38ef7f61bafd",
       "compounds": [
         {
           "amount": 8.1657694326278,
@@ -325,15 +333,19 @@
             "smiles": "O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 18.015,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "120519e1-9f7a-472d-aaaf-1bdbddcb00fa",
+      "contained_by": "38fff092-4e18-4468-9712-ebfb4c553e56",
       "impure": false
     },
-    "4c35e33a-0ebe-4d68-9a32-b9528100698b": {
-      "id": "4c35e33a-0ebe-4d68-9a32-b9528100698b",
+    "b0d84524-bf9b-409a-aac3-2f1ca98bbb49": {
+      "id": "b0d84524-bf9b-409a-aac3-2f1ca98bbb49",
       "compounds": [
         {
           "amount": 7.66693976730492,
@@ -343,15 +355,19 @@
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 72.107,
-            "density": 0.889
+            "density": 0.889,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "e8a7eee4-9325-4538-97e5-861ebb615b9d",
+      "contained_by": "6c862bf3-bff2-4f02-9d69-1f1ba2486ace",
       "impure": false
     },
-    "7fb6306a-e23b-4c38-9f82-d4b5e9fe2db2": {
-      "id": "7fb6306a-e23b-4c38-9f82-d4b5e9fe2db2",
+    "1d063ba1-4d97-40c6-bff5-86b49810542d": {
+      "id": "1d063ba1-4d97-40c6-bff5-86b49810542d",
       "compounds": [
         {
           "amount": 0.09852484044846962,
@@ -361,15 +377,19 @@
             "smiles": "[NaH]",
             "state_of_matter": "SOLID",
             "molecular_weight": 23.997999999999998,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "692bdfbd-f23f-4a26-9587-6a2238d1467f",
+      "contained_by": "6fb2a250-dc42-49f2-b796-e36873e0fe81",
       "impure": false
     },
-    "6454a3e0-36d2-49af-a10d-7d98088096b5": {
-      "id": "6454a3e0-36d2-49af-a10d-7d98088096b5",
+    "f0fad305-d914-4172-85e1-efaf3ba3b8e6": {
+      "id": "f0fad305-d914-4172-85e1-efaf3ba3b8e6",
       "compounds": [
         {
           "amount": 1.095687016680388,
@@ -379,15 +399,19 @@
             "smiles": "O=S(=O)(O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 98.07899999999998,
-            "density": 1.84
+            "density": 1.84,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "38afe00b-0581-4766-a2d4-24fe4465d7d3",
+      "contained_by": "539ada3a-fd30-40e9-992e-74c85e09fbe1",
       "impure": false
     },
-    "6fcf7ee1-94e6-4564-ae50-56ad2a7636ba": {
-      "id": "6fcf7ee1-94e6-4564-ae50-56ad2a7636ba",
+    "f025b7fc-25fc-4c85-8025-d3db2413c19d": {
+      "id": "f025b7fc-25fc-4c85-8025-d3db2413c19d",
       "compounds": [
         {
           "amount": 0.19335020873983771,
@@ -397,15 +421,19 @@
             "smiles": "CC(=O)OCC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.534,
-            "density": 1.27
+            "density": 1.27,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "d5a27898-2f76-4232-a27f-4f194bc3c963",
+      "contained_by": "c6664775-29fd-4725-9fa1-1d7a751bfc13",
       "impure": false
     },
-    "edadf426-962e-42e5-9c14-eb3d313c4a50": {
-      "id": "edadf426-962e-42e5-9c14-eb3d313c4a50",
+    "653f10ec-492b-40d7-9647-4c0039f0a1de": {
+      "id": "653f10ec-492b-40d7-9647-4c0039f0a1de",
       "compounds": [
         {
           "amount": 83.82750345268072,
@@ -415,15 +443,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "878bcf6c-9ba3-4a5c-929e-608d25f77b84",
+      "contained_by": "56232651-abe1-4983-9b36-7f10e281fde7",
       "impure": false
     },
-    "59522f47-92a5-44e7-b7cf-c9f3f9194e42": {
-      "id": "59522f47-92a5-44e7-b7cf-c9f3f9194e42",
+    "ceb86af3-1ec2-4b0a-9ab8-7e0276239147": {
+      "id": "ceb86af3-1ec2-4b0a-9ab8-7e0276239147",
       "compounds": [
         {
           "amount": 1.9173064929536603,
@@ -433,15 +465,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "0e818912-9063-4dce-8075-44ceffcc7c09",
+      "contained_by": "a12b4d73-9fd7-4bd1-a9e2-19f1c4219f1b",
       "impure": false
     },
-    "1d313a35-8d76-44c6-9b8d-45d557057a5a": {
-      "id": "1d313a35-8d76-44c6-9b8d-45d557057a5a",
+    "58f8768c-69e1-4740-bf4d-4ba1cc68aec2": {
+      "id": "58f8768c-69e1-4740-bf4d-4ba1cc68aec2",
       "compounds": [
         {
           "amount": 14.789555061700083,
@@ -451,15 +487,19 @@
             "smiles": "O=C(O)C(F)(F)F",
             "state_of_matter": "LIQUID",
             "molecular_weight": 114.02200000000002,
-            "density": 1.489
+            "density": 1.489,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "ed6b657e-34a5-4561-aca7-afb671e257be",
+      "contained_by": "376bc807-bad0-43aa-b552-c41c151850fa",
       "impure": false
     },
-    "ea980242-2f01-4084-a7fa-5ff821a34cc6": {
-      "id": "ea980242-2f01-4084-a7fa-5ff821a34cc6",
+    "858df916-4950-4eac-b35a-2cf3cc3028b3": {
+      "id": "858df916-4950-4eac-b35a-2cf3cc3028b3",
       "compounds": [
         {
           "amount": 1.2413634636319122,
@@ -469,15 +509,19 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 175.18399999999997,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "3378179d-90e8-44d4-bfa9-4dbf49a4acac",
+      "contained_by": "0b33bca2-77f3-412e-8ab3-1a161a07d487",
       "impure": false
     },
-    "82dd219a-bd4c-4fe4-a40e-54550a878801": {
-      "id": "82dd219a-bd4c-4fe4-a40e-54550a878801",
+    "2fd8cf09-e683-486f-aa74-3a64d78bb4a9": {
+      "id": "2fd8cf09-e683-486f-aa74-3a64d78bb4a9",
       "compounds": [
         {
           "amount": 0.72926904433252,
@@ -487,15 +531,19 @@
             "smiles": "Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.082,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "50f86f2f-c752-4152-abc5-84c72fe449b7",
+      "contained_by": "ebb534d1-2ffe-47ee-9e41-ac6b16095e36",
       "impure": false
     },
-    "b759f6fd-ca7f-4136-b5f6-5da38fafca26": {
-      "id": "b759f6fd-ca7f-4136-b5f6-5da38fafca26",
+    "de1cc8e4-81a5-412e-9ae6-ca84a59c3b6b": {
+      "id": "de1cc8e4-81a5-412e-9ae6-ca84a59c3b6b",
       "compounds": [
         {
           "amount": 0.7841695405206918,
@@ -505,15 +553,19 @@
             "smiles": "CC(C)COC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.57799999999997,
-            "density": 1.053
+            "density": 1.053,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "aad49c75-0867-4afb-9707-577ef64f8355",
+      "contained_by": "d0e17f55-75b0-46e0-aa8c-40fc9e7a75b7",
       "impure": false
     },
-    "2808ec2f-4c9c-477d-b528-9af1609476e4": {
-      "id": "2808ec2f-4c9c-477d-b528-9af1609476e4",
+    "b0d725e3-4e3a-4814-b38b-cbd885d967e5": {
+      "id": "b0d725e3-4e3a-4814-b38b-cbd885d967e5",
       "compounds": [
         {
           "amount": 0.3007133573166624,
@@ -523,15 +575,19 @@
             "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
             "state_of_matter": "SOLID",
             "molecular_weight": 203.23799999999997,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "b610a318-c1e5-4c51-9914-f710dc69c404",
+      "contained_by": "882eb175-17f2-4f6f-9fa5-0d3b83ba3e42",
       "impure": false
     },
-    "61ddf75c-d552-4e0d-9926-ce9ccdda22e8": {
-      "id": "61ddf75c-d552-4e0d-9926-ce9ccdda22e8",
+    "fa19c3ca-aacc-415c-b7f3-76e306a36149": {
+      "id": "fa19c3ca-aacc-415c-b7f3-76e306a36149",
       "compounds": [
         {
           "amount": 0.23866548938298457,
@@ -541,15 +597,19 @@
             "smiles": "O=C(Cl)C1CCCCC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 146.617,
-            "density": 1.096
+            "density": 1.096,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "10856bf8-ec51-4627-9eae-ef8d26b4e94e",
+      "contained_by": "91ab3e5b-dcc3-47ee-8b82-1448c8a20f3a",
       "impure": false
     },
-    "557ea228-6f3b-494b-9624-e3511e2e5608": {
-      "id": "557ea228-6f3b-494b-9624-e3511e2e5608",
+    "21930db6-93dd-47ee-a864-dd7a0f4be355": {
+      "id": "21930db6-93dd-47ee-a864-dd7a0f4be355",
       "compounds": [
         {
           "amount": 0.41040768091579033,
@@ -559,15 +619,19 @@
             "smiles": "CCOc1ccc(Br)cc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 201.063,
-            "density": 1.407
+            "density": 1.407,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "66cdc38d-7db4-4244-8d0a-dbd265e1585f",
+      "contained_by": "843d2a18-4205-491b-b79b-35de17f49602",
       "impure": false
     },
-    "416f7c8a-d973-4726-ab36-3a048fda7f3c": {
-      "id": "416f7c8a-d973-4726-ab36-3a048fda7f3c",
+    "f4c3a9f3-36e0-4f56-a11e-54fd6a4f395a": {
+      "id": "f4c3a9f3-36e0-4f56-a11e-54fd6a4f395a",
       "compounds": [
         {
           "amount": 0.2950262512217172,
@@ -577,15 +641,19 @@
             "smiles": "OB(O)c1ccccc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 121.93199999999996,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "d1cfbf75-1d3f-42fd-8edd-2ae4e8603f74",
+      "contained_by": "9f4bb962-ace7-4bdf-9d94-192ba720ad74",
       "impure": false
     },
-    "27c0b73d-dedb-4cca-bf46-59bba8cec30c": {
-      "id": "27c0b73d-dedb-4cca-bf46-59bba8cec30c",
+    "3157c597-6145-4048-8eae-8d8838a69ff2": {
+      "id": "3157c597-6145-4048-8eae-8d8838a69ff2",
       "compounds": [
         {
           "amount": 0.3313888346718924,
@@ -595,15 +663,19 @@
             "smiles": "F[K]",
             "state_of_matter": "SOLID",
             "molecular_weight": 58.096000000000004,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "aff05af0-1bc1-4d07-b092-51e451e69f81",
+      "contained_by": "13831721-72b2-4a05-9888-f9a352127d33",
       "impure": false
     },
-    "34b8bedc-b0f5-4c92-826b-93bd5b568139": {
-      "id": "34b8bedc-b0f5-4c92-826b-93bd5b568139",
+    "5ac02b22-ce33-400d-a179-60c0d50a447b": {
+      "id": "5ac02b22-ce33-400d-a179-60c0d50a447b",
       "compounds": [
         {
           "amount": 0.23292539956506564,
@@ -613,15 +685,19 @@
             "smiles": "O=C(Cl)CBr",
             "state_of_matter": "LIQUID",
             "molecular_weight": 157.394,
-            "density": 1.89
+            "density": 1.89,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "8fcdb0c8-d293-4b68-a1f6-00bf013d8d22",
+      "contained_by": "91605e12-e5d8-49db-8023-41c2cd6f4384",
       "impure": false
     },
-    "b350e2cf-4df2-4c62-beb1-e75c037e917f": {
-      "id": "b350e2cf-4df2-4c62-beb1-e75c037e917f",
+    "aa470825-ecd7-429b-8e2c-348fe18293ee": {
+      "id": "aa470825-ecd7-429b-8e2c-348fe18293ee",
       "compounds": [
         {
           "amount": 0.3007133573166624,
@@ -631,15 +707,19 @@
             "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
             "state_of_matter": "SOLID",
             "molecular_weight": 203.23799999999997,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "b610a318-c1e5-4c51-9914-f710dc69c404",
+      "contained_by": "882eb175-17f2-4f6f-9fa5-0d3b83ba3e42",
       "impure": false
     },
-    "03cfdfc4-a916-4103-a7be-04aeb139b8bc": {
-      "id": "03cfdfc4-a916-4103-a7be-04aeb139b8bc",
+    "9fb24813-ef44-48c5-a666-547f7152f05b": {
+      "id": "9fb24813-ef44-48c5-a666-547f7152f05b",
       "compounds": [
         {
           "amount": 0.3007133573166624,
@@ -649,15 +729,19 @@
             "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
             "state_of_matter": "SOLID",
             "molecular_weight": 203.23799999999997,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
       "impure": false
     },
-    "79f40e4c-edeb-495c-9319-bd5b0145787b": {
-      "id": "79f40e4c-edeb-495c-9319-bd5b0145787b",
+    "8cad55ef-2f2a-42a4-b880-58c47183f041": {
+      "id": "8cad55ef-2f2a-42a4-b880-58c47183f041",
       "compounds": [
         {
           "amount": 4.609430162984614,
@@ -667,15 +751,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "878bcf6c-9ba3-4a5c-929e-608d25f77b84",
+      "contained_by": "56232651-abe1-4983-9b36-7f10e281fde7",
       "impure": false
     },
-    "3fa71554-072d-4ad4-b7bb-464f1f29d37a": {
-      "id": "3fa71554-072d-4ad4-b7bb-464f1f29d37a",
+    "590ecdb2-f136-4559-911c-c98e6c9631dd": {
+      "id": "590ecdb2-f136-4559-911c-c98e6c9631dd",
       "compounds": [
         {
           "amount": 4.609430162984614,
@@ -685,15 +773,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
       "impure": false
     },
-    "4f496604-e10c-4e40-8e30-89c61a9cc304": {
-      "id": "4f496604-e10c-4e40-8e30-89c61a9cc304",
+    "ae97983e-dc57-47e9-ba43-3cc5e5c79e9e": {
+      "id": "ae97983e-dc57-47e9-ba43-3cc5e5c79e9e",
       "compounds": [
         {
           "amount": 0.27344871676775157,
@@ -703,15 +795,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "0e818912-9063-4dce-8075-44ceffcc7c09",
+      "contained_by": "a12b4d73-9fd7-4bd1-a9e2-19f1c4219f1b",
       "impure": false
     },
-    "a8835bba-60f3-4823-b9b4-068a98772a8b": {
-      "id": "a8835bba-60f3-4823-b9b4-068a98772a8b",
+    "9b3c653b-aeac-4f97-ba87-6700f10f1485": {
+      "id": "9b3c653b-aeac-4f97-ba87-6700f10f1485",
       "compounds": [
         {
           "amount": 0.27344871676775157,
@@ -721,15 +817,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
       "impure": false
     },
-    "ac9ec6ef-b30c-464b-bac2-2c66d591265f": {
-      "id": "ac9ec6ef-b30c-464b-bac2-2c66d591265f",
+    "f836a73c-828b-4c00-8302-88f26a310bff": {
+      "id": "f836a73c-828b-4c00-8302-88f26a310bff",
       "compounds": [
         {
           "amount": 0.23866548938298457,
@@ -739,15 +839,19 @@
             "smiles": "O=C(Cl)C1CCCCC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 146.617,
-            "density": 1.096
+            "density": 1.096,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "10856bf8-ec51-4627-9eae-ef8d26b4e94e",
+      "contained_by": "91ab3e5b-dcc3-47ee-8b82-1448c8a20f3a",
       "impure": false
     },
-    "fa2a7057-51b3-4e0e-96fe-d0fa34042d13": {
-      "id": "fa2a7057-51b3-4e0e-96fe-d0fa34042d13",
+    "4b6f89f0-6cb9-496c-a373-0a03e2555bca": {
+      "id": "4b6f89f0-6cb9-496c-a373-0a03e2555bca",
       "compounds": [
         {
           "amount": 0.23866548938298457,
@@ -757,15 +861,19 @@
             "smiles": "O=C(Cl)C1CCCCC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 146.617,
-            "density": 1.096
+            "density": 1.096,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
       "impure": false
     },
-    "0a5ed54a-6b27-4ef1-a12f-c41cc9630135": {
-      "id": "0a5ed54a-6b27-4ef1-a12f-c41cc9630135",
+    "c4eb892b-d0b4-4b82-b28a-be95c6c17db3": {
+      "id": "c4eb892b-d0b4-4b82-b28a-be95c6c17db3",
       "compounds": [
         {
           "amount": 0.3007133573166624,
@@ -775,7 +883,11 @@
             "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
             "state_of_matter": "SOLID",
             "molecular_weight": 203.23799999999997,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -786,7 +898,11 @@
             "smiles": "O=C(Cl)C1CCCCC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 146.617,
-            "density": 1.096
+            "density": 1.096,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -797,7 +913,11 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -808,15 +928,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
       "impure": false
     },
-    "7b0eb938-1260-4e1a-9b47-ef6845c76809": {
-      "id": "7b0eb938-1260-4e1a-9b47-ef6845c76809",
+    "0cda33c6-333e-4ff1-b35f-71930f011481": {
+      "id": "0cda33c6-333e-4ff1-b35f-71930f011481",
       "compounds": [
         {
           "amount": 0.35500586367382386,
@@ -826,15 +950,19 @@
             "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
             "state_of_matter": "SOLID",
             "molecular_weight": 313.3940000000002,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
       "impure": true
     },
-    "da63b6d9-4c50-46dd-829e-550aea369453": {
-      "id": "da63b6d9-4c50-46dd-829e-550aea369453",
+    "67a8cb14-58b7-4095-9fc1-069b1b721bb9": {
+      "id": "67a8cb14-58b7-4095-9fc1-069b1b721bb9",
       "compounds": [
         {
           "amount": 0.35500586367382386,
@@ -844,15 +972,19 @@
             "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
             "state_of_matter": "SOLID",
             "molecular_weight": 313.3940000000002,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "eee15605-e1cd-49df-8d16-2607550327be",
+      "contained_by": "9bbfe150-f792-4ad4-9111-42971ba2bfb0",
       "impure": false
     },
-    "286eceb2-c429-4505-9903-fba33a9f8b2d": {
-      "id": "286eceb2-c429-4505-9903-fba33a9f8b2d",
+    "e023ec71-2eec-4d56-97a5-cdecc0c627a5": {
+      "id": "e023ec71-2eec-4d56-97a5-cdecc0c627a5",
       "compounds": [
         {
           "amount": 0.35500586367382386,
@@ -862,15 +994,19 @@
             "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
             "state_of_matter": "SOLID",
             "molecular_weight": 313.3940000000002,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
       "impure": true
     },
-    "afb3c00f-bcb4-4634-bda9-84eb510ce635": {
-      "id": "afb3c00f-bcb4-4634-bda9-84eb510ce635",
+    "013b7082-ab5a-4d5e-afbd-afeef9c1fa58": {
+      "id": "013b7082-ab5a-4d5e-afbd-afeef9c1fa58",
       "compounds": [
         {
           "amount": 0.3313888346718924,
@@ -880,15 +1016,19 @@
             "smiles": "F[K]",
             "state_of_matter": "SOLID",
             "molecular_weight": 58.096000000000004,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "aff05af0-1bc1-4d07-b092-51e451e69f81",
+      "contained_by": "13831721-72b2-4a05-9888-f9a352127d33",
       "impure": false
     },
-    "8694460e-613e-4611-b6f1-c6eabba9c493": {
-      "id": "8694460e-613e-4611-b6f1-c6eabba9c493",
+    "8e283c8d-883a-4d57-895c-c15850928c75": {
+      "id": "8e283c8d-883a-4d57-895c-c15850928c75",
       "compounds": [
         {
           "amount": 0.3313888346718924,
@@ -898,15 +1038,19 @@
             "smiles": "F[K]",
             "state_of_matter": "SOLID",
             "molecular_weight": 58.096000000000004,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
       "impure": false
     },
-    "1760adc8-ce1d-45a8-bc17-c59ef9587bbd": {
-      "id": "1760adc8-ce1d-45a8-bc17-c59ef9587bbd",
+    "1c89d773-0eb9-41cb-9a1f-2bec93f73595": {
+      "id": "1c89d773-0eb9-41cb-9a1f-2bec93f73595",
       "compounds": [
         {
           "amount": 0.41040768091579033,
@@ -916,15 +1060,19 @@
             "smiles": "CCOc1ccc(Br)cc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 201.063,
-            "density": 1.407
+            "density": 1.407,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "66cdc38d-7db4-4244-8d0a-dbd265e1585f",
+      "contained_by": "843d2a18-4205-491b-b79b-35de17f49602",
       "impure": false
     },
-    "8ea45153-8ed6-4862-9256-0c23c3076887": {
-      "id": "8ea45153-8ed6-4862-9256-0c23c3076887",
+    "1963e9c1-4b8e-45e3-ad60-b09ab9025f69": {
+      "id": "1963e9c1-4b8e-45e3-ad60-b09ab9025f69",
       "compounds": [
         {
           "amount": 0.41040768091579033,
@@ -934,15 +1082,19 @@
             "smiles": "CCOc1ccc(Br)cc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 201.063,
-            "density": 1.407
+            "density": 1.407,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
       "impure": false
     },
-    "d2ae84c6-580e-4261-8468-513df30c33f2": {
-      "id": "d2ae84c6-580e-4261-8468-513df30c33f2",
+    "089005be-fcf5-4572-a637-1b46fa17b4aa": {
+      "id": "089005be-fcf5-4572-a637-1b46fa17b4aa",
       "compounds": [
         {
           "amount": 3.559678840318032,
@@ -952,15 +1104,19 @@
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 72.107,
-            "density": 0.889
+            "density": 0.889,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "e8a7eee4-9325-4538-97e5-861ebb615b9d",
+      "contained_by": "6c862bf3-bff2-4f02-9d69-1f1ba2486ace",
       "impure": false
     },
-    "2c9b1cf6-979d-4e6f-8e04-e22526e1d882": {
-      "id": "2c9b1cf6-979d-4e6f-8e04-e22526e1d882",
+    "f43f59bb-dab1-4885-8fb0-0f5e1bd9e283": {
+      "id": "f43f59bb-dab1-4885-8fb0-0f5e1bd9e283",
       "compounds": [
         {
           "amount": 3.559678840318032,
@@ -970,15 +1126,19 @@
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 72.107,
-            "density": 0.889
+            "density": 0.889,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
       "impure": false
     },
-    "95146edd-4c18-419d-9cc4-c6b6214c89fb": {
-      "id": "95146edd-4c18-419d-9cc4-c6b6214c89fb",
+    "e0a46e1e-a634-4f27-91e0-e99bd76ebe22": {
+      "id": "e0a46e1e-a634-4f27-91e0-e99bd76ebe22",
       "compounds": [
         {
           "amount": 0.2950262512217172,
@@ -988,15 +1148,19 @@
             "smiles": "OB(O)c1ccccc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 121.93199999999996,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "d1cfbf75-1d3f-42fd-8edd-2ae4e8603f74",
+      "contained_by": "9f4bb962-ace7-4bdf-9d94-192ba720ad74",
       "impure": false
     },
-    "74d18b78-5520-4feb-bf95-6bcf6f3dfae2": {
-      "id": "74d18b78-5520-4feb-bf95-6bcf6f3dfae2",
+    "f558b55c-abb0-464f-bfb1-363a3e314048": {
+      "id": "f558b55c-abb0-464f-bfb1-363a3e314048",
       "compounds": [
         {
           "amount": 0.2950262512217172,
@@ -1006,15 +1170,19 @@
             "smiles": "OB(O)c1ccccc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 121.93199999999996,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
       "impure": false
     },
-    "5821e37e-be24-4be4-b97b-0bd93d5f7101": {
-      "id": "5821e37e-be24-4be4-b97b-0bd93d5f7101",
+    "1ed819e9-61ba-48e6-a160-edcc94ca945c": {
+      "id": "1ed819e9-61ba-48e6-a160-edcc94ca945c",
       "compounds": [
         {
           "amount": 0.41040768091579033,
@@ -1024,7 +1192,11 @@
             "smiles": "CCOc1ccc(Br)cc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 201.063,
-            "density": 1.407
+            "density": 1.407,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1035,7 +1207,11 @@
             "smiles": "OB(O)c1ccccc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 121.93199999999996,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1046,7 +1222,11 @@
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 72.107,
-            "density": 0.889
+            "density": 0.889,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1057,15 +1237,19 @@
             "smiles": "F[K]",
             "state_of_matter": "SOLID",
             "molecular_weight": 58.096000000000004,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
       "impure": false
     },
-    "631ed2fc-afa0-4fc3-9192-dc84c1691d10": {
-      "id": "631ed2fc-afa0-4fc3-9192-dc84c1691d10",
+    "2432f33c-df43-44b3-b590-fca8505a58ae": {
+      "id": "2432f33c-df43-44b3-b590-fca8505a58ae",
       "compounds": [
         {
           "amount": 0.34464214762976453,
@@ -1075,15 +1259,19 @@
             "smiles": "CCOc1ccc(-c2ccccc2)cc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 198.26500000000001,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
       "impure": true
     },
-    "cde2ab4c-0df6-4d0c-9c84-5d8d5f8a1ba8": {
-      "id": "cde2ab4c-0df6-4d0c-9c84-5d8d5f8a1ba8",
+    "9fd99332-822b-4434-8899-f141231478d9": {
+      "id": "9fd99332-822b-4434-8899-f141231478d9",
       "compounds": [
         {
           "amount": 0.34464214762976453,
@@ -1093,15 +1281,19 @@
             "smiles": "CCOc1ccc(-c2ccccc2)cc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 198.26500000000001,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "2678457b-b908-4294-959f-ebfa970c8310",
+      "contained_by": "4b1a343a-4990-45b2-933b-128bbc09e9b7",
       "impure": false
     },
-    "b02f81d9-98a0-42bf-ae06-9c23951ae9ee": {
-      "id": "b02f81d9-98a0-42bf-ae06-9c23951ae9ee",
+    "ccff9104-72e8-408b-ba7d-b5cc88fefe77": {
+      "id": "ccff9104-72e8-408b-ba7d-b5cc88fefe77",
       "compounds": [
         {
           "amount": 0.34464214762976453,
@@ -1111,15 +1303,19 @@
             "smiles": "CCOc1ccc(-c2ccccc2)cc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 198.26500000000001,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
       "impure": true
     },
-    "2c2f6cfc-b779-4f28-bf44-31bfbb1bb3a4": {
-      "id": "2c2f6cfc-b779-4f28-bf44-31bfbb1bb3a4",
+    "024d839b-059f-42d6-ae68-f46d932e06ec": {
+      "id": "024d839b-059f-42d6-ae68-f46d932e06ec",
       "compounds": [
         {
           "amount": 0.09852484044846962,
@@ -1129,15 +1325,19 @@
             "smiles": "[NaH]",
             "state_of_matter": "SOLID",
             "molecular_weight": 23.997999999999998,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "692bdfbd-f23f-4a26-9587-6a2238d1467f",
+      "contained_by": "6fb2a250-dc42-49f2-b796-e36873e0fe81",
       "impure": false
     },
-    "2c214d6d-8380-484a-be2b-4253b07310a8": {
-      "id": "2c214d6d-8380-484a-be2b-4253b07310a8",
+    "b983c9d6-d7b2-4771-b7f9-c7ed3b26466a": {
+      "id": "b983c9d6-d7b2-4771-b7f9-c7ed3b26466a",
       "compounds": [
         {
           "amount": 0.09852484044846962,
@@ -1147,15 +1347,19 @@
             "smiles": "[NaH]",
             "state_of_matter": "SOLID",
             "molecular_weight": 23.997999999999998,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
       "impure": false
     },
-    "bf640298-14e3-46ed-a17d-5e14bf877688": {
-      "id": "bf640298-14e3-46ed-a17d-5e14bf877688",
+    "1d88a6e7-bee6-43b6-b499-cc1ececf0016": {
+      "id": "1d88a6e7-bee6-43b6-b499-cc1ececf0016",
       "compounds": [
         {
           "amount": 4.695005680712978,
@@ -1165,15 +1369,19 @@
             "smiles": "O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 18.015,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "120519e1-9f7a-472d-aaaf-1bdbddcb00fa",
+      "contained_by": "38fff092-4e18-4468-9712-ebfb4c553e56",
       "impure": false
     },
-    "b53c562e-b604-424e-8365-fe179a713fc3": {
-      "id": "b53c562e-b604-424e-8365-fe179a713fc3",
+    "ce3e915d-1d2a-4aba-87f7-83536fecf209": {
+      "id": "ce3e915d-1d2a-4aba-87f7-83536fecf209",
       "compounds": [
         {
           "amount": 4.695005680712978,
@@ -1183,15 +1391,19 @@
             "smiles": "O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 18.015,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
       "impure": false
     },
-    "ab8f8764-8112-4ed3-92be-d4baceae1f80": {
-      "id": "ab8f8764-8112-4ed3-92be-d4baceae1f80",
+    "027c6d27-297a-4392-865a-67a9a9e9535b": {
+      "id": "027c6d27-297a-4392-865a-67a9a9e9535b",
       "compounds": [
         {
           "amount": 4.107260926986888,
@@ -1201,15 +1413,19 @@
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 72.107,
-            "density": 0.889
+            "density": 0.889,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "e8a7eee4-9325-4538-97e5-861ebb615b9d",
+      "contained_by": "6c862bf3-bff2-4f02-9d69-1f1ba2486ace",
       "impure": false
     },
-    "acc10d2d-7cff-4bb2-8e95-b3c374af314b": {
-      "id": "acc10d2d-7cff-4bb2-8e95-b3c374af314b",
+    "29bca38f-e79c-411a-867c-8e79ace0cefb": {
+      "id": "29bca38f-e79c-411a-867c-8e79ace0cefb",
       "compounds": [
         {
           "amount": 4.107260926986888,
@@ -1219,15 +1435,19 @@
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 72.107,
-            "density": 0.889
+            "density": 0.889,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
       "impure": false
     },
-    "aa70c0b6-f619-445f-80ff-8c14c7b63fa9": {
-      "id": "aa70c0b6-f619-445f-80ff-8c14c7b63fa9",
+    "0179c543-639a-45eb-b779-7c9b35a882bf": {
+      "id": "0179c543-639a-45eb-b779-7c9b35a882bf",
       "compounds": [
         {
           "amount": 0.3048735578379678,
@@ -1237,15 +1457,19 @@
             "smiles": "CNc1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 143.57700000000003,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "b37e1214-dd23-441e-a0ea-52b813de3fb6",
+      "contained_by": "d98863d5-f2ef-492b-8a2e-42440c471aeb",
       "impure": false
     },
-    "54cc2fad-9e1e-4961-8a12-02eef460ab74": {
-      "id": "54cc2fad-9e1e-4961-8a12-02eef460ab74",
+    "bc725ac2-aa5b-44a6-9863-895aa447feef": {
+      "id": "bc725ac2-aa5b-44a6-9863-895aa447feef",
       "compounds": [
         {
           "amount": 0.3048735578379678,
@@ -1255,15 +1479,19 @@
             "smiles": "CNc1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 143.57700000000003,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
       "impure": false
     },
-    "6b425307-a2d5-41e7-9781-c97daf19d6f0": {
-      "id": "6b425307-a2d5-41e7-9781-c97daf19d6f0",
+    "03aa4046-a81d-40c6-8085-f0dceee25a8b": {
+      "id": "03aa4046-a81d-40c6-8085-f0dceee25a8b",
       "compounds": [
         {
           "amount": 0.17235747130684098,
@@ -1273,15 +1501,19 @@
             "smiles": "CC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 78.498,
-            "density": 1.104
+            "density": 1.104,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "d0928870-2789-4770-932c-a5e76aa90d9e",
+      "contained_by": "634fa2cf-5c87-463e-acbd-0a0f3dbcecf8",
       "impure": false
     },
-    "7b80ee4a-e3ce-4b6c-b82a-28566b4709db": {
-      "id": "7b80ee4a-e3ce-4b6c-b82a-28566b4709db",
+    "666643c9-9af8-4484-bfbf-68e84cd8d89c": {
+      "id": "666643c9-9af8-4484-bfbf-68e84cd8d89c",
       "compounds": [
         {
           "amount": 0.17235747130684098,
@@ -1291,15 +1523,19 @@
             "smiles": "CC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 78.498,
-            "density": 1.104
+            "density": 1.104,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
       "impure": false
     },
-    "e599d6c5-77ba-4272-83c5-b1392fc11925": {
-      "id": "e599d6c5-77ba-4272-83c5-b1392fc11925",
+    "74761ae4-e84c-453f-a0f7-73c9d063b459": {
+      "id": "74761ae4-e84c-453f-a0f7-73c9d063b459",
       "compounds": [
         {
           "amount": 0.17235747130684098,
@@ -1309,7 +1545,11 @@
             "smiles": "CC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 78.498,
-            "density": 1.104
+            "density": 1.104,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1320,7 +1560,11 @@
             "smiles": "CNc1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 143.57700000000003,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1331,7 +1575,11 @@
             "smiles": "O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 18.015,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1342,7 +1590,11 @@
             "smiles": "C1CCOC1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 72.107,
-            "density": 0.889
+            "density": 0.889,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1353,15 +1605,19 @@
             "smiles": "[NaH]",
             "state_of_matter": "SOLID",
             "molecular_weight": 23.997999999999998,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
       "impure": false
     },
-    "3b3d8678-273e-4f9e-baa2-ee605b4e5314": {
-      "id": "3b3d8678-273e-4f9e-baa2-ee605b4e5314",
+    "eff42dcb-c6ab-4cf1-825b-152917d77f8c": {
+      "id": "eff42dcb-c6ab-4cf1-825b-152917d77f8c",
       "compounds": [
         {
           "amount": 0.35590828681435993,
@@ -1371,51 +1627,19 @@
             "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 185.614,
-            "density": 1.0
-          }
-        }
-      ],
-      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
-      "impure": true
-    },
-    "7f8cb6ab-cf6b-4e54-b8e8-ca54188e751d": {
-      "id": "7f8cb6ab-cf6b-4e54-b8e8-ca54188e751d",
-      "compounds": [
-        {
-          "amount": 0.35590828681435993,
-          "amount_unit": "MILLILITER",
-          "moles": 0.0019174646676132184,
-          "compound_lv0": {
-            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
-            "state_of_matter": "LIQUID",
-            "molecular_weight": 185.614,
-            "density": 1.0
-          }
-        }
-      ],
-      "contained_by": "d674eff3-a5cb-4b09-a0df-e6b210a23218",
-      "impure": false
-    },
-    "e1d98ba1-f4b2-4623-93ba-209e5b8b476e": {
-      "id": "e1d98ba1-f4b2-4623-93ba-209e5b8b476e",
-      "compounds": [
-        {
-          "amount": 0.35590828681435993,
-          "amount_unit": "MILLILITER",
-          "moles": 0.0019174646676132184,
-          "compound_lv0": {
-            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
-            "state_of_matter": "LIQUID",
-            "molecular_weight": 185.614,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
       "impure": true
     },
-    "ef8fdf68-46d1-41ef-9a90-f30384424aac": {
-      "id": "ef8fdf68-46d1-41ef-9a90-f30384424aac",
+    "a46900b2-df15-44c7-ac61-ee55a9e2fd55": {
+      "id": "a46900b2-df15-44c7-ac61-ee55a9e2fd55",
       "compounds": [
         {
           "amount": 0.35590828681435993,
@@ -1425,15 +1649,19 @@
             "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 185.614,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "24a66749-c4b2-4caf-adfb-57bc247c54a0",
+      "contained_by": "89b2fcd8-5db7-4595-a990-20f53c96d2d9",
       "impure": false
     },
-    "a77e4fff-884b-41e2-a886-2e0384060f1e": {
-      "id": "a77e4fff-884b-41e2-a886-2e0384060f1e",
+    "0d7d01e1-5dc9-4d7d-a80a-92066e45f15e": {
+      "id": "0d7d01e1-5dc9-4d7d-a80a-92066e45f15e",
       "compounds": [
         {
           "amount": 0.35590828681435993,
@@ -1443,15 +1671,63 @@
             "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 185.614,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "d674eff3-a5cb-4b09-a0df-e6b210a23218",
+      "contained_by": "reactor for the reaction of: CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "impure": true
+    },
+    "28678c7d-3aa0-4341-9240-9b6117b591b8": {
+      "id": "28678c7d-3aa0-4341-9240-9b6117b591b8",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
+          }
+        }
+      ],
+      "contained_by": "e1568e73-7359-478e-972b-4007907376df",
       "impure": false
     },
-    "5a0a0677-12d7-4dae-a677-b5b939e907fb": {
-      "id": "5a0a0677-12d7-4dae-a677-b5b939e907fb",
+    "2d89505e-e082-406c-9e10-d49903703f6c": {
+      "id": "2d89505e-e082-406c-9e10-d49903703f6c",
+      "compounds": [
+        {
+          "amount": 0.35590828681435993,
+          "amount_unit": "MILLILITER",
+          "moles": 0.0019174646676132184,
+          "compound_lv0": {
+            "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 185.614,
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
+          }
+        }
+      ],
+      "contained_by": "89b2fcd8-5db7-4595-a990-20f53c96d2d9",
+      "impure": false
+    },
+    "2796efd9-a377-4d58-a7c5-9526c9ceb384": {
+      "id": "2796efd9-a377-4d58-a7c5-9526c9ceb384",
       "compounds": [
         {
           "amount": 32.9507788189823,
@@ -1461,15 +1737,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "878bcf6c-9ba3-4a5c-929e-608d25f77b84",
+      "contained_by": "56232651-abe1-4983-9b36-7f10e281fde7",
       "impure": false
     },
-    "45312432-1a4b-4d85-8e01-d531a638631c": {
-      "id": "45312432-1a4b-4d85-8e01-d531a638631c",
+    "003eb2bb-db2a-4afc-9935-32b96c658bb6": {
+      "id": "003eb2bb-db2a-4afc-9935-32b96c658bb6",
       "compounds": [
         {
           "amount": 32.9507788189823,
@@ -1479,15 +1759,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "0558abd0-44d9-4e96-9d28-d4104aa2faf8": {
-      "id": "0558abd0-44d9-4e96-9d28-d4104aa2faf8",
+    "0ec9f536-3dbe-402b-821b-1751d2e4c3a1": {
+      "id": "0ec9f536-3dbe-402b-821b-1751d2e4c3a1",
       "compounds": [
         {
           "amount": 1.2413634636319122,
@@ -1497,15 +1781,19 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 175.18399999999997,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "3378179d-90e8-44d4-bfa9-4dbf49a4acac",
+      "contained_by": "0b33bca2-77f3-412e-8ab3-1a161a07d487",
       "impure": false
     },
-    "b20fba73-0e36-4de2-9d0d-24c8dc155f55": {
-      "id": "b20fba73-0e36-4de2-9d0d-24c8dc155f55",
+    "20e5f3d3-3d90-4f08-aa46-069f2a84c942": {
+      "id": "20e5f3d3-3d90-4f08-aa46-069f2a84c942",
       "compounds": [
         {
           "amount": 1.2413634636319122,
@@ -1515,15 +1803,19 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 175.18399999999997,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "4fbe815e-edcb-428c-bbd7-9c4daa566c0a": {
-      "id": "4fbe815e-edcb-428c-bbd7-9c4daa566c0a",
+    "8696978c-54ef-46a4-8ab6-69eb951de827": {
+      "id": "8696978c-54ef-46a4-8ab6-69eb951de827",
       "compounds": [
         {
           "amount": 1.078062007866458,
@@ -1533,15 +1825,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "0e818912-9063-4dce-8075-44ceffcc7c09",
+      "contained_by": "a12b4d73-9fd7-4bd1-a9e2-19f1c4219f1b",
       "impure": false
     },
-    "fb4c8f4b-3a9b-4537-9000-4b517ea0e3ab": {
-      "id": "fb4c8f4b-3a9b-4537-9000-4b517ea0e3ab",
+    "19c88d77-df79-4004-9914-1ca9d3c95eb7": {
+      "id": "19c88d77-df79-4004-9914-1ca9d3c95eb7",
       "compounds": [
         {
           "amount": 1.078062007866458,
@@ -1551,15 +1847,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "d4aeb7f5-67a6-4897-900a-aacf5c0337d3": {
-      "id": "d4aeb7f5-67a6-4897-900a-aacf5c0337d3",
+    "c6cf8924-2169-4d08-b91d-e8496f4eee3e": {
+      "id": "c6cf8924-2169-4d08-b91d-e8496f4eee3e",
       "compounds": [
         {
           "amount": 0.7841695405206918,
@@ -1569,15 +1869,19 @@
             "smiles": "CC(C)COC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.57799999999997,
-            "density": 1.053
+            "density": 1.053,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "aad49c75-0867-4afb-9707-577ef64f8355",
+      "contained_by": "d0e17f55-75b0-46e0-aa8c-40fc9e7a75b7",
       "impure": false
     },
-    "49798e6f-2478-47db-8e2d-77a002d0770d": {
-      "id": "49798e6f-2478-47db-8e2d-77a002d0770d",
+    "b8a10b00-e668-449c-854f-e2bca18a2d80": {
+      "id": "b8a10b00-e668-449c-854f-e2bca18a2d80",
       "compounds": [
         {
           "amount": 0.7841695405206918,
@@ -1587,15 +1891,19 @@
             "smiles": "CC(C)COC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.57799999999997,
-            "density": 1.053
+            "density": 1.053,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "a941926c-0958-4b49-bade-a52d2285d6bd": {
-      "id": "a941926c-0958-4b49-bade-a52d2285d6bd",
+    "0f92eb01-37d1-4946-8086-2a48929868e5": {
+      "id": "0f92eb01-37d1-4946-8086-2a48929868e5",
       "compounds": [
         {
           "amount": 0.72926904433252,
@@ -1605,15 +1913,19 @@
             "smiles": "Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.082,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "50f86f2f-c752-4152-abc5-84c72fe449b7",
+      "contained_by": "ebb534d1-2ffe-47ee-9e41-ac6b16095e36",
       "impure": false
     },
-    "ac665522-e4c8-441a-8393-f11e8e824ac8": {
-      "id": "ac665522-e4c8-441a-8393-f11e8e824ac8",
+    "ebbb7356-86e0-40b9-90a0-18e2d5ea34d0": {
+      "id": "ebbb7356-86e0-40b9-90a0-18e2d5ea34d0",
       "compounds": [
         {
           "amount": 0.72926904433252,
@@ -1623,15 +1935,19 @@
             "smiles": "Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.082,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "ffa88ab3-ee4a-406c-aeb8-cd127d7d3ebb": {
-      "id": "ffa88ab3-ee4a-406c-aeb8-cd127d7d3ebb",
+    "648f464a-063f-447b-bd68-69d34d6a7bb3": {
+      "id": "648f464a-063f-447b-bd68-69d34d6a7bb3",
       "compounds": [
         {
           "amount": 1.2413634636319122,
@@ -1641,7 +1957,11 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 175.18399999999997,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1652,7 +1972,11 @@
             "smiles": "Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.082,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1663,7 +1987,11 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1674,7 +2002,11 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1685,15 +2017,19 @@
             "smiles": "CC(C)COC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.57799999999997,
-            "density": 1.053
+            "density": 1.053,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "a29f7944-52ef-4747-9734-df7ebad52eb4": {
-      "id": "a29f7944-52ef-4747-9734-df7ebad52eb4",
+    "fb6c2880-f5ba-477d-b04e-2781ede8198c": {
+      "id": "fb6c2880-f5ba-477d-b04e-2781ede8198c",
       "compounds": [
         {
           "amount": 1.2119441663643606,
@@ -1703,51 +2039,19 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.251,
-            "density": 1.4
-          }
-        }
-      ],
-      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
-      "impure": true
-    },
-    "94e46148-27be-46ba-9e07-9369bc19f19e": {
-      "id": "94e46148-27be-46ba-9e07-9369bc19f19e",
-      "compounds": [
-        {
-          "amount": 1.2119441663643606,
-          "amount_unit": "GRAM",
-          "moles": 0.005023581938994494,
-          "compound_lv0": {
-            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
-            "state_of_matter": "SOLID",
-            "molecular_weight": 241.251,
-            "density": 1.4
-          }
-        }
-      ],
-      "contained_by": "a96e8b20-8e47-4908-bf24-6550080f42e2",
-      "impure": false
-    },
-    "8b90264c-2557-4981-8638-72459d1982fa": {
-      "id": "8b90264c-2557-4981-8638-72459d1982fa",
-      "compounds": [
-        {
-          "amount": 1.2119441663643606,
-          "amount_unit": "GRAM",
-          "moles": 0.005023581938994494,
-          "compound_lv0": {
-            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
-            "state_of_matter": "SOLID",
-            "molecular_weight": 241.251,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
       "impure": true
     },
-    "4eb2dad9-c79b-4c5c-aee0-5527a9dee09b": {
-      "id": "4eb2dad9-c79b-4c5c-aee0-5527a9dee09b",
+    "f29ae4ea-18a3-45f1-a04f-ab243dd0770d": {
+      "id": "f29ae4ea-18a3-45f1-a04f-ab243dd0770d",
       "compounds": [
         {
           "amount": 1.2119441663643606,
@@ -1757,15 +2061,19 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.251,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "14fd9c95-1bb0-4188-8ded-ecf73beca2d8",
+      "contained_by": "33e45c9d-7d8a-4c28-a164-884300737ec4",
       "impure": false
     },
-    "4ecf3c30-4923-4fae-8aa8-d33332e24c45": {
-      "id": "4ecf3c30-4923-4fae-8aa8-d33332e24c45",
+    "3f1941c7-5497-4a31-9b77-e374e025e973": {
+      "id": "3f1941c7-5497-4a31-9b77-e374e025e973",
       "compounds": [
         {
           "amount": 1.2119441663643606,
@@ -1775,15 +2083,63 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.251,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "a96e8b20-8e47-4908-bf24-6550080f42e2",
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "420f55e1-9028-4c3f-9576-c3cb9dd03218": {
+      "id": "420f55e1-9028-4c3f-9576-c3cb9dd03218",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
+          }
+        }
+      ],
+      "contained_by": "42c43049-a002-4ec8-adf2-bdb26c155d80",
       "impure": false
     },
-    "4be3e321-7249-4504-845a-62426a3cf995": {
-      "id": "4be3e321-7249-4504-845a-62426a3cf995",
+    "49045bdf-106b-444d-9371-dd0d175d7637": {
+      "id": "49045bdf-106b-444d-9371-dd0d175d7637",
+      "compounds": [
+        {
+          "amount": 1.2119441663643606,
+          "amount_unit": "GRAM",
+          "moles": 0.005023581938994494,
+          "compound_lv0": {
+            "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+            "state_of_matter": "SOLID",
+            "molecular_weight": 241.251,
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
+          }
+        }
+      ],
+      "contained_by": "33e45c9d-7d8a-4c28-a164-884300737ec4",
+      "impure": false
+    },
+    "a36c1b42-92eb-464a-be93-15b2540f6c9c": {
+      "id": "a36c1b42-92eb-464a-be93-15b2540f6c9c",
       "compounds": [
         {
           "amount": 3.4707637519148213,
@@ -1793,15 +2149,19 @@
             "smiles": "O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 18.015,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "120519e1-9f7a-472d-aaaf-1bdbddcb00fa",
+      "contained_by": "38fff092-4e18-4468-9712-ebfb4c553e56",
       "impure": false
     },
-    "c056fbd9-b234-401e-83d4-f4586ba871af": {
-      "id": "c056fbd9-b234-401e-83d4-f4586ba871af",
+    "5ebf4f2c-84d2-4a33-b7d0-a2cf06afef81": {
+      "id": "5ebf4f2c-84d2-4a33-b7d0-a2cf06afef81",
       "compounds": [
         {
           "amount": 3.4707637519148213,
@@ -1811,15 +2171,19 @@
             "smiles": "O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 18.015,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
       "impure": false
     },
-    "d74b2147-6bf7-4d6b-b533-2b588f5072de": {
-      "id": "d74b2147-6bf7-4d6b-b533-2b588f5072de",
+    "606f75aa-1373-4624-9885-aee99f125661": {
+      "id": "606f75aa-1373-4624-9885-aee99f125661",
       "compounds": [
         {
           "amount": 1.095687016680388,
@@ -1829,15 +2193,19 @@
             "smiles": "O=S(=O)(O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 98.07899999999998,
-            "density": 1.84
+            "density": 1.84,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "38afe00b-0581-4766-a2d4-24fe4465d7d3",
+      "contained_by": "539ada3a-fd30-40e9-992e-74c85e09fbe1",
       "impure": false
     },
-    "9b891064-c47a-4431-bfe6-1213e027bc3f": {
-      "id": "9b891064-c47a-4431-bfe6-1213e027bc3f",
+    "131bc33e-c59a-4db8-9b84-638c3ef67b1c": {
+      "id": "131bc33e-c59a-4db8-9b84-638c3ef67b1c",
       "compounds": [
         {
           "amount": 1.095687016680388,
@@ -1847,15 +2215,19 @@
             "smiles": "O=S(=O)(O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 98.07899999999998,
-            "density": 1.84
+            "density": 1.84,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
       "impure": false
     },
-    "e1bb3e1f-d031-4edf-aedb-80562508e7d3": {
-      "id": "e1bb3e1f-d031-4edf-aedb-80562508e7d3",
+    "218fe7fa-1377-4f60-a1ef-71f36f377e67": {
+      "id": "218fe7fa-1377-4f60-a1ef-71f36f377e67",
       "compounds": [
         {
           "amount": 0.35590828681435993,
@@ -1865,15 +2237,19 @@
             "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 185.614,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "24a66749-c4b2-4caf-adfb-57bc247c54a0",
+      "contained_by": "e1568e73-7359-478e-972b-4007907376df",
       "impure": false
     },
-    "c4db04b3-0eb6-4a20-b5e7-e0adc5520f54": {
-      "id": "c4db04b3-0eb6-4a20-b5e7-e0adc5520f54",
+    "170fe1f6-2132-427a-af19-83e60e7e3ad6": {
+      "id": "170fe1f6-2132-427a-af19-83e60e7e3ad6",
       "compounds": [
         {
           "amount": 0.35590828681435993,
@@ -1883,15 +2259,19 @@
             "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 185.614,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
       "impure": false
     },
-    "d598a52b-03a7-454a-902c-332b5f203e12": {
-      "id": "d598a52b-03a7-454a-902c-332b5f203e12",
+    "ac5e0876-b5f4-4c12-b2eb-60ce54bc20ef": {
+      "id": "ac5e0876-b5f4-4c12-b2eb-60ce54bc20ef",
       "compounds": [
         {
           "amount": 0.35590828681435993,
@@ -1901,7 +2281,11 @@
             "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 185.614,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1912,7 +2296,11 @@
             "smiles": "O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 18.015,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -1923,15 +2311,19 @@
             "smiles": "O=S(=O)(O)O",
             "state_of_matter": "LIQUID",
             "molecular_weight": 98.07899999999998,
-            "density": 1.84
+            "density": 1.84,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
       "impure": false
     },
-    "6e4b7e24-428f-4909-8226-24752e416efa": {
-      "id": "6e4b7e24-428f-4909-8226-24752e416efa",
+    "782519c0-5d76-410b-9824-3d2c7c896c7e": {
+      "id": "782519c0-5d76-410b-9824-3d2c7c896c7e",
       "compounds": [
         {
           "amount": 0.4278853596915767,
@@ -1941,15 +2333,19 @@
             "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
             "state_of_matter": "SOLID",
             "molecular_weight": 230.611,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
       "impure": true
     },
-    "ac8ff035-27b1-4a50-849c-39b621be0a58": {
-      "id": "ac8ff035-27b1-4a50-849c-39b621be0a58",
+    "1f2e63d6-c55c-4ecd-a1b1-d6800ebbb97e": {
+      "id": "1f2e63d6-c55c-4ecd-a1b1-d6800ebbb97e",
       "compounds": [
         {
           "amount": 0.4278853596915767,
@@ -1959,15 +2355,19 @@
             "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
             "state_of_matter": "SOLID",
             "molecular_weight": 230.611,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "39470a08-e817-410c-a5e7-48ee2d20c7de",
+      "contained_by": "4ecc996c-a14b-4876-b13f-cb8555a4a447",
       "impure": false
     },
-    "d0c62f51-3236-4545-ac04-701dfaa8b6c6": {
-      "id": "d0c62f51-3236-4545-ac04-701dfaa8b6c6",
+    "22083924-4c2c-46b7-be82-f10816306255": {
+      "id": "22083924-4c2c-46b7-be82-f10816306255",
       "compounds": [
         {
           "amount": 0.4278853596915767,
@@ -1977,15 +2377,19 @@
             "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
             "state_of_matter": "SOLID",
             "molecular_weight": 230.611,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
       "impure": true
     },
-    "cb806f50-ca52-4ceb-8bdd-530d19afab32": {
-      "id": "cb806f50-ca52-4ceb-8bdd-530d19afab32",
+    "6d73377d-a11f-4671-99cd-47a36013141d": {
+      "id": "6d73377d-a11f-4671-99cd-47a36013141d",
       "compounds": [
         {
           "amount": 1.2119441663643606,
@@ -1995,15 +2399,19 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.251,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "14fd9c95-1bb0-4188-8ded-ecf73beca2d8",
+      "contained_by": "42c43049-a002-4ec8-adf2-bdb26c155d80",
       "impure": false
     },
-    "5cfa1a21-2096-4fe2-b1f4-8ef198934421": {
-      "id": "5cfa1a21-2096-4fe2-b1f4-8ef198934421",
+    "c3f81c4b-7cd3-4e77-8d93-7b8f16af5d79": {
+      "id": "c3f81c4b-7cd3-4e77-8d93-7b8f16af5d79",
       "compounds": [
         {
           "amount": 1.2119441663643606,
@@ -2013,15 +2421,19 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.251,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "f7dfdd52-aab6-4703-9294-588d842a0a21": {
-      "id": "f7dfdd52-aab6-4703-9294-588d842a0a21",
+    "747aae07-9643-41c2-b4b6-9c6e22a322ff": {
+      "id": "747aae07-9643-41c2-b4b6-9c6e22a322ff",
       "compounds": [
         {
           "amount": 18.682001058164506,
@@ -2031,15 +2443,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "878bcf6c-9ba3-4a5c-929e-608d25f77b84",
+      "contained_by": "56232651-abe1-4983-9b36-7f10e281fde7",
       "impure": false
     },
-    "45d09ab9-e4f3-4397-9717-6ecbfd8c917a": {
-      "id": "45d09ab9-e4f3-4397-9717-6ecbfd8c917a",
+    "3d61297c-18d8-4f4d-8dd0-81d520e3b7a0": {
+      "id": "3d61297c-18d8-4f4d-8dd0-81d520e3b7a0",
       "compounds": [
         {
           "amount": 18.682001058164506,
@@ -2049,15 +2465,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "06295273-1796-4906-be2b-d40df9ea7a33": {
-      "id": "06295273-1796-4906-be2b-d40df9ea7a33",
+    "6f249ba1-7363-4bf6-8beb-16951377de65": {
+      "id": "6f249ba1-7363-4bf6-8beb-16951377de65",
       "compounds": [
         {
           "amount": 14.789555061700083,
@@ -2067,15 +2487,19 @@
             "smiles": "O=C(O)C(F)(F)F",
             "state_of_matter": "LIQUID",
             "molecular_weight": 114.02200000000002,
-            "density": 1.489
+            "density": 1.489,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "ed6b657e-34a5-4561-aca7-afb671e257be",
+      "contained_by": "376bc807-bad0-43aa-b552-c41c151850fa",
       "impure": false
     },
-    "cdf9a45a-c331-46c7-9288-5744902320b4": {
-      "id": "cdf9a45a-c331-46c7-9288-5744902320b4",
+    "d8b07b03-c118-43b8-8dad-9d8c65939525": {
+      "id": "d8b07b03-c118-43b8-8dad-9d8c65939525",
       "compounds": [
         {
           "amount": 14.789555061700083,
@@ -2085,15 +2509,19 @@
             "smiles": "O=C(O)C(F)(F)F",
             "state_of_matter": "LIQUID",
             "molecular_weight": 114.02200000000002,
-            "density": 1.489
+            "density": 1.489,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "44a643fd-b412-45a5-b006-f3213199f088": {
-      "id": "44a643fd-b412-45a5-b006-f3213199f088",
+    "7c013cf7-b9a1-4f10-8b65-6e6f7ce6a64f": {
+      "id": "7c013cf7-b9a1-4f10-8b65-6e6f7ce6a64f",
       "compounds": [
         {
           "amount": 1.2119441663643606,
@@ -2103,7 +2531,11 @@
             "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.251,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2114,7 +2546,11 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2125,15 +2561,19 @@
             "smiles": "O=C(O)C(F)(F)F",
             "state_of_matter": "LIQUID",
             "molecular_weight": 114.02200000000002,
-            "density": 1.489
+            "density": 1.489,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "0bda0995-06b4-4112-8df1-98e56cfafe5c": {
-      "id": "0bda0995-06b4-4112-8df1-98e56cfafe5c",
+    "d3b1c8e7-15e1-40a8-9633-68caf5575617": {
+      "id": "d3b1c8e7-15e1-40a8-9633-68caf5575617",
       "compounds": [
         {
           "amount": 0.5860412942672558,
@@ -2143,51 +2583,19 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
-          }
-        }
-      ],
-      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
-      "impure": true
-    },
-    "fce85a92-b3e7-462b-9285-ec9fc56cd6a8": {
-      "id": "fce85a92-b3e7-462b-9285-ec9fc56cd6a8",
-      "compounds": [
-        {
-          "amount": 0.5860412942672558,
-          "amount_unit": "MILLILITER",
-          "moles": 0.004152375007207731,
-          "compound_lv0": {
-            "smiles": "NCC(=O)Nn1cnnc1",
-            "state_of_matter": "LIQUID",
-            "molecular_weight": 141.134,
-            "density": 1.0
-          }
-        }
-      ],
-      "contained_by": "3c84a456-12f2-4029-b89d-8bd28d1187b1",
-      "impure": false
-    },
-    "44722d5b-a993-4dcc-a931-72e86ea2748b": {
-      "id": "44722d5b-a993-4dcc-a931-72e86ea2748b",
-      "compounds": [
-        {
-          "amount": 0.5860412942672558,
-          "amount_unit": "MILLILITER",
-          "moles": 0.004152375007207731,
-          "compound_lv0": {
-            "smiles": "NCC(=O)Nn1cnnc1",
-            "state_of_matter": "LIQUID",
-            "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
       "impure": true
     },
-    "24f819fe-1cf9-43c6-9e3c-b814c10db967": {
-      "id": "24f819fe-1cf9-43c6-9e3c-b814c10db967",
+    "dec5d27d-a657-4d6a-bf38-7f610061864a": {
+      "id": "dec5d27d-a657-4d6a-bf38-7f610061864a",
       "compounds": [
         {
           "amount": 0.5860412942672558,
@@ -2197,15 +2605,19 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "4ffc5f77-67f9-4f12-82c5-dd00275fc758",
+      "contained_by": "9f08fe14-6da4-424e-b947-7236c2cd90f2",
       "impure": false
     },
-    "74a9a24f-2917-4bdc-b854-0e5927fee255": {
-      "id": "74a9a24f-2917-4bdc-b854-0e5927fee255",
+    "fb75c1f8-ede3-49fa-bad1-9eac68f5daa6": {
+      "id": "fb75c1f8-ede3-49fa-bad1-9eac68f5daa6",
       "compounds": [
         {
           "amount": 0.5860412942672558,
@@ -2215,15 +2627,63 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "3c84a456-12f2-4029-b89d-8bd28d1187b1",
+      "contained_by": "reactor for the reaction of: CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "impure": true
+    },
+    "5b46b84a-691c-466a-9cee-257e95df0e48": {
+      "id": "5b46b84a-691c-466a-9cee-257e95df0e48",
+      "compounds": [
+        {
+          "amount": 0.5860412942672558,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004152375007207731,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
+          }
+        }
+      ],
+      "contained_by": "fd689511-8c33-414f-8cf3-f05af119325f",
       "impure": false
     },
-    "6ea0741f-5147-4ba3-9f40-59a85ba79389": {
-      "id": "6ea0741f-5147-4ba3-9f40-59a85ba79389",
+    "1aa3e1f6-f496-4a54-bc20-199129276336": {
+      "id": "1aa3e1f6-f496-4a54-bc20-199129276336",
+      "compounds": [
+        {
+          "amount": 0.5860412942672558,
+          "amount_unit": "MILLILITER",
+          "moles": 0.004152375007207731,
+          "compound_lv0": {
+            "smiles": "NCC(=O)Nn1cnnc1",
+            "state_of_matter": "LIQUID",
+            "molecular_weight": 141.134,
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
+          }
+        }
+      ],
+      "contained_by": "9f08fe14-6da4-424e-b947-7236c2cd90f2",
+      "impure": false
+    },
+    "156aee8d-f711-4680-a81e-1b1dc3f794f7": {
+      "id": "156aee8d-f711-4680-a81e-1b1dc3f794f7",
       "compounds": [
         {
           "amount": 14.329932991702398,
@@ -2233,15 +2693,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "878bcf6c-9ba3-4a5c-929e-608d25f77b84",
+      "contained_by": "56232651-abe1-4983-9b36-7f10e281fde7",
       "impure": false
     },
-    "0ad37250-0519-4a47-a5f1-0e837af91552": {
-      "id": "0ad37250-0519-4a47-a5f1-0e837af91552",
+    "0dd70ff5-3497-448a-8c55-eff6aada5724": {
+      "id": "0dd70ff5-3497-448a-8c55-eff6aada5724",
       "compounds": [
         {
           "amount": 14.329932991702398,
@@ -2251,15 +2715,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "ab0735be-d667-4b18-982b-e65d9dd18c85": {
-      "id": "ab0735be-d667-4b18-982b-e65d9dd18c85",
+    "9f1e9d5f-ccf0-4822-b1e5-269c45527814": {
+      "id": "9f1e9d5f-ccf0-4822-b1e5-269c45527814",
       "compounds": [
         {
           "amount": 0.2763479617684196,
@@ -2269,15 +2737,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "0e818912-9063-4dce-8075-44ceffcc7c09",
+      "contained_by": "a12b4d73-9fd7-4bd1-a9e2-19f1c4219f1b",
       "impure": false
     },
-    "f6bf5d90-238a-4ce1-89ea-6175ad9cb4a9": {
-      "id": "f6bf5d90-238a-4ce1-89ea-6175ad9cb4a9",
+    "02bb9d5a-61e5-4237-885f-2191de2387a9": {
+      "id": "02bb9d5a-61e5-4237-885f-2191de2387a9",
       "compounds": [
         {
           "amount": 0.2763479617684196,
@@ -2287,15 +2759,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "427ecaa7-85d3-4ea1-ab8b-1ec993371fe2": {
-      "id": "427ecaa7-85d3-4ea1-ab8b-1ec993371fe2",
+    "3e787b72-1e81-4bc3-a6a0-4113d9343e07": {
+      "id": "3e787b72-1e81-4bc3-a6a0-4113d9343e07",
       "compounds": [
         {
           "amount": 0.24578715604653895,
@@ -2305,15 +2781,19 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "4ffc5f77-67f9-4f12-82c5-dd00275fc758",
+      "contained_by": "fd689511-8c33-414f-8cf3-f05af119325f",
       "impure": false
     },
-    "98c1de07-cc1a-4a65-aaf0-9c552e4f06b1": {
-      "id": "98c1de07-cc1a-4a65-aaf0-9c552e4f06b1",
+    "e46954e1-91d8-4a1d-8cec-7152a57f228c": {
+      "id": "e46954e1-91d8-4a1d-8cec-7152a57f228c",
       "compounds": [
         {
           "amount": 0.24578715604653895,
@@ -2323,15 +2803,19 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "4f4dec15-fbfe-47ab-9efd-6f4c097765dd": {
-      "id": "4f4dec15-fbfe-47ab-9efd-6f4c097765dd",
+    "b84371b4-a0be-4270-a524-004cec108cfa": {
+      "id": "b84371b4-a0be-4270-a524-004cec108cfa",
       "compounds": [
         {
           "amount": 0.19335020873983771,
@@ -2341,15 +2825,19 @@
             "smiles": "CC(=O)OCC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.534,
-            "density": 1.27
+            "density": 1.27,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "d5a27898-2f76-4232-a27f-4f194bc3c963",
+      "contained_by": "c6664775-29fd-4725-9fa1-1d7a751bfc13",
       "impure": false
     },
-    "177577e9-cbb2-47b7-986d-d73af5c5ad0e": {
-      "id": "177577e9-cbb2-47b7-986d-d73af5c5ad0e",
+    "951ec23d-6714-4e08-9e44-1004c9854984": {
+      "id": "951ec23d-6714-4e08-9e44-1004c9854984",
       "compounds": [
         {
           "amount": 0.19335020873983771,
@@ -2359,15 +2847,19 @@
             "smiles": "CC(=O)OCC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.534,
-            "density": 1.27
+            "density": 1.27,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "223b4b13-fdde-4f13-b296-76b7f09734f3": {
-      "id": "223b4b13-fdde-4f13-b296-76b7f09734f3",
+    "c3056044-18be-424e-8ee4-7b979c3cfcc5": {
+      "id": "c3056044-18be-424e-8ee4-7b979c3cfcc5",
       "compounds": [
         {
           "amount": 0.19335020873983771,
@@ -2377,7 +2869,11 @@
             "smiles": "CC(=O)OCC(=O)Cl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 136.534,
-            "density": 1.27
+            "density": 1.27,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2388,7 +2884,11 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2399,7 +2899,11 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2410,15 +2914,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "32579508-40c4-443a-8649-cf9d17057d13": {
-      "id": "32579508-40c4-443a-8649-cf9d17057d13",
+    "487a4bb0-b2b5-4969-a338-db5a0a63c109": {
+      "id": "487a4bb0-b2b5-4969-a338-db5a0a63c109",
       "compounds": [
         {
           "amount": 0.3050021510445334,
@@ -2428,15 +2936,19 @@
             "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.20700000000002,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
       "impure": true
     },
-    "ad9dad64-37ec-4730-8c21-2081c0e122df": {
-      "id": "ad9dad64-37ec-4730-8c21-2081c0e122df",
+    "517753c4-63d5-4c64-ae84-849403fefce5": {
+      "id": "517753c4-63d5-4c64-ae84-849403fefce5",
       "compounds": [
         {
           "amount": 0.3050021510445334,
@@ -2446,15 +2958,19 @@
             "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.20700000000002,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "87216cdf-86d4-4bc6-8d08-dc7effd06930",
+      "contained_by": "2ac69062-33cc-4b8d-b967-491e764cf837",
       "impure": false
     },
-    "cf5bdae6-b3d8-4fdd-babb-ff4d40a85ea4": {
-      "id": "cf5bdae6-b3d8-4fdd-babb-ff4d40a85ea4",
+    "8eb2fa4f-26fd-4a54-b5d3-ab8e082d44e8": {
+      "id": "8eb2fa4f-26fd-4a54-b5d3-ab8e082d44e8",
       "compounds": [
         {
           "amount": 0.3050021510445334,
@@ -2464,15 +2980,19 @@
             "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 241.20700000000002,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
       "impure": true
     },
-    "5ce164b0-23c1-4ed6-a5e0-1812a85cfcb0": {
-      "id": "5ce164b0-23c1-4ed6-a5e0-1812a85cfcb0",
+    "343e9872-9a5a-4f4b-89aa-a3ecc1f703e8": {
+      "id": "343e9872-9a5a-4f4b-89aa-a3ecc1f703e8",
       "compounds": [
         {
           "amount": 13.255360420846904,
@@ -2482,15 +3002,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "878bcf6c-9ba3-4a5c-929e-608d25f77b84",
+      "contained_by": "56232651-abe1-4983-9b36-7f10e281fde7",
       "impure": false
     },
-    "1218dede-5178-40aa-b374-69f10dcc9be4": {
-      "id": "1218dede-5178-40aa-b374-69f10dcc9be4",
+    "5ba4f826-2e7c-4902-9fce-6d8d36f03742": {
+      "id": "5ba4f826-2e7c-4902-9fce-6d8d36f03742",
       "compounds": [
         {
           "amount": 13.255360420846904,
@@ -2500,15 +3024,19 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "3d6d5e77-5be9-47e5-aad0-b345ed537f02": {
-      "id": "3d6d5e77-5be9-47e5-aad0-b345ed537f02",
+    "4a633486-ed2b-4745-9102-ac5404ee038e": {
+      "id": "4a633486-ed2b-4745-9102-ac5404ee038e",
       "compounds": [
         {
           "amount": 0.3402541382207169,
@@ -2518,15 +3046,19 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "4ffc5f77-67f9-4f12-82c5-dd00275fc758",
+      "contained_by": "fd689511-8c33-414f-8cf3-f05af119325f",
       "impure": false
     },
-    "c817e657-2ab2-406d-ba12-c6f4ff2c76f2": {
-      "id": "c817e657-2ab2-406d-ba12-c6f4ff2c76f2",
+    "b619c737-9ba3-44b5-88f7-675b05e6fd6a": {
+      "id": "b619c737-9ba3-44b5-88f7-675b05e6fd6a",
       "compounds": [
         {
           "amount": 0.3402541382207169,
@@ -2536,15 +3068,19 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "ac801305-2fb6-4ae9-a2b2-ffcd9f8c54fb": {
-      "id": "ac801305-2fb6-4ae9-a2b2-ffcd9f8c54fb",
+    "8d0589a9-3622-42e0-95cb-b6f2ff281b87": {
+      "id": "8d0589a9-3622-42e0-95cb-b6f2ff281b87",
       "compounds": [
         {
           "amount": 0.289447806551031,
@@ -2554,15 +3090,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "0e818912-9063-4dce-8075-44ceffcc7c09",
+      "contained_by": "a12b4d73-9fd7-4bd1-a9e2-19f1c4219f1b",
       "impure": false
     },
-    "10c710c7-35f0-4aa8-a4a4-db21d322e305": {
-      "id": "10c710c7-35f0-4aa8-a4a4-db21d322e305",
+    "8c0622eb-9957-4145-9963-887a3c029b4e": {
+      "id": "8c0622eb-9957-4145-9963-887a3c029b4e",
       "compounds": [
         {
           "amount": 0.289447806551031,
@@ -2572,15 +3112,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "c3cacd91-c683-47d7-87a2-6aae0604af38": {
-      "id": "c3cacd91-c683-47d7-87a2-6aae0604af38",
+    "98e7cf4e-341f-4845-876b-153f7853cf54": {
+      "id": "98e7cf4e-341f-4845-876b-153f7853cf54",
       "compounds": [
         {
           "amount": 0.23292539956506564,
@@ -2590,15 +3134,19 @@
             "smiles": "O=C(Cl)CBr",
             "state_of_matter": "LIQUID",
             "molecular_weight": 157.394,
-            "density": 1.89
+            "density": 1.89,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "8fcdb0c8-d293-4b68-a1f6-00bf013d8d22",
+      "contained_by": "91605e12-e5d8-49db-8023-41c2cd6f4384",
       "impure": false
     },
-    "0406eaff-23f2-4116-8c7b-315734427c70": {
-      "id": "0406eaff-23f2-4116-8c7b-315734427c70",
+    "64c1825f-26d1-42bb-b4c3-4803443f7ef5": {
+      "id": "64c1825f-26d1-42bb-b4c3-4803443f7ef5",
       "compounds": [
         {
           "amount": 0.23292539956506564,
@@ -2608,15 +3156,19 @@
             "smiles": "O=C(Cl)CBr",
             "state_of_matter": "LIQUID",
             "molecular_weight": 157.394,
-            "density": 1.89
+            "density": 1.89,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "ac14108f-a30b-4921-b835-ec96b03e3e71": {
-      "id": "ac14108f-a30b-4921-b835-ec96b03e3e71",
+    "c8c56804-aeff-4936-94fb-140e58323f76": {
+      "id": "c8c56804-aeff-4936-94fb-140e58323f76",
       "compounds": [
         {
           "amount": 0.3402541382207169,
@@ -2626,7 +3178,11 @@
             "smiles": "NCC(=O)Nn1cnnc1",
             "state_of_matter": "LIQUID",
             "molecular_weight": 141.134,
-            "density": 1.0
+            "density": 1.0,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2637,7 +3193,11 @@
             "smiles": "O=C(Cl)CBr",
             "state_of_matter": "LIQUID",
             "molecular_weight": 157.394,
-            "density": 1.89
+            "density": 1.89,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2648,7 +3208,11 @@
             "smiles": "ClCCl",
             "state_of_matter": "LIQUID",
             "molecular_weight": 84.93299999999999,
-            "density": 1.325
+            "density": 1.325,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         },
         {
@@ -2659,15 +3223,19 @@
             "smiles": "CCN(CC)CC",
             "state_of_matter": "LIQUID",
             "molecular_weight": 101.193,
-            "density": 0.726
+            "density": 0.726,
+            "density__provenance": "from scraper output: scraper_output.json",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
       "impure": false
     },
-    "885e2863-d350-47ce-9eb4-1f39ab29b486": {
-      "id": "885e2863-d350-47ce-9eb4-1f39ab29b486",
+    "2f5f965d-7a50-43ef-89b1-289abb9bfe35": {
+      "id": "2f5f965d-7a50-43ef-89b1-289abb9bfe35",
       "compounds": [
         {
           "amount": 0.4472942428328025,
@@ -2677,15 +3245,19 @@
             "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 262.067,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
       "contained_by": "reactor for the reaction of: NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
       "impure": true
     },
-    "1b797a2d-5348-43aa-864d-1c78b32de780": {
-      "id": "1b797a2d-5348-43aa-864d-1c78b32de780",
+    "90efbcb5-7fb0-49f7-82ad-2d53958d3a2c": {
+      "id": "90efbcb5-7fb0-49f7-82ad-2d53958d3a2c",
       "compounds": [
         {
           "amount": 0.4472942428328025,
@@ -2695,15 +3267,19 @@
             "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 262.067,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
-      "contained_by": "53431f38-388b-4d86-a1fa-2acaf60e1503",
+      "contained_by": "c760db36-4daa-4c08-9ad3-adc589666963",
       "impure": false
     },
-    "d314c155-f99f-4ec2-89dd-43df30792665": {
-      "id": "d314c155-f99f-4ec2-89dd-43df30792665",
+    "c64141f3-4dcc-4dff-8c64-2f5efcf35c8f": {
+      "id": "c64141f3-4dcc-4dff-8c64-2f5efcf35c8f",
       "compounds": [
         {
           "amount": 0.4472942428328025,
@@ -2713,7 +3289,11 @@
             "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
             "state_of_matter": "SOLID",
             "molecular_weight": 262.067,
-            "density": 1.4
+            "density": 1.4,
+            "density__provenance": "made up",
+            "molecular_weight__provenance": "calculated using rdkit",
+            "smiles__provenance": null,
+            "state_of_matter__provenance": "made up"
           }
         }
       ],
@@ -2721,692 +3301,1082 @@
       "impure": true
     }
   },
-  "transform_dict": {
-    "2fc39a04-cd12-4f69-ae95-fc2bee04c04c": {
-      "id": "2fc39a04-cd12-4f69-ae95-fc2bee04c04c",
+  "operation_dict": {
+    "852260f4-b718-431e-b2a4-29d9fa198050": {
+      "id": "852260f4-b718-431e-b2a4-29d9fa198050",
       "description": "",
       "consumes": null,
-      "produces": "ef270fbf-85f3-4804-b733-dc6f0f809e72",
+      "produces": "72686675-0b2a-45a5-9c4b-cdf70bad7693",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "15ef4b06-66b6-4241-aae2-48b2881a2db0": {
-      "id": "15ef4b06-66b6-4241-aae2-48b2881a2db0",
+    "48650fd5-971b-4c96-837d-3d393d2ddca8": {
+      "id": "48650fd5-971b-4c96-837d-3d393d2ddca8",
       "description": "",
       "consumes": null,
-      "produces": "1a5598b1-0cf5-4a12-b5bb-1dec1a4f511b",
+      "produces": "7dce8c94-810e-4177-906c-0f9204cf0789",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "d5696302-12f0-40a8-ac23-640f402db5c8": {
-      "id": "d5696302-12f0-40a8-ac23-640f402db5c8",
+    "158b221a-3377-4fd1-900e-b973035c0018": {
+      "id": "158b221a-3377-4fd1-900e-b973035c0018",
       "description": "",
       "consumes": null,
-      "produces": "bf2a5cad-7005-4b29-aff3-888b4990fd03",
+      "produces": "0c9ee18b-dc5f-46ce-8395-38ef7f61bafd",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "3bc9e434-b12c-4036-8bd6-51ef657e019f": {
-      "id": "3bc9e434-b12c-4036-8bd6-51ef657e019f",
+    "0b83e90b-457b-418d-979a-5c07108db174": {
+      "id": "0b83e90b-457b-418d-979a-5c07108db174",
       "description": "",
       "consumes": null,
-      "produces": "4c35e33a-0ebe-4d68-9a32-b9528100698b",
+      "produces": "b0d84524-bf9b-409a-aac3-2f1ca98bbb49",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "ab467414-9205-441c-bbea-c3d6c0a8c1a1": {
-      "id": "ab467414-9205-441c-bbea-c3d6c0a8c1a1",
+    "8bf82516-cf82-47c3-9ad9-8cdd0dce0583": {
+      "id": "8bf82516-cf82-47c3-9ad9-8cdd0dce0583",
       "description": "",
       "consumes": null,
-      "produces": "7fb6306a-e23b-4c38-9f82-d4b5e9fe2db2",
+      "produces": "1d063ba1-4d97-40c6-bff5-86b49810542d",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "10cb4cc0-4f52-475a-985c-97c521eac805": {
-      "id": "10cb4cc0-4f52-475a-985c-97c521eac805",
+    "ab05b88c-4696-4a2c-8ee2-2f4ec4418184": {
+      "id": "ab05b88c-4696-4a2c-8ee2-2f4ec4418184",
       "description": "",
       "consumes": null,
-      "produces": "6454a3e0-36d2-49af-a10d-7d98088096b5",
+      "produces": "f0fad305-d914-4172-85e1-efaf3ba3b8e6",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "71867357-db8c-4dfa-8c02-634dae08b319": {
-      "id": "71867357-db8c-4dfa-8c02-634dae08b319",
+    "29ad4763-ab9c-45f8-8678-5450fa5f2350": {
+      "id": "29ad4763-ab9c-45f8-8678-5450fa5f2350",
       "description": "",
       "consumes": null,
-      "produces": "6fcf7ee1-94e6-4564-ae50-56ad2a7636ba",
+      "produces": "f025b7fc-25fc-4c85-8025-d3db2413c19d",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "3b717395-1b78-42ca-a511-0d80a771abc5": {
-      "id": "3b717395-1b78-42ca-a511-0d80a771abc5",
+    "bcb92276-9926-4886-bc08-1778b393cd06": {
+      "id": "bcb92276-9926-4886-bc08-1778b393cd06",
       "description": "",
       "consumes": null,
-      "produces": "edadf426-962e-42e5-9c14-eb3d313c4a50",
+      "produces": "653f10ec-492b-40d7-9647-4c0039f0a1de",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "0c64c933-93ac-407a-b984-7c5bd32b5175": {
-      "id": "0c64c933-93ac-407a-b984-7c5bd32b5175",
+    "99e911ed-ba66-4737-81fe-3edc94158011": {
+      "id": "99e911ed-ba66-4737-81fe-3edc94158011",
       "description": "",
       "consumes": null,
-      "produces": "59522f47-92a5-44e7-b7cf-c9f3f9194e42",
+      "produces": "ceb86af3-1ec2-4b0a-9ab8-7e0276239147",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "c928581e-2f6a-4ca4-8669-ce26ea707b6d": {
-      "id": "c928581e-2f6a-4ca4-8669-ce26ea707b6d",
+    "c784aaf9-553a-4b9c-aae6-0fb741d934f5": {
+      "id": "c784aaf9-553a-4b9c-aae6-0fb741d934f5",
       "description": "",
       "consumes": null,
-      "produces": "1d313a35-8d76-44c6-9b8d-45d557057a5a",
+      "produces": "58f8768c-69e1-4740-bf4d-4ba1cc68aec2",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "556fb3b2-b239-4765-a88b-5c384e6694ee": {
-      "id": "556fb3b2-b239-4765-a88b-5c384e6694ee",
+    "6a1dd28f-9147-4891-a85c-edeb93e9d30f": {
+      "id": "6a1dd28f-9147-4891-a85c-edeb93e9d30f",
       "description": "",
       "consumes": null,
-      "produces": "ea980242-2f01-4084-a7fa-5ff821a34cc6",
+      "produces": "858df916-4950-4eac-b35a-2cf3cc3028b3",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "ae7646de-bbd3-4301-8572-f2f1725e06dd": {
-      "id": "ae7646de-bbd3-4301-8572-f2f1725e06dd",
+    "f69884f7-fc05-4f64-b73e-8fcfe84ce336": {
+      "id": "f69884f7-fc05-4f64-b73e-8fcfe84ce336",
       "description": "",
       "consumes": null,
-      "produces": "82dd219a-bd4c-4fe4-a40e-54550a878801",
+      "produces": "2fd8cf09-e683-486f-aa74-3a64d78bb4a9",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "0e5961dc-3539-44ed-bd9c-e9427cf7d7b6": {
-      "id": "0e5961dc-3539-44ed-bd9c-e9427cf7d7b6",
+    "15741f44-975f-46ac-a98e-6c95d499da48": {
+      "id": "15741f44-975f-46ac-a98e-6c95d499da48",
       "description": "",
       "consumes": null,
-      "produces": "b759f6fd-ca7f-4136-b5f6-5da38fafca26",
+      "produces": "de1cc8e4-81a5-412e-9ae6-ca84a59c3b6b",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "42c0d34a-78a2-45d8-a527-ff271b59eb86": {
-      "id": "42c0d34a-78a2-45d8-a527-ff271b59eb86",
+    "87bc9eeb-043f-47ce-8182-88d8ccca104a": {
+      "id": "87bc9eeb-043f-47ce-8182-88d8ccca104a",
       "description": "",
       "consumes": null,
-      "produces": "2808ec2f-4c9c-477d-b528-9af1609476e4",
+      "produces": "b0d725e3-4e3a-4814-b38b-cbd885d967e5",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "d0db1a0e-072b-4be3-b835-cd94b689ce16": {
-      "id": "d0db1a0e-072b-4be3-b835-cd94b689ce16",
+    "042a2e2d-abd7-42df-b9a8-451c28dce1ec": {
+      "id": "042a2e2d-abd7-42df-b9a8-451c28dce1ec",
       "description": "",
       "consumes": null,
-      "produces": "61ddf75c-d552-4e0d-9926-ce9ccdda22e8",
+      "produces": "fa19c3ca-aacc-415c-b7f3-76e306a36149",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "79965bff-8bfc-411b-bab0-194d5eec8e87": {
-      "id": "79965bff-8bfc-411b-bab0-194d5eec8e87",
+    "34802a86-dfa9-42b7-8e3e-a6573fef3eb6": {
+      "id": "34802a86-dfa9-42b7-8e3e-a6573fef3eb6",
       "description": "",
       "consumes": null,
-      "produces": "557ea228-6f3b-494b-9624-e3511e2e5608",
+      "produces": "21930db6-93dd-47ee-a864-dd7a0f4be355",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "9508747a-d2ff-440e-a3f3-2afec45619a2": {
-      "id": "9508747a-d2ff-440e-a3f3-2afec45619a2",
+    "f2f4fdfc-c188-415c-8153-3cdba7014459": {
+      "id": "f2f4fdfc-c188-415c-8153-3cdba7014459",
       "description": "",
       "consumes": null,
-      "produces": "416f7c8a-d973-4726-ab36-3a048fda7f3c",
+      "produces": "f4c3a9f3-36e0-4f56-a11e-54fd6a4f395a",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "7593f2dc-a575-4bfa-bc34-225c7fbd3359": {
-      "id": "7593f2dc-a575-4bfa-bc34-225c7fbd3359",
+    "2fbebfc3-ecdd-4f2f-ac27-ac58741956e9": {
+      "id": "2fbebfc3-ecdd-4f2f-ac27-ac58741956e9",
       "description": "",
       "consumes": null,
-      "produces": "27c0b73d-dedb-4cca-bf46-59bba8cec30c",
+      "produces": "3157c597-6145-4048-8eae-8d8838a69ff2",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "49104e9b-ec8e-4d86-a18d-210caf3eafd3": {
-      "id": "49104e9b-ec8e-4d86-a18d-210caf3eafd3",
+    "b9295fd8-44cc-4ed9-83eb-5798acd980f6": {
+      "id": "b9295fd8-44cc-4ed9-83eb-5798acd980f6",
       "description": "",
       "consumes": null,
-      "produces": "34b8bedc-b0f5-4c92-826b-93bd5b568139",
+      "produces": "5ac02b22-ce33-400d-a179-60c0d50a447b",
       "precedents": [],
-      "type": "transform_loading"
+      "type": "OPERATION_LOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "1806daca-fd12-4f34-99fc-9f93b5ef6078": {
-      "id": "1806daca-fd12-4f34-99fc-9f93b5ef6078",
+    "1affba83-58b1-48d2-9382-f28e28ebf5b8": {
+      "id": "1affba83-58b1-48d2-9382-f28e28ebf5b8",
       "description": "",
-      "consumes": "b350e2cf-4df2-4c62-beb1-e75c037e917f",
-      "produces": "03cfdfc4-a916-4103-a7be-04aeb139b8bc",
+      "consumes": "aa470825-ecd7-429b-8e2c-348fe18293ee",
+      "produces": "9fb24813-ef44-48c5-a666-547f7152f05b",
       "precedents": [
-        "42c0d34a-78a2-45d8-a527-ff271b59eb86"
+        "87bc9eeb-043f-47ce-8182-88d8ccca104a"
       ],
-      "type": "transform_solid_addition"
+      "type": "OPERATION_ADDITION_SOLID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "0df40b2a-2e18-4d44-8ce4-92f887bec85f": {
-      "id": "0df40b2a-2e18-4d44-8ce4-92f887bec85f",
+    "4b3252c0-adec-41ae-b138-7a0340f4db62": {
+      "id": "4b3252c0-adec-41ae-b138-7a0340f4db62",
       "description": "",
-      "consumes": "79f40e4c-edeb-495c-9319-bd5b0145787b",
-      "produces": "3fa71554-072d-4ad4-b7bb-464f1f29d37a",
+      "consumes": "8cad55ef-2f2a-42a4-b880-58c47183f041",
+      "produces": "590ecdb2-f136-4559-911c-c98e6c9631dd",
       "precedents": [
-        "3b717395-1b78-42ca-a511-0d80a771abc5",
-        "1806daca-fd12-4f34-99fc-9f93b5ef6078"
+        "bcb92276-9926-4886-bc08-1778b393cd06",
+        "1affba83-58b1-48d2-9382-f28e28ebf5b8"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "b80b81bc-b555-4950-9729-1e32de5bbf4d": {
-      "id": "b80b81bc-b555-4950-9729-1e32de5bbf4d",
+    "cff45ab9-1262-41b4-ad01-31965f441a18": {
+      "id": "cff45ab9-1262-41b4-ad01-31965f441a18",
       "description": "",
-      "consumes": "4f496604-e10c-4e40-8e30-89c61a9cc304",
-      "produces": "a8835bba-60f3-4823-b9b4-068a98772a8b",
+      "consumes": "ae97983e-dc57-47e9-ba43-3cc5e5c79e9e",
+      "produces": "9b3c653b-aeac-4f97-ba87-6700f10f1485",
       "precedents": [
-        "0c64c933-93ac-407a-b984-7c5bd32b5175",
-        "0df40b2a-2e18-4d44-8ce4-92f887bec85f"
+        "99e911ed-ba66-4737-81fe-3edc94158011",
+        "4b3252c0-adec-41ae-b138-7a0340f4db62"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "d7ae408f-8c5d-45ee-b2d1-4cf364527d1a": {
-      "id": "d7ae408f-8c5d-45ee-b2d1-4cf364527d1a",
+    "4112bbdb-85cb-4eef-987c-9642d0fc219b": {
+      "id": "4112bbdb-85cb-4eef-987c-9642d0fc219b",
       "description": "",
-      "consumes": "ac9ec6ef-b30c-464b-bac2-2c66d591265f",
-      "produces": "fa2a7057-51b3-4e0e-96fe-d0fa34042d13",
+      "consumes": "f836a73c-828b-4c00-8302-88f26a310bff",
+      "produces": "4b6f89f0-6cb9-496c-a373-0a03e2555bca",
       "precedents": [
-        "d0db1a0e-072b-4be3-b835-cd94b689ce16",
-        "b80b81bc-b555-4950-9729-1e32de5bbf4d"
+        "042a2e2d-abd7-42df-b9a8-451c28dce1ec",
+        "cff45ab9-1262-41b4-ad01-31965f441a18"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "1c053245-d6cb-4c1f-9a11-b51a2b4e2275": {
-      "id": "1c053245-d6cb-4c1f-9a11-b51a2b4e2275",
+    "f579764d-8838-4678-b797-11ee959f4d32": {
+      "id": "f579764d-8838-4678-b797-11ee959f4d32",
       "description": "",
-      "consumes": "0a5ed54a-6b27-4ef1-a12f-c41cc9630135",
-      "produces": "7b0eb938-1260-4e1a-9b47-ef6845c76809",
+      "consumes": "c4eb892b-d0b4-4b82-b28a-be95c6c17db3",
+      "produces": "0cda33c6-333e-4ff1-b35f-71930f011481",
       "precedents": [
-        "d7ae408f-8c5d-45ee-b2d1-4cf364527d1a"
+        "4112bbdb-85cb-4eef-987c-9642d0fc219b"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
     },
-    "e54a8a3b-9a87-4fda-acc0-48c2f3e395ce": {
-      "id": "e54a8a3b-9a87-4fda-acc0-48c2f3e395ce",
+    "853ce851-b2e8-445d-a0c4-36fe066b0568": {
+      "id": "853ce851-b2e8-445d-a0c4-36fe066b0568",
       "description": "",
-      "consumes": "286eceb2-c429-4505-9903-fba33a9f8b2d",
-      "produces": "da63b6d9-4c50-46dd-829e-550aea369453",
+      "consumes": null,
+      "produces": null,
       "precedents": [
-        "1c053245-d6cb-4c1f-9a11-b51a2b4e2275"
+        "f579764d-8838-4678-b797-11ee959f4d32"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
     },
-    "6bfda17b-526c-4e14-a636-7c81e534ce11": {
-      "id": "6bfda17b-526c-4e14-a636-7c81e534ce11",
+    "4f5d3feb-b69a-4453-bcae-4d5885246340": {
+      "id": "4f5d3feb-b69a-4453-bcae-4d5885246340",
       "description": "",
-      "consumes": "afb3c00f-bcb4-4634-bda9-84eb510ce635",
-      "produces": "8694460e-613e-4611-b6f1-c6eabba9c493",
+      "consumes": "e023ec71-2eec-4d56-97a5-cdecc0c627a5",
+      "produces": "67a8cb14-58b7-4095-9fc1-069b1b721bb9",
       "precedents": [
-        "7593f2dc-a575-4bfa-bc34-225c7fbd3359"
+        "853ce851-b2e8-445d-a0c4-36fe066b0568"
       ],
-      "type": "transform_solid_addition"
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
     },
-    "2310037b-34c5-491d-92d3-7f903f4bf02c": {
-      "id": "2310037b-34c5-491d-92d3-7f903f4bf02c",
+    "a2933ed0-5dcd-4938-8fcc-1878115fcff2": {
+      "id": "a2933ed0-5dcd-4938-8fcc-1878115fcff2",
       "description": "",
-      "consumes": "1760adc8-ce1d-45a8-bc17-c59ef9587bbd",
-      "produces": "8ea45153-8ed6-4862-9256-0c23c3076887",
+      "consumes": "013b7082-ab5a-4d5e-afbd-afeef9c1fa58",
+      "produces": "8e283c8d-883a-4d57-895c-c15850928c75",
       "precedents": [
-        "79965bff-8bfc-411b-bab0-194d5eec8e87",
-        "6bfda17b-526c-4e14-a636-7c81e534ce11"
+        "2fbebfc3-ecdd-4f2f-ac27-ac58741956e9"
       ],
-      "type": "transform_solid_addition"
+      "type": "OPERATION_ADDITION_SOLID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "a8b8cbfc-7d6e-405b-9796-1c1b0ce7f6b9": {
-      "id": "a8b8cbfc-7d6e-405b-9796-1c1b0ce7f6b9",
+    "56e7208c-e837-4d87-b80a-d721776189ca": {
+      "id": "56e7208c-e837-4d87-b80a-d721776189ca",
       "description": "",
-      "consumes": "d2ae84c6-580e-4261-8468-513df30c33f2",
-      "produces": "2c9b1cf6-979d-4e6f-8e04-e22526e1d882",
+      "consumes": "1c89d773-0eb9-41cb-9a1f-2bec93f73595",
+      "produces": "1963e9c1-4b8e-45e3-ad60-b09ab9025f69",
       "precedents": [
-        "3bc9e434-b12c-4036-8bd6-51ef657e019f",
-        "2310037b-34c5-491d-92d3-7f903f4bf02c"
+        "34802a86-dfa9-42b7-8e3e-a6573fef3eb6",
+        "a2933ed0-5dcd-4938-8fcc-1878115fcff2"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_SOLID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "9c7acc33-f959-44ca-a84f-d4b4ded7e16b": {
-      "id": "9c7acc33-f959-44ca-a84f-d4b4ded7e16b",
+    "a93a4115-7e0e-48c0-a954-a272676d8e12": {
+      "id": "a93a4115-7e0e-48c0-a954-a272676d8e12",
       "description": "",
-      "consumes": "95146edd-4c18-419d-9cc4-c6b6214c89fb",
-      "produces": "74d18b78-5520-4feb-bf95-6bcf6f3dfae2",
+      "consumes": "089005be-fcf5-4572-a637-1b46fa17b4aa",
+      "produces": "f43f59bb-dab1-4885-8fb0-0f5e1bd9e283",
       "precedents": [
-        "9508747a-d2ff-440e-a3f3-2afec45619a2",
-        "a8b8cbfc-7d6e-405b-9796-1c1b0ce7f6b9"
+        "0b83e90b-457b-418d-979a-5c07108db174",
+        "56e7208c-e837-4d87-b80a-d721776189ca"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "9fd15d89-9e5d-407a-a669-f6def0947c7e": {
-      "id": "9fd15d89-9e5d-407a-a669-f6def0947c7e",
+    "16c13927-82d1-4775-8e1c-d98f7079daab": {
+      "id": "16c13927-82d1-4775-8e1c-d98f7079daab",
       "description": "",
-      "consumes": "5821e37e-be24-4be4-b97b-0bd93d5f7101",
-      "produces": "631ed2fc-afa0-4fc3-9192-dc84c1691d10",
+      "consumes": "e0a46e1e-a634-4f27-91e0-e99bd76ebe22",
+      "produces": "f558b55c-abb0-464f-bfb1-363a3e314048",
       "precedents": [
-        "9c7acc33-f959-44ca-a84f-d4b4ded7e16b"
+        "f2f4fdfc-c188-415c-8153-3cdba7014459",
+        "a93a4115-7e0e-48c0-a954-a272676d8e12"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "5f8cd44a-ebe4-4f1a-8856-04401c91cf7b": {
-      "id": "5f8cd44a-ebe4-4f1a-8856-04401c91cf7b",
+    "a1363f1e-19d1-4d38-adf0-bd62a94bddd9": {
+      "id": "a1363f1e-19d1-4d38-adf0-bd62a94bddd9",
       "description": "",
-      "consumes": "b02f81d9-98a0-42bf-ae06-9c23951ae9ee",
-      "produces": "cde2ab4c-0df6-4d0c-9c84-5d8d5f8a1ba8",
+      "consumes": "1ed819e9-61ba-48e6-a160-edcc94ca945c",
+      "produces": "2432f33c-df43-44b3-b590-fca8505a58ae",
       "precedents": [
-        "9fd15d89-9e5d-407a-a669-f6def0947c7e"
+        "16c13927-82d1-4775-8e1c-d98f7079daab"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
     },
-    "8c143bd3-b5e9-4a44-ac8b-fbbafe3ea8fd": {
-      "id": "8c143bd3-b5e9-4a44-ac8b-fbbafe3ea8fd",
+    "01e711cc-7bc6-42ba-9534-c8db3a3238f3": {
+      "id": "01e711cc-7bc6-42ba-9534-c8db3a3238f3",
       "description": "",
-      "consumes": "2c2f6cfc-b779-4f28-bf44-31bfbb1bb3a4",
-      "produces": "2c214d6d-8380-484a-be2b-4253b07310a8",
+      "consumes": null,
+      "produces": null,
       "precedents": [
-        "ab467414-9205-441c-bbea-c3d6c0a8c1a1"
+        "a1363f1e-19d1-4d38-adf0-bd62a94bddd9"
       ],
-      "type": "transform_solid_addition"
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
     },
-    "9358d735-9a01-478f-afd5-d51be28f4e57": {
-      "id": "9358d735-9a01-478f-afd5-d51be28f4e57",
+    "f0449f6e-bd3c-46fd-b02c-8586a0dc9aa8": {
+      "id": "f0449f6e-bd3c-46fd-b02c-8586a0dc9aa8",
       "description": "",
-      "consumes": "bf640298-14e3-46ed-a17d-5e14bf877688",
-      "produces": "b53c562e-b604-424e-8365-fe179a713fc3",
+      "consumes": "ccff9104-72e8-408b-ba7d-b5cc88fefe77",
+      "produces": "9fd99332-822b-4434-8899-f141231478d9",
       "precedents": [
-        "d5696302-12f0-40a8-ac23-640f402db5c8",
-        "8c143bd3-b5e9-4a44-ac8b-fbbafe3ea8fd"
+        "01e711cc-7bc6-42ba-9534-c8db3a3238f3"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
     },
-    "8580e44b-d258-4d62-87ea-3fda2a2672ea": {
-      "id": "8580e44b-d258-4d62-87ea-3fda2a2672ea",
+    "6874761c-cdae-4d01-b984-6f847d63eb4d": {
+      "id": "6874761c-cdae-4d01-b984-6f847d63eb4d",
       "description": "",
-      "consumes": "ab8f8764-8112-4ed3-92be-d4baceae1f80",
-      "produces": "acc10d2d-7cff-4bb2-8e95-b3c374af314b",
+      "consumes": "024d839b-059f-42d6-ae68-f46d932e06ec",
+      "produces": "b983c9d6-d7b2-4771-b7f9-c7ed3b26466a",
       "precedents": [
-        "3bc9e434-b12c-4036-8bd6-51ef657e019f",
-        "9358d735-9a01-478f-afd5-d51be28f4e57"
+        "8bf82516-cf82-47c3-9ad9-8cdd0dce0583"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_SOLID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "9bfed35f-e212-456c-ace5-dc1b8ef87482": {
-      "id": "9bfed35f-e212-456c-ace5-dc1b8ef87482",
+    "b1b66814-103a-46cb-8b7b-c0087a08838a": {
+      "id": "b1b66814-103a-46cb-8b7b-c0087a08838a",
       "description": "",
-      "consumes": "aa70c0b6-f619-445f-80ff-8c14c7b63fa9",
-      "produces": "54cc2fad-9e1e-4961-8a12-02eef460ab74",
+      "consumes": "1d88a6e7-bee6-43b6-b499-cc1ececf0016",
+      "produces": "ce3e915d-1d2a-4aba-87f7-83536fecf209",
       "precedents": [
-        "15ef4b06-66b6-4241-aae2-48b2881a2db0",
-        "8580e44b-d258-4d62-87ea-3fda2a2672ea"
+        "158b221a-3377-4fd1-900e-b973035c0018",
+        "6874761c-cdae-4d01-b984-6f847d63eb4d"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "92b046cb-dd25-4fbf-8351-0c0f24b5b25a": {
-      "id": "92b046cb-dd25-4fbf-8351-0c0f24b5b25a",
+    "5f614205-862d-437a-9eff-4afc0be9bb7f": {
+      "id": "5f614205-862d-437a-9eff-4afc0be9bb7f",
       "description": "",
-      "consumes": "6b425307-a2d5-41e7-9781-c97daf19d6f0",
-      "produces": "7b80ee4a-e3ce-4b6c-b82a-28566b4709db",
+      "consumes": "027c6d27-297a-4392-865a-67a9a9e9535b",
+      "produces": "29bca38f-e79c-411a-867c-8e79ace0cefb",
       "precedents": [
-        "2fc39a04-cd12-4f69-ae95-fc2bee04c04c",
-        "9bfed35f-e212-456c-ace5-dc1b8ef87482"
+        "0b83e90b-457b-418d-979a-5c07108db174",
+        "b1b66814-103a-46cb-8b7b-c0087a08838a"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "13c7fa06-0307-4280-93b2-6d3b94e6345a": {
-      "id": "13c7fa06-0307-4280-93b2-6d3b94e6345a",
+    "2285088d-5911-4fde-bf01-725fb61649ca": {
+      "id": "2285088d-5911-4fde-bf01-725fb61649ca",
       "description": "",
-      "consumes": "e599d6c5-77ba-4272-83c5-b1392fc11925",
-      "produces": "3b3d8678-273e-4f9e-baa2-ee605b4e5314",
+      "consumes": "0179c543-639a-45eb-b779-7c9b35a882bf",
+      "produces": "bc725ac2-aa5b-44a6-9863-895aa447feef",
       "precedents": [
-        "92b046cb-dd25-4fbf-8351-0c0f24b5b25a"
+        "48650fd5-971b-4c96-837d-3d393d2ddca8",
+        "5f614205-862d-437a-9eff-4afc0be9bb7f"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "c6d373fa-60ba-4361-870d-b2d4d351c7a0": {
-      "id": "c6d373fa-60ba-4361-870d-b2d4d351c7a0",
+    "a4a1fb10-3f1c-4f9d-bf54-db5568056569": {
+      "id": "a4a1fb10-3f1c-4f9d-bf54-db5568056569",
       "description": "",
-      "consumes": "e1d98ba1-f4b2-4623-93ba-209e5b8b476e",
-      "produces": "7f8cb6ab-cf6b-4e54-b8e8-ca54188e751d",
+      "consumes": "03aa4046-a81d-40c6-8085-f0dceee25a8b",
+      "produces": "666643c9-9af8-4484-bfbf-68e84cd8d89c",
       "precedents": [
-        "13c7fa06-0307-4280-93b2-6d3b94e6345a"
+        "852260f4-b718-431e-b2a4-29d9fa198050",
+        "2285088d-5911-4fde-bf01-725fb61649ca"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "cdf3887a-db0b-4649-b584-0641274d3f5f": {
-      "id": "cdf3887a-db0b-4649-b584-0641274d3f5f",
+    "ec606353-4239-49db-a8ef-5f2031e39b49": {
+      "id": "ec606353-4239-49db-a8ef-5f2031e39b49",
       "description": "",
-      "consumes": "a77e4fff-884b-41e2-a886-2e0384060f1e",
-      "produces": "ef8fdf68-46d1-41ef-9a90-f30384424aac",
+      "consumes": "74761ae4-e84c-453f-a0f7-73c9d063b459",
+      "produces": "eff42dcb-c6ab-4cf1-825b-152917d77f8c",
       "precedents": [
-        "c6d373fa-60ba-4361-870d-b2d4d351c7a0"
+        "a4a1fb10-3f1c-4f9d-bf54-db5568056569"
       ],
-      "type": "transform_reloading"
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
     },
-    "b9889c23-f832-4c7c-a797-933a3aeaefd4": {
-      "id": "b9889c23-f832-4c7c-a797-933a3aeaefd4",
+    "7dba8c9a-db90-4ef6-8a16-415d3058cd0a": {
+      "id": "7dba8c9a-db90-4ef6-8a16-415d3058cd0a",
       "description": "",
-      "consumes": "5a0a0677-12d7-4dae-a677-b5b939e907fb",
-      "produces": "45312432-1a4b-4d85-8e01-d531a638631c",
+      "consumes": null,
+      "produces": null,
       "precedents": [
-        "3b717395-1b78-42ca-a511-0d80a771abc5"
+        "ec606353-4239-49db-a8ef-5f2031e39b49"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
     },
-    "18e7d57e-a2af-4308-bcf7-1013ea48b146": {
-      "id": "18e7d57e-a2af-4308-bcf7-1013ea48b146",
+    "de510228-080c-4ea8-8b12-b7168b0c546c": {
+      "id": "de510228-080c-4ea8-8b12-b7168b0c546c",
       "description": "",
-      "consumes": "0558abd0-44d9-4e96-9d28-d4104aa2faf8",
-      "produces": "b20fba73-0e36-4de2-9d0d-24c8dc155f55",
+      "consumes": "0d7d01e1-5dc9-4d7d-a80a-92066e45f15e",
+      "produces": "a46900b2-df15-44c7-ac61-ee55a9e2fd55",
       "precedents": [
-        "556fb3b2-b239-4765-a88b-5c384e6694ee",
-        "b9889c23-f832-4c7c-a797-933a3aeaefd4"
+        "7dba8c9a-db90-4ef6-8a16-415d3058cd0a"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
     },
-    "f59da5d0-163a-43dd-bd48-96f20aca4902": {
-      "id": "f59da5d0-163a-43dd-bd48-96f20aca4902",
+    "71a1abb2-980f-4683-a7fa-e71db0f3833b": {
+      "id": "71a1abb2-980f-4683-a7fa-e71db0f3833b",
       "description": "",
-      "consumes": "4fbe815e-edcb-428c-bbd7-9c4daa566c0a",
-      "produces": "fb4c8f4b-3a9b-4537-9000-4b517ea0e3ab",
+      "consumes": "2d89505e-e082-406c-9e10-d49903703f6c",
+      "produces": "28678c7d-3aa0-4341-9240-9b6117b591b8",
       "precedents": [
-        "0c64c933-93ac-407a-b984-7c5bd32b5175",
-        "18e7d57e-a2af-4308-bcf7-1013ea48b146"
+        "de510228-080c-4ea8-8b12-b7168b0c546c"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_RELOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "5d78e080-9cb3-40a4-b86b-24ca4d1c2e02": {
-      "id": "5d78e080-9cb3-40a4-b86b-24ca4d1c2e02",
+    "92312ab5-d6d2-494b-b094-1e213cd60302": {
+      "id": "92312ab5-d6d2-494b-b094-1e213cd60302",
       "description": "",
-      "consumes": "d4aeb7f5-67a6-4897-900a-aacf5c0337d3",
-      "produces": "49798e6f-2478-47db-8e2d-77a002d0770d",
+      "consumes": "2796efd9-a377-4d58-a7c5-9526c9ceb384",
+      "produces": "003eb2bb-db2a-4afc-9935-32b96c658bb6",
       "precedents": [
-        "0e5961dc-3539-44ed-bd9c-e9427cf7d7b6",
-        "f59da5d0-163a-43dd-bd48-96f20aca4902"
+        "bcb92276-9926-4886-bc08-1778b393cd06"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "fd284540-171d-402f-bf04-7775eeefaf62": {
-      "id": "fd284540-171d-402f-bf04-7775eeefaf62",
+    "6a915973-5747-47f3-af19-a70bc133b437": {
+      "id": "6a915973-5747-47f3-af19-a70bc133b437",
       "description": "",
-      "consumes": "a941926c-0958-4b49-bade-a52d2285d6bd",
-      "produces": "ac665522-e4c8-441a-8393-f11e8e824ac8",
+      "consumes": "0ec9f536-3dbe-402b-821b-1751d2e4c3a1",
+      "produces": "20e5f3d3-3d90-4f08-aa46-069f2a84c942",
       "precedents": [
-        "ae7646de-bbd3-4301-8572-f2f1725e06dd",
-        "5d78e080-9cb3-40a4-b86b-24ca4d1c2e02"
+        "6a1dd28f-9147-4891-a85c-edeb93e9d30f",
+        "92312ab5-d6d2-494b-b094-1e213cd60302"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "7859fa63-3d5a-47c3-b75c-dc9120bcf22c": {
-      "id": "7859fa63-3d5a-47c3-b75c-dc9120bcf22c",
+    "9434026d-0c83-47d5-8422-1327d9967b08": {
+      "id": "9434026d-0c83-47d5-8422-1327d9967b08",
       "description": "",
-      "consumes": "ffa88ab3-ee4a-406c-aeb8-cd127d7d3ebb",
-      "produces": "a29f7944-52ef-4747-9734-df7ebad52eb4",
+      "consumes": "8696978c-54ef-46a4-8ab6-69eb951de827",
+      "produces": "19c88d77-df79-4004-9914-1ca9d3c95eb7",
       "precedents": [
-        "fd284540-171d-402f-bf04-7775eeefaf62"
+        "99e911ed-ba66-4737-81fe-3edc94158011",
+        "6a915973-5747-47f3-af19-a70bc133b437"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "549e3d9f-89a1-4872-b64a-b379335a7258": {
-      "id": "549e3d9f-89a1-4872-b64a-b379335a7258",
+    "6c7429e7-2115-4c48-8bab-f76ebee2976b": {
+      "id": "6c7429e7-2115-4c48-8bab-f76ebee2976b",
       "description": "",
-      "consumes": "8b90264c-2557-4981-8638-72459d1982fa",
-      "produces": "94e46148-27be-46ba-9e07-9369bc19f19e",
+      "consumes": "c6cf8924-2169-4d08-b91d-e8496f4eee3e",
+      "produces": "b8a10b00-e668-449c-854f-e2bca18a2d80",
       "precedents": [
-        "7859fa63-3d5a-47c3-b75c-dc9120bcf22c"
+        "15741f44-975f-46ac-a98e-6c95d499da48",
+        "9434026d-0c83-47d5-8422-1327d9967b08"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "7a6e9767-1034-4d09-b880-2a91805bfda5": {
-      "id": "7a6e9767-1034-4d09-b880-2a91805bfda5",
+    "45703ae4-90e8-413b-9844-2037f1d3f56a": {
+      "id": "45703ae4-90e8-413b-9844-2037f1d3f56a",
       "description": "",
-      "consumes": "4ecf3c30-4923-4fae-8aa8-d33332e24c45",
-      "produces": "4eb2dad9-c79b-4c5c-aee0-5527a9dee09b",
+      "consumes": "0f92eb01-37d1-4946-8086-2a48929868e5",
+      "produces": "ebbb7356-86e0-40b9-90a0-18e2d5ea34d0",
       "precedents": [
-        "549e3d9f-89a1-4872-b64a-b379335a7258"
+        "f69884f7-fc05-4f64-b73e-8fcfe84ce336",
+        "6c7429e7-2115-4c48-8bab-f76ebee2976b"
       ],
-      "type": "transform_reloading"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "d923e11f-f0bf-4a15-9242-7a1716c3b042": {
-      "id": "d923e11f-f0bf-4a15-9242-7a1716c3b042",
+    "49d8cd4e-cd6c-4b2b-841e-1905ad9582d8": {
+      "id": "49d8cd4e-cd6c-4b2b-841e-1905ad9582d8",
       "description": "",
-      "consumes": "4be3e321-7249-4504-845a-62426a3cf995",
-      "produces": "c056fbd9-b234-401e-83d4-f4586ba871af",
+      "consumes": "648f464a-063f-447b-bd68-69d34d6a7bb3",
+      "produces": "fb6c2880-f5ba-477d-b04e-2781ede8198c",
       "precedents": [
-        "d5696302-12f0-40a8-ac23-640f402db5c8"
+        "45703ae4-90e8-413b-9844-2037f1d3f56a"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
     },
-    "b8018ccd-89b8-401a-a170-969ec69d1bb1": {
-      "id": "b8018ccd-89b8-401a-a170-969ec69d1bb1",
+    "07d1ae44-005b-406a-9661-5d9357f2bc7b": {
+      "id": "07d1ae44-005b-406a-9661-5d9357f2bc7b",
       "description": "",
-      "consumes": "d74b2147-6bf7-4d6b-b533-2b588f5072de",
-      "produces": "9b891064-c47a-4431-bfe6-1213e027bc3f",
+      "consumes": null,
+      "produces": null,
       "precedents": [
-        "10cb4cc0-4f52-475a-985c-97c521eac805",
-        "d923e11f-f0bf-4a15-9242-7a1716c3b042"
+        "49d8cd4e-cd6c-4b2b-841e-1905ad9582d8"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
     },
-    "4ed6fc33-f6dc-4c4f-8697-a8fc324014e8": {
-      "id": "4ed6fc33-f6dc-4c4f-8697-a8fc324014e8",
+    "71c90aee-bc47-4c9a-b194-2df916c70fde": {
+      "id": "71c90aee-bc47-4c9a-b194-2df916c70fde",
       "description": "",
-      "consumes": "e1bb3e1f-d031-4edf-aedb-80562508e7d3",
-      "produces": "c4db04b3-0eb6-4a20-b5e7-e0adc5520f54",
+      "consumes": "3f1941c7-5497-4a31-9b77-e374e025e973",
+      "produces": "f29ae4ea-18a3-45f1-a04f-ab243dd0770d",
       "precedents": [
-        "cdf3887a-db0b-4649-b584-0641274d3f5f",
-        "b8018ccd-89b8-401a-a170-969ec69d1bb1"
+        "07d1ae44-005b-406a-9661-5d9357f2bc7b"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
     },
-    "fda3da9f-a10a-4249-a0bd-e77278299352": {
-      "id": "fda3da9f-a10a-4249-a0bd-e77278299352",
+    "68597f75-a8a2-482b-bede-1110cf0cf6a0": {
+      "id": "68597f75-a8a2-482b-bede-1110cf0cf6a0",
       "description": "",
-      "consumes": "d598a52b-03a7-454a-902c-332b5f203e12",
-      "produces": "6e4b7e24-428f-4909-8226-24752e416efa",
+      "consumes": "49045bdf-106b-444d-9371-dd0d175d7637",
+      "produces": "420f55e1-9028-4c3f-9576-c3cb9dd03218",
       "precedents": [
-        "4ed6fc33-f6dc-4c4f-8697-a8fc324014e8"
+        "71c90aee-bc47-4c9a-b194-2df916c70fde"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_RELOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "49bca9db-7ec4-4356-b5c1-170dbb82620c": {
-      "id": "49bca9db-7ec4-4356-b5c1-170dbb82620c",
+    "ed8b03dc-6456-4867-94e4-80c7294de9ed": {
+      "id": "ed8b03dc-6456-4867-94e4-80c7294de9ed",
       "description": "",
-      "consumes": "d0c62f51-3236-4545-ac04-701dfaa8b6c6",
-      "produces": "ac8ff035-27b1-4a50-849c-39b621be0a58",
+      "consumes": "a36c1b42-92eb-464a-be93-15b2540f6c9c",
+      "produces": "5ebf4f2c-84d2-4a33-b7d0-a2cf06afef81",
       "precedents": [
-        "fda3da9f-a10a-4249-a0bd-e77278299352"
+        "158b221a-3377-4fd1-900e-b973035c0018"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "b0acea29-b4e0-4386-b84a-61652f7faecc": {
-      "id": "b0acea29-b4e0-4386-b84a-61652f7faecc",
+    "df9ea151-7dde-4c19-9a75-76bb28a82ae6": {
+      "id": "df9ea151-7dde-4c19-9a75-76bb28a82ae6",
       "description": "",
-      "consumes": "cb806f50-ca52-4ceb-8bdd-530d19afab32",
-      "produces": "5cfa1a21-2096-4fe2-b1f4-8ef198934421",
+      "consumes": "606f75aa-1373-4624-9885-aee99f125661",
+      "produces": "131bc33e-c59a-4db8-9b84-638c3ef67b1c",
       "precedents": [
-        "7a6e9767-1034-4d09-b880-2a91805bfda5"
+        "ab05b88c-4696-4a2c-8ee2-2f4ec4418184",
+        "ed8b03dc-6456-4867-94e4-80c7294de9ed"
       ],
-      "type": "transform_solid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "e23a0396-2608-4116-be53-e6ecd6731dda": {
-      "id": "e23a0396-2608-4116-be53-e6ecd6731dda",
+    "70af863f-add0-4bec-a6d5-13e434af75b6": {
+      "id": "70af863f-add0-4bec-a6d5-13e434af75b6",
       "description": "",
-      "consumes": "f7dfdd52-aab6-4703-9294-588d842a0a21",
-      "produces": "45d09ab9-e4f3-4397-9717-6ecbfd8c917a",
+      "consumes": "218fe7fa-1377-4f60-a1ef-71f36f377e67",
+      "produces": "170fe1f6-2132-427a-af19-83e60e7e3ad6",
       "precedents": [
-        "3b717395-1b78-42ca-a511-0d80a771abc5",
-        "b0acea29-b4e0-4386-b84a-61652f7faecc"
+        "71a1abb2-980f-4683-a7fa-e71db0f3833b",
+        "df9ea151-7dde-4c19-9a75-76bb28a82ae6"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "0aea6dae-2a72-46e9-b5e0-43894e81026d": {
-      "id": "0aea6dae-2a72-46e9-b5e0-43894e81026d",
+    "c61acc29-c1d5-486f-bfd8-65b7e562bd8e": {
+      "id": "c61acc29-c1d5-486f-bfd8-65b7e562bd8e",
       "description": "",
-      "consumes": "06295273-1796-4906-be2b-d40df9ea7a33",
-      "produces": "cdf9a45a-c331-46c7-9288-5744902320b4",
+      "consumes": "ac5e0876-b5f4-4c12-b2eb-60ce54bc20ef",
+      "produces": "782519c0-5d76-410b-9824-3d2c7c896c7e",
       "precedents": [
-        "c928581e-2f6a-4ca4-8669-ce26ea707b6d",
-        "e23a0396-2608-4116-be53-e6ecd6731dda"
+        "70af863f-add0-4bec-a6d5-13e434af75b6"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
     },
-    "d84ff441-d9fe-4adb-aa6c-a588002b3425": {
-      "id": "d84ff441-d9fe-4adb-aa6c-a588002b3425",
+    "44c056a0-755d-4273-b548-a6755d9a1714": {
+      "id": "44c056a0-755d-4273-b548-a6755d9a1714",
       "description": "",
-      "consumes": "44a643fd-b412-45a5-b006-f3213199f088",
-      "produces": "0bda0995-06b4-4112-8df1-98e56cfafe5c",
+      "consumes": null,
+      "produces": null,
       "precedents": [
-        "0aea6dae-2a72-46e9-b5e0-43894e81026d"
+        "c61acc29-c1d5-486f-bfd8-65b7e562bd8e"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
     },
-    "867b4b30-ce91-452f-ba06-90c4dac6d346": {
-      "id": "867b4b30-ce91-452f-ba06-90c4dac6d346",
+    "7f5bfaac-d1ab-4f56-b3ee-b4449b442ac1": {
+      "id": "7f5bfaac-d1ab-4f56-b3ee-b4449b442ac1",
       "description": "",
-      "consumes": "44722d5b-a993-4dcc-a931-72e86ea2748b",
-      "produces": "fce85a92-b3e7-462b-9285-ec9fc56cd6a8",
+      "consumes": "22083924-4c2c-46b7-be82-f10816306255",
+      "produces": "1f2e63d6-c55c-4ecd-a1b1-d6800ebbb97e",
       "precedents": [
-        "d84ff441-d9fe-4adb-aa6c-a588002b3425"
+        "44c056a0-755d-4273-b548-a6755d9a1714"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
     },
-    "46cabe09-6013-4723-bd0f-b123ea5bfa68": {
-      "id": "46cabe09-6013-4723-bd0f-b123ea5bfa68",
+    "5e8c47c7-bd0e-45e9-823e-16eaaf9ba7b7": {
+      "id": "5e8c47c7-bd0e-45e9-823e-16eaaf9ba7b7",
       "description": "",
-      "consumes": "74a9a24f-2917-4bdc-b854-0e5927fee255",
-      "produces": "24f819fe-1cf9-43c6-9e3c-b814c10db967",
+      "consumes": "6d73377d-a11f-4671-99cd-47a36013141d",
+      "produces": "c3f81c4b-7cd3-4e77-8d93-7b8f16af5d79",
       "precedents": [
-        "867b4b30-ce91-452f-ba06-90c4dac6d346"
+        "68597f75-a8a2-482b-bede-1110cf0cf6a0"
       ],
-      "type": "transform_reloading"
+      "type": "OPERATION_ADDITION_SOLID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "20b17ab6-089d-4273-a8f3-c89e65c70629": {
-      "id": "20b17ab6-089d-4273-a8f3-c89e65c70629",
+    "18295c79-cd3b-4acc-a1cc-f47d4a686f96": {
+      "id": "18295c79-cd3b-4acc-a1cc-f47d4a686f96",
       "description": "",
-      "consumes": "6ea0741f-5147-4ba3-9f40-59a85ba79389",
-      "produces": "0ad37250-0519-4a47-a5f1-0e837af91552",
+      "consumes": "747aae07-9643-41c2-b4b6-9c6e22a322ff",
+      "produces": "3d61297c-18d8-4f4d-8dd0-81d520e3b7a0",
       "precedents": [
-        "3b717395-1b78-42ca-a511-0d80a771abc5"
+        "bcb92276-9926-4886-bc08-1778b393cd06",
+        "5e8c47c7-bd0e-45e9-823e-16eaaf9ba7b7"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "07bccf49-720f-49c9-bea6-3a1022f7ca8e": {
-      "id": "07bccf49-720f-49c9-bea6-3a1022f7ca8e",
+    "57685b4c-68c2-49cf-8172-e72a62ae8690": {
+      "id": "57685b4c-68c2-49cf-8172-e72a62ae8690",
       "description": "",
-      "consumes": "ab0735be-d667-4b18-982b-e65d9dd18c85",
-      "produces": "f6bf5d90-238a-4ce1-89ea-6175ad9cb4a9",
+      "consumes": "6f249ba1-7363-4bf6-8beb-16951377de65",
+      "produces": "d8b07b03-c118-43b8-8dad-9d8c65939525",
       "precedents": [
-        "0c64c933-93ac-407a-b984-7c5bd32b5175",
-        "20b17ab6-089d-4273-a8f3-c89e65c70629"
+        "c784aaf9-553a-4b9c-aae6-0fb741d934f5",
+        "18295c79-cd3b-4acc-a1cc-f47d4a686f96"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "f4588e87-929e-44ca-9dc3-819cbd24c25f": {
-      "id": "f4588e87-929e-44ca-9dc3-819cbd24c25f",
+    "9c79bca7-251f-473e-a773-67579f624d7a": {
+      "id": "9c79bca7-251f-473e-a773-67579f624d7a",
       "description": "",
-      "consumes": "427ecaa7-85d3-4ea1-ab8b-1ec993371fe2",
-      "produces": "98c1de07-cc1a-4a65-aaf0-9c552e4f06b1",
+      "consumes": "7c013cf7-b9a1-4f10-8b65-6e6f7ce6a64f",
+      "produces": "d3b1c8e7-15e1-40a8-9633-68caf5575617",
       "precedents": [
-        "46cabe09-6013-4723-bd0f-b123ea5bfa68",
-        "07bccf49-720f-49c9-bea6-3a1022f7ca8e"
+        "57685b4c-68c2-49cf-8172-e72a62ae8690"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
     },
-    "7742b843-45af-4737-b0b9-6a72326f7bd3": {
-      "id": "7742b843-45af-4737-b0b9-6a72326f7bd3",
+    "770da5a5-0a24-4177-898e-3c6804050ff0": {
+      "id": "770da5a5-0a24-4177-898e-3c6804050ff0",
       "description": "",
-      "consumes": "4f4dec15-fbfe-47ab-9efd-6f4c097765dd",
-      "produces": "177577e9-cbb2-47b7-986d-d73af5c5ad0e",
+      "consumes": null,
+      "produces": null,
       "precedents": [
-        "71867357-db8c-4dfa-8c02-634dae08b319",
-        "f4588e87-929e-44ca-9dc3-819cbd24c25f"
+        "9c79bca7-251f-473e-a773-67579f624d7a"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
     },
-    "819b68f0-0030-4118-bcc8-8ca752a1135f": {
-      "id": "819b68f0-0030-4118-bcc8-8ca752a1135f",
+    "de8a4767-e6c4-499b-bea2-12eb716a0a78": {
+      "id": "de8a4767-e6c4-499b-bea2-12eb716a0a78",
       "description": "",
-      "consumes": "223b4b13-fdde-4f13-b296-76b7f09734f3",
-      "produces": "32579508-40c4-443a-8649-cf9d17057d13",
+      "consumes": "fb75c1f8-ede3-49fa-bad1-9eac68f5daa6",
+      "produces": "dec5d27d-a657-4d6a-bf38-7f610061864a",
       "precedents": [
-        "7742b843-45af-4737-b0b9-6a72326f7bd3"
+        "770da5a5-0a24-4177-898e-3c6804050ff0"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
     },
-    "1d24d2a8-66ca-43e5-b813-cf3bd32a73ae": {
-      "id": "1d24d2a8-66ca-43e5-b813-cf3bd32a73ae",
+    "fa090ba6-ed0f-4eab-8329-0b0f1cae1151": {
+      "id": "fa090ba6-ed0f-4eab-8329-0b0f1cae1151",
       "description": "",
-      "consumes": "cf5bdae6-b3d8-4fdd-babb-ff4d40a85ea4",
-      "produces": "ad9dad64-37ec-4730-8c21-2081c0e122df",
+      "consumes": "1aa3e1f6-f496-4a54-bc20-199129276336",
+      "produces": "5b46b84a-691c-466a-9cee-257e95df0e48",
       "precedents": [
-        "819b68f0-0030-4118-bcc8-8ca752a1135f"
+        "de8a4767-e6c4-499b-bea2-12eb716a0a78"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_RELOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2",
+        "WORKER-3"
+      ]
     },
-    "425ec398-14a1-4193-898f-db62f0f51f97": {
-      "id": "425ec398-14a1-4193-898f-db62f0f51f97",
+    "055c6ebe-60d8-4422-a20b-93cdd667036c": {
+      "id": "055c6ebe-60d8-4422-a20b-93cdd667036c",
       "description": "",
-      "consumes": "5ce164b0-23c1-4ed6-a5e0-1812a85cfcb0",
-      "produces": "1218dede-5178-40aa-b374-69f10dcc9be4",
+      "consumes": "156aee8d-f711-4680-a81e-1b1dc3f794f7",
+      "produces": "0dd70ff5-3497-448a-8c55-eff6aada5724",
       "precedents": [
-        "3b717395-1b78-42ca-a511-0d80a771abc5"
+        "bcb92276-9926-4886-bc08-1778b393cd06"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "17faf374-cad3-41fa-bc75-e4fcb00f01a5": {
-      "id": "17faf374-cad3-41fa-bc75-e4fcb00f01a5",
+    "c7550751-660c-4a1e-abfa-2665ce19aee9": {
+      "id": "c7550751-660c-4a1e-abfa-2665ce19aee9",
       "description": "",
-      "consumes": "3d6d5e77-5be9-47e5-aad0-b345ed537f02",
-      "produces": "c817e657-2ab2-406d-ba12-c6f4ff2c76f2",
+      "consumes": "9f1e9d5f-ccf0-4822-b1e5-269c45527814",
+      "produces": "02bb9d5a-61e5-4237-885f-2191de2387a9",
       "precedents": [
-        "46cabe09-6013-4723-bd0f-b123ea5bfa68",
-        "425ec398-14a1-4193-898f-db62f0f51f97"
+        "99e911ed-ba66-4737-81fe-3edc94158011",
+        "055c6ebe-60d8-4422-a20b-93cdd667036c"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "e6f058a9-c6c1-47a8-acfc-0093331f2762": {
-      "id": "e6f058a9-c6c1-47a8-acfc-0093331f2762",
+    "a59b2ffd-dcfe-410b-8a5c-9c098a0f07bf": {
+      "id": "a59b2ffd-dcfe-410b-8a5c-9c098a0f07bf",
       "description": "",
-      "consumes": "ac801305-2fb6-4ae9-a2b2-ffcd9f8c54fb",
-      "produces": "10c710c7-35f0-4aa8-a4a4-db21d322e305",
+      "consumes": "3e787b72-1e81-4bc3-a6a0-4113d9343e07",
+      "produces": "e46954e1-91d8-4a1d-8cec-7152a57f228c",
       "precedents": [
-        "0c64c933-93ac-407a-b984-7c5bd32b5175",
-        "17faf374-cad3-41fa-bc75-e4fcb00f01a5"
+        "fa090ba6-ed0f-4eab-8329-0b0f1cae1151",
+        "c7550751-660c-4a1e-abfa-2665ce19aee9"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "c583a09a-c99a-4e7f-848b-25f85f27c7e4": {
-      "id": "c583a09a-c99a-4e7f-848b-25f85f27c7e4",
+    "5def357d-24d7-42b6-a684-124d83e7b8ff": {
+      "id": "5def357d-24d7-42b6-a684-124d83e7b8ff",
       "description": "",
-      "consumes": "c3cacd91-c683-47d7-87a2-6aae0604af38",
-      "produces": "0406eaff-23f2-4116-8c7b-315734427c70",
+      "consumes": "b84371b4-a0be-4270-a524-004cec108cfa",
+      "produces": "951ec23d-6714-4e08-9e44-1004c9854984",
       "precedents": [
-        "49104e9b-ec8e-4d86-a18d-210caf3eafd3",
-        "e6f058a9-c6c1-47a8-acfc-0093331f2762"
+        "29ad4763-ab9c-45f8-8678-5450fa5f2350",
+        "a59b2ffd-dcfe-410b-8a5c-9c098a0f07bf"
       ],
-      "type": "transform_liquid_addition"
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
     },
-    "acbbca23-ade3-41a8-aae4-46314ce942e4": {
-      "id": "acbbca23-ade3-41a8-aae4-46314ce942e4",
+    "7e2d73e2-5be0-48a0-bad5-b0be891f66f5": {
+      "id": "7e2d73e2-5be0-48a0-bad5-b0be891f66f5",
       "description": "",
-      "consumes": "ac14108f-a30b-4921-b835-ec96b03e3e71",
-      "produces": "885e2863-d350-47ce-9eb4-1f39ab29b486",
+      "consumes": "c3056044-18be-424e-8ee4-7b979c3cfcc5",
+      "produces": "487a4bb0-b2b5-4969-a338-db5a0a63c109",
       "precedents": [
-        "c583a09a-c99a-4e7f-848b-25f85f27c7e4"
+        "5def357d-24d7-42b6-a684-124d83e7b8ff"
       ],
-      "type": "transform_reaction"
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
     },
-    "b353ffbd-11d4-43cd-b3e7-8f0591938203": {
-      "id": "b353ffbd-11d4-43cd-b3e7-8f0591938203",
+    "03ea5a37-68a0-4d8c-8e50-eb91c0178cc3": {
+      "id": "03ea5a37-68a0-4d8c-8e50-eb91c0178cc3",
       "description": "",
-      "consumes": "d314c155-f99f-4ec2-89dd-43df30792665",
-      "produces": "1b797a2d-5348-43aa-864d-1c78b32de780",
+      "consumes": null,
+      "produces": null,
       "precedents": [
-        "acbbca23-ade3-41a8-aae4-46314ce942e4"
+        "7e2d73e2-5be0-48a0-bad5-b0be891f66f5"
       ],
-      "type": "transform_purification"
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
+    },
+    "6577c804-680f-41b4-a2aa-562add51b0ba": {
+      "id": "6577c804-680f-41b4-a2aa-562add51b0ba",
+      "description": "",
+      "consumes": "8eb2fa4f-26fd-4a54-b5d3-ab8e082d44e8",
+      "produces": "517753c4-63d5-4c64-ae84-849403fefce5",
+      "precedents": [
+        "03ea5a37-68a0-4d8c-8e50-eb91c0178cc3"
+      ],
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
+    },
+    "28c2d247-2dfc-425f-92ca-3e608175b8a2": {
+      "id": "28c2d247-2dfc-425f-92ca-3e608175b8a2",
+      "description": "",
+      "consumes": "343e9872-9a5a-4f4b-89aa-a3ecc1f703e8",
+      "produces": "5ba4f826-2e7c-4902-9fce-6d8d36f03742",
+      "precedents": [
+        "bcb92276-9926-4886-bc08-1778b393cd06"
+      ],
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
+    },
+    "8d185ad4-1a03-4185-89ce-edfe891f6c9f": {
+      "id": "8d185ad4-1a03-4185-89ce-edfe891f6c9f",
+      "description": "",
+      "consumes": "4a633486-ed2b-4745-9102-ac5404ee038e",
+      "produces": "b619c737-9ba3-44b5-88f7-675b05e6fd6a",
+      "precedents": [
+        "fa090ba6-ed0f-4eab-8329-0b0f1cae1151",
+        "28c2d247-2dfc-425f-92ca-3e608175b8a2"
+      ],
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
+    },
+    "7fc84829-f2a8-46e9-8109-ea4e17ac8f2a": {
+      "id": "7fc84829-f2a8-46e9-8109-ea4e17ac8f2a",
+      "description": "",
+      "consumes": "8d0589a9-3622-42e0-95cb-b6f2ff281b87",
+      "produces": "8c0622eb-9957-4145-9963-887a3c029b4e",
+      "precedents": [
+        "99e911ed-ba66-4737-81fe-3edc94158011",
+        "8d185ad4-1a03-4185-89ce-edfe891f6c9f"
+      ],
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
+    },
+    "1bf79d73-2773-4a27-b177-b1f450185817": {
+      "id": "1bf79d73-2773-4a27-b177-b1f450185817",
+      "description": "",
+      "consumes": "98e7cf4e-341f-4845-876b-153f7853cf54",
+      "produces": "64c1825f-26d1-42bb-b4c3-4803443f7ef5",
+      "precedents": [
+        "b9295fd8-44cc-4ed9-83eb-5798acd980f6",
+        "7fc84829-f2a8-46e9-8109-ea4e17ac8f2a"
+      ],
+      "type": "OPERATION_ADDITION_LIQUID",
+      "can_be_realized_by": [
+        "PREPARATION PLATFORM"
+      ]
+    },
+    "a6809a5b-b5c1-4c4b-b8a4-663e03932e8e": {
+      "id": "a6809a5b-b5c1-4c4b-b8a4-663e03932e8e",
+      "description": "",
+      "consumes": "c8c56804-aeff-4936-94fb-140e58323f76",
+      "produces": "2f5f965d-7a50-43ef-89b1-289abb9bfe35",
+      "precedents": [
+        "1bf79d73-2773-4a27-b177-b1f450185817"
+      ],
+      "type": "OPERATION_HEATING",
+      "can_be_realized_by": [
+        "HEATER-1",
+        "HEATER-2",
+        "HEATER-3"
+      ]
+    },
+    "6b212bf8-7284-421e-bcae-c07f33e802b4": {
+      "id": "6b212bf8-7284-421e-bcae-c07f33e802b4",
+      "description": "",
+      "consumes": null,
+      "produces": null,
+      "precedents": [
+        "a6809a5b-b5c1-4c4b-b8a4-663e03932e8e"
+      ],
+      "type": "OPERATION_UNLOADING",
+      "can_be_realized_by": [
+        "WORKER-1",
+        "WORKER-2"
+      ]
+    },
+    "cb4ceb0d-e845-484d-af2a-f26c4b402e17": {
+      "id": "cb4ceb0d-e845-484d-af2a-f26c4b402e17",
+      "description": "",
+      "consumes": "c64141f3-4dcc-4dff-8c64-2f5efcf35c8f",
+      "produces": "90efbcb5-7fb0-49f7-82ad-2d53958d3a2c",
+      "precedents": [
+        "6b212bf8-7284-421e-bcae-c07f33e802b4"
+      ],
+      "type": "OPERATION_PURIFICATION",
+      "can_be_realized_by": [
+        "ACC-1",
+        "ACC-2"
+      ]
     }
   },
   "devices": [
@@ -3417,5 +4387,36 @@
     "HEATING_BLOCK_3",
     "ROTAVAP_1",
     "ROTAVAP_2"
-  ]
+  ],
+  "operation_type_device_mapping": {
+    "OPERATION_HEATING": [
+      "HEATER-1",
+      "HEATER-2",
+      "HEATER-3"
+    ],
+    "OPERATION_LOADING": [
+      "WORKER-1",
+      "WORKER-2",
+      "WORKER-3"
+    ],
+    "OPERATION_UNLOADING": [
+      "WORKER-1",
+      "WORKER-2"
+    ],
+    "OPERATION_RELOADING": [
+      "WORKER-1",
+      "WORKER-2",
+      "WORKER-3"
+    ],
+    "OPERATION_PURIFICATION": [
+      "ACC-1",
+      "ACC-2"
+    ],
+    "OPERATION_ADDITION_SOLID": [
+      "PREPARATION PLATFORM"
+    ],
+    "OPERATION_ADDITION_LIQUID": [
+      "PREPARATION PLATFORM"
+    ]
+  }
 }

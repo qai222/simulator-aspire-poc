@@ -140,8 +140,8 @@ class ReactionLv1(BaseModel):
         # TODO dead volume
         data = dict()
         for smis_and_ratios in (
-                reaction_lv0.reactant_smis_and_ratios,
-                reaction_lv0.reagent_smis_and_ratios,
+                reaction_lv0.reactant_stoichiometry,
+                reaction_lv0.reagent_stoichiometry,
         ):
             for smi, ratio in smis_and_ratios.items():
                 moles = batch_size * ratio
@@ -219,11 +219,11 @@ class NetworkLv1(BaseModel):
 
             reagents_lv1 = []
             reactants_lv1 = []
-            for compound_smi in reaction_lv0.reactant_smis_and_ratios:
+            for compound_smi in reaction_lv0.reactant_stoichiometry:
                 c_lv1 = CompoundLv1.from_moles(required_moles_for_this_reaction[compound_smi],
                                                network_lv0.compound_dict[compound_smi])
                 reactants_lv1.append(c_lv1)
-            for compound_smi in reaction_lv0.reagent_smis_and_ratios:
+            for compound_smi in reaction_lv0.reagent_stoichiometry:
                 c_lv1 = CompoundLv1.from_moles(required_moles_for_this_reaction[compound_smi],
                                                network_lv0.compound_dict[compound_smi])
                 reagents_lv1.append(c_lv1)
