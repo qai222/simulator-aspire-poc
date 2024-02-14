@@ -1,0 +1,3095 @@
+{
+	"Cc1cc(NC(=O)C(=O)NCC2(CO)CC(C)(C)C2)nn1-c1ccccc1F": {
+		"Compounds": [
+			"CCOC(=O)C(=O)Nc1cc(C)n(-c2ccccc2F)n1",
+			"Cc1cc(N)nn1-c1ccccc1F",
+			"Fc1ccccc1I",
+			"Cc1cc(N)n[nH]1",
+			"CCOC(=O)C(=O)Cl",
+			"CC1(C)CC(CN)(CO)C1",
+			"CCOC(=O)C1(C#N)CC(C)(C)C1",
+			"CCOC(=O)CC#N",
+			"CC(C)(CBr)CBr"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC1(C)CC(CN)(CO)C1.CCOC(=O)C(=O)Nc1cc(C)n(-c2ccccc2F)n1>>Cc1cc(NC(=O)C(=O)NCC2(CO)CC(C)(C)C2)nn1-c1ccccc1F",
+				"conditions": [
+					"ClCCl"
+				],
+				"score": 0.9874205142096296
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Cc1cc(N)nn1-c1ccccc1F>>CCOC(=O)C(=O)Nc1cc(C)n(-c2ccccc2F)n1",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.9992937585715489
+			},
+			{
+				"smiles": "Cc1cc(N)n[nH]1.Fc1ccccc1I>>Cc1cc(N)nn1-c1ccccc1F",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.4827581171532633
+			},
+			{
+				"smiles": ">>Fc1ccccc1I",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": ">>Cc1cc(N)n[nH]1",
+				"starting material cost ($/g)": 0.7
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "CCOC(=O)C1(C#N)CC(C)(C)C1>>CC1(C)CC(CN)(CO)C1",
+				"conditions": [
+					"C1CCOC1",
+					"[AlH7-].[Li+]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(C)(CBr)CBr.CCOC(=O)CC#N>>CCOC(=O)C1(C#N)CC(C)(C)C1",
+				"conditions": [
+					"CC[O-].[Na+]"
+				],
+				"score": 0.9884970974640703
+			},
+			{
+				"smiles": ">>CCOC(=O)CC#N",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": ">>CC(C)(CBr)CBr",
+				"starting material cost ($/g)": 47.0
+			}
+		],
+		"Reward": 1
+	},
+	"O=S(=O)(NC1CC1)c1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1": {
+		"Compounds": [
+			"NC(CCc1ccccc1)c1ccccn1",
+			"O=C(CCc1ccccc1)c1ccccn1",
+			"OC(CCc1ccccc1)c1ccccn1",
+			"Brc1ccccn1",
+			"O=CCCc1ccccc1",
+			"O=S(=O)(Cl)c1ccc(S(=O)(=O)NC2CC2)cc1",
+			"O=S(=O)(NC1CC1)c1ccccc1",
+			"NC1CC1",
+			"O=S(=O)(Cl)c1ccccc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "NC(CCc1ccccc1)c1ccccn1.O=S(=O)(Cl)c1ccc(S(=O)(=O)NC2CC2)cc1>>O=S(=O)(NC1CC1)c1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1",
+				"conditions": [
+					"ClCCl",
+					"CCN(C(C)C)C(C)C"
+				],
+				"score": 0.999860353774958
+			},
+			{
+				"smiles": "O=C(CCc1ccccc1)c1ccccn1>>NC(CCc1ccccc1)c1ccccn1",
+				"conditions": [
+					"CO",
+					"[BH3-]C#N.[Na+].CC(=O)O.N"
+				],
+				"score": 0.7027194462827347
+			},
+			{
+				"smiles": "OC(CCc1ccccc1)c1ccccn1>>O=C(CCc1ccccc1)c1ccccn1",
+				"conditions": [
+					"ClCCl",
+					"O=[Mn]=O"
+				],
+				"score": 0.9993383869590217
+			},
+			{
+				"smiles": "Brc1ccccn1.O=CCCc1ccccc1>>OC(CCc1ccccc1)c1ccccn1",
+				"conditions": [
+					"[Li]CCCC"
+				],
+				"score": 0.9849520196019279
+			},
+			{
+				"smiles": ">>Brc1ccccn1",
+				"starting material cost ($/g)": 2.2
+			},
+			{
+				"smiles": ">>O=CCCc1ccccc1",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": "O=S(=O)(NC1CC1)c1ccccc1>>O=S(=O)(Cl)c1ccc(S(=O)(=O)NC2CC2)cc1",
+				"conditions": [
+					"O=S(=O)(O)Cl"
+				],
+				"score": 0.9508968120733439
+			},
+			{
+				"smiles": "NC1CC1.O=S(=O)(Cl)c1ccccc1>>O=S(=O)(NC1CC1)c1ccccc1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9996809943585486
+			},
+			{
+				"smiles": ">>NC1CC1",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": ">>O=S(=O)(Cl)c1ccccc1",
+				"starting material cost ($/g)": 2.2
+			}
+		],
+		"Reward": 1
+	},
+	"CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OCc2cccc3ccsc23)c1": {
+		"Compounds": [
+			"BrCc1cccc2ccsc12",
+			"Cc1cccc2ccsc12",
+			"COC(CSc1ccccc1C)OC",
+			"COC(CBr)OC",
+			"Cc1ccccc1S",
+			"CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)O)c1",
+			"COC(=O)c1cccc(S(=O)(=O)N=S(C)(C)=O)c1",
+			"COC(=O)c1cccc(S(=O)(=O)Cl)c1",
+			"CS(C)(=N)=O"
+		],
+		"Reactions": [
+			{
+				"smiles": "BrCc1cccc2ccsc12.CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)O)c1>>CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OCc2cccc3ccsc23)c1",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.6681733091883878
+			},
+			{
+				"smiles": "Cc1cccc2ccsc12>>BrCc1cccc2ccsc12",
+				"conditions": [
+					"ClC(Cl)(Cl)Cl",
+					"CC(C)(C#N)N=NC(C)(C)C#N.O=C1CCC(=O)N1Br"
+				],
+				"score": 0.9994516949993666
+			},
+			{
+				"smiles": "COC(CSc1ccccc1C)OC>>Cc1cccc2ccsc12",
+				"conditions": [
+					"ClC1=CC=CC=C1",
+					"O.O.O.CCN1C=C(C(O)=O)C(=O)c2cnc(nc12)N3CCNCC3"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "COC(CBr)OC.Cc1ccccc1S>>COC(CSc1ccccc1C)OC",
+				"conditions": [
+					"CC[O-].[Na+]"
+				],
+				"score": 0.9982615739769026
+			},
+			{
+				"smiles": ">>COC(CBr)OC",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": ">>Cc1ccccc1S",
+				"starting material cost ($/g)": 4.3
+			},
+			{
+				"smiles": "COC(=O)c1cccc(S(=O)(=O)N=S(C)(C)=O)c1>>CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)O)c1",
+				"conditions": [
+					"CO",
+					"[Na+].[OH-]"
+				],
+				"score": 0.9868471889979765
+			},
+			{
+				"smiles": "COC(=O)c1cccc(S(=O)(=O)Cl)c1.CS(C)(=N)=O>>COC(=O)c1cccc(S(=O)(=O)N=S(C)(C)=O)c1",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.9948907791566347
+			},
+			{
+				"smiles": ">>COC(=O)c1cccc(S(=O)(=O)Cl)c1",
+				"starting material cost ($/g)": 4.2
+			},
+			{
+				"smiles": ">>CS(C)(=N)=O",
+				"starting material cost ($/g)": 10.0
+			}
+		],
+		"Reward": 1
+	},
+	"COc1ccc(-c2nccc(N3CCCC(Cc4ccc(N)nc4)C3)n2)cc1": {
+		"Compounds": [
+			"Nc1ccc(CC2CCCN(c3ccnc(Cl)n3)C2)cn1",
+			"Nc1ccc(CC2CCCNC2)cn1",
+			"CC(C)(C)OC(=O)N1CCCC(Cc2ccc(N)nc2)C1",
+			"CC(C)(C)OC(=O)N1CCCC(Cc2ccc(Br)nc2)C1",
+			"CC(C)(C)OC(=O)N1CCCC(CBr)C1",
+			"Brc1ccc(Br)nc1",
+			"Clc1ccnc(Cl)n1",
+			"COc1ccc(B(O)O)cc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "COc1ccc(B(O)O)cc1.Nc1ccc(CC2CCCN(c3ccnc(Cl)n3)C2)cn1>>COc1ccc(-c2nccc(N3CCCC(Cc4ccc(N)nc4)C3)n2)cc1",
+				"conditions": [
+					"C1COCCO1",
+					"O=C([O-])[O-].[Cs+]"
+				],
+				"score": 0.9999999712187017
+			},
+			{
+				"smiles": "Clc1ccnc(Cl)n1.Nc1ccc(CC2CCCNC2)cn1>>Nc1ccc(CC2CCCN(c3ccnc(Cl)n3)C2)cn1",
+				"conditions": [
+					"CC(C)O",
+					"CCN(C(C)C)C(C)C"
+				],
+				"score": 0.9484806804633404
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCCC(Cc2ccc(N)nc2)C1>>Nc1ccc(CC2CCCNC2)cn1",
+				"conditions": [
+					"C1COCCO1",
+					"Cl"
+				],
+				"score": 0.9993476641270446
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCCC(Cc2ccc(Br)nc2)C1>>CC(C)(C)OC(=O)N1CCCC(Cc2ccc(N)nc2)C1",
+				"conditions": [
+					"[NH4+].[OH-]",
+					"[OH2--].[Cu+].[Cu+]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "Brc1ccc(Br)nc1.CC(C)(C)OC(=O)N1CCCC(CBr)C1>>CC(C)(C)OC(=O)N1CCCC(Cc2ccc(Br)nc2)C1",
+				"conditions": [
+					"C1CCOC1",
+					"[Li]CCCC"
+				],
+				"score": 0.14822749903967603
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)N1CCCC(CBr)C1",
+				"starting material cost ($/g)": 10.0
+			},
+			{
+				"smiles": ">>Brc1ccc(Br)nc1",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": ">>Clc1ccnc(Cl)n1",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": ">>COc1ccc(B(O)O)cc1",
+				"starting material cost ($/g)": 0.7
+			}
+		],
+		"Reward": 1
+	},
+	"O=C1CCC(c2cccc(NC(=O)C(=O)NC(CCc3ccccc3)c3ccccc3)c2)N1": {
+		"Compounds": [
+			"O=C1CCC(c2cccc(NC(=O)C(=O)O)c2)N1",
+			"CCOC(=O)C(=O)Nc1cccc(C2CCC(=O)N2)c1",
+			"Nc1cccc(C2CCC(=O)N2)c1",
+			"[N-]=[N+]=Nc1cccc(C2CCC(=O)N2)c1",
+			"O=C1CCC(c2cccc(Br)c2)N1",
+			"COC(=O)CCC(c1cccc(Br)c1)[N+](=O)[O-]",
+			"Brc1cccc(Br)c1",
+			"COC(=O)CCC[N+](=O)[O-]",
+			"CCOC(=O)C(=O)Cl",
+			"NC(CCc1ccccc1)c1ccccc1",
+			"[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1",
+			"OC(CCc1ccccc1)c1ccccc1",
+			"O=C(CCc1ccccc1)c1ccccc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "NC(CCc1ccccc1)c1ccccc1.O=C1CCC(c2cccc(NC(=O)C(=O)O)c2)N1>>O=C1CCC(c2cccc(NC(=O)C(=O)NC(CCc3ccccc3)c3ccccc3)c2)N1",
+				"conditions": [
+					"CN(C)C=O",
+					"CCN(C(C)C)C(C)C.CN(C)C(N1N=N(=O)C2=C1C=CC=N2)=[N+](C)C.FP(F)(F)(F)(F)F"
+				],
+				"score": 0.9967882992992058
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cccc(C2CCC(=O)N2)c1>>O=C1CCC(c2cccc(NC(=O)C(=O)O)c2)N1",
+				"conditions": [
+					"CCO",
+					"[Na+].[OH-]"
+				],
+				"score": 0.9989272002055013
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Nc1cccc(C2CCC(=O)N2)c1>>CCOC(=O)C(=O)Nc1cccc(C2CCC(=O)N2)c1",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9949189677792014
+			},
+			{
+				"smiles": "[N-]=[N+]=Nc1cccc(C2CCC(=O)N2)c1>>Nc1cccc(C2CCC(=O)N2)c1",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9951631547565524
+			},
+			{
+				"smiles": "O=C1CCC(c2cccc(Br)c2)N1>>[N-]=[N+]=Nc1cccc(C2CCC(=O)N2)c1",
+				"conditions": [
+					"CN(C)C=O",
+					"[N-]=[N+]=[N-].[Na+]"
+				],
+				"score": 0.9678294216972578
+			},
+			{
+				"smiles": "COC(=O)CCC(c1cccc(Br)c1)[N+](=O)[O-]>>O=C1CCC(c2cccc(Br)c2)N1",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Ni]"
+				],
+				"score": 0.03129106994129175
+			},
+			{
+				"smiles": "Brc1cccc(Br)c1.COC(=O)CCC[N+](=O)[O-]>>COC(=O)CCC(c1cccc(Br)c1)[N+](=O)[O-]",
+				"conditions": [
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>Brc1cccc(Br)c1",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": ">>COC(=O)CCC[N+](=O)[O-]",
+				"starting material cost ($/g)": 6.0
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1>>NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9977404699203742
+			},
+			{
+				"smiles": "OC(CCc1ccccc1)c1ccccc1>>[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"Cc1ccccc1",
+					"C1CCC2=NCCCN2CC1.N#N=NP(=O)(C1=CC=CC=C1)C1=CC=CC=C1"
+				],
+				"score": 0.734493491297612
+			},
+			{
+				"smiles": "O=C(CCc1ccccc1)c1ccccc1>>OC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CO",
+					"[BH4-].[Na+]"
+				],
+				"score": 0.9291079215771022
+			},
+			{
+				"smiles": ">>O=C(CCc1ccccc1)c1ccccc1",
+				"starting material cost ($/g)": 8.4
+			}
+		],
+		"Reward": 1
+	},
+	"O=C1CCC(n2cc(NC(=O)N(Cc3ccccc3)Cc3ccccc3)cn2)CN1": {
+		"Compounds": [
+			"CC(C)(C)OC(=O)N1CC(n2cc(NC(=O)N(Cc3ccccc3)Cc3ccccc3)cn2)CCC1=O",
+			"c1ccc(CNCc2ccccc2)cc1",
+			"CC(C)(C)OC(=O)N1CC(n2cc(NC(=O)Cl)cn2)CCC1=O",
+			"CC(C)(C)OC(=O)N1CCCC(n2cc(NC(=O)Cl)cn2)C1",
+			"O=C(Cl)Cl",
+			"ClC(Cl)Cl",
+			"CC(C)(C)OC(=O)N1CCCC(n2cc(N)cn2)C1",
+			"CC(C)(C)OC(=O)N1CCCC(n2cc([N+](=O)[O-])cn2)C1",
+			"O=[N+]([O-])c1cn[nH]c1",
+			"CC(C)(C)OC(=O)N1CCCC(O)C1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CC(n2cc(NC(=O)N(Cc3ccccc3)Cc3ccccc3)cn2)CCC1=O>>O=C1CCC(n2cc(NC(=O)N(Cc3ccccc3)Cc3ccccc3)cn2)CN1",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.9984016497139176
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CC(n2cc(NC(=O)Cl)cn2)CCC1=O.c1ccc(CNCc2ccccc2)cc1>>CC(C)(C)OC(=O)N1CC(n2cc(NC(=O)N(Cc3ccccc3)Cc3ccccc3)cn2)CCC1=O",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9954917633020945
+			},
+			{
+				"smiles": ">>c1ccc(CNCc2ccccc2)cc1",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCCC(n2cc(NC(=O)Cl)cn2)C1>>CC(C)(C)OC(=O)N1CC(n2cc(NC(=O)Cl)cn2)CCC1=O",
+				"conditions": [
+					"ClCCl",
+					"O=C(OO)c1cccc(Cl)c1"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCCC(n2cc(N)cn2)C1.O=C(Cl)Cl>>CC(C)(C)OC(=O)N1CCCC(n2cc(NC(=O)Cl)cn2)C1",
+				"conditions": [
+					"Cc1ccccc1"
+				],
+				"score": 0.07384727511835695
+			},
+			{
+				"smiles": "ClC(Cl)Cl>>O=C(Cl)Cl",
+				"conditions": [
+					"ClCl"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>ClC(Cl)Cl",
+				"starting material cost ($/g)": 2.3
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCCC(n2cc([N+](=O)[O-])cn2)C1>>CC(C)(C)OC(=O)N1CCCC(n2cc(N)cn2)C1",
+				"conditions": [
+					"CO",
+					"[H][H]"
+				],
+				"score": 0.99473254197391
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCCC(O)C1.O=[N+]([O-])c1cn[nH]c1>>CC(C)(C)OC(=O)N1CCCC(n2cc([N+](=O)[O-])cn2)C1",
+				"conditions": [
+					"C1CCOC1",
+					"c1ccc(P(c2ccccc2)c2ccccc2)cc1.CC(C)OC(=O)N=NC(=O)OC(C)C"
+				],
+				"score": 0.9469079124556813
+			},
+			{
+				"smiles": ">>O=[N+]([O-])c1cn[nH]c1",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)N1CCCC(O)C1",
+				"starting material cost ($/g)": 0.8
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(Nc1cccc(-c2ccn[nH]2)c1)C(=O)NC(CCc1ccccc1)c1ccccc1": {
+		"Compounds": [
+			"NC(CCc1ccccc1)c1ccccc1",
+			"[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1",
+			"OC(CCc1ccccc1)c1ccccc1",
+			"O=C(CCc1ccccc1)c1ccccc1",
+			"O=C(O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+			"CCOC(=O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+			"CCOC(=O)C(=O)Nc1cccc(B(O)O)c1",
+			"CCOC(=O)C(=O)Cl",
+			"Nc1cccc(B(O)O)c1",
+			"Ic1ccn[nH]1"
+		],
+		"Reactions": [
+			{
+				"smiles": "NC(CCc1ccccc1)c1ccccc1.O=C(O)C(=O)Nc1cccc(-c2ccn[nH]2)c1>>O=C(Nc1cccc(-c2ccn[nH]2)c1)C(=O)NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CN(C)C=O",
+					"CCN(C(C)C)C(C)C.CN(C)C(N1N=N(=O)C2=C1C=CC=N2)=[N+](C)C.FP(F)(F)(F)(F)F"
+				],
+				"score": 0.9983529582385331
+			},
+			{
+				"smiles": "[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1>>NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9977404699203742
+			},
+			{
+				"smiles": "OC(CCc1ccccc1)c1ccccc1>>[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"Cc1ccccc1",
+					"C1CCC2=NCCCN2CC1.N#N=NP(=O)(C1=CC=CC=C1)C1=CC=CC=C1"
+				],
+				"score": 0.734493491297612
+			},
+			{
+				"smiles": "O=C(CCc1ccccc1)c1ccccc1>>OC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CO",
+					"[BH4-].[Na+]"
+				],
+				"score": 0.9291079215771022
+			},
+			{
+				"smiles": ">>O=C(CCc1ccccc1)c1ccccc1",
+				"starting material cost ($/g)": 8.4
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cccc(-c2ccn[nH]2)c1>>O=C(O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+				"conditions": [
+					"O.[OH-].[Na+]"
+				],
+				"score": 0.9894521435586098
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cccc(B(O)O)c1.Ic1ccn[nH]1>>CCOC(=O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+				"conditions": [
+					"Cc1ccccc1",
+					"O=C([O-])[O-].[Na+]",
+					"c1ccc([P](c2ccccc2)(c2ccccc2)[Pd]([P](c2ccccc2)(c2ccccc2)c2ccccc2)([P](c2ccccc2)(c2ccccc2)c2ccccc2)[P](c2ccccc2)(c2ccccc2)c2ccccc2)cc1"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Nc1cccc(B(O)O)c1>>CCOC(=O)C(=O)Nc1cccc(B(O)O)c1",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.9966370799823279
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": ">>Nc1cccc(B(O)O)c1",
+				"starting material cost ($/g)": 1.6
+			},
+			{
+				"smiles": ">>Ic1ccn[nH]1",
+				"starting material cost ($/g)": 3.7
+			}
+		],
+		"Reward": 1
+	},
+	"Cc1cc(C)cc(NC(=O)C(=O)NC(CN2CCCC2=O)c2cccc(C(F)(F)F)c2)c1": {
+		"Compounds": [
+			"NC(CN1CCCC1=O)c1cccc(C(F)(F)F)c1",
+			"O=C(CN1CCCC1=O)c1cccc(C(F)(F)F)c1",
+			"O=C1CCCN1",
+			"O=C(CBr)c1cccc(C(F)(F)F)c1",
+			"CCOC(=O)C(=O)Nc1cc(C)cc(C)c1",
+			"CCOC(=O)C(=O)Cl",
+			"Cc1cc(C)cc(N)c1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cc(C)cc(C)c1.NC(CN1CCCC1=O)c1cccc(C(F)(F)F)c1>>Cc1cc(C)cc(NC(=O)C(=O)NC(CN2CCCC2=O)c2cccc(C(F)(F)F)c2)c1",
+				"conditions": [
+					"CCO"
+				],
+				"score": 0.9972248807919781
+			},
+			{
+				"smiles": "O=C(CN1CCCC1=O)c1cccc(C(F)(F)F)c1>>NC(CN1CCCC1=O)c1cccc(C(F)(F)F)c1",
+				"conditions": [
+					"CO",
+					"[BH3-]C#N.[Na+].CC(=O)O.N"
+				],
+				"score": 0.6445859304070208
+			},
+			{
+				"smiles": "O=C(CBr)c1cccc(C(F)(F)F)c1.O=C1CCCN1>>O=C(CN1CCCC1=O)c1cccc(C(F)(F)F)c1",
+				"conditions": [
+					"C1CCOC1",
+					"[H-].[Na+]"
+				],
+				"score": 0.9994569207977926
+			},
+			{
+				"smiles": ">>O=C1CCCN1",
+				"starting material cost ($/g)": 2.8
+			},
+			{
+				"smiles": ">>O=C(CBr)c1cccc(C(F)(F)F)c1",
+				"starting material cost ($/g)": 4.9
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Cc1cc(C)cc(N)c1>>CCOC(=O)C(=O)Nc1cc(C)cc(C)c1",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.9961323041972194
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": ">>Cc1cc(C)cc(N)c1",
+				"starting material cost ($/g)": 2.7
+			}
+		],
+		"Reward": 1
+	},
+	"CC(=O)NCCc1c[nH]c2ccc(NC(=O)c3ccc(-c4ccccc4F)o3)cc12": {
+		"Compounds": [
+			"CC(=O)NCC(O)c1c[nH]c2ccc(NC(=O)c3ccc(-c4ccccc4F)o3)cc12",
+			"O=C(O)c1ccc(-c2ccccc2F)o1",
+			"Fc1ccccc1Br",
+			"O=C(O)c1ccc(Br)o1",
+			"CC(=O)NCC(O)c1c[nH]c2ccc(N)cc12",
+			"CC(=O)NCC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"CC(=O)Cl",
+			"NCC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"O=[N+]([O-])CC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"O=Cc1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"C[N+](=O)[O-]"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC(=O)NCC(O)c1c[nH]c2ccc(NC(=O)c3ccc(-c4ccccc4F)o3)cc12>>CC(=O)NCCc1c[nH]c2ccc(NC(=O)c3ccc(-c4ccccc4F)o3)cc12",
+				"conditions": [
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.004106509173692582
+			},
+			{
+				"smiles": "CC(=O)NCC(O)c1c[nH]c2ccc(N)cc12.O=C(O)c1ccc(-c2ccccc2F)o1>>CC(=O)NCC(O)c1c[nH]c2ccc(NC(=O)c3ccc(-c4ccccc4F)o3)cc12",
+				"conditions": [
+					"C1CCOC1",
+					"O=C(N1C=CN=C1)N1C=CN=C1"
+				],
+				"score": 0.9990549864593876
+			},
+			{
+				"smiles": "Fc1ccccc1Br.O=C(O)c1ccc(Br)o1>>O=C(O)c1ccc(-c2ccccc2F)o1",
+				"conditions": [
+					"C1COCCO1",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9991777494909796
+			},
+			{
+				"smiles": ">>Fc1ccccc1Br",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": ">>O=C(O)c1ccc(Br)o1",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": "CC(=O)NCC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12>>CC(=O)NCC(O)c1c[nH]c2ccc(N)cc12",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9976573704467163
+			},
+			{
+				"smiles": "CC(=O)Cl.NCC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12>>CC(=O)NCC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9990003968517516
+			},
+			{
+				"smiles": ">>CC(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "O=[N+]([O-])CC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12>>NCC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"CO",
+					"N.[H][H]"
+				],
+				"score": 0.017589940564446647
+			},
+			{
+				"smiles": "C[N+](=O)[O-].O=Cc1c[nH]c2ccc([N+](=O)[O-])cc12>>O=[N+]([O-])CC(O)c1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"CO",
+					"C[O-].[Na+]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>O=Cc1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"starting material cost ($/g)": 7.2
+			},
+			{
+				"smiles": ">>C[N+](=O)[O-]",
+				"starting material cost ($/g)": 29.9
+			}
+		],
+		"Reward": 1
+	},
+	"CC1(C)CC(CO)(CNC(=O)C(=O)Nc2cc(-c3ccccc3)ccc2Cl)C1": {
+		"Compounds": [
+			"CC1(C)CC(CN)(CO)C1",
+			"CCOC(=O)C1(C#N)CC(C)(C)C1",
+			"CCOC(=O)CC#N",
+			"CC(C)(CBr)CBr",
+			"CCOC(=O)C(=O)Nc1cc(-c2ccccc2)ccc1Cl",
+			"Nc1cc(-c2ccccc2)ccc1Cl",
+			"O=[N+]([O-])c1cc(-c2ccccc2)ccc1Cl",
+			"Clc1ccc(-c2ccccc2)cc1",
+			"CCOC(=O)C(=O)Cl"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC1(C)CC(CN)(CO)C1.CCOC(=O)C(=O)Nc1cc(-c2ccccc2)ccc1Cl>>CC1(C)CC(CO)(CNC(=O)C(=O)Nc2cc(-c3ccccc3)ccc2Cl)C1",
+				"conditions": [
+					"C1CCOC1"
+				],
+				"score": 0.9992975150440123
+			},
+			{
+				"smiles": "CCOC(=O)C1(C#N)CC(C)(C)C1>>CC1(C)CC(CN)(CO)C1",
+				"conditions": [
+					"C1CCOC1",
+					"[AlH7-].[Li+]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(C)(CBr)CBr.CCOC(=O)CC#N>>CCOC(=O)C1(C#N)CC(C)(C)C1",
+				"conditions": [
+					"CC[O-].[Na+]"
+				],
+				"score": 0.9884970974640703
+			},
+			{
+				"smiles": ">>CCOC(=O)CC#N",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": ">>CC(C)(CBr)CBr",
+				"starting material cost ($/g)": 47.0
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Nc1cc(-c2ccccc2)ccc1Cl>>CCOC(=O)C(=O)Nc1cc(-c2ccccc2)ccc1Cl",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9972886818208833
+			},
+			{
+				"smiles": "O=[N+]([O-])c1cc(-c2ccccc2)ccc1Cl>>Nc1cc(-c2ccccc2)ccc1Cl",
+				"conditions": [
+					"Cl.[SnH4]"
+				],
+				"score": 0.99805682504339
+			},
+			{
+				"smiles": "Clc1ccc(-c2ccccc2)cc1>>O=[N+]([O-])c1cc(-c2ccccc2)ccc1Cl",
+				"conditions": [
+					"O=[N+]([O-])O.CC(=O)O"
+				],
+				"score": 0.41984067491830906
+			},
+			{
+				"smiles": ">>Clc1ccc(-c2ccccc2)cc1",
+				"starting material cost ($/g)": 17.8
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(C1CC1)N1CCc2ccc(S(=O)(=O)NC(CCc3ccccc3)c3ccccn3)cc21": {
+		"Compounds": [
+			"O=C1Cc2ccc(S(=O)(=O)NC(CCc3ccccc3)c3ccccn3)cc2N1C(=O)C1CC1",
+			"O=C(Cl)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1",
+			"O=C(O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1",
+			"CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1",
+			"CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1N",
+			"CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1[N+](=O)[O-]",
+			"NC(CCc1ccccc1)c1ccccn1",
+			"O=C(CCc1ccccc1)c1ccccn1",
+			"OC(CCc1ccccc1)c1ccccn1",
+			"Brc1ccccn1",
+			"O=CCCc1ccccc1",
+			"CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)Cl)cc1[N+](=O)[O-]",
+			"CC(C)(C)OC(=O)Cc1ccccc1[N+](=O)[O-]",
+			"CC(C)(C)OC(=O)OC(=O)OC(C)(C)C",
+			"O=C(O)Cc1ccccc1[N+](=O)[O-]",
+			"O=C(Cl)C1CC1"
+		],
+		"Reactions": [
+			{
+				"smiles": "O=C1Cc2ccc(S(=O)(=O)NC(CCc3ccccc3)c3ccccn3)cc2N1C(=O)C1CC1>>O=C(C1CC1)N1CCc2ccc(S(=O)(=O)NC(CCc3ccccc3)c3ccccn3)cc21",
+				"conditions": [
+					"C1CCOC1",
+					"O=S(=O)(O)O.[BH4-].[Na+]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "O=C(Cl)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1>>O=C1Cc2ccc(S(=O)(=O)NC(CCc3ccccc3)c3ccccn3)cc2N1C(=O)C1CC1",
+				"conditions": [
+					"Cc1ccccc1",
+					"O=C([O-])[O-].[Cs+]"
+				],
+				"score": 0.12969754554848636
+			},
+			{
+				"smiles": "O=C(O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1>>O=C(Cl)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1",
+				"conditions": [
+					"ClCCl",
+					"O=C(Cl)C(=O)Cl.CN(C)C=O"
+				],
+				"score": 0.9591787090735375
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1>>O=C(O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.9998609570273268
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1N.O=C(Cl)C1CC1>>CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1NC(=O)C1CC1",
+				"conditions": [
+					"ClCCl",
+					"c1ccncc1"
+				],
+				"score": 0.9992784029840311
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1[N+](=O)[O-]>>CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1N",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9991943963999976
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)Cl)cc1[N+](=O)[O-].NC(CCc1ccccc1)c1ccccn1>>CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)NC(CCc2ccccc2)c2ccccn2)cc1[N+](=O)[O-]",
+				"conditions": [
+					"ClCCl",
+					"CCN(C(C)C)C(C)C"
+				],
+				"score": 0.9993716879253649
+			},
+			{
+				"smiles": "O=C(CCc1ccccc1)c1ccccn1>>NC(CCc1ccccc1)c1ccccn1",
+				"conditions": [
+					"CO",
+					"[BH3-]C#N.[Na+].CC(=O)O.N"
+				],
+				"score": 0.7027194462827347
+			},
+			{
+				"smiles": "OC(CCc1ccccc1)c1ccccn1>>O=C(CCc1ccccc1)c1ccccn1",
+				"conditions": [
+					"ClCCl",
+					"O=[Mn]=O"
+				],
+				"score": 0.9993383869590217
+			},
+			{
+				"smiles": "Brc1ccccn1.O=CCCc1ccccc1>>OC(CCc1ccccc1)c1ccccn1",
+				"conditions": [
+					"[Li]CCCC"
+				],
+				"score": 0.9849520196019279
+			},
+			{
+				"smiles": ">>Brc1ccccn1",
+				"starting material cost ($/g)": 2.2
+			},
+			{
+				"smiles": ">>O=CCCc1ccccc1",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)Cc1ccccc1[N+](=O)[O-]>>CC(C)(C)OC(=O)Cc1ccc(S(=O)(=O)Cl)cc1[N+](=O)[O-]",
+				"conditions": [
+					"O=S(=O)(O)Cl"
+				],
+				"score": 0.37609582719099716
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)OC(=O)OC(C)(C)C.O=C(O)Cc1ccccc1[N+](=O)[O-]>>CC(C)(C)OC(=O)Cc1ccccc1[N+](=O)[O-]",
+				"conditions": [
+					"CC(C)(C)O",
+					"CN(C)c1ccncc1"
+				],
+				"score": 0.9717383896914809
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)OC(=O)OC(C)(C)C",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": ">>O=C(O)Cc1ccccc1[N+](=O)[O-]",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": ">>O=C(Cl)C1CC1",
+				"starting material cost ($/g)": 1.0
+			}
+		],
+		"Reward": 1
+	},
+	"O=C1Cc2cc(NC(=O)C(=O)NC(CCCc3ccccc3)c3ccccc3)ccc2N1": {
+		"Compounds": [
+			"NC(CCCc1ccccc1)c1ccccc1",
+			"O=C(CCCc1ccccc1)c1ccccc1",
+			"CCOC(=O)C(=O)Nc1ccc2c(c1)CC(=O)N2",
+			"CCOC(=O)C(=O)Cl",
+			"Nc1ccc2c(c1)CC(=O)N2"
+		],
+		"Reactions": [
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1ccc2c(c1)CC(=O)N2.NC(CCCc1ccccc1)c1ccccc1>>O=C1Cc2cc(NC(=O)C(=O)NC(CCCc3ccccc3)c3ccccc3)ccc2N1",
+				"conditions": [
+					"CC#N"
+				],
+				"score": 0.9229909567930679
+			},
+			{
+				"smiles": "O=C(CCCc1ccccc1)c1ccccc1>>NC(CCCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CO",
+					"[BH3-]C#N.[Na+].CC(=O)O.N"
+				],
+				"score": 0.4937331108314304
+			},
+			{
+				"smiles": ">>O=C(CCCc1ccccc1)c1ccccc1",
+				"starting material cost ($/g)": 13.8
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Nc1ccc2c(c1)CC(=O)N2>>CCOC(=O)C(=O)Nc1ccc2c(c1)CC(=O)N2",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9950886344595606
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": ">>Nc1ccc2c(c1)CC(=O)N2",
+				"starting material cost ($/g)": 16.1
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(NCc1cccc(-c2ccsc2)c1)Nc1ccc(S(=O)(=O)NCC2CC2)cc1": {
+		"Compounds": [
+			"O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)Oc1ccccc1",
+			"O=C(Cl)Oc1ccccc1",
+			"Nc1ccc(S(=O)(=O)NCC2CC2)cc1",
+			"Nc1ccc(S(=O)(=O)NC(=O)C2CC2)cc1",
+			"O=C(NS(=O)(=O)c1ccc([N+](=O)[O-])cc1)C1CC1",
+			"NS(=O)(=O)c1ccc([N+](=O)[O-])cc1",
+			"O=C(Cl)C1CC1",
+			"NCc1cccc(-c2ccsc2)c1",
+			"NCc1cccc(Br)c1",
+			"OB(O)c1ccsc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "NCc1cccc(-c2ccsc2)c1.O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)Oc1ccccc1>>O=C(NCc1cccc(-c2ccsc2)c1)Nc1ccc(S(=O)(=O)NCC2CC2)cc1",
+				"conditions": [
+					"CCCCO"
+				],
+				"score": 0.8939832666147423
+			},
+			{
+				"smiles": "Nc1ccc(S(=O)(=O)NCC2CC2)cc1.O=C(Cl)Oc1ccccc1>>O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)Oc1ccccc1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9990720429612795
+			},
+			{
+				"smiles": ">>O=C(Cl)Oc1ccccc1",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "Nc1ccc(S(=O)(=O)NC(=O)C2CC2)cc1>>Nc1ccc(S(=O)(=O)NCC2CC2)cc1",
+				"conditions": [
+					"C1CCOC1",
+					"B"
+				],
+				"score": 0.9807788157598529
+			},
+			{
+				"smiles": "O=C(NS(=O)(=O)c1ccc([N+](=O)[O-])cc1)C1CC1>>Nc1ccc(S(=O)(=O)NC(=O)C2CC2)cc1",
+				"conditions": [
+					"CCO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9999562490839947
+			},
+			{
+				"smiles": "NS(=O)(=O)c1ccc([N+](=O)[O-])cc1.O=C(Cl)C1CC1>>O=C(NS(=O)(=O)c1ccc([N+](=O)[O-])cc1)C1CC1",
+				"conditions": [
+					"ClCCl",
+					"CN(C)c1ccncc1.CCN(CC)CC"
+				],
+				"score": 0.9837246327613629
+			},
+			{
+				"smiles": ">>NS(=O)(=O)c1ccc([N+](=O)[O-])cc1",
+				"starting material cost ($/g)": 1.3
+			},
+			{
+				"smiles": ">>O=C(Cl)C1CC1",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": "NCc1cccc(Br)c1.OB(O)c1ccsc1>>NCc1cccc(-c2ccsc2)c1",
+				"conditions": [
+					"COCCOC",
+					"O=C([O-])[O-].[Na+]",
+					"c1ccc([P](c2ccccc2)(c2ccccc2)[Pd]([P](c2ccccc2)(c2ccccc2)c2ccccc2)([P](c2ccccc2)(c2ccccc2)c2ccccc2)[P](c2ccccc2)(c2ccccc2)c2ccccc2)cc1"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>NCc1cccc(Br)c1",
+				"starting material cost ($/g)": 1.7
+			},
+			{
+				"smiles": ">>OB(O)c1ccsc1",
+				"starting material cost ($/g)": 1.4
+			}
+		],
+		"Reward": 1
+	},
+	"O=S1(=O)CCC(N(CCCN2CCOCC2)S(=O)(=O)c2cnn(C3CCCC3)c2)C1": {
+		"Compounds": [
+			"O=S1(=O)CCC(N(CCCNCCOCCCl)S(=O)(=O)c2cnn(C3CCCC3)c2)C1",
+			"ClCCOCCI",
+			"ClCCOCCCl",
+			"NCCCN(C1CCS(=O)(=O)C1)S(=O)(=O)c1cnn(C2CCCC2)c1",
+			"CC(C)(C)OC(=O)NCCCN(C1CCS(=O)(=O)C1)S(=O)(=O)c1cnn(C2CCCC2)c1",
+			"CC(C)(C)OC(=O)NCCCN(C1CCSC1)S(=O)(=O)c1cnn(C2CCCC2)c1",
+			"CC(C)(C)OC(=O)NCCCBr",
+			"O=S(=O)(NC1CCSC1)c1cnn(C2CCCC2)c1",
+			"NC1CCSC1",
+			"O=C1CCSC1",
+			"O=S(=O)(Cl)c1cnn(C2CCCC2)c1",
+			"c1cnn(C2CCCC2)c1"
+		],
+		"Reactions": [
+			{
+				"smiles": "O=S1(=O)CCC(N(CCCNCCOCCCl)S(=O)(=O)c2cnn(C3CCCC3)c2)C1>>O=S1(=O)CCC(N(CCCN2CCOCC2)S(=O)(=O)c2cnn(C3CCCC3)c2)C1",
+				"conditions": [
+					"CCO",
+					"[Na+].[I-].O=C([O-])[O-].[Na+]"
+				],
+				"score": 0.9957197353738931
+			},
+			{
+				"smiles": "ClCCOCCI.NCCCN(C1CCS(=O)(=O)C1)S(=O)(=O)c1cnn(C2CCCC2)c1>>O=S1(=O)CCC(N(CCCNCCOCCCl)S(=O)(=O)c2cnn(C3CCCC3)c2)C1",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.5735867335533461
+			},
+			{
+				"smiles": "ClCCOCCCl>>ClCCOCCI",
+				"conditions": [
+					"CC(C)=O",
+					"[Na+].[I-]"
+				],
+				"score": 0.9695145933719537
+			},
+			{
+				"smiles": ">>ClCCOCCCl",
+				"starting material cost ($/g)": 2.2
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)NCCCN(C1CCS(=O)(=O)C1)S(=O)(=O)c1cnn(C2CCCC2)c1>>NCCCN(C1CCS(=O)(=O)C1)S(=O)(=O)c1cnn(C2CCCC2)c1",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.9999969322400355
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)NCCCN(C1CCSC1)S(=O)(=O)c1cnn(C2CCCC2)c1>>CC(C)(C)OC(=O)NCCCN(C1CCS(=O)(=O)C1)S(=O)(=O)c1cnn(C2CCCC2)c1",
+				"conditions": [
+					"CO",
+					"OO",
+					"O=[W](=O)([O-])[O-].[H]O[H].[Na+]"
+				],
+				"score": 0.669585718924265
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)NCCCBr.O=S(=O)(NC1CCSC1)c1cnn(C2CCCC2)c1>>CC(C)(C)OC(=O)NCCCN(C1CCSC1)S(=O)(=O)c1cnn(C2CCCC2)c1",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.996449891229412
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)NCCCBr",
+				"starting material cost ($/g)": 0.9
+			},
+			{
+				"smiles": "NC1CCSC1.O=S(=O)(Cl)c1cnn(C2CCCC2)c1>>O=S(=O)(NC1CCSC1)c1cnn(C2CCCC2)c1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9998469508992522
+			},
+			{
+				"smiles": "O=C1CCSC1>>NC1CCSC1",
+				"conditions": [
+					"CO",
+					"[BH3-]C#N.[Na+].CC(=O)O.N"
+				],
+				"score": 0.5584916521035194
+			},
+			{
+				"smiles": ">>O=C1CCSC1",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": "c1cnn(C2CCCC2)c1>>O=S(=O)(Cl)c1cnn(C2CCCC2)c1",
+				"conditions": [
+					"ClCCl",
+					"O=S(=O)(O)Cl"
+				],
+				"score": 0.5914383000668694
+			},
+			{
+				"smiles": ">>c1cnn(C2CCCC2)c1",
+				"starting material cost ($/g)": 58.9
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(Nc1cccc(-c2ccn[nH]2)c1)C(=O)NC(COc1ccccc1F)c1ccccc1": {
+		"Compounds": [
+			"NC(COc1ccccc1F)c1ccccc1",
+			"ON=C(COc1ccccc1F)c1ccccc1",
+			"NO",
+			"O=C(COc1ccccc1F)c1ccccc1",
+			"Oc1ccccc1F",
+			"O=C(CBr)c1ccccc1",
+			"O=C(O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+			"CCOC(=O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+			"CCOC(=O)C(=O)Nc1cccc(B(O)O)c1",
+			"CCOC(=O)C(=O)Cl",
+			"Nc1cccc(B(O)O)c1",
+			"Ic1ccn[nH]1"
+		],
+		"Reactions": [
+			{
+				"smiles": "NC(COc1ccccc1F)c1ccccc1.O=C(O)C(=O)Nc1cccc(-c2ccn[nH]2)c1>>O=C(Nc1cccc(-c2ccn[nH]2)c1)C(=O)NC(COc1ccccc1F)c1ccccc1",
+				"conditions": [
+					"CN(C)C=O",
+					"On1nnc2ccccc21.CCN=C=NCCCN(C)C.Cl"
+				],
+				"score": 0.9997290182044913
+			},
+			{
+				"smiles": "ON=C(COc1ccccc1F)c1ccccc1>>NC(COc1ccccc1F)c1ccccc1",
+				"conditions": [
+					"CCO",
+					"[H][H]"
+				],
+				"score": 0.9859904635925681
+			},
+			{
+				"smiles": "NO.O=C(COc1ccccc1F)c1ccccc1>>ON=C(COc1ccccc1F)c1ccccc1",
+				"conditions": [
+					"CCO",
+					"Cl"
+				],
+				"score": 0.9938788351232737
+			},
+			{
+				"smiles": ">>NO",
+				"starting material cost ($/g)": 2.0
+			},
+			{
+				"smiles": "O=C(CBr)c1ccccc1.Oc1ccccc1F>>O=C(COc1ccccc1F)c1ccccc1",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9995749579901744
+			},
+			{
+				"smiles": ">>Oc1ccccc1F",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": ">>O=C(CBr)c1ccccc1",
+				"starting material cost ($/g)": 5.6
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cccc(-c2ccn[nH]2)c1>>O=C(O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+				"conditions": [
+					"O.[OH-].[Na+]"
+				],
+				"score": 0.9894521435586098
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cccc(B(O)O)c1.Ic1ccn[nH]1>>CCOC(=O)C(=O)Nc1cccc(-c2ccn[nH]2)c1",
+				"conditions": [
+					"Cc1ccccc1",
+					"O=C([O-])[O-].[Na+]",
+					"c1ccc([P](c2ccccc2)(c2ccccc2)[Pd]([P](c2ccccc2)(c2ccccc2)c2ccccc2)([P](c2ccccc2)(c2ccccc2)c2ccccc2)[P](c2ccccc2)(c2ccccc2)c2ccccc2)cc1"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Nc1cccc(B(O)O)c1>>CCOC(=O)C(=O)Nc1cccc(B(O)O)c1",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.9966370799823279
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": ">>Nc1cccc(B(O)O)c1",
+				"starting material cost ($/g)": 1.6
+			},
+			{
+				"smiles": ">>Ic1ccn[nH]1",
+				"starting material cost ($/g)": 3.7
+			}
+		],
+		"Reward": 1
+	},
+	"CN(c1cccc(CNC(=O)N(Cc2ccccc2)Cc2ccccc2)c1)S(C)(=O)=O": {
+		"Compounds": [
+			"CN(c1cccc(CNC(=O)Oc2ccccc2)c1)S(C)(=O)=O",
+			"O=C(Cl)Oc1ccccc1",
+			"CN(c1cccc(CN)c1)S(C)(=O)=O",
+			"CN(c1cccc(C#N)c1)S(C)(=O)=O",
+			"N#Cc1cccc(Br)c1",
+			"CNS(C)(=O)=O",
+			"c1ccc(CNCc2ccccc2)cc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CN(c1cccc(CNC(=O)Oc2ccccc2)c1)S(C)(=O)=O.c1ccc(CNCc2ccccc2)cc1>>CN(c1cccc(CNC(=O)N(Cc2ccccc2)Cc2ccccc2)c1)S(C)(=O)=O",
+				"conditions": [],
+				"score": 0.9918252759064097
+			},
+			{
+				"smiles": "CN(c1cccc(CN)c1)S(C)(=O)=O.O=C(Cl)Oc1ccccc1>>CN(c1cccc(CNC(=O)Oc2ccccc2)c1)S(C)(=O)=O",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9992917656735947
+			},
+			{
+				"smiles": ">>O=C(Cl)Oc1ccccc1",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "CN(c1cccc(C#N)c1)S(C)(=O)=O>>CN(c1cccc(CN)c1)S(C)(=O)=O",
+				"conditions": [
+					"CO",
+					"N.[H][H]",
+					"[Ni]"
+				],
+				"score": 0.967600614199632
+			},
+			{
+				"smiles": "CNS(C)(=O)=O.N#Cc1cccc(Br)c1>>CN(c1cccc(C#N)c1)S(C)(=O)=O",
+				"conditions": [],
+				"score": 0.9671802480779655
+			},
+			{
+				"smiles": ">>N#Cc1cccc(Br)c1",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": ">>CNS(C)(=O)=O",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": ">>c1ccc(CNCc2ccccc2)cc1",
+				"starting material cost ($/g)": 3.2
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(c1ccc(F)cc1)c1cc(Cl)ccc1NS(=O)(=O)c1cnn(C2CCCCC2)c1": {
+		"Compounds": [
+			"O=S(=O)(Cl)c1cnn(C2CCCCC2)c1",
+			"c1cnn(C2CCCCC2)c1",
+			"Nc1ccc(Cl)cc1C(=O)c1ccc(F)cc1",
+			"CON(C)C(=O)c1ccc(F)cc1",
+			"Nc1ccc(Cl)cc1Br"
+		],
+		"Reactions": [
+			{
+				"smiles": "Nc1ccc(Cl)cc1C(=O)c1ccc(F)cc1.O=S(=O)(Cl)c1cnn(C2CCCCC2)c1>>O=C(c1ccc(F)cc1)c1cc(Cl)ccc1NS(=O)(=O)c1cnn(C2CCCCC2)c1",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.9984402727758319
+			},
+			{
+				"smiles": "c1cnn(C2CCCCC2)c1>>O=S(=O)(Cl)c1cnn(C2CCCCC2)c1",
+				"conditions": [
+					"ClCCl",
+					"O=S(=O)(O)Cl"
+				],
+				"score": 0.5680620342308226
+			},
+			{
+				"smiles": ">>c1cnn(C2CCCCC2)c1",
+				"starting material cost ($/g)": 42.0
+			},
+			{
+				"smiles": "CON(C)C(=O)c1ccc(F)cc1.Nc1ccc(Cl)cc1Br>>Nc1ccc(Cl)cc1C(=O)c1ccc(F)cc1",
+				"conditions": [
+					"C1CCOC1",
+					"[Li]CCCC"
+				],
+				"score": 0.9786080763411535
+			},
+			{
+				"smiles": ">>CON(C)C(=O)c1ccc(F)cc1",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": ">>Nc1ccc(Cl)cc1Br",
+				"starting material cost ($/g)": 0.8
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)N1CCCCC1CC1(O)CCCCC1": {
+		"Compounds": [
+			"O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)Oc1ccccc1",
+			"O=C(Cl)Oc1ccccc1",
+			"Nc1ccc(S(=O)(=O)NCC2CC2)cc1",
+			"Nc1ccc(S(=O)(=O)NC(=O)C2CC2)cc1",
+			"O=C(NS(=O)(=O)c1ccc([N+](=O)[O-])cc1)C1CC1",
+			"NS(=O)(=O)c1ccc([N+](=O)[O-])cc1",
+			"O=C(Cl)C1CC1",
+			"OC1(CC2CCCCN2)CCCCC1",
+			"OC1(Cc2ccccn2)CCCCC1",
+			"Cc1ccccn1",
+			"O=C1CCCCC1"
+		],
+		"Reactions": [
+			{
+				"smiles": "O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)Oc1ccccc1.OC1(CC2CCCCN2)CCCCC1>>O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)N1CCCCC1CC1(O)CCCCC1",
+				"conditions": [
+					"Cc1ccccc1"
+				],
+				"score": 0.9855917210160753
+			},
+			{
+				"smiles": "Nc1ccc(S(=O)(=O)NCC2CC2)cc1.O=C(Cl)Oc1ccccc1>>O=C(Nc1ccc(S(=O)(=O)NCC2CC2)cc1)Oc1ccccc1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9990720429612795
+			},
+			{
+				"smiles": ">>O=C(Cl)Oc1ccccc1",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "Nc1ccc(S(=O)(=O)NC(=O)C2CC2)cc1>>Nc1ccc(S(=O)(=O)NCC2CC2)cc1",
+				"conditions": [
+					"C1CCOC1",
+					"B"
+				],
+				"score": 0.9807788157598529
+			},
+			{
+				"smiles": "O=C(NS(=O)(=O)c1ccc([N+](=O)[O-])cc1)C1CC1>>Nc1ccc(S(=O)(=O)NC(=O)C2CC2)cc1",
+				"conditions": [
+					"CCO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9999562490839947
+			},
+			{
+				"smiles": "NS(=O)(=O)c1ccc([N+](=O)[O-])cc1.O=C(Cl)C1CC1>>O=C(NS(=O)(=O)c1ccc([N+](=O)[O-])cc1)C1CC1",
+				"conditions": [
+					"ClCCl",
+					"CN(C)c1ccncc1.CCN(CC)CC"
+				],
+				"score": 0.9837246327613629
+			},
+			{
+				"smiles": ">>NS(=O)(=O)c1ccc([N+](=O)[O-])cc1",
+				"starting material cost ($/g)": 1.3
+			},
+			{
+				"smiles": ">>O=C(Cl)C1CC1",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": "OC1(Cc2ccccn2)CCCCC1>>OC1(CC2CCCCN2)CCCCC1",
+				"conditions": [
+					"CC(=O)O",
+					"[H][H]",
+					"O=[Pt]=O"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "Cc1ccccn1.O=C1CCCCC1>>OC1(Cc2ccccn2)CCCCC1",
+				"conditions": [
+					"[Li]CCCC"
+				],
+				"score": 0.6182982885667708
+			},
+			{
+				"smiles": ">>Cc1ccccn1",
+				"starting material cost ($/g)": 1.5
+			},
+			{
+				"smiles": ">>O=C1CCCCC1",
+				"starting material cost ($/g)": 3.0
+			}
+		],
+		"Reward": 1
+	},
+	"CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCN(S(=O)(=O)c3ccccc3)C2)c1": {
+		"Compounds": [
+			"CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCN(S(=O)(=O)c3ccccc3)C2=O)c1",
+			"CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCNC2=O)c1",
+			"COc1ccc(N2CC[C@@H](COC(=O)c3cccc(S(=O)(=O)N=S(C)(C)=O)c3)C2=O)cc1",
+			"COc1ccc(N2CC[C@@H](CO)C2=O)cc1",
+			"COc1ccc(N2CC[C@@H](COCc3ccccc3)C2=O)cc1",
+			"COc1ccc(N2CC[C@@H](COCc3ccccc3)C2)cc1",
+			"c1ccc(COC[C@@H]2CCNC2)cc1",
+			"CC(C)(C)OC(=O)N1CC[C@@H](COCc2ccccc2)C1",
+			"ClCc1ccccc1",
+			"CC(C)(C)OC(=O)N1CC[C@@H](CO)C1",
+			"COc1ccc(I)cc1",
+			"CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)Cl)c1",
+			"CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)O)c1",
+			"COC(=O)c1cccc(S(=O)(=O)N=S(C)(C)=O)c1",
+			"COC(=O)c1cccc(S(=O)(=O)Cl)c1",
+			"CS(C)(=N)=O",
+			"O=S(=O)(Cl)c1ccccc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCN(S(=O)(=O)c3ccccc3)C2=O)c1>>CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCN(S(=O)(=O)c3ccccc3)C2)c1",
+				"conditions": [
+					"C1CCOC1",
+					"CCCC[N+](CCCC)(CCCC)CCCC.[F-]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCNC2=O)c1.O=S(=O)(Cl)c1ccccc1>>CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCN(S(=O)(=O)c3ccccc3)C2=O)c1",
+				"conditions": [
+					"[H-].[Na+]"
+				],
+				"score": 0.8466040509040141
+			},
+			{
+				"smiles": "COc1ccc(N2CC[C@@H](COC(=O)c3cccc(S(=O)(=O)N=S(C)(C)=O)c3)C2=O)cc1>>CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)OC[C@@H]2CCNC2=O)c1",
+				"conditions": [
+					"CC#N",
+					"[NH4+].[Ce+4].[O-][N+]([O-])=O.[O-][N+]([O-])=O.[O-][N+]([O-])=O.[O-][N+]([O-])=O.[O-][N+]([O-])=O"
+				],
+				"score": 0.8656791913580529
+			},
+			{
+				"smiles": "COc1ccc(N2CC[C@@H](CO)C2=O)cc1.CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)Cl)c1>>COc1ccc(N2CC[C@@H](COC(=O)c3cccc(S(=O)(=O)N=S(C)(C)=O)c3)C2=O)cc1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.8966355253855488
+			},
+			{
+				"smiles": "COc1ccc(N2CC[C@@H](COCc3ccccc3)C2=O)cc1>>COc1ccc(N2CC[C@@H](CO)C2=O)cc1",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9863903004297286
+			},
+			{
+				"smiles": "COc1ccc(N2CC[C@@H](COCc3ccccc3)C2)cc1>>COc1ccc(N2CC[C@@H](COCc3ccccc3)C2=O)cc1",
+				"conditions": [
+					"c1ccccc1",
+					"N#CC1=C(C#N)C(=O)C(Cl)=C(Cl)C1=O"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "COc1ccc(I)cc1.c1ccc(COC[C@@H]2CCNC2)cc1>>COc1ccc(N2CC[C@@H](COCc3ccccc3)C2)cc1",
+				"conditions": [
+					"Cc1ccccc1",
+					"C1=CC=C(P(C2=CC=CC=C2)C2=C(C3=C(P(C4=CC=CC=C4)C4=CC=CC=C4)C=CC4=C3C=CC=C4)C3=C(C=CC=C3)C=C2)C=C1.CC(C)(C)[O-].[Na+]",
+					"O=C(C=Cc1ccccc1)C=Cc1ccccc1.[Pd]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CC[C@@H](COCc2ccccc2)C1>>c1ccc(COC[C@@H]2CCNC2)cc1",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.998333099411489
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CC[C@@H](CO)C1.ClCc1ccccc1>>CC(C)(C)OC(=O)N1CC[C@@H](COCc2ccccc2)C1",
+				"conditions": [
+					"C1CCOC1",
+					"[H-].[Na+]"
+				],
+				"score": 0.9958465335597041
+			},
+			{
+				"smiles": ">>ClCc1ccccc1",
+				"starting material cost ($/g)": 132.0
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)N1CC[C@@H](CO)C1",
+				"starting material cost ($/g)": 2.5
+			},
+			{
+				"smiles": ">>COc1ccc(I)cc1",
+				"starting material cost ($/g)": 0.8
+			},
+			{
+				"smiles": "CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)O)c1>>CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)Cl)c1",
+				"conditions": [
+					"ClCCl",
+					"O=C(Cl)C(=O)Cl.CN(C)C=O"
+				],
+				"score": 0.2724899130811706
+			},
+			{
+				"smiles": "COC(=O)c1cccc(S(=O)(=O)N=S(C)(C)=O)c1>>CS(C)(=O)=NS(=O)(=O)c1cccc(C(=O)O)c1",
+				"conditions": [
+					"CO",
+					"[Na+].[OH-]"
+				],
+				"score": 0.9868471889979765
+			},
+			{
+				"smiles": "COC(=O)c1cccc(S(=O)(=O)Cl)c1.CS(C)(=N)=O>>COC(=O)c1cccc(S(=O)(=O)N=S(C)(C)=O)c1",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.9948907791566347
+			},
+			{
+				"smiles": ">>COC(=O)c1cccc(S(=O)(=O)Cl)c1",
+				"starting material cost ($/g)": 4.2
+			},
+			{
+				"smiles": ">>CS(C)(=N)=O",
+				"starting material cost ($/g)": 10.0
+			},
+			{
+				"smiles": ">>O=S(=O)(Cl)c1ccccc1",
+				"starting material cost ($/g)": 2.2
+			}
+		],
+		"Reward": 1
+	},
+	"CC(C)NS(=O)(=O)c1ccc(NC(=O)N(Cc2ccco2)CC2CCCO2)cc1": {
+		"Compounds": [
+			"O=C(Nc1ccc(S(=O)(=O)F)cc1)N(Cc1ccco1)CC1CCCO1",
+			"Nc1ccc(S(=O)(=O)F)cc1",
+			"O=[N+]([O-])c1ccc(S(=O)(=O)F)cc1",
+			"O=C(Cl)N(Cc1ccco1)CC1CCCO1",
+			"O=C(Cl)Cl",
+			"ClC(Cl)Cl",
+			"c1coc(CNCC2CCCO2)c1",
+			"CC(C)N"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC(C)N.O=C(Nc1ccc(S(=O)(=O)F)cc1)N(Cc1ccco1)CC1CCCO1>>CC(C)NS(=O)(=O)c1ccc(NC(=O)N(Cc2ccco2)CC2CCCO2)cc1",
+				"conditions": [
+					"CC#N"
+				],
+				"score": 0.8681023137795902
+			},
+			{
+				"smiles": "Nc1ccc(S(=O)(=O)F)cc1.O=C(Cl)N(Cc1ccco1)CC1CCCO1>>O=C(Nc1ccc(S(=O)(=O)F)cc1)N(Cc1ccco1)CC1CCCO1",
+				"conditions": [
+					"C1CCOC1",
+					"C[Si](C)(C)[N-][Si](C)(C)C.[Na+]"
+				],
+				"score": 0.9950798429994758
+			},
+			{
+				"smiles": "O=[N+]([O-])c1ccc(S(=O)(=O)F)cc1>>Nc1ccc(S(=O)(=O)F)cc1",
+				"conditions": [
+					"Cl",
+					"[Fe]"
+				],
+				"score": 0.08748109926050114
+			},
+			{
+				"smiles": ">>O=[N+]([O-])c1ccc(S(=O)(=O)F)cc1",
+				"starting material cost ($/g)": 5.2
+			},
+			{
+				"smiles": "O=C(Cl)Cl.c1coc(CNCC2CCCO2)c1>>O=C(Cl)N(Cc1ccco1)CC1CCCO1",
+				"conditions": [
+					"Cc1ccccc1"
+				],
+				"score": 0.6349301637101539
+			},
+			{
+				"smiles": "ClC(Cl)Cl>>O=C(Cl)Cl",
+				"conditions": [
+					"ClCl"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>ClC(Cl)Cl",
+				"starting material cost ($/g)": 2.3
+			},
+			{
+				"smiles": ">>c1coc(CNCC2CCCO2)c1",
+				"starting material cost ($/g)": 52.1
+			},
+			{
+				"smiles": ">>CC(C)N",
+				"starting material cost ($/g)": 1.1
+			}
+		],
+		"Reward": 1
+	},
+	"CCOC(=O)c1cc(-c2ccccc2)ccc1NC(=O)C(=O)N(C)C[C@@H]1CCC(=O)N1": {
+		"Compounds": [
+			"CCOC(=O)c1cc(-c2ccccc2)ccc1N",
+			"CCOC(=O)c1cc(B(O)O)ccc1N",
+			"CCOC(=O)c1cc(B(O)O)ccc1[N+](=O)[O-]",
+			"CCOC(=O)c1cccc(B(O)O)c1",
+			"Brc1ccccc1",
+			"CN(C[C@@H]1CCC(=O)N1)C(=O)C(=O)O",
+			"CCOC(=O)C(=O)N(C)C[C@@H]1CCC(=O)N1",
+			"CCOC(=O)C(=O)Cl",
+			"CNC[C@@H]1CCC(=O)N1",
+			"CN",
+			"Cc1ccc(S(=O)(=O)OC[C@@H]2CCC(=O)N2)cc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CCOC(=O)c1cc(-c2ccccc2)ccc1N.CN(C[C@@H]1CCC(=O)N1)C(=O)C(=O)O>>CCOC(=O)c1cc(-c2ccccc2)ccc1NC(=O)C(=O)N(C)C[C@@H]1CCC(=O)N1",
+				"conditions": [
+					"O=C(N1C=CN=C1)N1C=CN=C1"
+				],
+				"score": 0.998585785612457
+			},
+			{
+				"smiles": "Brc1ccccc1.CCOC(=O)c1cc(B(O)O)ccc1N>>CCOC(=O)c1cc(-c2ccccc2)ccc1N",
+				"conditions": [
+					"COCCOC",
+					"O=C([O-])[O-].[Na+]",
+					"c1ccc([P](c2ccccc2)(c2ccccc2)[Pd]([P](c2ccccc2)(c2ccccc2)c2ccccc2)([P](c2ccccc2)(c2ccccc2)c2ccccc2)[P](c2ccccc2)(c2ccccc2)c2ccccc2)cc1"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CCOC(=O)c1cc(B(O)O)ccc1[N+](=O)[O-]>>CCOC(=O)c1cc(B(O)O)ccc1N",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9995907260662366
+			},
+			{
+				"smiles": "CCOC(=O)c1cccc(B(O)O)c1>>CCOC(=O)c1cc(B(O)O)ccc1[N+](=O)[O-]",
+				"conditions": [
+					"O=[N+]([O-])O"
+				],
+				"score": 0.41644331201548646
+			},
+			{
+				"smiles": ">>CCOC(=O)c1cccc(B(O)O)c1",
+				"starting material cost ($/g)": 1.3
+			},
+			{
+				"smiles": ">>Brc1ccccc1",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)N(C)C[C@@H]1CCC(=O)N1>>CN(C[C@@H]1CCC(=O)N1)C(=O)C(=O)O",
+				"conditions": [
+					"C1CCOC1",
+					"[Li+].[OH-]"
+				],
+				"score": 0.9930489163194758
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.CNC[C@@H]1CCC(=O)N1>>CCOC(=O)C(=O)N(C)C[C@@H]1CCC(=O)N1",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9777335686623649
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "CN.Cc1ccc(S(=O)(=O)OC[C@@H]2CCC(=O)N2)cc1>>CNC[C@@H]1CCC(=O)N1",
+				"conditions": [
+					"CC#N"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>CN",
+				"starting material cost ($/g)": 15.8
+			},
+			{
+				"smiles": ">>Cc1ccc(S(=O)(=O)OC[C@@H]2CCC(=O)N2)cc1",
+				"starting material cost ($/g)": 18.6
+			}
+		],
+		"Reward": 1
+	},
+	"CC1(C)NC(=O)N(CCCNC(=O)NCc2oc3ccc(Cl)cc3c2-c2ccccc2)C1=O": {
+		"Compounds": [
+			"CC1(C)NC(=O)N(CCCN)C1=O",
+			"CC(C)(C)OC(=O)NCCCN1C(=O)NC(C)(C)C1=O",
+			"CC(C)(C)OC(=O)NCCCO",
+			"CC1(C)NC(=O)NC1=O",
+			"O=C=NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"O=C(Cl)Cl",
+			"ClC(Cl)Cl",
+			"NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"[N-]=[N+]=NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"Clc1ccc2oc(CBr)c(-c3ccccc3)c2c1",
+			"Cc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"CC(Oc1ccc(Cl)cc1)C(=O)c1ccccc1",
+			"CC(Br)C(=O)c1ccccc1",
+			"Oc1ccc(Cl)cc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC1(C)NC(=O)N(CCCN)C1=O.O=C=NCc1oc2ccc(Cl)cc2c1-c1ccccc1>>CC1(C)NC(=O)N(CCCNC(=O)NCc2oc3ccc(Cl)cc3c2-c2ccccc2)C1=O",
+				"conditions": [
+					"ClCCl"
+				],
+				"score": 0.9256241021966408
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)NCCCN1C(=O)NC(C)(C)C1=O>>CC1(C)NC(=O)N(CCCN)C1=O",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.9999973904472457
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)NCCCO.CC1(C)NC(=O)NC1=O>>CC(C)(C)OC(=O)NCCCN1C(=O)NC(C)(C)C1=O",
+				"conditions": [
+					"C1CCOC1",
+					"c1ccc(P(c2ccccc2)c2ccccc2)cc1.CC(C)OC(=O)N=NC(=O)OC(C)C"
+				],
+				"score": 0.9444059407288534
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)NCCCO",
+				"starting material cost ($/g)": 0.9
+			},
+			{
+				"smiles": ">>CC1(C)NC(=O)NC1=O",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": "NCc1oc2ccc(Cl)cc2c1-c1ccccc1.O=C(Cl)Cl>>O=C=NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [
+					"Cc1ccccc1",
+					"CCN(CC)CC"
+				],
+				"score": 0.6889570223756735
+			},
+			{
+				"smiles": "ClC(Cl)Cl>>O=C(Cl)Cl",
+				"conditions": [
+					"ClCl"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>ClC(Cl)Cl",
+				"starting material cost ($/g)": 2.3
+			},
+			{
+				"smiles": "[N-]=[N+]=NCc1oc2ccc(Cl)cc2c1-c1ccccc1>>NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [
+					"C1CCOC1",
+					"c1ccc(P(c2ccccc2)c2ccccc2)cc1.O"
+				],
+				"score": 0.9999997645153175
+			},
+			{
+				"smiles": "Clc1ccc2oc(CBr)c(-c3ccccc3)c2c1>>[N-]=[N+]=NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [
+					"CN(C)C=O",
+					"[N-]=[N+]=[N-].[Na+]"
+				],
+				"score": 0.9980666731589696
+			},
+			{
+				"smiles": "Cc1oc2ccc(Cl)cc2c1-c1ccccc1>>Clc1ccc2oc(CBr)c(-c3ccccc3)c2c1",
+				"conditions": [
+					"ClC(Cl)(Cl)Cl",
+					"CC(C)(C#N)N=NC(C)(C)C#N.O=C1CCC(=O)N1Br"
+				],
+				"score": 0.999237471877627
+			},
+			{
+				"smiles": "CC(Oc1ccc(Cl)cc1)C(=O)c1ccccc1>>Cc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [
+					"O=[P]12O[P]3(=O)O[P](=O)(O1)O[P](=O)(O2)O3"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(Br)C(=O)c1ccccc1.Oc1ccc(Cl)cc1>>CC(Oc1ccc(Cl)cc1)C(=O)c1ccccc1",
+				"conditions": [
+					"CC(C)=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9962910825664383
+			},
+			{
+				"smiles": ">>CC(Br)C(=O)c1ccccc1",
+				"starting material cost ($/g)": 2.3
+			},
+			{
+				"smiles": ">>Oc1ccc(Cl)cc1",
+				"starting material cost ($/g)": 2.2
+			}
+		],
+		"Reward": 1
+	},
+	"CC(=O)NCCc1c[nH]c2ccc(NC(=O)c3cnn4cc(Br)cnc34)cc12": {
+		"Compounds": [
+			"CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(NC(=O)c3cnn4cc(Br)cnc34)cc12",
+			"CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(NC(=O)c3cnn4cccnc34)cc12",
+			"O=C(O)c1cnn2cccnc12",
+			"CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(N)cc12",
+			"CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc([N+](=O)[O-])cc12",
+			"CC(C)[Si](OS(=O)(=O)C(F)(F)F)(C(C)C)C(C)C",
+			"CC(=O)NCCc1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"NCCc1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"O=[N+]([O-])CCc1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"O=[N+]([O-])C=Cc1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"O=Cc1c[nH]c2ccc([N+](=O)[O-])cc12",
+			"C[N+](=O)[O-]",
+			"CC(=O)Cl"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(NC(=O)c3cnn4cc(Br)cnc34)cc12>>CC(=O)NCCc1c[nH]c2ccc(NC(=O)c3cnn4cc(Br)cnc34)cc12",
+				"conditions": [
+					"C1CCOC1",
+					"CCCC[N+](CCCC)(CCCC)CCCC.[F-]"
+				],
+				"score": 0.9998455022311493
+			},
+			{
+				"smiles": "CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(NC(=O)c3cnn4cccnc34)cc12>>CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(NC(=O)c3cnn4cc(Br)cnc34)cc12",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C1CCC(=O)N1Br"
+				],
+				"score": 0.01907188407085696
+			},
+			{
+				"smiles": "CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(N)cc12.O=C(O)c1cnn2cccnc12>>CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(NC(=O)c3cnn4cccnc34)cc12",
+				"conditions": [
+					"CN(C)C=O",
+					"CCN(C(C)C)C(C)C.CN(C)C(N1N=N(=O)C2=C1C=CC=N2)=[N+](C)C.FP(F)(F)(F)(F)F"
+				],
+				"score": 0.9831364297059371
+			},
+			{
+				"smiles": ">>O=C(O)c1cnn2cccnc12",
+				"starting material cost ($/g)": 4.4
+			},
+			{
+				"smiles": "CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc([N+](=O)[O-])cc12>>CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc(N)cc12",
+				"conditions": [
+					"CO",
+					"[H][H]"
+				],
+				"score": 0.9956194461296225
+			},
+			{
+				"smiles": "CC(=O)NCCc1c[nH]c2ccc([N+](=O)[O-])cc12.CC(C)[Si](OS(=O)(=O)C(F)(F)F)(C(C)C)C(C)C>>CC(=O)NCCc1cn([Si](C(C)C)(C(C)C)C(C)C)c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"C1CCOC1",
+					"[H-].[Na+]"
+				],
+				"score": 0.9998853699464137
+			},
+			{
+				"smiles": ">>CC(C)[Si](OS(=O)(=O)C(F)(F)F)(C(C)C)C(C)C",
+				"starting material cost ($/g)": 1.2
+			},
+			{
+				"smiles": "CC(=O)Cl.NCCc1c[nH]c2ccc([N+](=O)[O-])cc12>>CC(=O)NCCc1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9976519807455871
+			},
+			{
+				"smiles": "O=[N+]([O-])CCc1c[nH]c2ccc([N+](=O)[O-])cc12>>NCCc1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"[NH4+].[OH-]"
+				],
+				"score": 0.4914479722930496
+			},
+			{
+				"smiles": "O=[N+]([O-])C=Cc1c[nH]c2ccc([N+](=O)[O-])cc12>>O=[N+]([O-])CCc1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"C1COCCO1",
+					"[BH4-].[Na+]"
+				],
+				"score": 0.8818198908130724
+			},
+			{
+				"smiles": "C[N+](=O)[O-].O=Cc1c[nH]c2ccc([N+](=O)[O-])cc12>>O=[N+]([O-])C=Cc1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"conditions": [
+					"CC(=O)O.N"
+				],
+				"score": 0.8549629627152139
+			},
+			{
+				"smiles": ">>O=Cc1c[nH]c2ccc([N+](=O)[O-])cc12",
+				"starting material cost ($/g)": 7.2
+			},
+			{
+				"smiles": ">>C[N+](=O)[O-]",
+				"starting material cost ($/g)": 29.9
+			},
+			{
+				"smiles": ">>CC(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(Nc1ccn(C2CCCCC2)n1)C(=O)NC(CCc1ccccc1)c1ccccc1": {
+		"Compounds": [
+			"O=C(O)C(=O)Nc1ccn(C2CCCCC2)n1",
+			"CCOC(=O)C(=O)Nc1ccn(C2CCCCC2)n1",
+			"Nc1ccn(C2CCCCC2)n1",
+			"O=[N+]([O-])c1ccn(C2CCCCC2)n1",
+			"O=[N+]([O-])c1cc[nH]n1",
+			"BrC1CCCCC1",
+			"CCOC(=O)C(=O)Cl",
+			"NC(CCc1ccccc1)c1ccccc1",
+			"[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1",
+			"OC(CCc1ccccc1)c1ccccc1",
+			"O=C(CCc1ccccc1)c1ccccc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "NC(CCc1ccccc1)c1ccccc1.O=C(O)C(=O)Nc1ccn(C2CCCCC2)n1>>O=C(Nc1ccn(C2CCCCC2)n1)C(=O)NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"ClCCCl",
+					"CCN(C(C)C)C(C)C"
+				],
+				"score": 0.9994401296604873
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1ccn(C2CCCCC2)n1>>O=C(O)C(=O)Nc1ccn(C2CCCCC2)n1",
+				"conditions": [
+					"CO",
+					"[Na+].[OH-]"
+				],
+				"score": 0.9989198297864862
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Nc1ccn(C2CCCCC2)n1>>CCOC(=O)C(=O)Nc1ccn(C2CCCCC2)n1",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9993989803573492
+			},
+			{
+				"smiles": "O=[N+]([O-])c1ccn(C2CCCCC2)n1>>Nc1ccn(C2CCCCC2)n1",
+				"conditions": [
+					"CCO",
+					"[H]Cl.[H]N([H])[H]",
+					"[Fe]"
+				],
+				"score": 0.9999969180684752
+			},
+			{
+				"smiles": "BrC1CCCCC1.O=[N+]([O-])c1cc[nH]n1>>O=[N+]([O-])c1ccn(C2CCCCC2)n1",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.986688867644866
+			},
+			{
+				"smiles": ">>O=[N+]([O-])c1cc[nH]n1",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": ">>BrC1CCCCC1",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1>>NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9977404699203742
+			},
+			{
+				"smiles": "OC(CCc1ccccc1)c1ccccc1>>[N-]=[N+]=NC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"Cc1ccccc1",
+					"C1CCC2=NCCCN2CC1.N#N=NP(=O)(C1=CC=CC=C1)C1=CC=CC=C1"
+				],
+				"score": 0.734493491297612
+			},
+			{
+				"smiles": "O=C(CCc1ccccc1)c1ccccc1>>OC(CCc1ccccc1)c1ccccc1",
+				"conditions": [
+					"CO",
+					"[BH4-].[Na+]"
+				],
+				"score": 0.9291079215771022
+			},
+			{
+				"smiles": ">>O=C(CCc1ccccc1)c1ccccc1",
+				"starting material cost ($/g)": 8.4
+			}
+		],
+		"Reward": 1
+	},
+	"Cc1ccc(NC(=O)N2CCC(O)(c3ccccc3F)C2)cc1S(=O)(=O)N1CCCCCC1": {
+		"Compounds": [
+			"OC1(c2ccccc2F)CCNC1",
+			"CC(C)(C)OC(=O)N1CCC(O)(c2ccccc2F)C1",
+			"Fc1ccccc1I",
+			"CC(C)(C)OC(=O)N1CCC(=O)C1",
+			"Cc1ccc(N=C=O)cc1S(=O)(=O)N1CCCCCC1",
+			"Cc1ccc(N)cc1S(=O)(=O)N1CCCCCC1",
+			"Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)N1CCCCCC1",
+			"C1CCCNCC1",
+			"Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)Cl",
+			"O=C(Cl)Cl",
+			"ClC(Cl)Cl"
+		],
+		"Reactions": [
+			{
+				"smiles": "Cc1ccc(N=C=O)cc1S(=O)(=O)N1CCCCCC1.OC1(c2ccccc2F)CCNC1>>Cc1ccc(NC(=O)N2CCC(O)(c3ccccc3F)C2)cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"C1CCOC1"
+				],
+				"score": 0.9867044914134472
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCC(O)(c2ccccc2F)C1>>OC1(c2ccccc2F)CCNC1",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.9965908912628568
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)N1CCC(=O)C1.Fc1ccccc1I>>CC(C)(C)OC(=O)N1CCC(O)(c2ccccc2F)C1",
+				"conditions": [
+					"C1CCOC1",
+					"[MgH2]"
+				],
+				"score": 0.9999963134371914
+			},
+			{
+				"smiles": ">>Fc1ccccc1I",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)N1CCC(=O)C1",
+				"starting material cost ($/g)": 0.9
+			},
+			{
+				"smiles": "Cc1ccc(N)cc1S(=O)(=O)N1CCCCCC1.O=C(Cl)Cl>>Cc1ccc(N=C=O)cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"Cc1ccccc1"
+				],
+				"score": 0.934427208274793
+			},
+			{
+				"smiles": "Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)N1CCCCCC1>>Cc1ccc(N)cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"CC(=O)O",
+					"[Fe]"
+				],
+				"score": 0.9961884531313758
+			},
+			{
+				"smiles": "C1CCCNCC1.Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)Cl>>Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"CC#N"
+				],
+				"score": 0.9989598149146361
+			},
+			{
+				"smiles": ">>C1CCCNCC1",
+				"starting material cost ($/g)": 3.5
+			},
+			{
+				"smiles": ">>Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)Cl",
+				"starting material cost ($/g)": 3.0
+			},
+			{
+				"smiles": "ClC(Cl)Cl>>O=C(Cl)Cl",
+				"conditions": [
+					"ClCl"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>ClC(Cl)Cl",
+				"starting material cost ($/g)": 2.3
+			}
+		],
+		"Reward": 1
+	},
+	"CC(C)(C#N)c1cccc(NC(=O)[C@@H](c2ccccc2)N2Cc3ccccc3C2=O)c1": {
+		"Compounds": [
+			"CCOC(=O)[C@@H](c1ccccc1)N1Cc2ccccc2C1=O",
+			"COC(=O)c1ccccc1CBr",
+			"CCOC(=O)[C@H](N)c1ccccc1",
+			"CC(C)(C#N)c1cccc(N)c1",
+			"CC(C)(C#N)c1cccc(C(=O)O)c1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC(C)(C#N)c1cccc(N)c1.CCOC(=O)[C@@H](c1ccccc1)N1Cc2ccccc2C1=O>>CC(C)(C#N)c1cccc(NC(=O)[C@@H](c2ccccc2)N2Cc3ccccc3C2=O)c1",
+				"conditions": [
+					"C1CCOC1"
+				],
+				"score": 0.9714343296965586
+			},
+			{
+				"smiles": "CCOC(=O)[C@H](N)c1ccccc1.COC(=O)c1ccccc1CBr>>CCOC(=O)[C@@H](c1ccccc1)N1Cc2ccccc2C1=O",
+				"conditions": [],
+				"score": 0.6425401835295395
+			},
+			{
+				"smiles": ">>COC(=O)c1ccccc1CBr",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": ">>CCOC(=O)[C@H](N)c1ccccc1",
+				"starting material cost ($/g)": 0.8
+			},
+			{
+				"smiles": "CC(C)(C#N)c1cccc(C(=O)O)c1>>CC(C)(C#N)c1cccc(N)c1",
+				"conditions": [
+					"O=S(Cl)Cl.[NH4+].[OH-]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>CC(C)(C#N)c1cccc(C(=O)O)c1",
+				"starting material cost ($/g)": 22.8
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(NCCNS(=O)(=O)c1cccnc1)Nc1ccc2c(c1)CCC(=O)N2CC1CC1": {
+		"Compounds": [
+			"O=C=Nc1ccc2c(c1)CCC(=O)N2CC1CC1",
+			"O=C(Cl)Cl",
+			"ClC(Cl)Cl",
+			"Nc1ccc2c(c1)CCC(=O)N2CC1CC1",
+			"O=C1CCc2cc([N+](=O)[O-])ccc2N1CC1CC1",
+			"O=C1CCc2ccccc2N1CC1CC1",
+			"O=C1CCc2ccccc2N1",
+			"BrCC1CC1",
+			"NCCNS(=O)(=O)c1cccnc1",
+			"CC(C)(C)OC(=O)NCCNS(=O)(=O)c1cccnc1",
+			"CC(C)(C)OC(=O)NCCN",
+			"O=S(=O)(Cl)c1cccnc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "NCCNS(=O)(=O)c1cccnc1.O=C=Nc1ccc2c(c1)CCC(=O)N2CC1CC1>>O=C(NCCNS(=O)(=O)c1cccnc1)Nc1ccc2c(c1)CCC(=O)N2CC1CC1",
+				"conditions": [
+					"ClCCl"
+				],
+				"score": 0.9999305185628051
+			},
+			{
+				"smiles": "Nc1ccc2c(c1)CCC(=O)N2CC1CC1.O=C(Cl)Cl>>O=C=Nc1ccc2c(c1)CCC(=O)N2CC1CC1",
+				"conditions": [
+					"Cc1ccccc1"
+				],
+				"score": 0.9810738214479542
+			},
+			{
+				"smiles": "ClC(Cl)Cl>>O=C(Cl)Cl",
+				"conditions": [
+					"ClCl"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>ClC(Cl)Cl",
+				"starting material cost ($/g)": 2.3
+			},
+			{
+				"smiles": "O=C1CCc2cc([N+](=O)[O-])ccc2N1CC1CC1>>Nc1ccc2c(c1)CCC(=O)N2CC1CC1",
+				"conditions": [
+					"CO",
+					"[H][H]"
+				],
+				"score": 0.9981498117145055
+			},
+			{
+				"smiles": "O=C1CCc2ccccc2N1CC1CC1>>O=C1CCc2cc([N+](=O)[O-])ccc2N1CC1CC1",
+				"conditions": [
+					"O=S(=O)(O)O.O=[N+]([O-])O"
+				],
+				"score": 0.7119198913827478
+			},
+			{
+				"smiles": "BrCC1CC1.O=C1CCc2ccccc2N1>>O=C1CCc2ccccc2N1CC1CC1",
+				"conditions": [
+					"CN(C)C=O",
+					"[H-].[Na+]"
+				],
+				"score": 0.9867829689864429
+			},
+			{
+				"smiles": ">>O=C1CCc2ccccc2N1",
+				"starting material cost ($/g)": 1.6
+			},
+			{
+				"smiles": ">>BrCC1CC1",
+				"starting material cost ($/g)": 0.8
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)NCCNS(=O)(=O)c1cccnc1>>NCCNS(=O)(=O)c1cccnc1",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.999997602505788
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)NCCN.O=S(=O)(Cl)c1cccnc1>>CC(C)(C)OC(=O)NCCNS(=O)(=O)c1cccnc1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9980835705402278
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)NCCN",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": ">>O=S(=O)(Cl)c1cccnc1",
+				"starting material cost ($/g)": 0.9
+			}
+		],
+		"Reward": 1
+	},
+	"Cc1ccc(CN(Cc2ccco2)S(=O)(=O)c2cnn(-c3ccccc3F)c2)s1": {
+		"Compounds": [
+			"O=S(=O)(Cl)c1cnn(-c2ccccc2F)c1",
+			"Fc1ccccc1-n1cccn1",
+			"c1cn[nH]c1",
+			"OB(O)c1ccccc1F",
+			"Cc1ccc(CNCc2ccco2)s1",
+			"Cc1ccc(C=NCc2ccco2)s1",
+			"NCc1ccco1",
+			"Cc1ccc(C=O)s1"
+		],
+		"Reactions": [
+			{
+				"smiles": "Cc1ccc(CNCc2ccco2)s1.O=S(=O)(Cl)c1cnn(-c2ccccc2F)c1>>Cc1ccc(CN(Cc2ccco2)S(=O)(=O)c2cnn(-c3ccccc3F)c2)s1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC"
+				],
+				"score": 0.9979337919118555
+			},
+			{
+				"smiles": "Fc1ccccc1-n1cccn1>>O=S(=O)(Cl)c1cnn(-c2ccccc2F)c1",
+				"conditions": [
+					"O=S(=O)(O)Cl"
+				],
+				"score": 0.38928977314890784
+			},
+			{
+				"smiles": "OB(O)c1ccccc1F.c1cn[nH]c1>>Fc1ccccc1-n1cccn1",
+				"conditions": [
+					"ClCCl",
+					"CCN(CC)CC",
+					"CC(=O)[O-].[Cu+2]"
+				],
+				"score": 0.9975620781323707
+			},
+			{
+				"smiles": ">>c1cn[nH]c1",
+				"starting material cost ($/g)": 2.4
+			},
+			{
+				"smiles": ">>OB(O)c1ccccc1F",
+				"starting material cost ($/g)": 0.8
+			},
+			{
+				"smiles": "Cc1ccc(C=NCc2ccco2)s1>>Cc1ccc(CNCc2ccco2)s1",
+				"conditions": [
+					"CO",
+					"[BH4-].[Na+]"
+				],
+				"score": 0.9571784476312268
+			},
+			{
+				"smiles": "Cc1ccc(C=O)s1.NCc1ccco1>>Cc1ccc(C=NCc2ccco2)s1",
+				"conditions": [
+					"CO"
+				],
+				"score": 0.0008671648770239551
+			},
+			{
+				"smiles": ">>NCc1ccco1",
+				"starting material cost ($/g)": 2.4
+			},
+			{
+				"smiles": ">>Cc1ccc(C=O)s1",
+				"starting material cost ($/g)": 0.8
+			}
+		],
+		"Reward": 1
+	},
+	"NC(=O)C1CC2(CC(NC(=O)NCc3oc4ccc(Cl)cc4c3-c3ccccc3)C2)C1": {
+		"Compounds": [
+			"NC(=O)C1CC2(CC(N)C2)C1",
+			"NC(=O)C1CC2(CC(=O)C2)C1",
+			"O=C1CC2(C1)CC(C(=O)Cl)C2",
+			"O=C1CC2(C1)CC(C(=O)O)C2",
+			"O=C(O)NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"NC(=O)O",
+			"OCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"CC(=O)OCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"Clc1ccc2oc(CBr)c(-c3ccccc3)c2c1",
+			"Cc1oc2ccc(Cl)cc2c1-c1ccccc1",
+			"CC(Oc1ccc(Cl)cc1)C(=O)c1ccccc1",
+			"CC(Br)C(=O)c1ccccc1",
+			"Oc1ccc(Cl)cc1",
+			"CC(=O)O"
+		],
+		"Reactions": [
+			{
+				"smiles": "NC(=O)C1CC2(CC(N)C2)C1.O=C(O)NCc1oc2ccc(Cl)cc2c1-c1ccccc1>>NC(=O)C1CC2(CC(NC(=O)NCc3oc4ccc(Cl)cc4c3-c3ccccc3)C2)C1",
+				"conditions": [
+					"c1ccccc1"
+				],
+				"score": 0.8610586867450284
+			},
+			{
+				"smiles": "NC(=O)C1CC2(CC(=O)C2)C1>>NC(=O)C1CC2(CC(N)C2)C1",
+				"conditions": [
+					"CO",
+					"[BH3-]C#N.[Na+].CC(=O)O.N"
+				],
+				"score": 0.39180585085357195
+			},
+			{
+				"smiles": "O=C1CC2(C1)CC(C(=O)Cl)C2>>NC(=O)C1CC2(CC(=O)C2)C1",
+				"conditions": [
+					"ClCCl",
+					"N"
+				],
+				"score": 0.8223960263198901
+			},
+			{
+				"smiles": "O=C1CC2(C1)CC(C(=O)O)C2>>O=C1CC2(C1)CC(C(=O)Cl)C2",
+				"conditions": [
+					"ClCCl",
+					"O=C(Cl)C(=O)Cl.CN(C)C=O"
+				],
+				"score": 0.5435475967705643
+			},
+			{
+				"smiles": ">>O=C1CC2(C1)CC(C(=O)O)C2",
+				"starting material cost ($/g)": 24.0
+			},
+			{
+				"smiles": "NC(=O)O.OCc1oc2ccc(Cl)cc2c1-c1ccccc1>>O=C(O)NCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [],
+				"score": 0
+			},
+			{
+				"smiles": ">>NC(=O)O",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "CC(=O)OCc1oc2ccc(Cl)cc2c1-c1ccccc1>>OCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [
+					"CO",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9999862450669027
+			},
+			{
+				"smiles": "CC(=O)O.Clc1ccc2oc(CBr)c(-c3ccccc3)c2c1>>CC(=O)OCc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [
+					"CC(=O)[O-].[K+]"
+				],
+				"score": 0.31811138110785564
+			},
+			{
+				"smiles": "Cc1oc2ccc(Cl)cc2c1-c1ccccc1>>Clc1ccc2oc(CBr)c(-c3ccccc3)c2c1",
+				"conditions": [
+					"ClC(Cl)(Cl)Cl",
+					"CC(C)(C#N)N=NC(C)(C)C#N.O=C1CCC(=O)N1Br"
+				],
+				"score": 0.999237471877627
+			},
+			{
+				"smiles": "CC(Oc1ccc(Cl)cc1)C(=O)c1ccccc1>>Cc1oc2ccc(Cl)cc2c1-c1ccccc1",
+				"conditions": [
+					"O=[P]12O[P]3(=O)O[P](=O)(O1)O[P](=O)(O2)O3"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(Br)C(=O)c1ccccc1.Oc1ccc(Cl)cc1>>CC(Oc1ccc(Cl)cc1)C(=O)c1ccccc1",
+				"conditions": [
+					"CC(C)=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9962910825664383
+			},
+			{
+				"smiles": ">>CC(Br)C(=O)c1ccccc1",
+				"starting material cost ($/g)": 2.3
+			},
+			{
+				"smiles": ">>Oc1ccc(Cl)cc1",
+				"starting material cost ($/g)": 2.2
+			},
+			{
+				"smiles": ">>CC(=O)O",
+				"starting material cost ($/g)": 0.5
+			}
+		],
+		"Reward": 1
+	},
+	"Cc1ccc(NC(=O)Nc2ccn(C3CCCCC3)n2)cc1S(=O)(=O)N1CCCCCC1": {
+		"Compounds": [
+			"Nc1ccn(C2CCCCC2)n1",
+			"O=[N+]([O-])c1ccn(C2CCCCC2)n1",
+			"O=[N+]([O-])c1cc[nH]n1",
+			"BrC1CCCCC1",
+			"Cc1ccc(N=C=O)cc1S(=O)(=O)N1CCCCCC1",
+			"Cc1ccc(N)cc1S(=O)(=O)N1CCCCCC1",
+			"Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)N1CCCCCC1",
+			"C1CCCNCC1",
+			"Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)Cl",
+			"O=C(Cl)Cl",
+			"ClC(Cl)Cl"
+		],
+		"Reactions": [
+			{
+				"smiles": "Cc1ccc(N=C=O)cc1S(=O)(=O)N1CCCCCC1.Nc1ccn(C2CCCCC2)n1>>Cc1ccc(NC(=O)Nc2ccn(C3CCCCC3)n2)cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"CN(C)C=O",
+					"CCN(CC)CC"
+				],
+				"score": 0.9937271267731348
+			},
+			{
+				"smiles": "O=[N+]([O-])c1ccn(C2CCCCC2)n1>>Nc1ccn(C2CCCCC2)n1",
+				"conditions": [
+					"CCO",
+					"[H]Cl.[H]N([H])[H]",
+					"[Fe]"
+				],
+				"score": 0.9999969180684752
+			},
+			{
+				"smiles": "BrC1CCCCC1.O=[N+]([O-])c1cc[nH]n1>>O=[N+]([O-])c1ccn(C2CCCCC2)n1",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.986688867644866
+			},
+			{
+				"smiles": ">>O=[N+]([O-])c1cc[nH]n1",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": ">>BrC1CCCCC1",
+				"starting material cost ($/g)": 0.5
+			},
+			{
+				"smiles": "Cc1ccc(N)cc1S(=O)(=O)N1CCCCCC1.O=C(Cl)Cl>>Cc1ccc(N=C=O)cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"Cc1ccccc1"
+				],
+				"score": 0.934427208274793
+			},
+			{
+				"smiles": "Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)N1CCCCCC1>>Cc1ccc(N)cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"CC(=O)O",
+					"[Fe]"
+				],
+				"score": 0.9961884531313758
+			},
+			{
+				"smiles": "C1CCCNCC1.Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)Cl>>Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)N1CCCCCC1",
+				"conditions": [
+					"CC#N"
+				],
+				"score": 0.9989598149146361
+			},
+			{
+				"smiles": ">>C1CCCNCC1",
+				"starting material cost ($/g)": 3.5
+			},
+			{
+				"smiles": ">>Cc1ccc([N+](=O)[O-])cc1S(=O)(=O)Cl",
+				"starting material cost ($/g)": 3.0
+			},
+			{
+				"smiles": "ClC(Cl)Cl>>O=C(Cl)Cl",
+				"conditions": [
+					"ClCl"
+				],
+				"score": 0
+			},
+			{
+				"smiles": ">>ClC(Cl)Cl",
+				"starting material cost ($/g)": 2.3
+			}
+		],
+		"Reward": 1
+	},
+	"CC(C)n1ncc2cc(NC(=O)C(=O)NCC3(CO)CC(C)(C)C3)ccc21": {
+		"Compounds": [
+			"CCOC(=O)C(=O)Nc1ccc2c(cnn2C(C)C)c1",
+			"CC(C)n1ncc2cc(N)ccc21",
+			"CC(C)n1ncc2cc([N+](=O)[O-])ccc21",
+			"O=[N+]([O-])c1ccc2[nH]ncc2c1",
+			"CC(C)I",
+			"CCOC(=O)C(=O)Cl",
+			"CC1(C)CC(CN)(CO)C1",
+			"CCOC(=O)C1(C#N)CC(C)(C)C1",
+			"CCOC(=O)CC#N",
+			"CC(C)(CBr)CBr"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC1(C)CC(CN)(CO)C1.CCOC(=O)C(=O)Nc1ccc2c(cnn2C(C)C)c1>>CC(C)n1ncc2cc(NC(=O)C(=O)NCC3(CO)CC(C)(C)C3)ccc21",
+				"conditions": [
+					"C1CCOC1"
+				],
+				"score": 0.9993251002472234
+			},
+			{
+				"smiles": "CC(C)n1ncc2cc(N)ccc21.CCOC(=O)C(=O)Cl>>CCOC(=O)C(=O)Nc1ccc2c(cnn2C(C)C)c1",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9977531033674262
+			},
+			{
+				"smiles": "CC(C)n1ncc2cc([N+](=O)[O-])ccc21>>CC(C)n1ncc2cc(N)ccc21",
+				"conditions": [
+					"CO",
+					"[H][H]"
+				],
+				"score": 0.9937393348957204
+			},
+			{
+				"smiles": "CC(C)I.O=[N+]([O-])c1ccc2[nH]ncc2c1>>CC(C)n1ncc2cc([N+](=O)[O-])ccc21",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9716482294039712
+			},
+			{
+				"smiles": ">>O=[N+]([O-])c1ccc2[nH]ncc2c1",
+				"starting material cost ($/g)": 0.8
+			},
+			{
+				"smiles": ">>CC(C)I",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "CCOC(=O)C1(C#N)CC(C)(C)C1>>CC1(C)CC(CN)(CO)C1",
+				"conditions": [
+					"C1CCOC1",
+					"[AlH7-].[Li+]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(C)(CBr)CBr.CCOC(=O)CC#N>>CCOC(=O)C1(C#N)CC(C)(C)C1",
+				"conditions": [
+					"CC[O-].[Na+]"
+				],
+				"score": 0.9884970974640703
+			},
+			{
+				"smiles": ">>CCOC(=O)CC#N",
+				"starting material cost ($/g)": 3.2
+			},
+			{
+				"smiles": ">>CC(C)(CBr)CBr",
+				"starting material cost ($/g)": 47.0
+			}
+		],
+		"Reward": 1
+	},
+	"CC(C)c1cc(NC(=O)C(=O)NCc2ccc(-c3ccn[nH]3)cc2)n(Cc2ccccc2)n1": {
+		"Compounds": [
+			"CC(C)c1cc(NC(=O)C(=O)NCc2ccc(Br)cc2)n(Cc2ccccc2)n1",
+			"NCc1ccc(Br)cc1",
+			"CCOC(=O)C(=O)Nc1cc(C(C)C)nn1Cc1ccccc1",
+			"CC(C)c1cc(N)n(Cc2ccccc2)n1",
+			"CC(C)c1cc(C(=O)O)n(Cc2ccccc2)n1",
+			"CCOC(=O)c1cc(C(C)C)nn1Cc1ccccc1",
+			"CCOC(=O)c1cc(C(C)C)n[nH]1",
+			"ClCc1ccccc1",
+			"CCOC(=O)C(=O)Cl",
+			"CC1(C)OB(c2ccn[nH]2)OC1(C)C"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC(C)c1cc(NC(=O)C(=O)NCc2ccc(Br)cc2)n(Cc2ccccc2)n1.CC1(C)OB(c2ccn[nH]2)OC1(C)C>>CC(C)c1cc(NC(=O)C(=O)NCc2ccc(-c3ccn[nH]3)cc2)n(Cc2ccccc2)n1",
+				"conditions": [
+					"COCCOC",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9999964820359373
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cc(C(C)C)nn1Cc1ccccc1.NCc1ccc(Br)cc1>>CC(C)c1cc(NC(=O)C(=O)NCc2ccc(Br)cc2)n(Cc2ccccc2)n1",
+				"conditions": [
+					"ClCCl"
+				],
+				"score": 0.9863672063337037
+			},
+			{
+				"smiles": ">>NCc1ccc(Br)cc1",
+				"starting material cost ($/g)": 1.3
+			},
+			{
+				"smiles": "CC(C)c1cc(N)n(Cc2ccccc2)n1.CCOC(=O)C(=O)Cl>>CCOC(=O)C(=O)Nc1cc(C(C)C)nn1Cc1ccccc1",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.9978301454276445
+			},
+			{
+				"smiles": "CC(C)c1cc(C(=O)O)n(Cc2ccccc2)n1>>CC(C)c1cc(N)n(Cc2ccccc2)n1",
+				"conditions": [
+					"NC=O"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CCOC(=O)c1cc(C(C)C)nn1Cc1ccccc1>>CC(C)c1cc(C(=O)O)n(Cc2ccccc2)n1",
+				"conditions": [
+					"[K+].[OH-]"
+				],
+				"score": 0.7086734376944603
+			},
+			{
+				"smiles": "CCOC(=O)c1cc(C(C)C)n[nH]1.ClCc1ccccc1>>CCOC(=O)c1cc(C(C)C)nn1Cc1ccccc1",
+				"conditions": [
+					"CN(C)C=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.5782906056153968
+			},
+			{
+				"smiles": ">>CCOC(=O)c1cc(C(C)C)n[nH]1",
+				"starting material cost ($/g)": 11.3
+			},
+			{
+				"smiles": ">>ClCc1ccccc1",
+				"starting material cost ($/g)": 132.0
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": ">>CC1(C)OB(c2ccn[nH]2)OC1(C)C",
+				"starting material cost ($/g)": 1.6
+			}
+		],
+		"Reward": 1
+	},
+	"COC(=O)c1cc(S(=O)(=O)Nc2nc(-c3ccc(Oc4ccccc4)cc3)cs2)c[nH]1": {
+		"Compounds": [
+			"COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(-c3ccc(Oc4ccccc4)cc3)cs2)c[nH]1",
+			"COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(B3OC(C)(C)C(C)(C)O3)cs2)c[nH]1",
+			"CC1(C)OB(B2OC(C)(C)C(C)(C)O2)OC1(C)C",
+			"COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(Br)cs2)c[nH]1",
+			"COc1ccc(CNc2nc(Br)cs2)c(OC)c1",
+			"Brc1csc(Br)n1",
+			"COc1ccc(CN)c(OC)c1",
+			"COC(=O)c1cc(S(=O)(=O)Cl)c[nH]1",
+			"COC(=O)c1ccc[nH]1",
+			"Brc1ccc(Oc2ccccc2)cc1"
+		],
+		"Reactions": [
+			{
+				"smiles": "COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(-c3ccc(Oc4ccccc4)cc3)cs2)c[nH]1>>COC(=O)c1cc(S(=O)(=O)Nc2nc(-c3ccc(Oc4ccccc4)cc3)cs2)c[nH]1",
+				"conditions": [
+					"ClCCl",
+					"O=C(O)C(F)(F)F"
+				],
+				"score": 0.999601049339305
+			},
+			{
+				"smiles": "Brc1ccc(Oc2ccccc2)cc1.COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(B3OC(C)(C)C(C)(C)O3)cs2)c[nH]1>>COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(-c3ccc(Oc4ccccc4)cc3)cs2)c[nH]1",
+				"conditions": [
+					"C1COCCO1",
+					"O=C([O-])[O-].[Na+]"
+				],
+				"score": 0.9999980811608026
+			},
+			{
+				"smiles": "CC1(C)OB(B2OC(C)(C)C(C)(C)O2)OC1(C)C.COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(Br)cs2)c[nH]1>>COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(B3OC(C)(C)C(C)(C)O3)cs2)c[nH]1",
+				"conditions": [
+					"CN(C)C=O",
+					"CC(=O)[O-].[K+]"
+				],
+				"score": 0.9865228483639182
+			},
+			{
+				"smiles": ">>CC1(C)OB(B2OC(C)(C)C(C)(C)O2)OC1(C)C",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": "COC(=O)c1cc(S(=O)(=O)Cl)c[nH]1.COc1ccc(CNc2nc(Br)cs2)c(OC)c1>>COC(=O)c1cc(S(=O)(=O)N(Cc2ccc(OC)cc2OC)c2nc(Br)cs2)c[nH]1",
+				"conditions": [
+					"C1CCOC1",
+					"[H-].[Na+]"
+				],
+				"score": 0.7413077305024643
+			},
+			{
+				"smiles": "Brc1csc(Br)n1.COc1ccc(CN)c(OC)c1>>COc1ccc(CNc2nc(Br)cs2)c(OC)c1",
+				"conditions": [
+					"CO"
+				],
+				"score": 0.9966312425479411
+			},
+			{
+				"smiles": ">>Brc1csc(Br)n1",
+				"starting material cost ($/g)": 0.8
+			},
+			{
+				"smiles": ">>COc1ccc(CN)c(OC)c1",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": "COC(=O)c1ccc[nH]1>>COC(=O)c1cc(S(=O)(=O)Cl)c[nH]1",
+				"conditions": [
+					"O=S(=O)(O)Cl"
+				],
+				"score": 0.8440830628938688
+			},
+			{
+				"smiles": ">>COC(=O)c1ccc[nH]1",
+				"starting material cost ($/g)": 1.0
+			},
+			{
+				"smiles": ">>Brc1ccc(Oc2ccccc2)cc1",
+				"starting material cost ($/g)": 0.7
+			}
+		],
+		"Reward": 1
+	},
+	"CC1CCCC(OCc2cccc(NC(=O)C(=O)Nc3cn(C)nc3-c3ccccc3)c2)C1": {
+		"Compounds": [
+			"CC1CCCC(OCc2cccc(NC(=O)C(=O)Nc3cn(C(=O)OC(C)(C)C)nc3-c3ccccc3)c2)C1",
+			"CC(C)(C)OC(=O)n1cc(Br)c(-c2ccccc2)n1",
+			"Brc1c[nH]nc1-c1ccccc1",
+			"CC(C)(C)OC(=O)OC(=O)OC(C)(C)C",
+			"CC1CCCC(OCc2cccc(NC(=O)C(N)=O)c2)C1",
+			"CCOC(=O)C(=O)Nc1cccc(COC2CCCC(C)C2)c1",
+			"CCOC(=O)C(=O)Cl",
+			"CC1CCCC(OCc2cccc(N)c2)C1",
+			"CC1CCCC(OCc2cccc([N+](=O)[O-])c2)C1",
+			"O=[N+]([O-])c1cccc(CCl)c1",
+			"CC1CCCC(O)C1"
+		],
+		"Reactions": [
+			{
+				"smiles": "CC1CCCC(OCc2cccc(NC(=O)C(=O)Nc3cn(C(=O)OC(C)(C)C)nc3-c3ccccc3)c2)C1>>CC1CCCC(OCc2cccc(NC(=O)C(=O)Nc3cn(C)nc3-c3ccccc3)c2)C1",
+				"conditions": [
+					"C1COCCO1",
+					"N#CC1=C(C#N)C(=O)C(Cl)=C(Cl)C1=O"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "CC(C)(C)OC(=O)n1cc(Br)c(-c2ccccc2)n1.CC1CCCC(OCc2cccc(NC(=O)C(N)=O)c2)C1>>CC1CCCC(OCc2cccc(NC(=O)C(=O)Nc3cn(C(=O)OC(C)(C)C)nc3-c3ccccc3)c2)C1",
+				"conditions": [
+					"C1COCCO1",
+					"CC1(C)C2=C(OC3=C1C=CC=C3P(C1=CC=CC=C1)C1=CC=CC=C1)C(P(C1=CC=CC=C1)C1=CC=CC=C1)=CC=C2.O=C([O-])[O-].[Cs+]",
+					"O=C(C=Cc1ccccc1)C=Cc1ccccc1.[Pd]"
+				],
+				"score": 0
+			},
+			{
+				"smiles": "Brc1c[nH]nc1-c1ccccc1.CC(C)(C)OC(=O)OC(=O)OC(C)(C)C>>CC(C)(C)OC(=O)n1cc(Br)c(-c2ccccc2)n1",
+				"conditions": [
+					"ClCCl",
+					"CN(C)c1ccncc1.CCN(CC)CC"
+				],
+				"score": 0.4277234891853577
+			},
+			{
+				"smiles": ">>Brc1c[nH]nc1-c1ccccc1",
+				"starting material cost ($/g)": 12.0
+			},
+			{
+				"smiles": ">>CC(C)(C)OC(=O)OC(=O)OC(C)(C)C",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1cccc(COC2CCCC(C)C2)c1>>CC1CCCC(OCc2cccc(NC(=O)C(N)=O)c2)C1",
+				"conditions": [
+					"CO",
+					"N"
+				],
+				"score": 0.00040835094139741784
+			},
+			{
+				"smiles": "CC1CCCC(OCc2cccc(N)c2)C1.CCOC(=O)C(=O)Cl>>CCOC(=O)C(=O)Nc1cccc(COC2CCCC(C)C2)c1",
+				"conditions": [
+					"C1CCOC1",
+					"CCN(CC)CC"
+				],
+				"score": 0.997510499471295
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": "CC1CCCC(OCc2cccc([N+](=O)[O-])c2)C1>>CC1CCCC(OCc2cccc(N)c2)C1",
+				"conditions": [
+					"CCO",
+					"[H][H]",
+					"[Pd]"
+				],
+				"score": 0.9999535688493082
+			},
+			{
+				"smiles": "CC1CCCC(O)C1.O=[N+]([O-])c1cccc(CCl)c1>>CC1CCCC(OCc2cccc([N+](=O)[O-])c2)C1",
+				"conditions": [
+					"[H-].[Na+]"
+				],
+				"score": 0.9962315054160412
+			},
+			{
+				"smiles": ">>O=[N+]([O-])c1cccc(CCl)c1",
+				"starting material cost ($/g)": 2.2
+			},
+			{
+				"smiles": ">>CC1CCCC(O)C1",
+				"starting material cost ($/g)": 8.1
+			}
+		],
+		"Reward": 1
+	},
+	"O=C(NCC1(Cc2ccccc2)C=CCCC1)C(=O)Nc1c(F)ccc(Br)c1F": {
+		"Compounds": [
+			"NCC1(Cc2ccccc2)C=CCCC1",
+			"BrCC1(Cc2ccccc2)C=CCCC1",
+			"OCC1(Cc2ccccc2)C=CCCC1",
+			"COC(=O)C1(Cc2ccccc2)C=CCCC1",
+			"COC(=O)C1(Cc2ccccc2)CCCCC1OS(C)(=O)=O",
+			"CS(=O)(=O)OS(C)(=O)=O",
+			"COC(=O)C1(Cc2ccccc2)CCCCC1O",
+			"COC(=O)C1(Cc2ccccc2)CCCCC1=O",
+			"ClCc1ccccc1",
+			"COC(=O)C1CCCCC1=O",
+			"CCOC(=O)C(=O)Nc1c(F)ccc(Br)c1F",
+			"CCOC(=O)C(=O)Cl",
+			"Nc1c(F)ccc(Br)c1F"
+		],
+		"Reactions": [
+			{
+				"smiles": "CCOC(=O)C(=O)Nc1c(F)ccc(Br)c1F.NCC1(Cc2ccccc2)C=CCCC1>>O=C(NCC1(Cc2ccccc2)C=CCCC1)C(=O)Nc1c(F)ccc(Br)c1F",
+				"conditions": [
+					"Cc1ccccc1"
+				],
+				"score": 0.9455645476954241
+			},
+			{
+				"smiles": "BrCC1(Cc2ccccc2)C=CCCC1>>NCC1(Cc2ccccc2)C=CCCC1",
+				"conditions": [
+					"CO",
+					"N"
+				],
+				"score": 0.7561149787298445
+			},
+			{
+				"smiles": "OCC1(Cc2ccccc2)C=CCCC1>>BrCC1(Cc2ccccc2)C=CCCC1",
+				"conditions": [
+					"CCOCC",
+					"BrP(Br)Br"
+				],
+				"score": 0.8651027711506989
+			},
+			{
+				"smiles": "COC(=O)C1(Cc2ccccc2)C=CCCC1>>OCC1(Cc2ccccc2)C=CCCC1",
+				"conditions": [
+					"C1CCOC1",
+					"[AlH7-].[Li+]"
+				],
+				"score": 0.6795953562825572
+			},
+			{
+				"smiles": "COC(=O)C1(Cc2ccccc2)CCCCC1OS(C)(=O)=O>>COC(=O)C1(Cc2ccccc2)C=CCCC1",
+				"conditions": [
+					"C1CCC2=NCCCN2CC1"
+				],
+				"score": 0.985444329439699
+			},
+			{
+				"smiles": "COC(=O)C1(Cc2ccccc2)CCCCC1O.CS(=O)(=O)OS(C)(=O)=O>>COC(=O)C1(Cc2ccccc2)CCCCC1OS(C)(=O)=O",
+				"conditions": [
+					"c1ccncc1"
+				],
+				"score": 0.539209227958277
+			},
+			{
+				"smiles": ">>CS(=O)(=O)OS(C)(=O)=O",
+				"starting material cost ($/g)": 0.6
+			},
+			{
+				"smiles": "COC(=O)C1(Cc2ccccc2)CCCCC1=O>>COC(=O)C1(Cc2ccccc2)CCCCC1O",
+				"conditions": [
+					"CO",
+					"[BH4-].[Na+]"
+				],
+				"score": 0.7846911110199843
+			},
+			{
+				"smiles": "COC(=O)C1CCCCC1=O.ClCc1ccccc1>>COC(=O)C1(Cc2ccccc2)CCCCC1=O",
+				"conditions": [
+					"CC(C)=O",
+					"O=C([O-])[O-].[K+]"
+				],
+				"score": 0.9836245193104826
+			},
+			{
+				"smiles": ">>ClCc1ccccc1",
+				"starting material cost ($/g)": 132.0
+			},
+			{
+				"smiles": ">>COC(=O)C1CCCCC1=O",
+				"starting material cost ($/g)": 2.9
+			},
+			{
+				"smiles": "CCOC(=O)C(=O)Cl.Nc1c(F)ccc(Br)c1F>>CCOC(=O)C(=O)Nc1c(F)ccc(Br)c1F",
+				"conditions": [
+					"ClCCl",
+					"c1ccncc1"
+				],
+				"score": 0.9929778968647249
+			},
+			{
+				"smiles": ">>CCOC(=O)C(=O)Cl",
+				"starting material cost ($/g)": 2.7
+			},
+			{
+				"smiles": ">>Nc1c(F)ccc(Br)c1F",
+				"starting material cost ($/g)": 17.0
+			}
+		],
+		"Reward": 1
+	}
+}
