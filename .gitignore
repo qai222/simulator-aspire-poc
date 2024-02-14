@@ -161,3 +161,6 @@ cython_debug/
 .idea/
 
 /reaction_network/licensetools11.0.0_linux64/
+
+# gurobi log file
+gurobi.log
