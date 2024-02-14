@@ -1,0 +1,16 @@
+{
+	"Weights": [
+		100.0,
+		1.0,
+		1.0,
+		0
+	],
+	"Number targets": 35,
+	"Fraction targets": 0.8333333333333334,
+	"Total reward": 35,
+	"Possible reward": 42,
+	"Number starting materials": 109,
+	"Cost starting materials": 736.3000000000002,
+	"Number reaction steps": 204,
+	"Average reaction score": 0.7621848106857101
+}
