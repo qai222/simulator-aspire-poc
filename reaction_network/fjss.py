@@ -4,7 +4,7 @@ import math
 import random
 import itertools as it
 from abc import ABC
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 
 import gurobipy as gp
 import numpy as np
@@ -497,7 +497,8 @@ class FJS2:
         # self.machines = machines
         # if operations is a list, turn it into a dictionary
         if isinstance(operations, list):
-            operations = {i: operations[i] for i in range(len(operations))}
+            operations = {str(i): operations[i] for i in range(len(operations))}
+            operations = OrderedDict(sorted(operations.items()))
         if isinstance(machines, list):
             machines = {i: machines[i] for i in range(len(machines))}
 
@@ -560,6 +561,7 @@ class FJS2:
         self.model = None
         self.var_ws_assignments = None
         self.var_ws_starting_times = None
+        self.num_ws = None
 
     def build_model_gurobi(self):
         """Build the mixed integer linear programming model with gurobi."""
@@ -688,83 +690,95 @@ class FJS2:
 
             # not all the operations will need the work shift constraints
             if self.operations_subset_indices:
-                operations_subset = {i: self.operations[i] for i in self.operations_subset_indices}
-                # n_opt_subset = len(operations_subset)
+                # take the subset of the original operations ordered dictionary based on the
+                # operations_subset_indices
+                # the subset ordered dictionary follow the same order as the original ordered
+                # dictionary
+                operations_subset = [(list(self.operations.keys())[i], list(self.operations.values())[i])
+                                     for i in self.operations_subset_indices]
+                operations_subset = OrderedDict(operations_subset)
+
             else:
                 # n_opt_subset = n_opt
                 operations_subset = self.operations
 
             eps = 1e-5
             value_m = self.horizon*10
+            # number of work shifts
+            n_ws = math.ceil(self.horizon / self.shift_durations)
 
-            for i, _ in operations_subset.items():
+            for i, operation in operations_subset.items():
+                i = int(i)
                 # the i-th operation should be processed in the i-th work shift, c_i - s_i <= shift_durations
                 model.addConstr(
                 var_c[i] - var_s[i] <= self.shift_durations, name="workshift_duration_limit_{i}"
                 )
 
-                # s_i <= (i+1)*shift_duration and c_i <= (i+1)*shift_duration
-                var_auxiliary_a = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_a_{i}"
-                )
-                var_auxiliary_b = model.addVar(
-                    vtype=GRB.BINARY, name=f"var_auxiliary_b_{i}"
-                )
+                for j in range(n_ws):
+                    # s_i <= (i+1)*shift_duration and c_i <= (i+1)*shift_duration
+                    var_auxiliary_a = model.addVar(
+                        vtype=GRB.BINARY, name=f"var_auxiliary_a_{i,j}"
+                    )
+                    var_auxiliary_b = model.addVar(
+                        vtype=GRB.BINARY, name=f"var_auxiliary_b_{i,j}"
+                    )
 
-                # var_auxiliary_a indicates (i+1)*shift_duration >= s_i
-                model.addConstr(
-                    (i + 1) * self.shift_durations >= var_s[i] + eps - value_m * ( 1- var_auxiliary_a)
-                )
-                model.addConstr(
-                    (i + 1) * self.shift_durations <= var_s[i] + value_m * var_auxiliary_a
-                )
-                # var_auxiliary_a indicates (i+1)*shift_duration >= c_i
-                model.addConstr(
-                    (i + 1) * self.shift_durations >= var_c[i] + eps - value_m * ( 1- var_auxiliary_a)
-                )
-                model.addConstr(
-                    (i + 1) * self.shift_durations <= var_c[i] + value_m * var_auxiliary_a
-                )
-                # var_auxiliary_b indicates s_i > = (i+1)*shift_duration
-                model.addConstr(
-                    var_s[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
-                )
-                model.addConstr(
-                    var_s[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_b
-                )
-                # var_auxiliary_b indicates c_i > = (i+1)*shift_duration
-                model.addConstr(
-                    var_c[i] >= (i + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
-                )
-                model.addConstr(
-                    var_c[i] <= (i + 1) * self.shift_durations + value_m * var_auxiliary_b
-                )
-                # var_auxiliary_a indicates that var_auxiliary_1 and var_auxiliary_2 should be satisfied at the same time
-                # model.addConstr(
-                #     var_auxiliary_a == gp.and_(var_auxiliary_1, var_auxiliary_2)
-                # )
-                # model.addConstr(
-                #     (var_auxiliary_a == 1) >> (var_auxiliary_1 + var_auxiliary_2 == 2)
-                # )
-                # model.addConstr(
-                #     (var_auxiliary_1 + var_auxiliary_2 <= 1) >> (var_auxiliary_a == 0)
-                # )
+                    # var_auxiliary_a indicates (j+1)*shift_duration >= s_i
+                    model.addConstr(
+                        (j + 1) * self.shift_durations >= var_s[i] + eps - value_m * ( 1- var_auxiliary_a)
+                    )
+                    model.addConstr(
+                        (j + 1) * self.shift_durations <= var_s[i] + value_m * var_auxiliary_a
+                    )
+                    # var_auxiliary_a indicates (i+1)*shift_duration >= c_i
+                    model.addConstr(
+                        (j + 1) * self.shift_durations >= var_c[i] + eps - value_m * ( 1- var_auxiliary_a)
+                    )
+                    model.addConstr(
+                        (j + 1) * self.shift_durations <= var_c[i] + value_m * var_auxiliary_a
+                    )
+                    # var_auxiliary_b indicates s_i > = (i+1)*shift_duration
+                    model.addConstr(
+                        var_s[i] >= (j + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
+                    )
+                    model.addConstr(
+                        var_s[i] <= (j + 1) * self.shift_durations + value_m * var_auxiliary_b
+                    )
+                    # var_auxiliary_b indicates c_i > = (i+1)*shift_duration
+                    model.addConstr(
+                        var_c[i] >= (j + 1) * self.shift_durations + eps - value_m * ( 1- var_auxiliary_b)
+                    )
+                    model.addConstr(
+                        var_c[i] <= (j + 1) * self.shift_durations + value_m * var_auxiliary_b
+                    )
+                    # var_auxiliary_a indicates that var_auxiliary_1 and var_auxiliary_2 should be satisfied at the same time
+                    # model.addConstr(
+                    #     var_auxiliary_a == gp.and_(var_auxiliary_1, var_auxiliary_2)
+                    # )
+                    # model.addConstr(
+                    #     (var_auxiliary_a == 1) >> (var_auxiliary_1 + var_auxiliary_2 == 2)
+                    # )
+                    # model.addConstr(
+                    #     (var_auxiliary_1 + var_auxiliary_2 <= 1) >> (var_auxiliary_a == 0)
+                    # )
 
-                # var_auxiliary_b indicates that var_auxiliary_1 and var_auxiliary_2 should be
-                # satisfied at the same time
-                # model.addConstr(
-                #     var_auxiliary_b == gp.and_(var_auxiliary_3, var_auxiliary_4)
-                # )
-                # model.addConstr(
-                #     (var_auxiliary_b == 1) >> (var_auxiliary_3 + var_auxiliary_4 == 2)
-                # )
-                # model.addConstr(
-                #     (var_auxiliary_3 + var_auxiliary_4 <= 1) >> (var_auxiliary_b == 0)
-                # )
+                    # var_auxiliary_b indicates that var_auxiliary_1 and var_auxiliary_2 should be
+                    # satisfied at the same time
+                    # model.addConstr(
+                    #     var_auxiliary_b == gp.and_(var_auxiliary_3, var_auxiliary_4)
+                    # )
+                    # model.addConstr(
+                    #     (var_auxiliary_b == 1) >> (var_auxiliary_3 + var_auxiliary_4 == 2)
+                    # )
+                    # model.addConstr(
+                    #     (var_auxiliary_3 + var_auxiliary_4 <= 1) >> (var_auxiliary_b == 0)
+                    # )
 
-                # var_auxiliary_a and var_auxiliary_b should not be satisfied at the same time, but
-                # at least one of them should be satisfied
-                model.addConstr(var_auxiliary_a + var_auxiliary_b == 1)
+                    # var_auxiliary_a and var_auxiliary_b should not be satisfied at the same time, but
+                    # at least one of them should be satisfied
+                    model.addConstr(var_auxiliary_a + var_auxiliary_b == 1)
+                    # TODO: current version only implements part of the work shift constraints,
+                    # needs to be completed
 
         # set the objective
         model.setObjective(var_c_max, GRB.MINIMIZE)
