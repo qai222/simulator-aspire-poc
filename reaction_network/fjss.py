@@ -553,7 +553,7 @@ class FJS2:
             para_p=para_p,
             para_h=para_h,
             para_lmax=para_lmax,
-            ws_completion_time=None,
+            ws_completion_time=self.ws_completion_time
             )
         else:
             self.horizon = self.__class__.get_horizon(
@@ -561,7 +561,7 @@ class FJS2:
             para_p=para_p,
             para_h=para_h,
             para_lmax=para_lmax,
-            ws_completion_time=self.ws_completion_time
+            ws_completion_time=None,
             )
 
         # self.big_m = self.horizon
@@ -886,7 +886,8 @@ class FJS2:
 
         # TODO: this is suboptimal
         if ws_completion_time:
-            horizon += ws_completion_time[-1]
+            # horizon += ws_completion_time[-1]
+            horizon = max(horizon, ws_completion_time[-1])
 
         return horizon
 
