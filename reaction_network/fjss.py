@@ -753,7 +753,7 @@ class FJS2:
                         var_s[i] >= self.ws_starting_time[j] + eps - value_m * (1 - var_ws_y[i,j])
                     )
                     model.addConstr(
-                        var_s[i] <= self.ws_completion_time[j] + value_m * var_ws_z[i,j]
+                        var_s[i] <= self.ws_completion_time[j] + value_m * var_ws_y[i,j]
                     )
 
                     # z_ij indicates c_i <= C_j
