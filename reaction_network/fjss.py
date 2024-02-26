@@ -738,74 +738,43 @@ class FJS2:
 
                 for j in range(n_ws):
                     model.addConstr(
-                        var_c[i] - var_s[i] <= self.workshifts[j][0], name="workshift_duration_limit_{i}"
+                        var_c[i] - var_s[i] <= self.workshifts[j][0], name="workshift_duration_limit_{i, j}"
                         )
 
-                    # s_i <= (i+1)*shift_duration and c_i <= (i+1)*shift_duration
-                    var_auxiliary_a = model.addVar(
-                        vtype=GRB.BINARY, name=f"var_auxiliary_a_{i,j}"
+                    # the i-th operation can be only be assigned to one work shift
+                    model.addConstr(
+                        gp.quicksum(var_ws_assignments[i, j] for j in range(n_ws)) == 1, name="workshift_assignment_{i,j}"
+                        )
+
+                    # y_ij indicates S_j <= s_i
+                    # add y_ij with s_i + M(1 - y_ij) >= S_j
+                    model.addConstr(
+                        # self.ws_starting_time[j] <= var_s[i] + value_m * (1 - var_ws_y[i,j])
+                        var_s[i] >= self.ws_starting_time[j] + eps - value_m * (1 - var_ws_y[i,j])
                     )
-                    var_auxiliary_b = model.addVar(
-                        vtype=GRB.BINARY, name=f"var_auxiliary_b_{i,j}"
+                    model.addConstr(
+                        var_s[i] <= self.ws_completion_time[j] + value_m * var_ws_z[i,j]
                     )
 
-                    # var_auxiliary_a indicates j-th shift starting time >= s_i
+                    # z_ij indicates c_i <= C_j
                     model.addConstr(
-                        self.ws_starting_time[j] >= var_s[i] + eps - value_m * ( 1- var_auxiliary_a)
+                        self.ws_completion_time[j] >= var_c[i] + eps - value_m * (1 - var_ws_z[i,j])
                     )
                     model.addConstr(
-                        self.ws_starting_time[j] <= var_s[i] + value_m * var_auxiliary_a
-                    )
-
-                    # var_auxiliary_a indicates j-th shift completion time >= c_i
-                    model.addConstr(
-                         self.ws_starting_time[j] >= var_c[i] + eps - value_m * ( 1- var_auxiliary_a)
-                    )
-                    model.addConstr(
-                         self.ws_completion_time[j] <= var_c[i] + value_m * var_auxiliary_a
+                        self.ws_completion_time[j] <= var_c[i] + value_m * var_ws_z[i,j]
                     )
 
-                    # var_auxiliary_b indicates j-th shift starting time <= s_i
+                    # from left to right, ws_assignment_ij == 1 --> y_ij == 1 and z_ij == 1
+                    # y_ij + z_ij - 2*ws_assignment_ij >= 0
                     model.addConstr(
-                        var_s[i] >= self.ws_starting_time[j] + eps - value_m * ( 1- var_auxiliary_b)
+                        var_ws_y[i,j] + var_ws_z[i,j] - 2*var_ws_assignments[i,j] >= 0
                     )
-                    model.addConstr(
-                        var_s[i] <= self.ws_starting_time[j] + value_m * var_auxiliary_b
-                    )
-                    # var_auxiliary_b indicates j-th shift completion time <= c_i
-                    model.addConstr(
-                        var_c[i] >= self.ws_completion_time[j] + eps - value_m * ( 1- var_auxiliary_b)
-                    )
-                    model.addConstr(
-                        var_c[i] <= self.ws_completion_time[j] + value_m * var_auxiliary_b
-                    )
-                    # var_auxiliary_a indicates that var_auxiliary_1 and var_auxiliary_2 should be satisfied at the same time
-                    # model.addConstr(
-                    #     var_auxiliary_a == gp.and_(var_auxiliary_1, var_auxiliary_2)
-                    # )
-                    # model.addConstr(
-                    #     (var_auxiliary_a == 1) >> (var_auxiliary_1 + var_auxiliary_2 == 2)
-                    # )
-                    # model.addConstr(
-                    #     (var_auxiliary_1 + var_auxiliary_2 <= 1) >> (var_auxiliary_a == 0)
-                    # )
 
-                    # var_auxiliary_b indicates that var_auxiliary_1 and var_auxiliary_2 should be
-                    # satisfied at the same time
-                    # model.addConstr(
-                    #     var_auxiliary_b == gp.and_(var_auxiliary_3, var_auxiliary_4)
-                    # )
-                    # model.addConstr(
-                    #     (var_auxiliary_b == 1) >> (var_auxiliary_3 + var_auxiliary_4 == 2)
-                    # )
-                    # model.addConstr(
-                    #     (var_auxiliary_3 + var_auxiliary_4 <= 1) >> (var_auxiliary_b == 0)
-                    # )
-
-                    # var_auxiliary_a and var_auxiliary_b should not be satisfied at the same time, but
-                    # at least one of them should be satisfied
-                    model.addConstr(var_auxiliary_a + var_auxiliary_b == 1)
-
+                    # from right to left, y_ij == 0 or z_ij == 0 --> ws_assignment_ij == 0
+                    # ws_assignment_ij - y_ij - z_ij >= -1
+                    model.addConstr(
+                        var_ws_assignments[i,j] - var_ws_y[i,j] - var_ws_z[i,j] >= -1
+                    )
 
         # set the objective
         model.setObjective(var_c_max, GRB.MINIMIZE)
