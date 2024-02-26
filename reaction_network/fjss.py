@@ -736,15 +736,15 @@ class FJS2:
                 # the i-th operation should be processed in the i-th work shift,
                 # c_i - s_i <= shift_duration of j-th work shift
 
-                for j in range(n_ws):
-                    model.addConstr(
-                        var_c[i] - var_s[i] <= self.workshifts[j][0], name="workshift_duration_limit_{i, j}"
-                        )
-
-                    # the i-th operation can be only be assigned to one work shift
-                    model.addConstr(
+                # the i-th operation can be only be assigned to one work shift
+                model.addConstr(
                         gp.quicksum(var_ws_assignments[i, j] for j in range(n_ws)) == 1, name="workshift_assignment_{i,j}"
                         )
+
+                for j in range(n_ws):
+                    # model.addConstr(
+                    #     var_c[i] - var_s[i] <= self.workshifts[j][0], name="workshift_duration_limit_{i, j}"
+                    #     )
 
                     # y_ij indicates S_j <= s_i
                     # add y_ij with s_i + M(1 - y_ij) >= S_j
