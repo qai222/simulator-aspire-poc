@@ -541,22 +541,32 @@ class FJS2:
         else:
             self.big_m = big_m
 
-        self.horizon = self.__class__.get_horizon(
-            infinity=inf_milp,
-            para_p=para_p,
-            para_h=para_h,
-            para_lmax=para_lmax,
-            )
-        # self.big_m = self.horizon
-
-        # print(f"big_m: {self.big_m}")
-
         # self.shift_durations = shift_durations
         self.workshifts = workshifts
         # starting time of all the work shifts
         if workshifts:
             self.ws_starting_time, self.ws_completion_time, self.gap_starting_time, self.gap_completion_time = \
                 self.reformat_workshift_representation(self.workshifts)
+
+            self.horizon = self.__class__.get_horizon(
+            infinity=inf_milp,
+            para_p=para_p,
+            para_h=para_h,
+            para_lmax=para_lmax,
+            ws_completion_time=None,
+            )
+        else:
+            self.horizon = self.__class__.get_horizon(
+            infinity=inf_milp,
+            para_p=para_p,
+            para_h=para_h,
+            para_lmax=para_lmax,
+            ws_completion_time=self.ws_completion_time
+            )
+
+        # self.big_m = self.horizon
+
+        # print(f"big_m: {self.big_m}")
 
         self.operations_subset_indices = operations_subset_indices
         # self.num_workshifts = num_workshifts
@@ -753,7 +763,7 @@ class FJS2:
                         var_s[i] >= self.ws_starting_time[j] + eps - value_m * (1 - var_ws_y[i,j])
                     )
                     model.addConstr(
-                        var_s[i] <= self.ws_completion_time[j] + value_m * var_ws_y[i,j]
+                        var_s[i] <= self.ws_starting_time[j] + value_m * var_ws_y[i,j]
                     )
 
                     # z_ij indicates c_i <= C_j
@@ -855,7 +865,7 @@ class FJS2:
         return n_opt, n_mach
 
     @staticmethod
-    def get_horizon(infinity, para_p, para_h, para_lmax):
+    def get_horizon(infinity, para_p, para_h, para_lmax, ws_completion_time=None):
         """Get the horizon."""
         # the horizon
         para_p_horizon = np.copy(para_p)
@@ -873,6 +883,10 @@ class FJS2:
         )
 
         horizon = np.sum(horizon)
+
+        # TODO: this is suboptimal
+        if ws_completion_time:
+            horizon += ws_completion_time[-1]
 
         return horizon
 
