@@ -722,7 +722,7 @@ class FJS2:
                 operations_subset = self.operations
 
             eps = 1e-5
-            value_m = self.horizon*10
+            value_m = self.horizon*10 + eps
             # number of work shifts
             n_ws = len(self.workshifts)
 
