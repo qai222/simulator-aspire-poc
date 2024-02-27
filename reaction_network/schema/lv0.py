@@ -227,8 +227,7 @@ class NetworkLv0(BaseModel):
             compounds=[],
             provenance=routes_file
         )
-        if scraper_output:
-            network.populate_compounds(scraper_output=scraper_output)
+        network.populate_compounds(scraper_output=scraper_output)
         return network
 
     @property
