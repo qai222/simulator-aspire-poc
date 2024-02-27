@@ -40,7 +40,7 @@ def create_dashapp(prefix="/"):
 
     app = Dash(
         name=__name__,
-        title="ASPIRE EPV",
+        title="ASPIRE EPV - case1",
         external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME],
         use_pages=True,
         server=server,

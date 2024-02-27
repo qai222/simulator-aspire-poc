@@ -1,0 +1,1649 @@
+{
+  "seed": 2,
+  "compounds": [
+    {
+      "smiles": "C1CCOC1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 72.107,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "C1COCCO1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 88.106,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC#N",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 41.053,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(=O)Cl",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 78.498,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(=O)N(C)c1cc(Cl)ncn1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 185.614,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 230.611,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(=O)OCC(=O)Cl",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 136.534,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 241.20700000000002,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(C)(C)OC(=O)N(CC(=O)Nn1cnnc1)C(=O)C1CCCCC1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 351.40700000000027,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 285.34000000000003,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 241.251,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(C)(C)OC(=O)NCC(=O)O",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 175.18399999999997,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CC(C)COC(=O)Cl",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 136.57799999999997,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCN(C(C)C)C(C)C",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 129.24699999999999,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCN(CC)CC",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 101.193,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCN=C=NCCCN(C)C",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 155.245,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCO",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 46.069,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CCl",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 122.551,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CN",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 103.12100000000001,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 313.3940000000002,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CN(C)C(=O)C1CCCCC1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 227.30399999999995,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CN(C)Cc1ccccc1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 207.27300000000002,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CNC",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 117.148,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CNC(=O)CN(C)C(=O)C1CCCCC1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 284.35600000000005,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CNC(=O)OC(C)(C)C",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 203.23799999999997,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)CNC(=O)[C@H](C)O",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 175.184,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOC(=O)C[N+](=O)[O-]",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 133.103,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOc1ccc(-c2ccccc2)cc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 198.26500000000001,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CCOc1ccc(Br)cc1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 201.063,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(C(=O)C1CCCCC1)c1cc(Cl)ncn1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 253.733,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(C)C(On1nnc2cccnc21)=[N+](C)C.F[P-](F)(F)(F)(F)F",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 380.23299999999995,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(C)c1ccncc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 122.17099999999996,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 255.27799999999996,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CC(=O)Nn1cnnc1)S(C)(=O)=O",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 233.253,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CC(=O)O)C(=O)C1CCCCC1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 199.24999999999991,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CC(=O)O)C(=O)OC(C)(C)C",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 189.21099999999996,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CC(=O)O)S(C)(=O)=O",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 167.18599999999998,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CC(=O)OCc1ccccc1)S(C)(=O)=O",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 257.31100000000004,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CCNn1cnnc1)C(=O)C1CCCCC1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 251.33399999999995,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CN(CCO)C(=O)C1CCCCC1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 185.2669999999999,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CNCC(=O)Nn1cnnc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 155.161,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CNCCNn1cnnc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 141.178,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CNCCO",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 75.11099999999999,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CNCc1ccccc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 121.18299999999995,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CNS(C)(=O)=O",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 109.14999999999999,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CNc1cc(Cl)ncn1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 143.57700000000003,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "CO",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 32.042,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "COc1ccc(C(=O)O)cc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 152.149,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "COc1ccc(C(=O)OCC(=O)NCC(=O)Nn2cnnc2)cc1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 333.304,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "C[C@H](O)C(=O)O",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 90.07799999999999,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "Cl",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 36.461000000000006,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "ClCCl",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 84.93299999999999,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "F[K]",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 58.096000000000004,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "NCC(=O)Nn1cnnc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 141.134,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "Nn1cnnc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 84.082,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 18.015,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(CBr)NCC(=O)Nn1cnnc1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 262.067,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(CBr)OCc1ccccc1",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 229.073,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(Cl)C(=O)Cl",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 126.926,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(Cl)C1CCCCC1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 146.617,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(Cl)CBr",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 157.394,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(O)C(F)(F)F",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 114.02200000000002,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(O)C1CCCCC1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 128.17100000000002,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(O[K])O[K]",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 138.204,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=C(n1ccnc1)n1ccnc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 162.15200000000002,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "O=S(=O)(O)O",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 98.07899999999998,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "OB(O)c1ccccc1",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 121.93199999999996,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "On1nnc2ccccc21",
+      "state_of_matter": "LIQUID",
+      "molecular_weight": 135.12599999999998,
+      "density": 1.0,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "[Li]O",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 23.948,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "[Li][AlH4]",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 37.955,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "[NaH]",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 23.997999999999998,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    },
+    {
+      "smiles": "[Pd]",
+      "state_of_matter": "SOLID",
+      "molecular_weight": 106.42,
+      "density": 1.4,
+      "density__provenance": "made up",
+      "molecular_weight__provenance": "calculated using rdkit",
+      "smiles__provenance": null,
+      "state_of_matter__provenance": "made up"
+    }
+  ],
+  "reactions": [
+    {
+      "reaction_smiles": "CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1",
+      "reactant_stoichiometry": {
+        "CC(=O)Cl": 1.1415783166885376,
+        "CNc1cc(Cl)ncn1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "O": 122.73458862304688,
+        "C1CCOC1": 23.84743881225586,
+        "[NaH]": 1.9334627389907837
+      },
+      "temperature": 283.8422594189644,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)Cl.CNc1cc(Cl)ncn1>>CC(=O)N(C)c1cc(Cl)ncn1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]",
+      "reactant_stoichiometry": {
+        "CC(=O)N(C)c1cc(Cl)ncn1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "O": 100.47624969482422,
+        "O=S(=O)(O)O": 10.720151901245117
+      },
+      "temperature": 298.03952695727344,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)N(C)c1cc(Cl)ncn1>>CC(=O)N(C)c1ncnc(Cl)c1[N+](=O)[O-]\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1",
+      "reactant_stoichiometry": {
+        "CC(=O)OCC(=O)Cl": 1.0327138900756836,
+        "NCC(=O)Nn1cnnc1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "ClCCl": 128.36778259277344,
+        "CCN(CC)CC": 1.138452410697937
+      },
+      "temperature": 294.2118618071079,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(=O)OCC(=O)Cl.NCC(=O)Nn1cnnc1>>CC(=O)OCC(=O)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1.Nn1cnnc1>>CC(C)(C)OC(=O)N(CC(=O)Nn1cnnc1)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1": 1.0,
+        "Nn1cnnc1": 1.18108332157135
+      },
+      "reagent_stoichiometry": {
+        "CN(C)C(On1nnc2cccnc21)=[N+](C)C.F[P-](F)(F)(F)(F)F": 0.9245797991752625,
+        "ClCCl": 110.23246765136719,
+        "CCN(C(C)C)C(C)C": 1.4930082559585571
+      },
+      "temperature": 271.2232891470194,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1.Nn1cnnc1>>CC(C)(C)OC(=O)N(CC(=O)Nn1cnnc1)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1.Nn1cnnc1>>CC(C)(C)OC(=O)N(CC(=O)Nn1cnnc1)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1.Nn1cnnc1>>CC(C)(C)OC(=O)N(CC(=O)Nn1cnnc1)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1",
+      "reactant_stoichiometry": {
+        "CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "ClCCl": 58.016204833984375,
+        "O=C(O)C(F)(F)F": 38.4456901550293
+      },
+      "temperature": 295.95269238352773,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1>>NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1",
+      "reactant_stoichiometry": {
+        "CC(C)(C)OC(=O)NCC(=O)O": 1.0,
+        "Nn1cnnc1": 1.223996639251709
+      },
+      "reagent_stoichiometry": {
+        "ClCCl": 72.5438461303711,
+        "CCN(CC)CC": 1.0915040969848633,
+        "CC(C)COC(=O)Cl": 0.8532043695449829
+      },
+      "temperature": 255.3913920521736,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CC(C)(C)OC(=O)NCC(=O)O.Nn1cnnc1>>CC(C)(C)OC(=O)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CCl.CNCc1ccccc1>>CCOC(=O)CN(C)Cc1ccccc1",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CCl": 1.0,
+        "CNCc1ccccc1": 1.4114465713500977
+      },
+      "reagent_stoichiometry": {
+        "CC#N": 50.44081497192383
+      },
+      "temperature": 288.3739479482174,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CCl.CNCc1ccccc1>>CCOC(=O)CN(C)Cc1ccccc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CCl.CNCc1ccccc1>>CCOC(=O)CN(C)Cc1ccccc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CCl.CNCc1ccccc1>>CCOC(=O)CN(C)Cc1ccccc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1>>CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "O": 170.25106811523438,
+        "C1CCOC1": 34.15251922607422,
+        "[Li]O": 2.034217119216919
+      },
+      "temperature": 268.8376329392195,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1>>CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1>>CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1>>CC(C)(C)OC(=O)N(CC(=O)O)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CN(C)C(=O)C1CCCCC1>>CN(CC(=O)O)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CN(C)C(=O)C1CCCCC1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "CO": 27.419898986816406,
+        "O": 54.8983154296875,
+        "C1CCOC1": 18.657987594604492,
+        "[Li]O": 1.6549397706985474
+      },
+      "temperature": 286.9548301041126,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C)C(=O)C1CCCCC1>>CN(CC(=O)O)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C)C(=O)C1CCCCC1>>CN(CC(=O)O)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C)C(=O)C1CCCCC1>>CN(CC(=O)O)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CN(C)Cc1ccccc1>>CCOC(=O)CNC",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CN(C)Cc1ccccc1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "CCO": 79.40553283691406,
+        "[Pd]": 0.27523452043533325
+      },
+      "temperature": 315.1359537184238,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C)Cc1ccccc1>>CCOC(=O)CNC\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C)Cc1ccccc1>>CCOC(=O)CNC\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN(C)Cc1ccccc1>>CCOC(=O)CNC\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CN.CN(CC(=O)O)C(=O)C1CCCCC1>>CCOC(=O)CNC(=O)CN(C)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CN": 1.0,
+        "CN(CC(=O)O)C(=O)C1CCCCC1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "Cl": 0.2808586359024048,
+        "CCN=C=NCCCN(C)C": 0.8881032466888428,
+        "ClCCl": 76.52010345458984,
+        "On1nnc2ccccc21": 0.5651543736457825
+      },
+      "temperature": 283.62507076263427,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN.CN(CC(=O)O)C(=O)C1CCCCC1>>CCOC(=O)CNC(=O)CN(C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN.CN(CC(=O)O)C(=O)C1CCCCC1>>CCOC(=O)CNC(=O)CN(C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN.CN(CC(=O)O)C(=O)C1CCCCC1>>CCOC(=O)CNC(=O)CN(C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CN.C[C@H](O)C(=O)O>>CCOC(=O)CNC(=O)[C@H](C)O",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CN": 1.1022396087646484,
+        "C[C@H](O)C(=O)O": 1.0
+      },
+      "reagent_stoichiometry": {
+        "Cl": 0.7888643741607666,
+        "CCN=C=NCCCN(C)C": 1.1745327711105347,
+        "ClCCl": 53.83598709106445,
+        "On1nnc2ccccc21": 0.8765857815742493
+      },
+      "temperature": 295.9768859624862,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN.C[C@H](O)C(=O)O>>CCOC(=O)CNC(=O)[C@H](C)O\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN.C[C@H](O)C(=O)O>>CCOC(=O)CNC(=O)[C@H](C)O\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CN.C[C@H](O)C(=O)O>>CCOC(=O)CNC(=O)[C@H](C)O\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CNC(=O)OC(C)(C)C": 1.0,
+        "O=C(Cl)C1CCCCC1": 1.2057799100875854
+      },
+      "reagent_stoichiometry": {
+        "ClCCl": 48.60028839111328,
+        "CCN(CC)CC": 1.3259105682373047
+      },
+      "temperature": 275.63685895800586,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CNC(=O)OC(C)(C)C.O=C(Cl)C1CCCCC1>>CCOC(=O)CN(C(=O)OC(C)(C)C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)CNC.O=C(O)C1CCCCC1>>CCOC(=O)CN(C)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CCOC(=O)CNC": 1.0,
+        "O=C(O)C1CCCCC1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "Cl": 0.42723768949508667,
+        "CN(C)c1ccncc1": 0.33050623536109924,
+        "CCN=C=NCCCN(C)C": 0.9811771512031555,
+        "ClCCl": 40.75985336303711
+      },
+      "temperature": 295.58565332293506,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CNC.O=C(O)C1CCCCC1>>CCOC(=O)CN(C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CNC.O=C(O)C1CCCCC1>>CCOC(=O)CN(C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)CNC.O=C(O)C1CCCCC1>>CCOC(=O)CN(C)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOC(=O)C[N+](=O)[O-]>>CCOC(=O)CN",
+      "reactant_stoichiometry": {
+        "CCOC(=O)C[N+](=O)[O-]": 1.0
+      },
+      "reagent_stoichiometry": {
+        "CCO": 33.18993377685547,
+        "[Pd]": 0.13457100093364716
+      },
+      "temperature": 346.95099847912786,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)C[N+](=O)[O-]>>CCOC(=O)CN\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)C[N+](=O)[O-]>>CCOC(=O)CN\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOC(=O)C[N+](=O)[O-]>>CCOC(=O)CN\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1",
+      "reactant_stoichiometry": {
+        "CCOc1ccc(Br)cc1": 1.0,
+        "OB(O)c1ccccc1": 1.1853855848312378
+      },
+      "reagent_stoichiometry": {
+        "C1CCOC1": 21.500661849975586,
+        "F[K]": 2.794527053833008
+      },
+      "temperature": 276.1865709364414,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CCOc1ccc(Br)cc1.OB(O)c1ccccc1>>CCOc1ccc(-c2ccccc2)cc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C>>CNCC(=O)Nn1cnnc1",
+      "reactant_stoichiometry": {
+        "CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C": 1.0
+      },
+      "reagent_stoichiometry": {
+        "Cl": 11.815217018127441,
+        "C1COCCO1": 49.53341293334961
+      },
+      "temperature": 288.56710583567616,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C>>CNCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C>>CNCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C>>CNCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CN(CC(=O)O)C(=O)OC(C)(C)C.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C",
+      "reactant_stoichiometry": {
+        "CN(CC(=O)O)C(=O)OC(C)(C)C": 1.0,
+        "Nn1cnnc1": 1.2410686016082764
+      },
+      "reagent_stoichiometry": {
+        "C1CCOC1": 58.234439849853516,
+        "O=C(n1ccnc1)n1ccnc1": 1.819346308708191
+      },
+      "temperature": 274.6158769011497,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)O)C(=O)OC(C)(C)C.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)O)C(=O)OC(C)(C)C.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)O)C(=O)OC(C)(C)C.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)C(=O)OC(C)(C)C\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CN(CC(=O)O)S(C)(=O)=O.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)S(C)(=O)=O",
+      "reactant_stoichiometry": {
+        "CN(CC(=O)O)S(C)(=O)=O": 1.0,
+        "Nn1cnnc1": 1.1582953929901123
+      },
+      "reagent_stoichiometry": {
+        "C1CCOC1": 88.42694854736328,
+        "O=C(n1ccnc1)n1ccnc1": 1.5805412530899048
+      },
+      "temperature": 288.70699226260183,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)O)S(C)(=O)=O.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)S(C)(=O)=O\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)O)S(C)(=O)=O.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)S(C)(=O)=O\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)O)S(C)(=O)=O.Nn1cnnc1>>CN(CC(=O)Nn1cnnc1)S(C)(=O)=O\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CN(CC(=O)OCc1ccccc1)S(C)(=O)=O>>CN(CC(=O)O)S(C)(=O)=O",
+      "reactant_stoichiometry": {
+        "CN(CC(=O)OCc1ccccc1)S(C)(=O)=O": 1.0
+      },
+      "reagent_stoichiometry": {
+        "CO": 154.26499938964844,
+        "[Pd]": 0.6118194460868835
+      },
+      "temperature": 274.2896380484104,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)OCc1ccccc1)S(C)(=O)=O>>CN(CC(=O)O)S(C)(=O)=O\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)OCc1ccccc1)S(C)(=O)=O>>CN(CC(=O)O)S(C)(=O)=O\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CN(CC(=O)OCc1ccccc1)S(C)(=O)=O>>CN(CC(=O)O)S(C)(=O)=O\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CNCC(=O)Nn1cnnc1>>CNCCNn1cnnc1",
+      "reactant_stoichiometry": {
+        "CNCC(=O)Nn1cnnc1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "C1CCOC1": 81.17992401123047,
+        "[Li][AlH4]": 3.182077407836914
+      },
+      "temperature": 278.41348730921743,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCC(=O)Nn1cnnc1>>CNCCNn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCC(=O)Nn1cnnc1>>CNCCNn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCC(=O)Nn1cnnc1>>CNCCNn1cnnc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CNCCNn1cnnc1.O=C(O)C1CCCCC1>>CN(CCNn1cnnc1)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CNCCNn1cnnc1": 1.0,
+        "O=C(O)C1CCCCC1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "ClCCl": 146.5135955810547,
+        "CCN(CC)CC": 5.39713191986084,
+        "O=C(Cl)C(=O)Cl": 3.367300510406494
+      },
+      "temperature": 277.7043842554092,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCCNn1cnnc1.O=C(O)C1CCCCC1>>CN(CCNn1cnnc1)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCCNn1cnnc1.O=C(O)C1CCCCC1>>CN(CCNn1cnnc1)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCCNn1cnnc1.O=C(O)C1CCCCC1>>CN(CCNn1cnnc1)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CNCCO.O=C(O)C1CCCCC1>>CN(CCO)C(=O)C1CCCCC1",
+      "reactant_stoichiometry": {
+        "CNCCO": 1.0,
+        "O=C(O)C1CCCCC1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "Cl": 0.4970402717590332,
+        "CCN=C=NCCCN(C)C": 0.8433704376220703,
+        "ClCCl": 24.939844131469727,
+        "On1nnc2ccccc21": 0.479515016078949
+      },
+      "temperature": 282.9928140699863,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCCO.O=C(O)C1CCCCC1>>CN(CCO)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCCO.O=C(O)C1CCCCC1>>CN(CCO)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNCCO.O=C(O)C1CCCCC1>>CN(CCO)C(=O)C1CCCCC1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CNS(C)(=O)=O.O=C(CBr)OCc1ccccc1>>CN(CC(=O)OCc1ccccc1)S(C)(=O)=O",
+      "reactant_stoichiometry": {
+        "CNS(C)(=O)=O": 1.2298184633255005,
+        "O=C(CBr)OCc1ccccc1": 1.0
+      },
+      "reagent_stoichiometry": {
+        "CC#N": 100.2704086303711,
+        "O=C(O[K])O[K]": 2.793633222579956
+      },
+      "temperature": 298.87464501857755,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNS(C)(=O)=O.O=C(CBr)OCc1ccccc1>>CN(CC(=O)OCc1ccccc1)S(C)(=O)=O\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNS(C)(=O)=O.O=C(CBr)OCc1ccccc1>>CN(CC(=O)OCc1ccccc1)S(C)(=O)=O\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNS(C)(=O)=O.O=C(CBr)OCc1ccccc1>>CN(CC(=O)OCc1ccccc1)S(C)(=O)=O\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "CNc1cc(Cl)ncn1.O=C(Cl)C1CCCCC1>>CN(C(=O)C1CCCCC1)c1cc(Cl)ncn1",
+      "reactant_stoichiometry": {
+        "CNc1cc(Cl)ncn1": 1.0,
+        "O=C(Cl)C1CCCCC1": 1.1390410661697388
+      },
+      "reagent_stoichiometry": {
+        "O": 231.8945770263672,
+        "ClCCl": 71.86444854736328,
+        "CCN(CC)CC": 1.773697853088379
+      },
+      "temperature": 290.2933486282825,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNc1cc(Cl)ncn1.O=C(Cl)C1CCCCC1>>CN(C(=O)C1CCCCC1)c1cc(Cl)ncn1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNc1cc(Cl)ncn1.O=C(Cl)C1CCCCC1>>CN(C(=O)C1CCCCC1)c1cc(Cl)ncn1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"CNc1cc(Cl)ncn1.O=C(Cl)C1CCCCC1>>CN(C(=O)C1CCCCC1)c1cc(Cl)ncn1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "COc1ccc(C(=O)O)cc1.O=C(CBr)NCC(=O)Nn1cnnc1>>COc1ccc(C(=O)OCC(=O)NCC(=O)Nn2cnnc2)cc1",
+      "reactant_stoichiometry": {
+        "COc1ccc(C(=O)O)cc1": 1.1380549669265747,
+        "O=C(CBr)NCC(=O)Nn1cnnc1": 1.0
+      },
+      "reagent_stoichiometry": {},
+      "temperature": 311.579595297575,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"COc1ccc(C(=O)O)cc1.O=C(CBr)NCC(=O)Nn1cnnc1>>COc1ccc(C(=O)OCC(=O)NCC(=O)Nn2cnnc2)cc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"COc1ccc(C(=O)O)cc1.O=C(CBr)NCC(=O)Nn1cnnc1>>COc1ccc(C(=O)OCC(=O)NCC(=O)Nn2cnnc2)cc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"COc1ccc(C(=O)O)cc1.O=C(CBr)NCC(=O)Nn1cnnc1>>COc1ccc(C(=O)OCC(=O)NCC(=O)Nn2cnnc2)cc1\", \"n_conditions\": 3}"
+      }
+    },
+    {
+      "reaction_smiles": "NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1",
+      "reactant_stoichiometry": {
+        "NCC(=O)Nn1cnnc1": 1.0,
+        "O=C(Cl)CBr": 1.1601622104644775
+      },
+      "reagent_stoichiometry": {
+        "ClCCl": 85.77469635009766,
+        "CCN(CC)CC": 0.8613598942756653
+      },
+      "temperature": 306.7759813606739,
+      "reactant_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "reaction_smiles__provenance": null,
+      "reagent_stoichiometry__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      },
+      "temperature__provenance": {
+        "headers": {
+          "Content-type": "application/json"
+        },
+        "url": "http://72.70.38.130:9918/api/context-recommender/v2/predict/FP/call-sync",
+        "data": "{\"smiles\": \"NCC(=O)Nn1cnnc1.O=C(Cl)CBr>>O=C(CBr)NCC(=O)Nn1cnnc1\", \"n_conditions\": 3}"
+      }
+    }
+  ],
+  "provenance": "../data/case1_compounds/routes.json"
+}

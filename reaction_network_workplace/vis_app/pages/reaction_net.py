@@ -1,8 +1,10 @@
+import os
+
 import dash_bootstrap_components as dbc
 import dash_cytoscape as cyto
 from dash import html, get_app, Input, Output
 from dash import register_page
-import os
+
 from reaction_network.schema.lv2 import NetworkLv1
 from reaction_network.utils import drawing_url
 from reaction_network.utils import json_load
@@ -12,8 +14,10 @@ register_page(__name__, path='/reaction_network', description="Reactions")
 
 PAGE_ID_HEADER = "RN__"
 
+app = get_app()
+network_path = app.title.split("-")[1].strip()  # magic
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-network = json_load(f"{THIS_DIR}/../../network_case0/step02_network_lv1.json")
+network = json_load(f"{THIS_DIR}/../../network_{network_path}/step02_network_lv1.json")
 network = NetworkLv1(**network)
 CYTO_ELEMENTS = network.to_cyto_elements(size=500)
 cyto.load_extra_layouts()
@@ -66,8 +70,6 @@ layout = html.Div(
 
     ], style={"width": "calc(100vw - 100px)"}
 )
-
-app = get_app()
 
 
 def get_summary():
