@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 import dash_cytoscape as cyto
 from dash import html, get_app, Input, Output
 from dash import register_page
-
+import os
 from reaction_network.schema.lv2 import BenchTopLv2, OperationType
 from reaction_network.utils import drawing_url
 from reaction_network.utils import json_load
@@ -14,7 +14,8 @@ register_page(__name__, path='/operation_graph', description="Operations")
 
 PAGE_ID_HEADER = "OG__"
 
-network = json_load("../network_lv2/bench_top_lv2.json")
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+network = json_load(f"{THIS_DIR}/../../network_case0/step03_bench_top_lv2.json")
 network = BenchTopLv2(**network)
 CYTO_ELEMENTS = network.to_cyto_elements()
 cyto.load_extra_layouts()
