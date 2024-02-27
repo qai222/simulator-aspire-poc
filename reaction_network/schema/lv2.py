@@ -196,10 +196,15 @@ class Operation(BaseModel):
         reaction_mixture = MaterialLv2(compounds=reaction_lv1.reactants + reaction_lv1.reagents,
                                        contained_by=reactor.id)
         raw_product = MaterialLv2(compounds=[reaction_lv1.product, ], contained_by=reactor.id, impure=True)
+        if len(liquid_additions):
+            precedent_of_this = liquid_additions[-1].id
+        else:
+            assert len(solid_additions)
+            precedent_of_this = solid_additions[-1].id
         operation_reaction = Operation(
             consumes=reaction_mixture.id,
             produces=raw_product.id,
-            precedents=[liquid_additions[-1].id],
+            precedents=[precedent_of_this],
             type=OperationType.OPERATION_HEATING,
         )
 
