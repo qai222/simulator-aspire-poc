@@ -11,7 +11,7 @@ from pandas._typing import FilePath
 from pydantic import BaseModel
 from rdkit.Chem import Descriptors
 from rdkit.Chem import MolFromSmiles
-
+from loguru import logger
 from reaction_network.schema.provenance import get_provenance_model
 from reaction_network.utils import query_askcos_condition_rec, drawing_url, json_load
 from reaction_network.visualization import CytoNodeData, CytoEdge, CytoNode, CytoEdgeData
@@ -238,7 +238,10 @@ class NetworkLv0(BaseModel):
             smis += r.unique_molecular_smis
         return sorted(set(smis))
 
-    def populate_compounds(self, scraper_output: FilePath):
+    def populate_compounds(self, scraper_output: FilePath | None):
+        if scraper_output is None:
+            logger.warning(f"no scraper output given, "
+                           f"populating {len(self.unique_molecular_smis)} compounds using made up properties!")
         for smi in self.unique_molecular_smis:
             c = CompoundLv0.from_smiles(smi, scraper_output=scraper_output)
             self.compounds.append(c)

@@ -21,7 +21,7 @@ LV1. given the target product amounts, and expected yields
 #
 # CYTO_ELEMENTS = network.to_cyto_elements()
 
-network = json_load("network_lv2/bench_top_lv2.json")
+network = json_load("step03_bench_top_lv2.json")
 network = BenchTopLv2(**network)
 CYTO_ELEMENTS = network.to_cyto_elements()
 
