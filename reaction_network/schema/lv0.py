@@ -52,7 +52,9 @@ class ReactionLv0Base(BaseModel):
     def product_smi(self):
         """ molecular smiles of the product """
         s = self.reaction_smiles.split(">>")[-1]
-        assert "." not in s
+        if "." in s:
+            logger.critical(f"current predictive models only work for unimolecular target, "
+                            f"please be cautious about the routes generated for: {s}")
         return s
 
     @property
