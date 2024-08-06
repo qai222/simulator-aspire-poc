@@ -49,7 +49,8 @@ implemented as a path graph rn, ef can be made independent from abcd
 """
 
 
-class GrignardBenchtop(BaseModel):
+class GrignardBenchtop(BaseClass):
+    rdfs_isDefinedBy = JuniorOntology
     RACK_LIQUID: JuniorRack
     THF_VIALS: list[JuniorVial]
     HCL_VIALS: list[JuniorVial]
@@ -88,7 +89,7 @@ def setup_grignard_benchtop(
 
     # create a rack for HRVs on off-deck, fill them with thf,
     rack_liquid, liquid_vials = JuniorRack.create_rack_with_empty_vials(
-        n_vials=n_thf_source_vials + n_hcl_source_vials, rack_capacity=12, vial_type="HRV", rack_id="RACK_LIQUID"
+        n_vials=n_thf_source_vials + n_hcl_source_vials, rack_capacity=12, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_LIQUID"
     )
     thf_vials = liquid_vials[:n_thf_source_vials]
     hcl_vials = liquid_vials[- n_hcl_source_vials:]
@@ -103,37 +104,39 @@ def setup_grignard_benchtop(
 
     # create a rack for MRVs (reactors) on 2-3-1
     rack_reactor, reactor_vials = JuniorRack.create_rack_with_empty_vials(
-        n_vials=n_reactors, rack_capacity=6, vial_type="MRV", rack_id="RACK_REACTOR"
+        n_vials=n_reactors, rack_capacity=6, vial_type="MRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_REACTOR"
     )
     JuniorSlot.put_rack_in_a_slot(rack_reactor, junior_benchtop.SLOT_2_3_1)
 
     # create a rack for HRVs on 2-3-2, one for silyl one for quinone sln
     rack_reactant, (silyl_vial, quinone_vial) = JuniorRack.create_rack_with_empty_vials(
-        n_vials=2, rack_capacity=6, vial_type="HRV", rack_id="RACK_REACTANT"
+        n_vials=2, rack_capacity=6, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_REACTANT"
     )
     silyl_vial.chemical_content = {'silyl': silyl_init_volume}
     JuniorSlot.put_rack_in_a_slot(rack_reactant, junior_benchtop.SLOT_2_3_2)
 
     # create a rack for PDP tips on 2-3-3
     rack_pdp_tips, pdp_tips = JuniorRack.create_rack_with_empty_tips(
-        n_tips=n_pdp_tips, rack_capacity=8, rack_id="RACK_PDP_TIPS", tip_id_inherit=True
+        n_tips=n_pdp_tips, rack_capacity=8, rack_id=f"{JuniorOntology.namespace_iri}/RACK_PDP_TIPS", tip_id_inherit=True
     )
     JuniorSlot.put_rack_in_a_slot(rack_pdp_tips, junior_benchtop.SLOT_2_3_3)
 
     # SV VIALS for quinone, grignard
     quinone_svv = JuniorVial(
-        identifier="QUINONE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[0].identifier,
-        chemical_content={'Quinone': quinone_init_amount},
+        identifier=f"{JuniorOntology.namespace_iri}/QUINONE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[0].identifier,
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
+    quinone_svv.chemical_content = {'Quinone': quinone_init_amount}
     grignard_svv = JuniorVial(
-        identifier="GRIGNARD_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[1].identifier,
-        chemical_content={'Grignard': grignard_init_amount},
+        identifier=f"{JuniorOntology.namespace_iri}/GRIGNARD_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[1].identifier,
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
+    grignard_svv.chemical_content = {'Grignard': grignard_init_amount}
 
-    junior_benchtop.SV_VIAL_SLOTS[0].slot_content['SLOT'] = quinone_svv.identifier
-    junior_benchtop.SV_VIAL_SLOTS[1].slot_content['SLOT'] = grignard_svv.identifier
+    junior_benchtop.SV_VIAL_SLOTS[0].has_slot_content.add(quinone_svv)
+    junior_benchtop.SV_VIAL_SLOTS[1].has_slot_content.add(grignard_svv)
 
     return GrignardBenchtop(
         RACK_LIQUID=rack_liquid,

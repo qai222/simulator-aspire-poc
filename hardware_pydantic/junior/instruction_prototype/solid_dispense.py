@@ -12,7 +12,7 @@ def solid_dispense(
         include_dropoff_svtool=True,
 ):
     ins3 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z2,
             "move_to_slot": sv_vial_slot,
@@ -21,13 +21,13 @@ def solid_dispense(
     )
 
     ins4 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z2, action_name="pick_up",
+        send_to_device=junior_benchtop.ARM_Z2, action_name="pick_up",
         action_parameters={"thing": sv_vial},
         description=f"pick up: {sv_vial.identifier}",
     )
 
     ins5 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z2,
             "move_to_slot": junior_benchtop.BALANCE,
@@ -37,7 +37,7 @@ def solid_dispense(
 
     if include_pickup_svtool:
         ins1 = JuniorInstruction(
-            device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+            send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": junior_benchtop.ARM_Z2,
                 "move_to_slot": junior_benchtop.SV_TOOL_SLOT,
@@ -46,7 +46,7 @@ def solid_dispense(
         )
 
         ins2 = JuniorInstruction(
-            device=junior_benchtop.ARM_Z2, action_name="pick_up",
+            send_to_device=junior_benchtop.ARM_Z2, action_name="pick_up",
             action_parameters={"thing": junior_benchtop.SV_TOOL},
             description=f"pick up: {junior_benchtop.SV_TOOL.identifier}",
         )
@@ -56,7 +56,7 @@ def solid_dispense(
 
     for dest_vial in dest_vials:
         ins6 = JuniorInstruction(
-            device=junior_benchtop.ARM_Z2, action_name="dispense_sv",
+            send_to_device=junior_benchtop.ARM_Z2, action_name="dispense_sv",
             action_parameters={
                 "destination_container": dest_vial,
                 "amount": amount,
@@ -68,7 +68,7 @@ def solid_dispense(
 
     if include_dropoff_svvial:
         ins7 = JuniorInstruction(
-            device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+            send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": junior_benchtop.ARM_Z2,
                 "move_to_slot": sv_vial_slot,
@@ -77,7 +77,7 @@ def solid_dispense(
         )
 
         ins8 = JuniorInstruction(
-            device=junior_benchtop.ARM_Z2, action_name="put_down",
+            send_to_device=junior_benchtop.ARM_Z2, action_name="put_down",
             action_parameters={
                 "dest_slot": sv_vial_slot,
             },
@@ -88,7 +88,7 @@ def solid_dispense(
 
     if include_dropoff_svtool:
         ins9 = JuniorInstruction(
-            device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+            send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": junior_benchtop.ARM_Z2,
                 "move_to_slot": junior_benchtop.SV_TOOL_SLOT,
@@ -97,7 +97,7 @@ def solid_dispense(
         )
 
         ins10 = JuniorInstruction(
-            device=junior_benchtop.ARM_Z2, action_name="put_down",
+            send_to_device=junior_benchtop.ARM_Z2, action_name="put_down",
             action_parameters={
                 "dest_slot": junior_benchtop.SV_TOOL_SLOT,
             },

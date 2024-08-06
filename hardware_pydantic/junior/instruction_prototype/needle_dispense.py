@@ -9,9 +9,9 @@ def needle_dispense(
         dest_vials_slot: JuniorSlot,
         amounts: list[float],
 ):
-    z1_needles = [JUNIOR_LAB[f"Z1 Needle {i + 1}"] for i in range(len(amounts))]
+    z1_needles = [JUNIOR_LAB[f"{JuniorOntology.namespace_iri}/Z1-Needle-{i + 1}"] for i in range(len(amounts))]
     ins1 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z1,
             "move_to_slot": src_slot,
@@ -19,7 +19,7 @@ def needle_dispense(
         description=f"move to slot: {src_slot.identifier}"
     )
     ins2 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z1, action_name="concurrent_aspirate",
+        send_to_device=junior_benchtop.ARM_Z1, action_name="concurrent_aspirate",
         action_parameters={
             "source_containers": src_vials,
             "dispenser_containers": z1_needles,
@@ -28,7 +28,7 @@ def needle_dispense(
         description=f"concurrent aspirate from: {','.join([v.identifier for v in src_vials])}"
     )
     ins3 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z1,
             "move_to_slot": dest_vials_slot,
@@ -36,7 +36,7 @@ def needle_dispense(
         description=f"move to slot: {dest_vials_slot.identifier}"
     )
     ins4 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z1, action_name="concurrent_dispense",
+        send_to_device=junior_benchtop.ARM_Z1, action_name="concurrent_dispense",
         action_parameters={
             "destination_containers": dest_vials,
             "dispenser_containers": z1_needles,
@@ -45,7 +45,7 @@ def needle_dispense(
         description=f"concurrent dispense to: {','.join([v.identifier for v in dest_vials])}"
     )
     ins5 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z1,
             "move_to_slot": junior_benchtop.WASH_BAY,
@@ -53,7 +53,7 @@ def needle_dispense(
         description=f"move to slot: WASH BAY"
     )
     ins6 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z1, action_name="wash",
+        send_to_device=junior_benchtop.ARM_Z1, action_name="wash",
         action_parameters={
             "wash_bay": junior_benchtop.WASH_BAY,
         },

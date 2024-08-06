@@ -1,9 +1,16 @@
 from __future__ import annotations
 
-from typing import Any, Literal, Type
+from typing import Any, Literal, Type, ClassVar, Optional
 
 from N2G import drawio_diagram  # only used for drawing instruction DAG
-from pydantic import BaseModel, Field
+from pydantic import Field
+
+from twa.data_model.base_ontology import KnowledgeGraph
+from twa.data_model.base_ontology import BaseOntology
+from twa.data_model.base_ontology import BaseClass
+from twa.data_model.base_ontology import ObjectProperty
+from twa.data_model.base_ontology import DatatypeProperty
+
 
 from .utils import str_uuid
 
@@ -11,17 +18,24 @@ DEVICE_ACTION_METHOD_PREFIX = "action__"
 DEVICE_ACTION_METHOD_ACTOR_TYPE = Literal['pre', 'post', 'proj']
 
 
-class Individual(BaseModel):
+class JuniorOntology(BaseOntology):
+    base_url = "https://junior/kg/"
+    namespace = "junior"
+    owl_versionInfo = "0.0.1"
+    rdfs_comment = 'This is an ontology for the Junior platform from NCATS.'
+
+
+class Individual(BaseClass):
     """ a thing with an identifier """
+    rdfs_isDefinedBy = JuniorOntology
+    instance_iri: str = Field(default='', alias='identifier')
 
-    identifier: str = Field(default_factory=str_uuid)
+    @property
+    def identifier(self) -> str:
+        return self.instance_iri
 
-    def __hash__(self):
-        return hash(self.identifier)
-
-    def __eq__(self, other: Individual):
-        return self.identifier == other.identifier
-
+class Material(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
 
 class LabObject(Individual):
     """
@@ -32,6 +46,8 @@ class LabObject(Individual):
         # TODO can we have a pydantic model history tracker? similar to https://pypi.org/project/pydantic-changedetect/
         # TODO mutable fields vs immutable fields?
     """
+
+    material: Optional[Material[str]] = None
 
     @property
     def state(self) -> dict:
@@ -64,6 +80,11 @@ class Device(LabObject):
     2. can change its state and other lab objects' states using its action methods,
     3. cannot change another device's state # TODO does this actually matter?
     """
+
+    def model_post_init(self, __context: Any) -> None:
+        # NOTE adding this as it seems to be necessary for other actually overwritten methods to work when multi-inheritance is used
+        # i.e. JuniorLabObject and JuniorInstruction
+        return super().model_post_init(__context)
 
     @property
     def action_names(self) -> list[str]:
@@ -114,8 +135,26 @@ class Device(LabObject):
 
     def act_by_instruction(self, i: Instruction, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE):
         """ perform action with an instruction """
-        assert i.device == self
-        return self.act(action_name=i.action_name, action_parameters=i.action_parameters, actor_type=actor_type)
+        assert list(i.send_to_device)[0] == self
+        return self.act(action_name=list(i.action_name)[0], action_parameters=i.action_parameters, actor_type=actor_type)
+
+from typing import List
+
+
+class Send_to_device(ObjectProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+
+class Action_name(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+
+class Description(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+
+class Preceding_instructions(ObjectProperty):
+    rdfs_isDefinedBy = JuniorOntology
 
 
 class Instruction(Individual):
@@ -138,19 +177,23 @@ class Instruction(Individual):
         - ends when
             - the duration, returned by the action method of the actor, has passed
     """
-    device: Device
-    action_parameters: dict = dict()
-    action_name: str = "dummy"
-    description: str = ""
+    send_to_device: Send_to_device[Device]
+    action_parameters: dict = dict() # TODO how to define this as the object property?
+    action_name: Action_name[str]
+    description: Description[str]
 
-    preceding_type: Literal["ALL", "ANY"] = "ALL"
-    # TODO this has no effect as it is not passed to casymda
+    # preceding_type: Literal["ALL", "ANY"] = "ALL"
+    # # TODO this has no effect as it is not passed to casymda
+    # TODO shall we remove it as it is not used?
 
-    preceding_instructions: list[str] = []
+    preceding_instructions: Optional[Preceding_instructions[Instruction]] = set()
 
     def as_dict(self, identifier_only=True):
         if identifier_only:
-            d = self.model_dump()
+
+            # TODO this is a semi-magic from https://github.com/pydantic/pydantic/issues/4186
+            d = self.model_dump(mode="json")
+
             dict_action_parameters = dict()
             for k, v in self.action_parameters.items():
                 if isinstance(v, LabObject):
@@ -161,9 +204,18 @@ class Instruction(Individual):
             self.model_dump()
 
 
-class Lab(BaseModel):
-    dict_instruction: dict[str, Instruction] = dict()
-    dict_object: dict[str, LabObject | Device] = dict()
+class Has_instruction(ObjectProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+
+class Has_lab_object(ObjectProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+from pydantic import create_model
+class Lab(BaseClass):
+    rdfs_isDefinedBy = JuniorOntology
+    has_instruction: Optional[Has_instruction[Instruction]] = set()
+    has_lab_object: Optional[Has_lab_object[LabObject]] = set()
 
     def __getitem__(self, identifier: str):
         return self.dict_object[identifier]
@@ -171,34 +223,34 @@ class Lab(BaseModel):
     def __setitem__(self, key, value):
         raise NotImplementedError
 
+    @property
+    def dict_instruction(self):
+        return {i.identifier: i for i in self.has_instruction}
+
+    @property
+    def dict_object(self):
+        return {i.identifier: i for i in self.has_lab_object}
+
     def act_by_instruction(self, i: Instruction, actor_type: DEVICE_ACTION_METHOD_ACTOR_TYPE):
-        actor = self.dict_object[i.device.identifier]  # make sure we are working on the same device
+        actor = self.dict_object[i.send_to_device.identifier]  # make sure we are working on the same device
         assert isinstance(actor, Device)
         return actor.act_by_instruction(i, actor_type=actor_type)
 
     def add_instruction(self, i: Instruction):
-        assert i.identifier not in self.dict_instruction
-        self.dict_instruction[i.identifier] = i
+        assert i.identifier not in self.has_instruction
+        self.has_instruction.add(i)
 
     def remove_instruction(self, i: Instruction | str):
-        if isinstance(i, str):
-            assert i in self.dict_instruction
-            self.dict_instruction.pop(i)
-        else:
-            assert i.identifier in self.dict_instruction
-            self.dict_instruction.pop(i.identifier)
+        assert i in self.has_instruction
+        self.has_instruction.remove(i)
 
     def add_object(self, d: LabObject | Device):
         assert d.identifier not in self.dict_object
-        self.dict_object[d.identifier] = d
+        self.has_lab_object.add(d)
 
     def remove_object(self, d: LabObject | Device | str):
-        if isinstance(d, str):
-            assert d in self.dict_object
-            self.dict_object.pop(d)
-        else:
-            assert d.identifier in self.dict_object
-            self.dict_object.pop(d.identifier)
+        assert d in self.has_lab_object
+        self.has_lab_object.remove(d)
 
     @property
     def state(self) -> dict[str, dict[str, Any]]:

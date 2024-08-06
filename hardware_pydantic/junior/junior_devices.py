@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError
+from typing import Optional
+
+from hardware_pydantic.base import Device, DEVICE_ACTION_METHOD_ACTOR_TYPE, PreActError, JuniorOntology
 from hardware_pydantic.junior.junior_base_devices import JuniorBaseHeater, JuniorBaseStirrer, \
     JuniorBaseLiquidDispenser
 from hardware_pydantic.junior.junior_objects import JuniorRack, JuniorZ1Needle, JuniorWashBay, \
@@ -10,9 +12,31 @@ from hardware_pydantic.junior.settings import *
 from hardware_pydantic.junior.utils import running_time_washing
 from hardware_pydantic.lab_objects import LabContainer, LabContainee, ChemicalContainer
 
+from twa.data_model.base_ontology import KnowledgeGraph
+from twa.data_model.base_ontology import BaseOntology
+from twa.data_model.base_ontology import BaseClass
+from twa.data_model.base_ontology import ObjectProperty
+from twa.data_model.base_ontology import DatatypeProperty
 
 
 """Devices on the Junior platform at NCATS."""
+
+class Can_weigh(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+class Can_cool(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+class Has_position_on_top_of(ObjectProperty):
+    rdfs_isDefinedBy = JuniorOntology
+    owl_maxQualifiedCardinality = 1
+
+class Has_anchor_arm(ObjectProperty):
+    rdfs_isDefinedBy = JuniorOntology
+    owl_maxQualifiedCardinality = 1
+
+class Allowed_concurrency(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
 
 
 class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
@@ -38,11 +62,9 @@ class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
 
     """
 
-    can_weigh: bool = False
-    can_heat: bool = False
-    can_cool: bool = False
-    can_stir: bool = False
-    layout: JuniorLayout | None = None
+    can_weigh: Optional[Can_weigh[bool]] = None
+    can_cool: Optional[Can_cool[bool]] = None
+    layout: Layout[JuniorLayout]
 
     def action__wait(
             self,
@@ -73,7 +95,7 @@ class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
 
         """
         if actor_type == 'pre':
-            if not self.can_heat:
+            if not list(self.can_heat)[0]:
                 raise PreActError
         elif actor_type == 'post':
             return
@@ -98,11 +120,11 @@ class JuniorSlot(JuniorBaseHeater, JuniorBaseStirrer):
         if rack.contained_by is not None:
             prev_slot = JUNIOR_LAB[rack.contained_by]
             assert isinstance(prev_slot, JuniorSlot)
-            prev_slot.slot_content["SLOT"] = None
-        assert rack.__class__.__name__ in slot.can_contain
+            prev_slot.has_slot_content.remove(rack)
+        assert rack.__class__.rdf_type in slot.can_contain
         rack.contained_by = slot.identifier
         rack.contained_in_slot = "SLOT"
-        slot.slot_content["SLOT"] = rack.identifier
+        slot.has_slot_content.add(rack)
 
 
 class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
@@ -116,8 +138,30 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
         Which arm is used to define xy position. Default is None.
 
     """
-    position_on_top_of: str | None = None
-    anchor_arm: str | None = None
+    has_position_on_top_of: Has_position_on_top_of[JuniorSlot]
+    has_anchor_arm: Has_anchor_arm[JuniorArmZ1]
+
+    @property
+    def position_on_top_of(self):
+        if len(self.has_position_on_top_of) == 0:
+            return None
+        else:
+            slot = list(self.has_position_on_top_of)[0]
+            if isinstance(slot, JuniorSlot):
+                return slot.identifier
+            else:
+                return slot
+
+    @property
+    def anchor_arm(self):
+        if len(self.has_anchor_arm) == 0:
+            return None
+        else:
+            arm = list(self.has_anchor_arm)[0]
+            if isinstance(arm, JuniorArmZ1):
+                return arm.identifier
+            else:
+                return arm
 
     def action__move_to(
             self,
@@ -159,8 +203,8 @@ class JuniorArmPlatform(Device, LabContainer, JuniorLabObject):
             if anchor_arm.identifier not in self.get_all_containees(self, JUNIOR_LAB):
                 raise PreActError
         elif actor_type == 'post':
-            self.position_on_top_of = move_to_slot.identifier
-            self.anchor_arm = anchor_arm.identifier
+            self.has_position_on_top_of = {move_to_slot.identifier}
+            self.has_anchor_arm = {anchor_arm.identifier}
         elif actor_type == 'proj':
             containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
             return [JUNIOR_LAB[i] for i in containees], move_cost
@@ -180,9 +224,8 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         The slot content. Default is empty dictionary.
 
     """
-    allowed_concurrency: list[int] = [1, 4, 6]
+    allowed_concurrency: Allowed_concurrency[int] = {1, 4, 6}
 
-    slot_content: dict[str, str] = dict()
 
     @property
     def arm_platform(self) -> JuniorArmPlatform:
@@ -347,8 +390,8 @@ class JuniorArmZ1(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
             if JUNIOR_LAB[self.contained_by].position_on_top_of != wash_bay.identifier:
                 raise PreActError
         elif actor_type == 'post':
-            for n in self.slot_content.values():
-                JUNIOR_LAB[n].chemical_content = dict()
+            for n in self.has_slot_content:
+                JUNIOR_LAB[n.identifier].has_chemical_content = set()
         elif actor_type == 'proj':
             containees = self.get_all_containees(container=self, lab=JUNIOR_LAB)
             return [JUNIOR_LAB[i] for i in
@@ -518,13 +561,13 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 LabContainee.move(containee=thing, dest_container=dest_slot, lab=JUNIOR_LAB,
                                   dest_slot="SLOT")
                 if isinstance(thing, JuniorVial):
-                    self.attachment.powder_param_known = False
+                    self.attachment.powder_param_known = {False}
             else:
                 thing_container = JUNIOR_LAB[thing.contained_by]
                 thing_container: LabContainer
                 assert thing_container.slot_content[thing.contained_in_slot] == thing.identifier
-                thing_container.slot_content[thing.contained_in_slot] = None
-                dest_slot.disposal_content.append(thing.identifier)
+                thing_container.has_slot_content.remove(thing)
+                dest_slot.disposal_content.add(thing.identifier)
                 thing.contained_by = None
                 thing.contained_in_slot = None  # disposal doesn't have slot labels
         elif actor_type == 'proj':
@@ -671,11 +714,11 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
                 raise PreActError
         elif actor_type == 'proj':
             # 185.0, 236.0 seconds for 18mg and 55 mg respectively
-            if self.attachment.powder_param_known:
+            if list(self.attachment.powder_param_known)[0]:
                 scaling_factor = scaling_factor / 10
 
         elif actor_type == 'post':
-            self.attachment.powder_param_known = True
+            self.attachment.powder_param_known = {True}
         return self.action__dispense(
             actor_type=actor_type, destination_container=destination_container,
             dispenser_container=JUNIOR_LAB[self.attachment.slot_content['SLOT']],
@@ -683,7 +726,7 @@ class JuniorArmZ2(LabContainer, LabContainee, JuniorBaseLiquidDispenser):
         )
 
 # if __name__ == '__main__':
-#     slot = JuniorSlot(identifier="slot1", can_contain=[JuniorRack.__name__])
+#     slot = JuniorSlot(identifier="slot1", can_contain=[JuniorRack.rdf_type])
 #     jr, vials = JuniorRack.create_rack_with_empty_vials()
 #     JuniorSlot.put_rack_in_a_slot(jr, slot)
 #     # print(LabContainer.get_all_containees(slot, JUNIOR_LAB))

@@ -5,7 +5,8 @@ following the notes of N-Sulfonylation
 """
 
 
-class SulfonylationBenchtop(BaseModel):
+class SulfonylationBenchtop(BaseClass):
+    rdfs_isDefinedBy = JuniorOntology
     RACK_SOLVENT: JuniorRack
     DCM_VIALS: list[JuniorVial]
     RACK_REACTANT: JuniorRack
@@ -40,7 +41,7 @@ def setup_benchtop_for_sulfonylation(
     # create a rack for HRVs on off-deck, fill them with DCM,
     # note Z2 arm cannot reach this deck (so no VPG and racks cannot move)
     rack_solvent, dcm_vials = JuniorRack.create_rack_with_empty_vials(
-        n_vials=n_dcm_source_vials, rack_capacity=6, vial_type="HRV", rack_id="RACK_SOLVENT"
+        n_vials=n_dcm_source_vials, rack_capacity=6, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_SOLVENT"
     )
     for vial, volume in zip(dcm_vials, dcm_init_volumes):
         vial.chemical_content = {"DCM": volume}
@@ -48,42 +49,44 @@ def setup_benchtop_for_sulfonylation(
 
     # create a rack for MRVs (reactors) on 2-3-1
     rack_reactor, reactor_vials = JuniorRack.create_rack_with_empty_vials(
-        n_vials=n_reactors, rack_capacity=6, vial_type="MRV", rack_id="RACK_REACTOR"
+        n_vials=n_reactors, rack_capacity=6, vial_type="MRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_REACTOR"
     )
     JuniorSlot.put_rack_in_a_slot(rack_reactor, junior_benchtop.SLOT_2_3_1)
 
     # create a rack for HRVs on 2-3-2, one HRV for RSO2Cl stock solution, another for pyridine
     rack_reactant, (sulfonyl_vial, pyridine_vial) = JuniorRack.create_rack_with_empty_vials(
-        n_vials=2, rack_capacity=6, vial_type="HRV", rack_id="RACK_REACTANT"
+        n_vials=2, rack_capacity=6, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_REACTANT"
     )
     JuniorSlot.put_rack_in_a_slot(rack_reactant, junior_benchtop.SLOT_2_3_2)
     pyridine_vial.chemical_content = {"pyridine": pyridine_init_volume}
 
     # create a rack for PDP tips on 2-3-3
     rack_pdp_tips, pdp_tips = JuniorRack.create_rack_with_empty_tips(
-        n_tips=n_pdp_tips, rack_capacity=8, rack_id="RACK_PDP_TIPS", tip_id_inherit=True
+        n_tips=n_pdp_tips, rack_capacity=8, rack_id=f"{JuniorOntology.namespace_iri}/RACK_PDP_TIPS", tip_id_inherit=True
     )
     JuniorSlot.put_rack_in_a_slot(rack_pdp_tips, junior_benchtop.SLOT_2_3_3)
 
     # SV VIALS for sulfonyl
     sulfonyl_svv = JuniorVial(
-        identifier="SULFONYL_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[0].identifier,
-        chemical_content={'sulfonyl chloride': sulfonyl_init_amount},
+        identifier=f"{JuniorOntology.namespace_iri}/SULFONYL_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[0].identifier,
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
-    junior_benchtop.SV_VIAL_SLOTS[0].slot_content['SLOT'] = sulfonyl_svv.identifier
+    sulfonyl_svv.chemical_content = {'sulfonyl chloride': sulfonyl_init_amount}
+    junior_benchtop.SV_VIAL_SLOTS[0].has_slot_content.add(sulfonyl_svv)
 
     # SV VIALS for solid amines (ex. aniline)
     amine_svs = []
     i_svv_solt = 1
     for solid_amine_name, solid_amine_amount in solid_amines.items():
         amine_svv = JuniorVial(
-            identifier=f"{solid_amine_name}_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[i_svv_solt].identifier,
-            chemical_content={solid_amine_name: solid_amine_amount},
+            identifier=f"{JuniorOntology.namespace_iri}/{solid_amine_name}_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[i_svv_solt].identifier,
             vial_type='SV',
+            is_contained_by='SLOT',
         )
+        amine_svv.chemical_content = {solid_amine_name: solid_amine_amount}
         amine_svs.append(amine_svv)
-        junior_benchtop.SV_VIAL_SLOTS[i_svv_solt].slot_content['SLOT'] = amine_svv.identifier
+        junior_benchtop.SV_VIAL_SLOTS[i_svv_solt].has_slot_content.add(amine_svv)
         i_svv_solt += 1
 
     return SulfonylationBenchtop(

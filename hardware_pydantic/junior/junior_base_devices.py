@@ -6,7 +6,25 @@ from hardware_pydantic.junior.settings import *
 from hardware_pydantic.lab_objects import LabContainer, ChemicalContainer
 from hardware_pydantic.junior.utils import running_time_aspirate, running_time_dispensing
 
+from typing import Optional
+
 _eps = 1e-7
+
+class Can_heat(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+class Set_point(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+class Set_point_max(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+class Can_stir(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
+
+
+class Stir_turned_on(DatatypeProperty):
+    rdfs_isDefinedBy = JuniorOntology
 
 class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):
     """The heating component under a rack slot. Please note it cannot be read directly.
@@ -23,9 +41,9 @@ class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):
 
     """
 
-    can_heat: bool = True
-    set_point: float = 25
-    set_point_max: float = 400
+    can_heat: Optional[Can_heat[bool]] = None
+    set_point: Set_point[float] = 25
+    set_point_max: Set_point_max[float] = 400
 
     def action__set_point(
             self,
@@ -59,7 +77,7 @@ class JuniorBaseHeater(Device, LabContainer, JuniorLabObject):
         if actor_type == 'pre':
             if not self.can_heat:
                 raise PreActError
-            if self.set_point > self.set_point_max:
+            if list(self.set_point)[0] > list(self.set_point_max)[0]:
                 raise PreActError
         elif actor_type == 'post':
             self.set_point = set_point
@@ -81,8 +99,8 @@ class JuniorBaseStirrer(Device, LabContainer, JuniorLabObject):
         Tag to indicate if the stirrer is turned on or not. Default is False.
 
     """
-    can_stir: bool = True
-    stir_turned_on: bool = False
+    can_stir: Optional[Can_stir[bool]] = None
+    stir_turned_on: Optional[Stir_turned_on[bool]] = None
 
     def action__onoff_switch(
             self,
@@ -120,12 +138,12 @@ class JuniorBaseStirrer(Device, LabContainer, JuniorLabObject):
                 stirring_bars.append(cc)
 
         if actor_type == 'pre':
-            if not self.can_stir:
+            if not list(self.can_stir)[0]:
                 raise PreActError
         elif actor_type == 'post':
-            self.stir_turned_on = not self.stir_turned_on
+            self.stir_turned_on = {not list(self.stir_turned_on)[0]}
             for sb in stirring_bars:
-                sb.is_spinning = not sb.is_spinning
+                sb.is_spinning = {not list(sb.is_spinning)[0]}
         elif actor_type == 'proj':
             return stirring_bars, 1e-6
         else:
@@ -171,7 +189,7 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
 
         """
         if actor_type == 'pre':
-            if amount > dispenser_container.volume_capacity:
+            if amount > list(dispenser_container.volume_capacity)[0]:
                 raise PreActError
             if amount > source_container.content_sum:
                 raise PreActError
@@ -223,7 +241,7 @@ class JuniorBaseLiquidDispenser(Device, JuniorLabObject):
         if actor_type == 'pre':
             if amount > dispenser_container.content_sum + _eps:
                 raise PreActError(f"{amount} > {dispenser_container.content_sum}")
-            if amount + destination_container.content_sum > destination_container.volume_capacity:
+            if amount + destination_container.content_sum > list(destination_container.volume_capacity)[0]:
                 raise PreActError
         elif actor_type == 'post':
             removed = dispenser_container.remove_content(amount)

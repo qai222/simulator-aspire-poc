@@ -6,7 +6,7 @@ def pick_drop_rack_to(
         rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorSlot
 ) -> list[JuniorInstruction]:
     ins1 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z2,
             "move_to_slot": junior_benchtop.VPG_SLOT,
@@ -15,7 +15,7 @@ def pick_drop_rack_to(
     )
 
     ins2 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z2, action_name="pick_up",
+        send_to_device=junior_benchtop.ARM_Z2, action_name="pick_up",
         action_parameters={
             "thing": junior_benchtop.VPG,
         },
@@ -23,7 +23,7 @@ def pick_drop_rack_to(
     )
 
     ins3 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z2,
             "move_to_slot": src_slot,
@@ -31,14 +31,14 @@ def pick_drop_rack_to(
         description=f"move to slot: {src_slot.identifier}"
     )
     ins4 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z2, action_name="pick_up",
+        send_to_device=junior_benchtop.ARM_Z2, action_name="pick_up",
         action_parameters={
             "thing": rack,
         },
         description=f"pick up: {rack.identifier}"
     )
     ins5 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z2,
             "move_to_slot": dest_slot,
@@ -46,7 +46,7 @@ def pick_drop_rack_to(
         description=f"move to slot: {dest_slot.identifier}"
     )
     ins6 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z2, action_name="put_down",
+        send_to_device=junior_benchtop.ARM_Z2, action_name="put_down",
         action_parameters={
             "dest_slot": dest_slot,
         },
@@ -54,7 +54,7 @@ def pick_drop_rack_to(
     )
 
     ins7 = JuniorInstruction(
-        device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
+        send_to_device=junior_benchtop.ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": junior_benchtop.ARM_Z2,
             "move_to_slot": junior_benchtop.VPG_SLOT,
@@ -63,7 +63,7 @@ def pick_drop_rack_to(
     )
 
     ins8 = JuniorInstruction(
-        device=junior_benchtop.ARM_Z2, action_name="put_down",
+        send_to_device=junior_benchtop.ARM_Z2, action_name="put_down",
         action_parameters={
             "dest_slot": junior_benchtop.VPG_SLOT,
         },

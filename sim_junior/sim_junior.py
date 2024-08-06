@@ -11,77 +11,77 @@ CONCURRENCY = 1
 
 # RACK A: holding HRVs with DCM, on off deck initially
 RACK_A, RACK_A_VIALS = JuniorRack.create_rack_with_empty_vials(
-    n_vials=CONCURRENCY, rack_capacity=6, vial_type="HRV", rack_id="RACK A"
+    n_vials=CONCURRENCY, rack_capacity=6, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK-A"
 )
 RACK_A: JuniorRack
 RACK_A_VIALS: list[JuniorVial]
 for v in RACK_A_VIALS:
-    v.chemical_content = {"DCM": 1000}
-JuniorSlot.put_rack_in_a_slot(RACK_A, JUNIOR_LAB['SLOT OFF-1'])
+    v.add_content({"DCM": 1000})
+JuniorSlot.put_rack_in_a_slot(RACK_A, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-OFF-1'])
 
 # RACK B: holding HRVs for reactions, at 2-3-2 initially, one for RSO2Cl stock solution, another for pyridine source
 RACK_B, RACK_B_VIALS = JuniorRack.create_rack_with_empty_vials(
-    n_vials=CONCURRENCY + 1, rack_capacity=8, vial_type="HRV", rack_id="RACK B"
+    n_vials=CONCURRENCY + 1, rack_capacity=8, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK-B"
 )
 RACK_B: JuniorRack
 RACK_B_VIALS: list[JuniorVial]
-JuniorSlot.put_rack_in_a_slot(RACK_B, JUNIOR_LAB['SLOT 2-3-2'])
+JuniorSlot.put_rack_in_a_slot(RACK_B, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'])
 
 # RACK C: holding one MRV for reaction, at 2-3-1 initially
 RACK_C, RACK_C_VIALS = JuniorRack.create_rack_with_empty_vials(
-    n_vials=CONCURRENCY, rack_capacity=6, vial_type="MRV", rack_id="RACK C"
+    n_vials=CONCURRENCY, rack_capacity=6, vial_type="MRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK-C"
 )
 RACK_C: JuniorRack
 RACK_C_VIALS: list[JuniorVial]
-JuniorSlot.put_rack_in_a_slot(RACK_C, JUNIOR_LAB['SLOT 2-3-1'])
+JuniorSlot.put_rack_in_a_slot(RACK_C, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'])
 
 # RACK D: holding PDP tips, at 2-3-3 initially
 RACK_D, RACK_D_TIPS = JuniorRack.create_rack_with_empty_tips(
-    n_tips=CONCURRENCY, rack_capacity=6, rack_id="RACK D", tip_id_inherit=True
+    n_tips=CONCURRENCY, rack_capacity=6, rack_id=f"{JuniorOntology.namespace_iri}/RACK-D", tip_id_inherit=True
 )
 RACK_D: JuniorRack
 RACK_D_TIPS: list[JuniorPdpTip]
-JuniorSlot.put_rack_in_a_slot(RACK_D, JUNIOR_LAB['SLOT 2-3-3'])
+JuniorSlot.put_rack_in_a_slot(RACK_D, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-3'])
 
 # SV VIALS, one for solid amine (aniline), another for RSO2Cl, each sits in a SVV SLOT
 SVV_1 = JuniorVial(
-    identifier="SV VIAL 1", contained_by=JUNIOR_LAB['SVV SLOT 1'].identifier,
-    chemical_content={'solid amine': 1000},
-    vial_type='SV',
+    identifier=f"{JuniorOntology.namespace_iri}/SV-VIAL-1", contained_by=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SVV-SLOT-1'].identifier,
+    vial_type='SV', contained_in_slot='SLOT'
 )
+SVV_1.add_content({"solid amine": 1000})
 SVV_2 = JuniorVial(
-    identifier="SV VIAL 2", contained_by=JUNIOR_LAB['SVV SLOT 2'].identifier,
-    chemical_content={'sulfonyl chloride': 1000},
-    vial_type='SV',
+    identifier=f"{JuniorOntology.namespace_iri}/SV-VIAL-2", contained_by=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SVV-SLOT-2'].identifier,
+    vial_type='SV', contained_in_slot='SLOT'
 )
-JUNIOR_LAB['SVV SLOT 1'].slot_content['SLOT'] = SVV_1.identifier
-JUNIOR_LAB['SVV SLOT 2'].slot_content['SLOT'] = SVV_2.identifier
+SVV_2.add_content({'sulfonyl chloride': 1000})
+JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SVV-SLOT-1'].has_slot_content.add(SVV_1)
+JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SVV-SLOT-2'].has_slot_content.add(SVV_2)
 
 # INSTRUCTIONS
-Z1_ARM = JUNIOR_LAB['Z1 ARM']
-Z2_ARM = JUNIOR_LAB['Z2 ARM']
-ARM_PLATFORM = JUNIOR_LAB['ARM PLATFORM']
+Z1_ARM = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/Z1-ARM']
+Z2_ARM = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/Z2-ARM']
+ARM_PLATFORM = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/ARM-PLATFORM']
 
-Z1NEEDLES = [JUNIOR_LAB[f"Z1 Needle {i + 1}"] for i in range(CONCURRENCY)]
+Z1NEEDLES = [JUNIOR_LAB[f"{JuniorOntology.namespace_iri}/Z1-Needle-{i + 1}"] for i in range(CONCURRENCY)]
 
-VPG = JUNIOR_LAB['VPG']
-VPG_SLOT = JUNIOR_LAB['VPG SLOT']
-SV_TOOL = JUNIOR_LAB['SV TOOL']
-SV_TOOL_SLOT = JUNIOR_LAB['SV TOOL SLOT']
-BALANCE_SLOT = JUNIOR_LAB['BALANCE SLOT']
+VPG = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/VPG']
+VPG_SLOT = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/VPG-SLOT']
+SV_TOOL = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SV-TOOL']
+SV_TOOL_SLOT = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SV-TOOL-SLOT']
+BALANCE_SLOT = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/BALANCE-SLOT']
 
-PDP_1 = JUNIOR_LAB['PDT 1']
+PDP_1 = JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/PDT-1']
 
 DCM_VIALS = RACK_A_VIALS
 MRV_VIALS = RACK_C_VIALS
 PYRIDINE_VIAL = RACK_B_VIALS[0]
 RSO2Cl_STOCK_SOLUTION_VIALS = RACK_B_VIALS[1:]
-PYRIDINE_VIAL.chemical_content = {"pyridine": 1000}
+PYRIDINE_VIAL.add_content({"pyridine": 1000})
 
 
 def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorSlot):
     ins1 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z2_ARM,
             "move_to_slot": VPG_SLOT,
@@ -90,7 +90,7 @@ def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorS
     )
 
     ins2 = JuniorInstruction(
-        device=Z2_ARM, action_name="pick_up",
+        send_to_device=Z2_ARM, action_name="pick_up",
         action_parameters={
             "thing": VPG,
         },
@@ -98,7 +98,7 @@ def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorS
     )
 
     ins3 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z2_ARM,
             "move_to_slot": src_slot,
@@ -106,14 +106,14 @@ def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorS
         description=f"move to slot: {src_slot.identifier}"
     )
     ins4 = JuniorInstruction(
-        device=Z2_ARM, action_name="pick_up",
+        send_to_device=Z2_ARM, action_name="pick_up",
         action_parameters={
             "thing": rack,
         },
         description=f"pick up: {rack.identifier}"
     )
     ins5 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z2_ARM,
             "move_to_slot": dest_slot,
@@ -121,7 +121,7 @@ def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorS
         description=f"move to slot: {dest_slot.identifier}"
     )
     ins6 = JuniorInstruction(
-        device=Z2_ARM, action_name="put_down",
+        send_to_device=Z2_ARM, action_name="put_down",
         action_parameters={
             "dest_slot": dest_slot,
         },
@@ -129,7 +129,7 @@ def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorS
     )
 
     ins7 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z2_ARM,
             "move_to_slot": VPG_SLOT,
@@ -138,7 +138,7 @@ def pick_drop_rack_to(rack: JuniorRack, src_slot: JuniorSlot, dest_slot: JuniorS
     )
 
     ins8 = JuniorInstruction(
-        device=Z2_ARM, action_name="put_down",
+        send_to_device=Z2_ARM, action_name="put_down",
         action_parameters={
             "dest_slot": VPG_SLOT,
         },
@@ -161,7 +161,7 @@ def solid_dispense(
         include_dropoff_svtool=True,
 ):
     ins3 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z2_ARM,
             "move_to_slot": sv_vial_slot,
@@ -170,13 +170,13 @@ def solid_dispense(
     )
 
     ins4 = JuniorInstruction(
-        device=Z2_ARM, action_name="pick_up",
+        send_to_device=Z2_ARM, action_name="pick_up",
         action_parameters={"thing": sv_vial},
         description=f"pick up: {sv_vial.identifier}",
     )
 
     ins5 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z2_ARM,
             "move_to_slot": BALANCE_SLOT,
@@ -186,7 +186,7 @@ def solid_dispense(
 
     if include_pickup_svtool:
         ins1 = JuniorInstruction(
-            device=ARM_PLATFORM, action_name="move_to",
+            send_to_device=ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": Z2_ARM,
                 "move_to_slot": SV_TOOL_SLOT,
@@ -195,7 +195,7 @@ def solid_dispense(
         )
 
         ins2 = JuniorInstruction(
-            device=Z2_ARM, action_name="pick_up",
+            send_to_device=Z2_ARM, action_name="pick_up",
             action_parameters={"thing": SV_TOOL},
             description=f"pick up: {SV_TOOL.identifier}",
         )
@@ -205,7 +205,7 @@ def solid_dispense(
 
     for dest_vial in dest_vials:
         ins6 = JuniorInstruction(
-            device=Z2_ARM, action_name="dispense_sv",
+            send_to_device=Z2_ARM, action_name="dispense_sv",
             action_parameters={
                 "destination_container": dest_vial,
                 "amount": amount,
@@ -217,7 +217,7 @@ def solid_dispense(
 
     if include_dropoff_svvial:
         ins7 = JuniorInstruction(
-            device=ARM_PLATFORM, action_name="move_to",
+            send_to_device=ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": Z2_ARM,
                 "move_to_slot": sv_vial_slot,
@@ -226,7 +226,7 @@ def solid_dispense(
         )
 
         ins8 = JuniorInstruction(
-            device=Z2_ARM, action_name="put_down",
+            send_to_device=Z2_ARM, action_name="put_down",
             action_parameters={
                 "dest_slot": sv_vial_slot,
             },
@@ -237,7 +237,7 @@ def solid_dispense(
 
     if include_dropoff_svtool:
         ins9 = JuniorInstruction(
-            device=ARM_PLATFORM, action_name="move_to",
+            send_to_device=ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": Z2_ARM,
                 "move_to_slot": SV_TOOL_SLOT,
@@ -246,7 +246,7 @@ def solid_dispense(
         )
 
         ins10 = JuniorInstruction(
-            device=Z2_ARM, action_name="put_down",
+            send_to_device=Z2_ARM, action_name="put_down",
             action_parameters={
                 "dest_slot": SV_TOOL_SLOT,
             },
@@ -269,7 +269,7 @@ def needle_dispense(
         # speed: float,
 ):
     ins1 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z1_ARM,
             "move_to_slot": src_slot,
@@ -277,7 +277,7 @@ def needle_dispense(
         description=f"move to slot: {src_slot.identifier}"
     )
     ins2 = JuniorInstruction(
-        device=Z1_ARM, action_name="concurrent_aspirate",
+        send_to_device=Z1_ARM, action_name="concurrent_aspirate",
         action_parameters={
             "source_containers": src_vials,
             "dispenser_containers": Z1NEEDLES,
@@ -287,7 +287,7 @@ def needle_dispense(
         description=f"concurrent aspirate from: {','.join([v.identifier for v in src_vials])}"
     )
     ins3 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z1_ARM,
             "move_to_slot": dest_vials_slot,
@@ -295,7 +295,7 @@ def needle_dispense(
         description=f"move to slot: {dest_vials_slot.identifier}"
     )
     ins4 = JuniorInstruction(
-        device=Z1_ARM, action_name="concurrent_dispense",
+        send_to_device=Z1_ARM, action_name="concurrent_dispense",
         action_parameters={
             "destination_containers": dest_vials,
             "dispenser_containers": Z1NEEDLES,
@@ -305,17 +305,17 @@ def needle_dispense(
         description=f"concurrent dispense to: {','.join([v.identifier for v in dest_vials])}"
     )
     ins5 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z1_ARM,
-            "move_to_slot": JUNIOR_LAB['WASH BAY'],
+            "move_to_slot": JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/WASH-BAY'],
         },
         description=f"move to slot: WASH BAY"
     )
     ins6 = JuniorInstruction(
-        device=Z1_ARM, action_name="wash",
+        send_to_device=Z1_ARM, action_name="wash",
         action_parameters={
-            "wash_bay": JUNIOR_LAB['WASH BAY'],
+            "wash_bay": JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/WASH-BAY'],
         },
         description="wash needles"
     )
@@ -332,16 +332,16 @@ def pdp_dispense(
         # speed: float
 ):
     ins1 = JuniorInstruction(
-        device=ARM_PLATFORM, action_name="move_to",
+        send_to_device=ARM_PLATFORM, action_name="move_to",
         action_parameters={
             "anchor_arm": Z2_ARM,
-            "move_to_slot": JUNIOR_LAB['PDT SLOT 1'],
+            "move_to_slot": JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/PDT-SLOT-1'],
         },
         description=f"move to slot: PDT SLOT 1"
     )
 
     ins2 = JuniorInstruction(
-        device=Z2_ARM, action_name="pick_up",
+        send_to_device=Z2_ARM, action_name="pick_up",
         action_parameters={"thing": PDP_1},
         description=f"pick up: {PDP_1.identifier}",
     )
@@ -350,7 +350,7 @@ def pdp_dispense(
 
     for tip, dest_vial in zip(tips, dest_vials):
         i_a = JuniorInstruction(
-            device=ARM_PLATFORM, action_name="move_to",
+            send_to_device=ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": Z2_ARM,
                 "move_to_slot": tips_slot,
@@ -358,12 +358,12 @@ def pdp_dispense(
             description=f"move to slot: {tips_slot.identifier}"
         )
         i_b = JuniorInstruction(
-            device=Z2_ARM, action_name="pick_up",
+            send_to_device=Z2_ARM, action_name="pick_up",
             action_parameters={"thing": tip},
             description=f"pick up: {tip.identifier}",
         )
         i_c = JuniorInstruction(
-            device=ARM_PLATFORM, action_name="move_to",
+            send_to_device=ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": Z2_ARM,
                 "move_to_slot": src_slot,
@@ -371,7 +371,7 @@ def pdp_dispense(
             description=f"move to slot: {src_slot.identifier}"
         )
         i_d = JuniorInstruction(
-            device=Z2_ARM, action_name="aspirate_pdp",
+            send_to_device=Z2_ARM, action_name="aspirate_pdp",
             action_parameters={
                 "source_container": src_vial,
                 "amount": amount,
@@ -380,7 +380,7 @@ def pdp_dispense(
             description=f"aspirate_pdp from: {src_vial.identifier}"
         )
         i_e = JuniorInstruction(
-            device=ARM_PLATFORM, action_name="move_to",
+            send_to_device=ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": Z2_ARM,
                 "move_to_slot": dest_vials_slot,
@@ -388,7 +388,7 @@ def pdp_dispense(
             description=f"move to slot: {dest_vials_slot.identifier}"
         )
         i_f = JuniorInstruction(
-            device=Z2_ARM, action_name="dispense_pdp",
+            send_to_device=Z2_ARM, action_name="dispense_pdp",
             action_parameters={
                 "destination_container": dest_vial,
                 "amount": amount,
@@ -397,17 +397,17 @@ def pdp_dispense(
             description=f"dispense_pdp to: {dest_vial.identifier}"
         )
         i_g = JuniorInstruction(
-            device=ARM_PLATFORM, action_name="move_to",
+            send_to_device=ARM_PLATFORM, action_name="move_to",
             action_parameters={
                 "anchor_arm": Z2_ARM,
-                "move_to_slot": JUNIOR_LAB['DISPOSAL'],
+                "move_to_slot": JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/DISPOSAL'],
             },
             description=f"move to slot: DISPOSAL"
         )
         i_h = JuniorInstruction(
-            device=Z2_ARM, action_name="put_down",
+            send_to_device=Z2_ARM, action_name="put_down",
             action_parameters={
-                "dest_slot": JUNIOR_LAB['DISPOSAL'],
+                "dest_slot": JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/DISPOSAL'],
             },
             description="put down: DISPOSAL"
         )
@@ -416,84 +416,91 @@ def pdp_dispense(
     return ins_list
 
 
-ins_list1 = pick_drop_rack_to(RACK_B, JUNIOR_LAB['SLOT 2-3-2'], BALANCE_SLOT)
+ins_list1 = pick_drop_rack_to(RACK_B, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'], BALANCE_SLOT)
 
 ins_list2 = solid_dispense(sv_vial=SVV_2,
-                           sv_vial_slot=JUNIOR_LAB['SVV SLOT 2'],
+                           sv_vial_slot=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SVV-SLOT-2'],
                            dest_vials=RSO2Cl_STOCK_SOLUTION_VIALS,
                            amount=10,
                            include_pickup_svtool=True,
                            include_dropoff_svvial=True,
                            include_dropoff_svtool=True)
-ins_list2[0].preceding_instructions.append(ins_list1[-1].identifier)
+ins_list2[0].preceding_instructions.add(ins_list1[-1].identifier)
 
-ins_list3 = pick_drop_rack_to(RACK_B, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-2'])
-ins_list3[0].preceding_instructions.append(ins_list2[-1].identifier)
+ins_list3 = pick_drop_rack_to(RACK_B, BALANCE_SLOT, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'])
+ins_list3[0].preceding_instructions.add(ins_list2[-1].identifier)
 
-ins_list4 = pick_drop_rack_to(RACK_C, JUNIOR_LAB['SLOT 2-3-1'], BALANCE_SLOT)
-ins_list4[0].preceding_instructions.append(ins_list3[-1].identifier)
+ins_list4 = pick_drop_rack_to(RACK_C, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'], BALANCE_SLOT)
+ins_list4[0].preceding_instructions.add(ins_list3[-1].identifier)
 
-ins_list5 = solid_dispense(sv_vial=SVV_1, sv_vial_slot=JUNIOR_LAB['SVV SLOT 1'],
+ins_list5 = solid_dispense(sv_vial=SVV_1, sv_vial_slot=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SVV-SLOT-1'],
                            dest_vials=MRV_VIALS,
                            amount=10,
                            include_pickup_svtool=True,
                            include_dropoff_svvial=True, include_dropoff_svtool=True)
-ins_list5[0].preceding_instructions.append(ins_list4[-1].identifier)
+ins_list5[0].preceding_instructions.add(ins_list4[-1].identifier)
 
-ins_list6 = pick_drop_rack_to(RACK_C, BALANCE_SLOT, JUNIOR_LAB['SLOT 2-3-1'])
-ins_list6[0].preceding_instructions.append(ins_list5[-1].identifier)
+ins_list6 = pick_drop_rack_to(RACK_C, BALANCE_SLOT, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'])
+ins_list6[0].preceding_instructions.add(ins_list5[-1].identifier)
 
-ins_list7 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'], 10)
-ins_list7[0].preceding_instructions.append(ins_list6[-1].identifier)
+ins_list7 = needle_dispense(DCM_VIALS, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-OFF-1'], MRV_VIALS, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'], 10)
+ins_list7[0].preceding_instructions.add(ins_list6[-1].identifier)
 
-ins_list8 = needle_dispense(DCM_VIALS, JUNIOR_LAB['SLOT OFF-1'], RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'],
+ins_list8 = needle_dispense(DCM_VIALS, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-OFF-1'], RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'],
                             10)
-ins_list8[0].preceding_instructions.append(ins_list7[-1].identifier)
+ins_list8[0].preceding_instructions.add(ins_list7[-1].identifier)
 
-ins_list9 = pdp_dispense(PYRIDINE_VIAL, JUNIOR_LAB['SLOT 2-3-2'], RACK_D_TIPS, JUNIOR_LAB['SLOT 2-3-3'], MRV_VIALS,
-                         JUNIOR_LAB['SLOT 2-3-1'], 10)
-ins_list9[0].preceding_instructions.append(ins_list8[-1].identifier)
+ins_list9 = pdp_dispense(PYRIDINE_VIAL, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'], RACK_D_TIPS, JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-3'], MRV_VIALS,
+                         JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'], 10)
+ins_list9[0].preceding_instructions.add(ins_list8[-1].identifier)
 
 ins_stir1 = JuniorInstruction(
-    device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 300},
+    send_to_device=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'], action_name="wait", action_parameters={"wait_time": 300},
     description="wait for 5 min"
 )
 ins_stir2 = JuniorInstruction(
-    device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 300},
+    send_to_device=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'], action_name="wait", action_parameters={"wait_time": 300},
     description="wait for 5 min"
 )
 ins_stir3 = JuniorInstruction(
-    device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 300},
+    send_to_device=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-3'], action_name="wait", action_parameters={"wait_time": 300},
     description="wait for 5 min"
 )
 
 for i in [ins_stir1, ins_stir2, ins_stir3]:
-    i.preceding_instructions.append(ins_list9[-1].identifier)
+    i.preceding_instructions.add(ins_list9[-1].identifier)
 
-ins_list10 = needle_dispense(RSO2Cl_STOCK_SOLUTION_VIALS, JUNIOR_LAB['SLOT 2-3-2'], MRV_VIALS, JUNIOR_LAB['SLOT 2-3-1'],
-                             10)
-ins_list10[0].preceding_instructions = [ins_stir1.identifier, ins_stir2.identifier, ins_stir3.identifier]
+ins_list10 = needle_dispense(
+    RSO2Cl_STOCK_SOLUTION_VIALS,
+    JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'],
+    MRV_VIALS,
+    JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'],
+    10
+)
+
+ins_list10[0].preceding_instructions = {ins_stir1.identifier, ins_stir2.identifier, ins_stir3.identifier}
 
 ins_stir21 = JuniorInstruction(
-    device=JUNIOR_LAB['SLOT 2-3-1'], action_name="wait", action_parameters={"wait_time": 7200},
+    send_to_device=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-1'], action_name="wait", action_parameters={"wait_time": 7200},
     description="wait for 120 min"
 )
 ins_stir22 = JuniorInstruction(
-    device=JUNIOR_LAB['SLOT 2-3-2'], action_name="wait", action_parameters={"wait_time": 7200},
+    send_to_device=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-2'], action_name="wait", action_parameters={"wait_time": 7200},
     description="wait for 120 min"
 )
 ins_stir23 = JuniorInstruction(
-    device=JUNIOR_LAB['SLOT 2-3-3'], action_name="wait", action_parameters={"wait_time": 7200},
+    send_to_device=JUNIOR_LAB[f'{JuniorOntology.namespace_iri}/SLOT-2-3-3'], action_name="wait", action_parameters={"wait_time": 7200},
     description="wait for 120 min"
 )
 
 for i in [ins_stir21, ins_stir22, ins_stir23]:
-    i.preceding_instructions.append(ins_list10[-1].identifier)
+    i.preceding_instructions.add(ins_list10[-1].identifier)
 
-diagram = JUNIOR_LAB.instruction_graph
+# TODO fix bug `SyntaxError: prefix 'down' not found in prefix map`
+# diagram = JUNIOR_LAB.instruction_graph
 
-diagram.layout(algo="rt_circular")
-diagram.dump_file(filename="sim_junior_instruction.drawio", folder="./")
+# diagram.layout(algo="rt_circular")
+# diagram.dump_file(filename="sim_junior_instruction.drawio", folder="./")
 
 from casymda_hardware.model import *
 import simpy
@@ -503,3 +510,14 @@ env = simpy.Environment()
 model = Model(env, JUNIOR_LAB, wdir=os.path.abspath("./"), model_name=f"con-{CONCURRENCY}")
 
 env.run()
+
+JuniorOntology.export_to_owl("junior_lab_tbox.ttl")
+print("TBox exported to junior_lab_tbox.ttl")
+
+g = KnowledgeGraph.graph()
+g.serialize(destination="junior_lab_abox.ttl", format="turtle")
+# from twa.kg_operations import PySparqlClient
+# endpoint = 'http://localhost:9999/blazegraph/namespace/kb/sparql'
+# sparql_client = PySparqlClient(endpoint, endpoint)
+# sparql_client.upload_graph(g)
+print("ABox exported to junior_lab_abox.ttl")

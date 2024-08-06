@@ -85,12 +85,12 @@ def get_ins_lst_liquid_dispense():
 @ins_list_path_graph
 def get_ins_lst_reaction():
     ins_cap = JuniorInstruction(
-        device=JUNIOR_BENCHTOP.SLOT_2_3_1, action_name="wait",
+        send_to_device=JUNIOR_BENCHTOP.SLOT_2_3_1, action_name="wait",
         action_parameters={"wait_time": 30 * len(REACTION_BENCHTOP.REACTOR_VIALS)},
         description="capping reactors"
     )
     ins_reaction = JuniorInstruction(
-        device=JUNIOR_BENCHTOP.SLOT_2_3_1, action_name="wait", action_parameters={"wait_time": 60 * 240},
+        send_to_device=JUNIOR_BENCHTOP.SLOT_2_3_1, action_name="wait", action_parameters={"wait_time": 60 * 240},
         description="wait for 240 min"
     )
     lst = [ins_cap, ins_reaction]
@@ -106,7 +106,7 @@ def define_instructions():
                                                  JUNIOR_BENCHTOP.SLOT_2_3_3, REACTION_BENCHTOP.REACTOR_VIALS,
                                                  JUNIOR_BENCHTOP.SLOT_2_3_1, 0.04)
     ins_lst_stir = [JuniorInstruction(
-        device=JUNIOR_BENCHTOP.SLOT_2_3_1, action_name="wait", action_parameters={"wait_time": 300},
+        send_to_device=JUNIOR_BENCHTOP.SLOT_2_3_1, action_name="wait", action_parameters={"wait_time": 300},
         description="wait for 5 min"
     ), ]
     # TODO there is a redundant `move_to` action to pick up pdp, even tho pdp is already on z2
@@ -132,9 +132,10 @@ def define_instructions():
 def simulate(name):
     define_instructions()
 
-    diagram = JUNIOR_LAB.instruction_graph
-    diagram.layout(algo="rt_circular")
-    diagram.dump_file(filename=f"{name}.drawio", folder="./")
+    # TODO fix this
+    # diagram = JUNIOR_LAB.instruction_graph
+    # diagram.layout(algo="rt_circular")
+    # diagram.dump_file(filename=f"{name}.drawio", folder="./")
     env = simpy.Environment()
     Model(env, JUNIOR_LAB, wdir=os.path.abspath("./"), model_name=name)
     env.run()
@@ -144,3 +145,6 @@ if __name__ == '__main__':
     import os.path
 
     simulate(os.path.basename(__file__).rstrip(".py"))
+    g = KnowledgeGraph.graph()
+    g.serialize(destination="quinone.ttl", format="turtle")
+    print("ABox exported to quinone.ttl")

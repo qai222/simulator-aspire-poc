@@ -43,7 +43,8 @@ g. react rt 4h
 """
 
 
-class QuinoneBenchtop(BaseModel):
+class QuinoneBenchtop(BaseClass):
+    rdfs_isDefinedBy = JuniorOntology
     RACK_LIQUID: JuniorRack
     ETHANOL_VIALS: list[JuniorVial]
     WATER_VIALS: list[JuniorVial]
@@ -84,7 +85,7 @@ def setup_quinone_benchtop(
 
     # create a rack for HRVs on off-deck, fill them with ethanol,
     rack_liquid, liquid_vials = JuniorRack.create_rack_with_empty_vials(
-        n_vials=n_ethanol_source_vials + 1, rack_capacity=12, vial_type="HRV", rack_id="RACK_LIQUID"
+        n_vials=n_ethanol_source_vials + 1, rack_capacity=12, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_LIQUID"
     )
     ethanol_vials = liquid_vials[:-1]
     water_vial = liquid_vials[-1]
@@ -96,41 +97,44 @@ def setup_quinone_benchtop(
 
     # create a rack for MRVs (reactors) on 2-3-1
     rack_reactor, reactor_vials = JuniorRack.create_rack_with_empty_vials(
-        n_vials=n_reactors, rack_capacity=12, vial_type="MRV", rack_id="RACK_REACTOR"
+        n_vials=n_reactors, rack_capacity=12, vial_type="MRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_REACTOR"
     )
     JuniorSlot.put_rack_in_a_slot(rack_reactor, junior_benchtop.SLOT_2_3_1)
 
     # create a rack for HRVs on 2-3-2, one for diketone one for naoh aq.
     rack_reactant, (diketone_vial, naoh_vial) = JuniorRack.create_rack_with_empty_vials(
-        n_vials=2, rack_capacity=12, vial_type="HRV", rack_id="RACK_REACTANT"
+        n_vials=2, rack_capacity=12, vial_type="HRV", rack_id=f"{JuniorOntology.namespace_iri}/RACK_REACTANT"
     )
     JuniorSlot.put_rack_in_a_slot(rack_reactant, junior_benchtop.SLOT_2_3_2)
 
     # create a rack for PDP tips on 2-3-3
     rack_pdp_tips, pdp_tips = JuniorRack.create_rack_with_empty_tips(
-        n_tips=n_pdp_tips, rack_capacity=36, rack_id="RACK_PDP_TIPS", tip_id_inherit=True
+        n_tips=n_pdp_tips, rack_capacity=36, rack_id=f"{JuniorOntology.namespace_iri}/RACK_PDP_TIPS", tip_id_inherit=True
     )
     JuniorSlot.put_rack_in_a_slot(rack_pdp_tips, junior_benchtop.SLOT_2_3_3)
 
     # SV VIALS for diketone, aldehyde, naoh
     diketone_svv = JuniorVial(
-        identifier="DIKETONE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[0].identifier,
-        chemical_content={'Diketone': diketone_init_amount},
+        identifier=f"{JuniorOntology.namespace_iri}/DIKETONE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[0].identifier,
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
+    diketone_svv.chemical_content = {'Diketone': diketone_init_amount}
     aldehyde_svv = JuniorVial(
-        identifier="ALDEHYDE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[1].identifier,
-        chemical_content={'Aledehyde': aldehyde_init_amount},
+        identifier=f"{JuniorOntology.namespace_iri}/ALDEHYDE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[1].identifier,
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
+    aldehyde_svv.chemical_content = {'Aledehyde': aldehyde_init_amount}
     naoh_svv = JuniorVial(
-        identifier="NAOH_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[2].identifier,
-        chemical_content={'NaOH': naoh_init_amount},
+        identifier=f"{JuniorOntology.namespace_iri}/NAOH_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[2].identifier,
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
-    junior_benchtop.SV_VIAL_SLOTS[0].slot_content['SLOT'] = diketone_svv.identifier
-    junior_benchtop.SV_VIAL_SLOTS[1].slot_content['SLOT'] = aldehyde_svv.identifier
-    junior_benchtop.SV_VIAL_SLOTS[2].slot_content['SLOT'] = naoh_svv.identifier
+    naoh_svv.chemical_content = {'NaOH': naoh_init_amount}
+    junior_benchtop.SV_VIAL_SLOTS[0].has_slot_content.add(diketone_svv)
+    junior_benchtop.SV_VIAL_SLOTS[1].has_slot_content.add(aldehyde_svv)
+    junior_benchtop.SV_VIAL_SLOTS[2].has_slot_content.add(naoh_svv)
 
     return QuinoneBenchtop(
         RACK_LIQUID=rack_liquid,

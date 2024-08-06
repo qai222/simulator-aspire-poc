@@ -45,7 +45,7 @@ class JuniorMage(Device, JuniorLabObject):
             for v, vk in zip(vials, in_rack_slot_keys):
                 v.contained_by = in_rack.identifier
                 v.contained_in_slot = vk
-                in_rack.slot_content[vk] = v.identifier
+                in_rack.has_slot_content.add(v)
         elif actor_type == 'proj':
             return vials + [in_rack, ], time_cost
         else:
@@ -68,7 +68,8 @@ class JuniorMage(Device, JuniorLabObject):
         elif actor_type == 'post':
             for v in vials:
                 rack = JUNIOR_LAB[v.contained_by]
-                rack.slot_content[v.contained_in_slot] = None
+                # rack.slot_content[v.contained_in_slot] = None
+                rack.has_slot_content.remove(v)
                 rack: JuniorRack
                 v.contained_in_slot = None
                 v.contained_by = None
@@ -77,7 +78,8 @@ class JuniorMage(Device, JuniorLabObject):
             return vials + [JUNIOR_LAB[v.contained_by] for v in vials], time_cost
 
 
-class TipsPnBenchtop(BaseModel):
+class TipsPnBenchtop(BaseClass):
+    rdfs_isDefinedBy = JuniorOntology
     mage: JuniorMage
 
     quinone_transferred: float
@@ -131,7 +133,7 @@ def setup_tips_pn_benchtop(
     # create a rack for HRVs on off-deck, fill them with thf,
     rack_liquid, liquid_vials = JuniorRack.create_rack_with_empty_vials(
         n_vials=n_thf_source_vials + n_hcl_source_vials, rack_capacity=12, vial_type="HRV",
-        rack_id="RACK_LIQUID_GRIGNARD"
+        rack_id=f"{JuniorOntology.namespace_iri}/RACK_LIQUID_GRIGNARD"
     )
     thf_vials = liquid_vials[:n_thf_source_vials]
     hcl_vials = liquid_vials[- n_hcl_source_vials:]
@@ -148,11 +150,12 @@ def setup_tips_pn_benchtop(
     added_reactor_vials = []
     for k in rack_reactor.empty_slot_keys:
         vial = JuniorVial(
-            identifier=f"vial-{k} " + quinone_benchtop.RACK_REACTOR.identifier,
+            identifier=f"{quinone_benchtop.RACK_REACTOR.identifier}/vial-{k}",
             contained_by=quinone_benchtop.RACK_REACTOR.identifier,
             contained_in_slot=k, vial_type="MRV",
+            is_contained_in_slot='SLOT',
         )
-        quinone_benchtop.RACK_REACTOR.slot_content[k] = vial.identifier
+        quinone_benchtop.RACK_REACTOR.has_slot_content.add(vial)
         added_reactor_vials.append(vial)
         if len(added_reactor_vials) == n_reactors:
             break
@@ -162,19 +165,19 @@ def setup_tips_pn_benchtop(
     rack_reactant = quinone_benchtop.RACK_REACTANT
     silyl_vial_key, quinone_vial_key = rack_reactant.empty_slot_keys[:2]
     silyl_vial = JuniorVial(
-        identifier=f"silyl vial " + rack_reactant.identifier,
+        identifier=f"{rack_reactant.identifier}/silyl-vial",
         contained_by=rack_reactant.identifier,
         contained_in_slot=silyl_vial_key, vial_type="HRV",
     )
-    rack_reactant.slot_content[silyl_vial_key] = silyl_vial.identifier
+    rack_reactant.has_slot_content.add(silyl_vial)
     silyl_vial.chemical_content = {'silyl': silyl_init_volume}
 
     quinone_vial = JuniorVial(
-        identifier=f"quinone vial " + rack_reactant.identifier,
+        identifier=f"{rack_reactant.identifier}/quinone-vial",
         contained_by=rack_reactant.identifier,
         contained_in_slot=quinone_vial_key, vial_type="HRV",
     )
-    rack_reactant.slot_content[quinone_vial_key] = quinone_vial.identifier
+    rack_reactant.has_slot_content.add(quinone_vial)
 
     # add PDP tips on 2-3-3
     rack_pdp_tips = quinone_benchtop.RACK_PDP_TIPS
@@ -182,10 +185,10 @@ def setup_tips_pn_benchtop(
     n_created = 0
     for k in rack_pdp_tips.empty_slot_keys:
         v = JuniorPdpTip(
-            identifier=f"PdpTip-{k} " + rack_pdp_tips.identifier, contained_by=rack_pdp_tips.identifier,
+            identifier=f"{rack_pdp_tips.identifier}/PdpTip-{k}", contained_by=rack_pdp_tips.identifier,
             contained_in_slot=k,
         )
-        rack_pdp_tips.slot_content[k] = v.identifier
+        rack_pdp_tips.has_slot_content.add(v)
         pdp_tips.append(v)
         n_created += 1
         if n_created == n_pdp_tips:
@@ -193,17 +196,19 @@ def setup_tips_pn_benchtop(
 
     # SV VIALS for quinone [10], grignard [11]
     quinone_svv = JuniorVial(
-        identifier="QUINONE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[10].identifier,
+        identifier=f"{JuniorOntology.namespace_iri}/QUINONE_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[10].identifier,
         # chemical_content={'Quinone': quinone_init_amount},  # added by mage
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
     grignard_svv = JuniorVial(
-        identifier="GRIGNARD_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[11].identifier,
-        chemical_content={'Grignard': grignard_init_amount},
+        identifier=f"{JuniorOntology.namespace_iri}/GRIGNARD_SVV", contained_by=junior_benchtop.SV_VIAL_SLOTS[11].identifier,
         vial_type='SV',
+        is_contained_in_slot='SLOT',
     )
-    junior_benchtop.SV_VIAL_SLOTS[10].slot_content['SLOT'] = quinone_svv.identifier
-    junior_benchtop.SV_VIAL_SLOTS[11].slot_content['SLOT'] = grignard_svv.identifier
+    grignard_svv.chemical_content = {'Grignard': grignard_init_amount}
+    junior_benchtop.SV_VIAL_SLOTS[10].has_slot_content.add(quinone_svv)
+    junior_benchtop.SV_VIAL_SLOTS[11].has_slot_content.add(grignard_svv)
 
     mage = JuniorMage()
 
