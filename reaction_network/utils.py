@@ -219,6 +219,22 @@ def get_big_m_value(para_p, para_h, para_lmin, para_a, infinity):
     return big_m
 
 
+def check_fix_shape_of_para_a(para_p, para_a, intended_for="milp"):
+    """Check and fix the shape of para_a when necessary."""
+
+    # check the shape of para_a
+    if intended_for.lower() == "milp":
+        if para_a.shape[0] != para_p.shape[0]:
+            para_a = np.einsum("mij->ijm", para_a)
+    elif intended_for.lower() == "cp":
+        if para_a.shape[0] != para_p.shape[1]:
+            para_a = np.einsum("ijm->mij", para_a)
+    else:
+        raise ValueError("intended_for must be either MILP or CP.")
+
+    return para_a
+
+
 # from https://stackoverflow.com/questions/16699180
 MM_of_Elements = {'H': 1.00794, 'D': 2.014, 'He': 4.002602, 'Li': 6.941, 'Be': 9.012182, 'B': 10.811, 'C': 12.0107,
                   'N': 14.0067,
